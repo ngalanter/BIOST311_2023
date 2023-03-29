@@ -1,0 +1,893 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Introduction to R and RStudio},
+  pdfauthor={Nina Galanter},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{color}
+\usepackage{fvextra}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\title{Introduction to R and RStudio}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{BIOST 311, Discussion Section Week 1}
+\author{Nina Galanter}
+\date{March 28th, 2023}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\hypertarget{r-the-big-picture}{%
+\subsection{R: the big picture}\label{r-the-big-picture}}
+
+R is a \textcolor{blue}{free}, \textcolor{orange}{open source} software
+package that can be used for data analysis, graphics, and programming.
+
+At its core, R is an interactive, command-driven
+\textcolor{blue}{language}: you type a command, R executes the command,
+and then returns results.
+
+While it may take some time to develop a mastery of R, it is relatively
+easy to get set up with the basics and start analyzing data.
+
+Learning R is worth your time, and has many advantages, including:
+
+\begin{itemize}
+\tightlist
+\item
+  R is free and open source
+\item
+  there is an active group of contributors to R software
+\item
+  you can do flexible things with your data
+\item
+  many people have written packages that make data analysis easier
+\end{itemize}
+
+To begin using R, you need to download and install it. You can download
+the latest version of R \href{https://www.r-project.org/}{here}.
+
+\hypertarget{rstudio-the-interface-to-r}{%
+\subsection{RStudio: the interface to
+R}\label{rstudio-the-interface-to-r}}
+
+While R is the \textcolor{blue}{language} you will use to analyze data,
+it does not come packaged with the best \textcolor{orange}{interface}.
+An interface connects you to the program: for example, your operating
+system lets you point and click on icons (and read things easily) rather
+than writing in 0's and 1's, the language that the computer understands.
+
+Instead of using the R interface packaged with the download, you will
+use RStudio. This is also a \textcolor{blue}{free},
+\textcolor{orange}{open source} software package, but is only an
+interface to R---this means that even if you type into RStudio, the
+commands will be executed in R. Technically, RStudio is called an
+integrated development environment (IDE).
+
+RStudio adds many things over the basic R interface, including:
+
+\begin{itemize}
+\tightlist
+\item
+  An improved layout of tools for data analysis
+\item
+  Support for embedding reproducible research tools into data analysis
+\item
+  Support for building your own R packages
+\item
+  Integrated R help and documentation
+\item
+  De-bugging tools
+\end{itemize}
+
+The combination of R and RStudio makes it easy to:
+
+\begin{itemize}
+\tightlist
+\item
+  write R scripts containing all code for an analysis, along with
+  comments describing what the code does
+\item
+  write reports with code embedded (in Rmarkdown, more on this later)
+\item
+  organize your data analysis workflow (e.g., reading in data, accessing
+  help files)
+\end{itemize}
+
+As with R, you need to download RStudio before you can get started. You
+can download RStudio \href{https://www.r-project.org/}{here}.
+
+When you open RStudio for the first time, the window will display three
+\textcolor{blue}{panels}---these have different functions, as you'll now
+discover.
+
+\hypertarget{the-console}{%
+\subsubsection{The console}\label{the-console}}
+
+The default position of the console is in the lower left-hand pane of
+RStudio. This pane is your real window into R: any commands that you run
+in R will appear in the console, and any results that are output by
+these commands, with the exception of plots, will appear in the console.
+
+To enter a command into the console, move your cursor to the
+\texttt{\textgreater{}} and click. When there is a flashing
+\texttt{\textbar{}} in the console, you're ready to enter a command.
+From now on, you'll call the \texttt{\textgreater{}} the execution line.
+Once you've entered a command on the execution line, hit \texttt{Enter}
+to run the command.
+
+For example, you could type in the number \texttt{47} and hit enter,
+which prints out the number \texttt{47}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{47}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 47
+\end{verbatim}
+
+Or, you could use R as a calculator:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{32} \SpecialCharTok{+} \DecValTok{15}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 47
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{52} \SpecialCharTok{{-}} \DecValTok{5}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 47
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{94}\SpecialCharTok{/}\DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 47
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{23}\SpecialCharTok{*}\DecValTok{2} \CommentTok{\# This is a comment! Everything after a \textquotesingle{}\#\textquotesingle{} isn\textquotesingle{}t run by R; instead, it\textquotesingle{}s printed out. Here, you could say that the result isn\textquotesingle{}t 47!}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 46
+\end{verbatim}
+
+Each of these lines returns an \textcolor{blue}{object}---in each case,
+the object is the result of the computation. In fact, these objects are
+called \textcolor{blue}{vectors}. Vectors are the building block of R
+objects.
+
+\hypertarget{the-script-editor}{%
+\subsubsection{The script editor}\label{the-script-editor}}
+
+It is possible to do all of your work in the console. However, this
+isn't advisable, because:
+
+\begin{itemize}
+\tightlist
+\item
+  you may forget the commands you've run, and
+\item
+  you may forget the objects you've created;
+\end{itemize}
+
+both of these (and other reasons) make \textcolor{blue}{reproducibility}
+difficult if you only use the console.
+
+Reproducibility is important both for yourself and for others:
+
+\begin{itemize}
+\tightlist
+\item
+  you should always structure your code so that future you can come back
+  in 6 months and figure out what you are doing
+\item
+  you may have to run your code more than once, so why not write it down
+  only once?
+\item
+  someone else should be able to take your code and data and obtain the
+  same results as you did
+\end{itemize}
+
+The \textcolor{blue}{script editor} is one place to write down and save
+your code. By default, it is located in the upper left panel of RStudio.
+This pane serves as a text editor; it allows you to edit and save code
+and Rmarkdown documents, among other things.
+
+There are two primary ways to write and save R code: RMarkdown files and
+R files.
+
+To create a new RMarkdown file, click on
+\texttt{File\ \textgreater{}\ New\ File\ \textgreater{}\ R\ Markdown}.
+RMarkdown files are saved with the file extension \texttt{.Rmd}. These
+files allow you to seamlessly integrate code with text (this document is
+written in Rmarkdown!), and also include graphs, plots, tables, etc. You
+can then output your RMarkdown file to Word (.docx), PDF (.pdf), or HTML
+(.html). You create the output by clicking \texttt{Knit}.
+
+To create an R script file, click on
+\texttt{File\ \textgreater{}\ New\ File\ \textgreater{}\ R\ Script}.
+These files, saved with the file extension \texttt{.R}, allow you to
+save R code and execute it in the console. They are simpler than
+\texttt{.Rmd} files, but also much more limited. One advantage of using
+RMarkdown over R scripts is that you can write text explaining what your
+code does!
+
+To run code from the source editor, use \texttt{ctrl\ +\ Enter} (PC) or
+\texttt{cmd\ +\ Enter} (Mac), which allows you to either run a single
+line (whichever line your cursor is on); or multiple lines, by
+highlighting multiple lines. (You can also use your mouse by clicking
+\texttt{Run\ \textgreater{}\ Run\ Selected\ Lines}, but this quickly
+becomes tedious.)
+
+Practice running the following line of code from your .Rmd file into the
+console:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{45} \SpecialCharTok{+} \DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 47
+\end{verbatim}
+
+The places in the .Rmd file that begin and end with three back-ticks are
+called \textcolor{blue}{code chunks}. This is where you enter any code
+that you want to be executed by R when you knit your .Rmd file. You can
+also test your code by running the code from the chunks in the console.
+Use \texttt{ctrl\ +\ shift\ +\ Enter} or
+\texttt{cmd\ +\ shift\ +\ enter} to run an entire chunk of code at once.
+
+\hypertarget{the-environmenthistory-pane}{%
+\subsubsection{The environment/history
+pane}\label{the-environmenthistory-pane}}
+
+The environment/history pane is, by default, located in the upper
+right-hand panel of RStudio. The \textcolor{orange}{Environment} tab
+shows any functions or data that you have in your
+\textcolor{blue}{workspace}; that is, any objects created by running R
+code. Up to now, your workspace only includes the function
+\texttt{colFmt()}, which allows me to color text in Rmarkdown.
+
+The \textcolor{orange}{History} tab shows all of the commands that have
+been entered into the console.
+
+While the environment/history panel can sometimes be helpful, it is
+\textcolor{red}{not} a substitute for using R scripts or Rmarkdown!
+
+\hypertarget{the-filesplotspackageshelp-pane}{%
+\subsubsection{The files/plots/packages/help
+pane}\label{the-filesplotspackageshelp-pane}}
+
+The final panel, in the bottom right, by default hosts
+files/plots/packages/help. This is where any plots that you generate
+will be displayed, and any help files that you access will appear (more
+on both of these later!).
+
+\hypertarget{r-commands}{%
+\subsection{R: commands}\label{r-commands}}
+
+R commands are the lines of code you run; they relate
+\textcolor{blue}{functions} to \textcolor{orange}{objects}. Functions
+\textcolor{blue}{do} things, while objects \textcolor{orange}{store}
+values. Everything in R is done by a function---for example, the code
+you entered in before ran the \texttt{print()} function. Both of the
+following commands return the same value:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{45} \SpecialCharTok{+} \DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 47
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(}\DecValTok{45} \SpecialCharTok{+} \DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 47
+\end{verbatim}
+
+\hypertarget{functions}{%
+\subsubsection{Functions}\label{functions}}
+
+Functions take in \textcolor{blue}{arguments}. This is how you, the
+user, tell a function what to do. Some functions just perform an action,
+and others return a \textcolor{orange}{value}. A function is accessed by
+typing its name, followed by an open and closed set of parentheses: for
+example, \texttt{read.csv()} is a function that can read in data in a
+comma-separated file (.csv).
+
+\textcolor{blue}{Arguments} to functions go between the parentheses, and
+are separated by commas. You specify what values the arguments should
+take on by using \texttt{=}; for example,
+\texttt{read.csv(file\ =\ "births.csv",\ header\ =\ TRUE)} reads in the
+data in \texttt{births.csv}, and treats the first line of the file as a
+header (containing column names, not actual data).
+
+Functions return \textcolor{orange}{values}, which are generally a
+combination of objects, plots, and printouts. Printouts just appear on
+your console, while objects and plots can be given names and stored for
+later. The value of
+\texttt{read.csv(file\ =\ "births.csv",\ header\ =\ TRUE)} is a special
+R object called a \texttt{data.frame}, which is essentially equivalent
+to a dataset.
+
+\hypertarget{creating-objects}{%
+\subsubsection{Creating objects}\label{creating-objects}}
+
+R objects are (basically) the result of calling functions. However,
+there are two general ways this can be done:
+
+\begin{itemize}
+\tightlist
+\item
+  \textcolor{blue}{loading data} (e.g., from a .txt or .csv file)
+\item
+  \textcolor{orange}{manipulating another object} using a function
+\end{itemize}
+
+You assign a value to an object using the special character
+\texttt{\textless{}-}. The value, on the right-hand side, can now be
+accessed using its object name (on the left-hand side).
+
+I suggest naming your objects so that the name gives you some
+information about the object---don't go too overboard, but this practice
+has saved me lots of time. For example, \texttt{births} is a much more
+informative name for a dataset than \texttt{x}.
+
+\hypertarget{reading-in-a-dataset}{%
+\subsubsection{Reading in a dataset}\label{reading-in-a-dataset}}
+
+Our example for today is the King County births data, which you'll see
+many times this quarter. First, you need to read the data into R. In
+order to do this, you need to tell R where the data file lives on your
+computer.
+
+A \textcolor{blue}{working directory} is where R will read files from,
+and also save files (like plots, if you choose). You might create a
+folder on your computer for your homework assignments or your final
+project, and store all relevant files there. So set your working
+directory during an R session, use hte \texttt{setwd()} command. I'll
+set my working directory right now to where the data is on my computer
+--- yours will not be the same!
+
+After we've told R where it can find the data, we can read the data
+file.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# load the FEV data}
+\FunctionTok{setwd}\NormalTok{(}\StringTok{"C:/Users/ninag/Documents/GitHub/BIOST311\_2023/Datasets"}\NormalTok{)}
+\NormalTok{births }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\AttributeTok{file =} \StringTok{"births.csv"}\NormalTok{, }
+                \AttributeTok{header =} \ConstantTok{TRUE}\NormalTok{)}
+\DocumentationTok{\#\# check that you\textquotesingle{}ve read it in correctly:}
+\FunctionTok{head}\NormalTok{(births)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   sex plural age     race parity married  bwt smokeN drinkN firstep welfare
+## 1   F      1  31 hispanic      4       1 3118      0      0       1       0
+## 2   M      1  23    white      0       1 3466      0      0       1       0
+## 3   F      1  24    black      1       0 3147      0      0       1       0
+## 4   M      1  26 hispanic      2       1 3969      0      0       1       0
+## 5   M      1  34    white      0       0 3005      0      0       1       0
+## 6   M      1  15    black      0       0 2920      0      0       1       0
+##   smoke drink wpre wgain education gestation
+## 1     0     0  122    22         5        40
+## 2     0     0  160    50        12        39
+## 3     0     0  150    38        13        40
+## 4     0     0  175    15        12        39
+## 5     0     0  123    17        17        40
+## 6     0     0  180    12         9        36
+\end{verbatim}
+
+What happened here? First, the \texttt{setwd()} command set my working
+directory to the folder that holds all my datasets for this course.
+Then, the \texttt{read.csv()} function read in the data; you then used
+\texttt{\textless{}-} to assign those data, as a value, to the object
+called \texttt{births}. Finally, you used the \texttt{head()} function
+to print the first six rows of the \texttt{births} object.
+
+\hypertarget{data-structures}{%
+\subsection{Data structures}\label{data-structures}}
+
+Reading a dataset into R isn't the end of the story---often, you'll need
+to compute \textcolor{blue}{descriptive statistics},
+\textcolor{orange}{plot} certain variables, and
+\textcolor{cyan}{run statistical analyses}, sometimes on only part of
+the data. Throughout this quarter, you'll learn tools to do all of these
+things.
+
+I mentioned earlier that vectors are the building block of R
+objects---vectors are 1-dimensional, so they only have a length. You can
+create a vector using the \texttt{c()} function:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my\_vector }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(my\_vector)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1 2 3 4 5
+\end{verbatim}
+
+\textcolor{blue}{Data frames}, R's way of storing datasets, are
+collections of vectors: each column of a data frame is a
+\textcolor{orange}{variable}, which is stored as a vector; similarly,
+each row of a data frame is an \textcolor{red}{observation}, which is
+also stored as a vector.
+
+You access values in vectors using open and closed square brackets
+\texttt{{[}{]}}. For example, let's say I want to access the third
+element in \texttt{my\_vector}. I can do this by telling R to pull out
+the third element via \texttt{my\_vector{[}3{]}}. Be careful - if you
+give an index that doesn't exist in the vector, you'll get \texttt{NA}.
+(This is an example of when R lets you make a mistake without telling
+you. Learning to watch out for these instances will become more
+intuitive with practice.)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my\_vector[}\DecValTok{3}\NormalTok{] }\CommentTok{\# this is fine}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my\_vector[}\DecValTok{6}\NormalTok{] }\CommentTok{\# this returns NA}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] NA
+\end{verbatim}
+
+You can access multiple values using the \texttt{c()} function.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my\_vector[}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{3}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1 3
+\end{verbatim}
+
+You access values in data frames using the same square
+brackets---however, since data frames have rows and columns, you access
+a value in the \texttt{i}th row and \texttt{j}th column using
+\texttt{{[}i,\ j{]}}.
+
+For example, access the 3rd element in the 5th column of the births
+data:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{births[}\DecValTok{3}\NormalTok{, }\DecValTok{5}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1
+\end{verbatim}
+
+From your earlier call to the \texttt{head()} function, you'll notice
+that this output corresponds to the 3rd observation on the variable
+\texttt{parity}.
+
+\hypertarget{r-packages}{%
+\subsection{R packages}\label{r-packages}}
+
+Since R is open source software, many people contribute to its
+development. This comes in the form of \textcolor{blue}{packages}:
+bundles of functions that supplement the functions always loaded into R.
+
+You will use several packages extensively throughout this course. We'll
+start with the \texttt{tidyverse} package, which is very useful for
+manipulating data.
+
+The first time you want to use a package, you'll have to install it.
+Most packages can be installed using
+\texttt{install.packages("package\ name")}.
+
+Once the package is installed, each subsequent time you want to use
+functions from the package, you have to load it using
+\texttt{library}---and you have to do this \textcolor{red}{each time}
+you close and re-open R or RStudio.
+
+For example, load the \texttt{tidyverse} package:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# run this next line (without the \#) if you haven\textquotesingle{}t installed the package yet}
+\CommentTok{\# install.packages("tidyverse")}
+\CommentTok{\# run this next line every time you open a new R session}
+\FunctionTok{library}\NormalTok{(}\StringTok{"tidyverse"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## -- Attaching core tidyverse packages ------------------------ tidyverse 2.0.0 --
+## v dplyr     1.1.1     v readr     2.1.4
+## v forcats   1.0.0     v stringr   1.5.0
+## v ggplot2   3.4.1     v tibble    3.2.1
+## v lubridate 1.9.2     v tidyr     1.3.0
+## v purrr     1.0.1     
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+## i Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+\end{verbatim}
+
+\hypertarget{data-wrangling}{%
+\subsection{Data wrangling}\label{data-wrangling}}
+
+Using the \texttt{tidyverse} package, you can pass the output of one
+function directly to another --- that way, you don't have to save all
+the intermediate objects as separate variables. This keeps things much
+cleaner! To pass output from one function to the next, using the
+\texttt{\%\textgreater{}\%} operator (referred to as ``pipe.'')
+
+For example, suppose we want to take the \texttt{age} column of the
+births dataset, and then look at some rows. We can pick columns using
+\texttt{select()}. The \texttt{head()} function will show the first 6
+rows, while we can choose arbitrary chunk of rows using
+\texttt{slice()}. (Our input to \texttt{slice()} is \texttt{20:30},
+which simply lists all integers from 20 to 30.) The
+\texttt{\%\textgreater{}\%} operator links these commands together.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# get the names of the data frame}
+\FunctionTok{names}\NormalTok{(births)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "sex"       "plural"    "age"       "race"      "parity"    "married"  
+##  [7] "bwt"       "smokeN"    "drinkN"    "firstep"   "welfare"   "smoke"    
+## [13] "drink"     "wpre"      "wgain"     "education" "gestation"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# look at just the age column}
+\NormalTok{births }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(age) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{head}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   age
+## 1  31
+## 2  23
+## 3  24
+## 4  26
+## 5  34
+## 6  15
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# access the 20th through 30th values of age}
+\NormalTok{births }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(age) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{slice}\NormalTok{(}\DecValTok{20}\SpecialCharTok{:}\DecValTok{30}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    age
+## 1   18
+## 2   26
+## 3   27
+## 4   17
+## 5   26
+## 6   32
+## 7   35
+## 8   39
+## 9   27
+## 10  31
+## 11  38
+\end{verbatim}
+
+The \texttt{names()} function returns the variable names in a data
+frame.
+
+The final major concept in manipulating datasets is
+\textcolor{blue}{logical expressions}. The two logical values are
+\texttt{TRUE} and \texttt{FALSE}; we can make comparisons that will
+return these values. For example, is 3 \textgreater{} 5?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{3} \SpecialCharTok{\textgreater{}} \DecValTok{5}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] FALSE
+\end{verbatim}
+
+You can now \textcolor{orange}{subset} your data by making logical
+comparisons. For example, you might be interested only in those study
+participants who are less than or equal to 20 years old. This means
+you're interested in \textcolor{blue}{all columns} from the births data,
+but only for the participants (i.e., \textcolor{red}{observations})
+whose \texttt{age} value is \texttt{\textless{}=\ 20}. We perform
+subsetting based on logical expressions using the \texttt{filter}
+function.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# subset the data, keep all columns}
+\NormalTok{under20 }\OtherTok{\textless{}{-}}\NormalTok{ births }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(age }\SpecialCharTok{\textless{}=} \DecValTok{20}\NormalTok{)}
+\DocumentationTok{\#\# simple summary statistics}
+\FunctionTok{summary}\NormalTok{(under20)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      sex                plural       age           race          
+##  Length:230         Min.   :1   Min.   :14.0   Length:230        
+##  Class :character   1st Qu.:1   1st Qu.:18.0   Class :character  
+##  Mode  :character   Median :1   Median :19.0   Mode  :character  
+##                     Mean   :1   Mean   :18.7                     
+##                     3rd Qu.:1   3rd Qu.:20.0                     
+##                     Max.   :1   Max.   :20.0                     
+##      parity          married            bwt           smokeN      
+##  Min.   :0.0000   Min.   :0.0000   Min.   : 943   Min.   : 0.000  
+##  1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:2829   1st Qu.: 0.000  
+##  Median :0.0000   Median :0.0000   Median :3289   Median : 0.000  
+##  Mean   :0.2217   Mean   :0.2826   Mean   :3216   Mean   : 1.148  
+##  3rd Qu.:0.0000   3rd Qu.:1.0000   3rd Qu.:3628   3rd Qu.: 0.000  
+##  Max.   :3.0000   Max.   :1.0000   Max.   :4593   Max.   :20.000  
+##      drinkN           firstep          welfare            smoke       
+##  Min.   :0.00000   Min.   :0.0000   Min.   :0.00000   Min.   :0.0000  
+##  1st Qu.:0.00000   1st Qu.:0.0000   1st Qu.:0.00000   1st Qu.:0.0000  
+##  Median :0.00000   Median :0.0000   Median :0.00000   Median :0.0000  
+##  Mean   :0.01739   Mean   :0.4391   Mean   :0.01304   Mean   :0.1696  
+##  3rd Qu.:0.00000   3rd Qu.:1.0000   3rd Qu.:0.00000   3rd Qu.:0.0000  
+##  Max.   :2.00000   Max.   :1.0000   Max.   :1.00000   Max.   :1.0000  
+##      drink               wpre           wgain          education    
+##  Min.   :0.000000   Min.   : 75.0   Min.   :  0.00   Min.   : 0.00  
+##  1st Qu.:0.000000   1st Qu.:115.2   1st Qu.: 26.00   1st Qu.:10.00  
+##  Median :0.000000   Median :132.5   Median : 34.00   Median :11.50  
+##  Mean   :0.008696   Mean   :140.4   Mean   : 35.59   Mean   :10.99  
+##  3rd Qu.:0.000000   3rd Qu.:160.0   3rd Qu.: 43.75   3rd Qu.:12.00  
+##  Max.   :1.000000   Max.   :290.0   Max.   :149.00   Max.   :15.00  
+##    gestation    
+##  Min.   :26.00  
+##  1st Qu.:37.00  
+##  Median :39.00  
+##  Mean   :38.63  
+##  3rd Qu.:40.00  
+##  Max.   :45.00
+\end{verbatim}
+
+The \texttt{summary()} function you just used displays simple
+descriptive statistics. This is a great way to get a quick snapshot of
+the data, and make sure they have been read in correctly. Look at the
+descriptive statistics for \texttt{wgain}. Do you notice anything
+interest about this variable? What are its largest and smallest values?
+
+REPLACE WITH YOUR ANSWER TO THIS QUESTION
+
+\hypertarget{creating-a-new-variable}{%
+\subsubsection{Creating a new variable}\label{creating-a-new-variable}}
+
+You can also use the \texttt{tidyverse} package to create new variables
+using the \texttt{mutate()} function. A baby is considered preterm if it
+is born at 36 weeks gestation or earlier. We'll create a new binary
+variable called \texttt{preterm} that is 1 for preterm births and 0
+otherwise. We need to use the \texttt{\textless{}-} symbol to save our
+altered dataset to the variable called \texttt{births}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{births }\OtherTok{\textless{}{-}}\NormalTok{ births }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{preterm =} \FunctionTok{ifelse}\NormalTok{(gestation }\SpecialCharTok{\textless{}=} \DecValTok{36}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+We used \texttt{ifelse()} to create the new binary variable: this takes
+a logical comparison (e.g., is \texttt{gestation} less than or equal to
+36?), what to assign if the expression is true (e.g., \texttt{1}), and
+what to assign if the expression is false (e.g., \texttt{0}).
+
+\emph{This does not, however, save these variables into the underlying
+.csv file: for that, you'll need a different function,
+\texttt{write.csv()}}.
+
+\hypertarget{getting-help}{%
+\subsection{Getting help}\label{getting-help}}
+
+Until now, you've had functions provided to you, with the relevant
+arguments filled out. But what if you don't know what arguments a
+function has?
+
+Typing \texttt{?} in the console, followed by the function name, calls
+up the help file for the function. All R functions are required to have
+help files.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{?summary}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## starting httpd help server ... done
+\end{verbatim}
+
+If you don't know the name of the function, you aren't out of luck. If
+you know what you'd like to do, you can use \texttt{??}, followed by a
+one-word description, to pull up all help files that mention the word.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{??summarize}
+\end{Highlighting}
+\end{Shaded}
+
+Finally, Google, Stack Exchange, Canvas, and your friends are your best
+resource: if you have an R problem, I can almost guarantee that someone
+else has had it before, and the answer is either on the internet or with
+your friend!
+
+\hypertarget{conclusion}{%
+\subsection{Conclusion}\label{conclusion}}
+
+You're now on your journey to becoming true data scientists!
+
+Today, you've learned that R is a powerful software package that gives
+you flexible options for analyzing your data. You've also learned how to
+do simple arithmetic, read in a dataset, create objects, add variables
+to data sets, calculate simple descriptive statistics, access help
+files, and load packages.
+
+While it may be frustrating at times, learning R is worth your time.
+Additionally, using RMarkdown and RStudio is a great first step to
+making sure that all of your analyses are reproducible---and being fully
+reproducible is important for science!
+
+\end{document}

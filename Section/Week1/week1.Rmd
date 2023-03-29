@@ -1,15 +1,18 @@
 ---
 title: "Introduction to R and RStudio"
-subtitle: "BIOST 311, Discussion Section Week 1"
-author: "Taylor Okonek and Charlie Wolock"
-date: "March 29th, 2022"
-output: 
+author: "Nina Galanter"
+date: "March 28th, 2023"
+output:
+  html_document:
+    toc: yes
+    df_print: paged
   pdf_document:
-    toc: true
+    toc: yes
+subtitle: BIOST 311, Discussion Section Week 1
 header-includes:
-  - \usepackage{color}
-  - \usepackage{fvextra}
-  - \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+- \usepackage{color}
+- \usepackage{fvextra}
+- \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
 ---
 
 ```{r setup, include=FALSE}
@@ -172,7 +175,7 @@ After we've told R where it can find the data, we can read the data file.
 
 ```{r read-data, echo = TRUE, include = TRUE}
 ## load the FEV data
-setwd("C:/Users/cwolo/Dropbox/UW/TA/BIOST311/Datasets/")
+setwd("C:/Users/ninag/Documents/GitHub/BIOST311_2023/Datasets")
 births <- read.csv(file = "births.csv", 
                 header = TRUE)
 ## check that you've read it in correctly:
@@ -267,7 +270,7 @@ summary(under20)
 
 The `summary()` function you just used displays simple descriptive statistics. This is a great way to get a quick snapshot of the data, and make sure they have been read in correctly. Look at the descriptive statistics for `wgain`. Do you notice anything interest about this variable? What are its largest and smallest values?
 
-REPLACE WITH YOUR ANSWER TO THIS QUESTION
+**Enter Answer Here**
 
 ### Creating a new variable
 
@@ -306,3 +309,12 @@ You're now on your journey to becoming true data scientists!
 Today, you've learned that R is a powerful software package that gives you flexible options for analyzing your data. You've also learned how to do simple arithmetic, read in a dataset, create objects, add variables to data sets, calculate simple descriptive statistics, access help files, and load packages. 
 
 While it may be frustrating at times, learning R is worth your time. Additionally, using RMarkdown and RStudio is a great first step to making sure that all of your analyses are reproducible---and being fully reproducible is important for science!
+
+## Activity
+
+In the R code box below, get a summary of the data just for those births that were preterm, using the preterm variable created previously.
+
+```{r activity}
+
+```
+

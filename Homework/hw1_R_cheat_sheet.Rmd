@@ -1,7 +1,7 @@
 ---
 title: "Homework 1: R cheat sheet"
 subtitle: "BIOST 311"
-author: "Taylor Okonek and Charlie Wolock"
+author: "Nina Galanter"
 date: \today
 output: 
   pdf_document:
