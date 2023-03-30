@@ -142,7 +142,7 @@ In \textbf{experimental} studies, we can talk about \color{blue} \textbf{causati
 \vspace{0.3cm}
 
 % we'll come back to this when we talk about interpreting results
-A \textbf{\textcolor{blue}{confounder}} is a variable that is associated with our outcome and also associated with the exposure in our sample, which, when we don't adjust for it, creates \textbf{\textcolor{blue}{bias}} in estimated the effect of the exposure on the outcome.  \\
+A \textbf{\textcolor{blue}{confounder}} is a variable that is \textbf{causally related to} our outcome and also \textbf{associated with} the exposure in our sample.  \\
 
 \vspace{0.3cm}
 
@@ -150,7 +150,9 @@ A \textbf{\textcolor{blue}{confounder}} is a variable that is associated with ou
 	\item[] \textbf{Example:} suppose we're interested in the relationship between smoking and lung function in kids. We know that age is causally associated with lung function: as children grow and develop, their lung function improves. If age is also associated with smoking in our sample (e.g., if older kids are more likely to smoke), then age is a confounder.
 \end{itemize} 
 
+\vspace{0.3cm}
 
+\small \textbf{Much more on the topic of confounding to come...} 
 \end{frame}
 
 \subsection{Experimental studies}
@@ -393,41 +395,40 @@ From the article: \textbf{In this... study, a text-processing method was used to
 	\item What are potential limitations of this study design?
 \end{itemize}
 
-\footnotesize
-\url{https://PollEv.com/multiple_choice_polls/B87VEXZY04zCZ98pnHrRr/respond}
+
 \end{frame}
 
-\begin{frame}{Study design: Practice}
-\begin{itemize}
-	\item What kind of study design is this?
-	\medskip
-	\begin{itemize}
-		\item[]  \color{blue} Cohort study (retrospective)
-	\end{itemize}
-\medskip
-	\item Why do you think they chose this design? % cheap, can't randomly assign ADT
-		\medskip
-	\begin{itemize}
-		\item \color{blue} Randomized controlled trials impossible, since you can't (and wouldn't) randomly assign prostate cancer
-		\smallskip
-		\item \color{blue} Dementia is not particularly rare, and they likely wanted to make statements about relative risks, so case-control studies are out
-		\smallskip
-		\item  Cross-sectional studies wouldn't necessarily allow the researchers to determine if dementia came before or after ADT. It may also be difficult to ask individuals with dementia about their history with ADT
-		\smallskip
-		\item Retrospective cohort studies are cheap, and easily allow the researchers to know whether or not ADT came before dementia \textbf{and} how long of a time there was between ADT and dementia, which may be of interest
-	\end{itemize}
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Study design: Practice}
-\begin{itemize}
-	\item What are potential limitations of this study design?
-	\medskip
-	\begin{itemize}
-		\item[] \color{blue} Potential confounding: cannot conclude that ADT causes / does not cause dementia
-	\end{itemize}
-\end{itemize}
-\end{frame}
+%\begin{frame}{Study design: Practice}
+%\begin{itemize}
+%	\item What kind of study design is this?
+%	\medskip
+%	\begin{itemize}
+%		\item[]  \color{blue} Cohort study (retrospective)
+%	\end{itemize}
+%\medskip
+%	\item Why do you think they chose this design? % cheap, can't randomly assign ADT
+%		\medskip
+%	\begin{itemize}
+%		\item \color{blue} Randomized controlled trials impossible, since you can't (and wouldn't) randomly assign prostate cancer
+%		\smallskip
+%		\item \color{blue} Dementia is not particularly rare, and they likely wanted to make statements about relative risks, so case-control studies are out
+%		\smallskip
+%		\item  Cross-sectional studies wouldn't necessarily allow the researchers to determine if dementia came before or after ADT. It may also be difficult to ask individuals with dementia about their history with ADT
+%		\smallskip
+%		\item Retrospective cohort studies are cheap, and easily allow the researchers to know whether or not ADT came before dementia \textbf{and} how long of a time there was between ADT and dementia, which may be of interest
+%	\end{itemize}
+%\end{itemize}
+%\end{frame}
+%
+%\begin{frame}{Study design: Practice}
+%\begin{itemize}
+%	\item What are potential limitations of this study design?
+%	\medskip
+%	\begin{itemize}
+%		\item[] \color{blue} Potential confounding: cannot conclude that ADT causes / does not cause dementia
+%	\end{itemize}
+%\end{itemize}
+%\end{frame}
 
 \begin{frame}{\textcolor{violet}{POLLEV} Study design: Practice}
 Suppose you are interested in determining whether or not tobacco smoking increases the risk of schizophrenia. The prevalence of schizophrenia in the general population, either globally or in the US, is estimated to be under 1\%. Which study design would be most appropriate for answering your research question, and why?
@@ -439,28 +440,24 @@ Suppose you are interested in determining whether or not tobacco smoking increas
 	\item Cohort study
 	\item Case-control study
 \end{itemize}
-\medskip
-
-\footnotesize
-\url{https://PollEv.com/multiple_choice_polls/kM7Mh7ruU2nCDFHnRRENN/respond}
 \end{frame}
 
-\begin{frame}{\textcolor{violet}{POLLEV} Study design: Practice}
-Suppose you are interested in determining whether or not tobacco smoking increases the risk of schizophrenia. The prevalence of schizophrenia in the general population, either globally or in the US, is estimated to be under 1\%. Which study design would be most appropriate for answering your research question, and why?
-\bigskip
+%\begin{frame}{\textcolor{violet}{POLLEV} Study design: Practice}
+%Suppose you are interested in determining whether or not tobacco smoking increases the risk of schizophrenia. The prevalence of schizophrenia in the general population, either globally or in the US, is estimated to be under 1\%. Which study design would be most appropriate for answering your research question, and why?
+%\bigskip
+%
+%\color{blue} Case-control study. 
+%
+%\bigskip
+%
+%\begin{itemize}
+%	\item not ethical to randomize exposure to tobacco smoking so a clinical trial is out
+%	\item We want to look at smoking as an exposure that comes before schizophrenia in time, so a cross-sectional study makes less sense
+%	\item as schizophrenia is rare, a cohort study would need to be \textbf{very, very} large to get a reasonable number of people with the outcome 
+%\end{itemize}
 
-\color{blue} Case-control study. 
 
-\bigskip
-
-\begin{itemize}
-	\item not ethical to randomize exposure to tobacco smoking so a clinical trial is out
-	\item We want to look at smoking as an exposure that comes before schizophrenia in time, so a cross-sectional study makes less sense
-	\item as schizophrenia is rare, a cohort study would need to be \textbf{very, very} large to get a reasonable number of people with the outcome 
-\end{itemize}
-
-
-\end{frame}
+%\end{frame}
 
 \begin{frame}{\textcolor{violet}{POLLEV} Study design: Practice}
 	You are interested in studying the existence and extent of racial disparities in access to online patient portals for primary health care. Which study design would be most appropriate for answering your research question, and why?
@@ -472,24 +469,20 @@ Suppose you are interested in determining whether or not tobacco smoking increas
 		\item Cohort study
 		\item Case-control study
 	\end{itemize}
-\medskip
-
-\footnotesize
-\url{https://PollEv.com/multiple_choice_polls/HPsLMURzva5lvEVs711wo/respond}
 \end{frame}
 
-\begin{frame}{\textcolor{violet}{POLLEV} Study design: Practice}
-	You are interested in studying the existence and extent of disparities in access to online patient portals for primary health care based on self-identified race. Which study design would be most appropriate for answering your research question, and why?
-	\bigskip
-	
-	\textcolor{blue}{Cross-sectional study}
-	\bigskip
-	
-	\begin{itemize}
-		\item We aren't trying to determine a causal relationship
-		\item We are trying to look at the current point in time prevalence of access to patient portals
-	\end{itemize}
-\end{frame}
+%\begin{frame}{\textcolor{violet}{POLLEV} Study design: Practice}
+%	You are interested in studying the existence and extent of disparities in access to online patient portals for primary health care based on self-identified race. Which study design would be most appropriate for answering your research question, and why?
+%	\bigskip
+%	
+%	\textcolor{blue}{Cross-sectional study}
+%	\bigskip
+%	
+%	\begin{itemize}
+%		\item We aren't trying to determine a causal relationship
+%		\item We are trying to look at the current point in time prevalence of access to patient portals
+%	\end{itemize}
+%\end{frame}
 
 \begin{frame}[c]
 \centering \huge Any Questions?
@@ -619,68 +612,68 @@ We plot the number of children who died at each age recorded vs. age in months:
 
 \end{frame}
 
-\begin{frame}{Types of Variables: Activity}
-
-Argue why we should consider age at death to be a continuous variable.
-	
-	\vspace{0.3cm}
-	
-	\begin{itemize}
-		\item[] \textcolor{blue}{Age is inherently continuous. We could, in theory, have ages recorded with an infinite number of decimal points.}
-	\end{itemize}
-	
-		
-	
-	\vspace{0.3cm}
-	
-	Argue why we should consider age at death to be a discrete variable.
-	
-	\vspace{0.3cm}
-	
-	\begin{itemize}
-		\item[] 	\textcolor{blue}{Age is collected discretely in the survey. According to the survey, children could not be 2.5 years old, for example. }
-	\end{itemize}
-
-	
-
-\end{frame}
-
-\begin{frame}{Types of Variables: Activity}
-
-\vspace{-8 mm}
-
-\begin{figure}
-	\centering \includegraphics[scale=0.15]{u5mr.png}
-\end{figure}
-	
-{\small Do you notice anything strange about the plot? }
-	
-\smallskip
-	
-\begin{itemize}
-	\item \small \textcolor{blue} {Death counts seem to be higher at exact years than for the months}
-	\smallskip
-		
-	\item \small \textcolor{blue} {For 24 months, 3 years, and 4 years, this is likely due to grouping. If a child died between ages 2.5 - 3.5, they would be recorded as having died at 3 years, so this count is inherently higher since it spans a longer time period than 1 month.} 
-	\smallskip
-	
-    \item \small \textcolor{blue} {However, what about 12 months?}
-	\smallskip
-
-	\item \small \textcolor{blue}{This phenomenon is known as ``age-heaping", and often occurs in surveys where parents do not know the exact age their child was when they died, or when surveyers record dates inexactly. This is essentially a rounding error, where many deaths are recorded at 1 year even though they may have occurred at any time between 0 and 2 years. }
-\end{itemize}	
-	
-\end{frame}
-
-\begin{frame}{Types of Variables: Activity}
-
-
-Considering age to be continuous \textbf{or} discrete in this example are both justifiable conclusions! In general, we'll consider age to be continuous in this class, but in specific scenarios it may make more sense to consider age in discrete groups. 
-\bigskip
-
-In regression models, whether to treat variables are continuous or discrete will be a modeling decision, and may depend on whether the variable is our outcome, the exposure of interest, or another covariate.
-
-\end{frame}
+%\begin{frame}{Types of Variables: Activity}
+%
+%Argue why we should consider age at death to be a continuous variable.
+%	
+%	\vspace{0.3cm}
+%	
+%	\begin{itemize}
+%		\item[] \textcolor{blue}{Age is inherently continuous. We could, in theory, have ages recorded with an infinite number of decimal points.}
+%	\end{itemize}
+%	
+%		
+%	
+%	\vspace{0.3cm}
+%	
+%	Argue why we should consider age at death to be a discrete variable.
+%	
+%	\vspace{0.3cm}
+%	
+%	\begin{itemize}
+%		\item[] 	\textcolor{blue}{Age is collected discretely in the survey. According to the survey, children could not be 2.5 years old, for example. }
+%	\end{itemize}
+%
+%	
+%
+%\end{frame}
+%
+%\begin{frame}{Types of Variables: Activity}
+%
+%\vspace{-8 mm}
+%
+%\begin{figure}
+%	\centering \includegraphics[scale=0.15]{u5mr.png}
+%\end{figure}
+%	
+%{\small Do you notice anything strange about the plot? }
+%	
+%\smallskip
+%	
+%\begin{itemize}
+%	\item \small \textcolor{blue} {Death counts seem to be higher at exact years than for the months}
+%	\smallskip
+%		
+%	\item \small \textcolor{blue} {For 24 months, 3 years, and 4 years, this is likely due to grouping. If a child died between ages 2.5 - 3.5, they would be recorded as having died at 3 years, so this count is inherently higher since it spans a longer time period than 1 month.} 
+%	\smallskip
+%	
+%    \item \small \textcolor{blue} {However, what about 12 months?}
+%	\smallskip
+%
+%	\item \small \textcolor{blue}{This phenomenon is known as ``age-heaping", and often occurs in surveys where parents do not know the exact age their child was when they died, or when surveyers record dates inexactly. This is essentially a rounding error, where many deaths are recorded at 1 year even though they may have occurred at any time between 0 and 2 years. }
+%\end{itemize}	
+%	
+%\end{frame}
+%
+%\begin{frame}{Types of Variables: Activity}
+%
+%
+%Considering age to be continuous \textbf{or} discrete in this example are both justifiable conclusions! In general, we'll consider age to be continuous in this class, but in specific scenarios it may make more sense to consider age in discrete groups. 
+%\bigskip
+%
+%In regression models, whether to treat variables are continuous or discrete will be a modeling decision, and may depend on whether the variable is our outcome, the exposure of interest, or another covariate.
+%
+%\end{frame}
 
 \subsection{Descriptive Statistics}
 
@@ -1433,34 +1426,32 @@ Once we know the sampling distribution of our estimate, it's fairly straightforw
 \vspace{0.3cm}
 
 (Hint: precision and variance are inversely related) 
-\medskip
 
-\footnotesize
-\url{https://PollEv.com/multiple_choice_polls/wHH4w3mFeWnPCdZWvzA8y/respond}
+
 \end{frame}
 
-\begin{frame}{Standard error}
-	\textbf{Sampling distribution}: the distribution of an estimate/statistic
-	\medskip
-	
-	\textbf{Standard error}: the standard deviation of an estimate/statistic
-	
-	\vspace{0.3cm} 
-	
-	Once we know the sampling distribution of our estimate, it's fairly straightforward to figure out how \textbf{precise} it is. 
-	
-	\vspace{0.3cm}
-	
-	\textcolor{violet}{POLLEV}: Suppose we have two estimates. The first has sampling distribution $N(2, 5)$ and the second has sampling distribution $N(2, 1)$. \textbf{Which of these estimates is more precise?}
-	
-	\vspace{0.3cm}
-	
-	(Hint: precision and variance are inversely related) 
-	
-	\vspace{0.3cm}
-	
-	\normalsize \textcolor{blue}{Answer:} We typically describe the precision of an estimate via its standard error. Estimates with \textbf{smaller} standard error are \textbf{more} precise. Therefore, the estimate with sampling distribution $N(2, 1)$ is more precise.
-\end{frame}
+%\begin{frame}{Standard error}
+%	\textbf{Sampling distribution}: the distribution of an estimate/statistic
+%	\medskip
+%	
+%	\textbf{Standard error}: the standard deviation of an estimate/statistic
+%	
+%	\vspace{0.3cm} 
+%	
+%	Once we know the sampling distribution of our estimate, it's fairly straightforward to figure out how \textbf{precise} it is. 
+%	
+%	\vspace{0.3cm}
+%	
+%	\textcolor{violet}{POLLEV}: Suppose we have two estimates. The first has sampling distribution $N(2, 5)$ and the second has sampling distribution $N(2, 1)$. \textbf{Which of these estimates is more precise?}
+%	
+%	\vspace{0.3cm}
+%	
+%	(Hint: precision and variance are inversely related) 
+%	
+%	\vspace{0.3cm}
+%	
+%	\normalsize \textcolor{blue}{Answer:} We typically describe the precision of an estimate via its standard error. Estimates with \textbf{smaller} standard error are \textbf{more} precise. Therefore, the estimate with sampling distribution $N(2, 1)$ is more precise.
+%\end{frame}
 
 \begin{frame}{Standard error}
 \textbf{Sampling distribution}: the distribution of an estimate/statistic
@@ -1679,31 +1670,28 @@ Which of these are correct interpretations?
 	\medskip
 	\item There is a 95\% chance that the true population mean birthweight is between 3413.6 and 3414.5 grams.
 \end{enumerate}
-
-\footnotesize
-\url{https://PollEv.com/multiple_choice_polls/VRdHKvJkFgCu5d6jCdXDL/respond}
 \end{frame}
 
-\begin{frame}{\textcolor{violet}{POLLEV}: Interpreting Confidence Intervals}
-95\% CI for mean birthweight in grams is: (3413.6, 3414.5)
-
-\vspace{0.3cm}
-
-Which of these are correct interpretations?
-
-\vspace{0.3cm}
-
-\begin{enumerate}
-	\item 95\% of children have birthweights between 3413.6 and 3414.5 grams.
-	\medskip
-	\item \textcolor{blue}{Our observed sample mean of 3414 grams would not be considered unusual if the true population mean birthweight were between 3413.6 and 3414.5 grams.}
-	\medskip
-	\item There is a 95\% chance that the true population mean birthweight is between 3413.6 and 3414.5 grams.*
-\end{enumerate}
-
-\small *this is a common mistake, and is \textbf{not} the correct interpretation of a confidence interval!
-
-\end{frame}
+%\begin{frame}{\textcolor{violet}{POLLEV}: Interpreting Confidence Intervals}
+%95\% CI for mean birthweight in grams is: (3413.6, 3414.5)
+%
+%\vspace{0.3cm}
+%
+%Which of these are correct interpretations?
+%
+%\vspace{0.3cm}
+%
+%\begin{enumerate}
+%	\item 95\% of children have birthweights between 3413.6 and 3414.5 grams.
+%	\medskip
+%	\item \textcolor{blue}{Our observed sample mean of 3414 grams would not be considered unusual if the true population mean birthweight were between 3413.6 and 3414.5 grams.}
+%	\medskip
+%	\item There is a 95\% chance that the true population mean birthweight is between 3413.6 and 3414.5 grams.*
+%\end{enumerate}
+%
+%\small *this is a common mistake, and is \textbf{not} the correct interpretation of a confidence interval!
+%
+%\end{frame}
 
 \begin{frame}{Interpreting Confidence Intervals: How-to}
 Confidence intervals should always be interpreted \textbf{in context}.

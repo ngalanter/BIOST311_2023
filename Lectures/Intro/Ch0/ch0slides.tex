@@ -8,57 +8,28 @@
 \setbeamercolor{frametitle}{bg=white}
 %\setbeamertemplate{frametitle}[default][left]
 \setbeamertemplate{navigation symbols}{}
-\setbeamertemplate{footline}{\begin{flushright}\large \insertframenumber\end{flushright}}
 
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{amsthm}
-\usepackage{verbatim}
 
 % Title page details: 
 \title{Chapter 0: Review} 
-\author{Nina Galanter}
-\date{March 29, 2023}
+\author{Taylor Okonek \& Charlie Wolock}
+\date{\today}
 
 
 
 \begin{document}
-	
-	
-	\begin{frame}{Announcements and Reminders}
-		
-		\begin{itemize}
-			\item Everyone will get credit for the first pollev 
-			\medskip
-			\item Slight change to quiz timing: they will be graded by noon Wednesday and revisions due by noon Friday
-			\medskip
-			\item Complete the background quiz by the end of today
-			\medskip
-			\item Fill out the office hour poll (in the first announcement) ASAP
-			\medskip
-			\item Remember to turn in discussion section activity
-			\medskip
-			\item First homework will be released tomorrow
-		\end{itemize}
-		
-	\end{frame}
-	
 	% Title page frame
 	\begin{frame}
 	\titlepage 
-	
-	\centering
-	\textbf{pollev.com/ninag}
 \end{frame}
-
-
-
 
 \begin{frame}{Learning objectives}
 By the end of Chapter 0, you should be able to:
-\medskip
 \begin{itemize}
 	\item Identify and describe common study designs
 	\item Classify variables according to their type (e.g., binary)
@@ -88,7 +59,7 @@ By the end of Chapter 0, you should be able to:
 \section{Study Design}
 
 \begin{frame}{Study Design}
-\textbf{How you collect data impacts what questions you can (cannot) answer, what statistical methods you can (cannot) use, and what conclusions you can (cannot) draw.} \\~\
+\textit{How you collect data impacts what questions you can (cannot) answer, what statistical methods you can (cannot) use, and what conclusions you can (cannot) draw.} \\~\
 
 \textcolor{blue}{Extreme Example:} Suppose I'm interested in understanding public opinion about biostatistics. I randomly select an individual from our class and ask if they like biostatistics.
 
@@ -120,14 +91,14 @@ Examples:
 
 \begin{frame}{Experimental vs. Observational Studies}
 
-\textcolor{blue}{Experimental:} exposure/treatment is \textbf{controlled} by the researcher (e.g., randomly assign people to drug or placebo)
+\textcolor{blue}{Experimental:} exposure/treatment is \textit{controlled} by the researcher (e.g., randomly assign people to drug or placebo)
 \begin{itemize}
 	\item Randomized controlled trial 
 \end{itemize}
 
 \vspace{0.3cm}
 
-\textcolor{blue}{Observational:} exposure/treatment is \textbf{not controlled} by the researcher (e.g., we look at a group of people and \textbf{observe} who smokes and who doesn't smoke)
+\textcolor{blue}{Observational:} exposure/treatment is \textit{not controlled} by the researcher (e.g., we look at a group of people and \textit{observe} who smokes and who doesn't smoke)
 \begin{itemize}
 	\item Cross-sectional study
 	\item Cohort study
@@ -137,20 +108,22 @@ Examples:
 	
 	
 \begin{frame}{Experimental vs. Observational Studies}
-In \textbf{experimental} studies, we can talk about \color{blue} \textbf{causation}\color{black}. In \textbf{observational} studies we  talk instead about \color{blue} \textbf{association} \color{black}(because we worry about \color{blue} \textbf{confounding}\color{black}). \\
+In \textit{experimental} studies, we can talk about \color{blue} \textit{causation}\color{black}. In \textit{observational} studies we  talk instead about \color{blue} \textit{association} \color{black}(because we worry about \color{blue} \textit{confounding}\color{black}). \\
 
 \vspace{0.3cm}
 
 % we'll come back to this when we talk about interpreting results
-A \textbf{\textcolor{blue}{confounder}} is a variable that is associated with our outcome and also associated with the exposure in our sample, which, when we don't adjust for it, creates \textbf{\textcolor{blue}{bias}} in estimated the effect of the exposure on the outcome.  \\
+A \textit{\textcolor{blue}{confounder}} is a variable that is \textit{causally related to} our outcome and also \textit{associated with} the exposure in our sample.  \\
 
 \vspace{0.3cm}
 
 \begin{itemize}
-	\item[] \textbf{Example:} suppose we're interested in the relationship between smoking and lung function in kids. We know that age is causally associated with lung function: as children grow and develop, their lung function improves. If age is also associated with smoking in our sample (e.g., if older kids are more likely to smoke), then age is a confounder.
+	\item[] \textit{Example:} suppose we're interested in the relationship between smoking and lung function in kids. We know that age is causally associated with lung function: as children grow and develop, their lung function improves. If age is also associated with smoking in our sample (e.g., if older kids are more likely to smoke), then age is a confounder.
 \end{itemize} 
 
+\vspace{0.3cm}
 
+\small \textit{Much more on the topic of confounding to come...} 
 \end{frame}
 
 \subsection{Experimental studies}
@@ -158,16 +131,14 @@ A \textbf{\textcolor{blue}{confounder}} is a variable that is associated with ou
 \begin{frame}{Randomized controlled trial}
 Description:
 \begin{itemize}
-	\item Take a sample from the population and \textbf{randomly assign} individuals to either treatment (\textbf{exposed}) or control/placebo (\textbf{unexposed})
-	\item Follow individuals to observe a specific outcome (e.g., death yes/no, disease yes/no, time to death, change in cholesterol level, \dots)
+	\item Take a sample from the population and \textbf{randomly assign} individuals to either treatment (\textit{exposed}) or control/placebo (\textit{unexposed}), and follow individuals to observe a specific outcome (e.g., death yes/no, disease yes/no, time to death, change in cholesterol level, \dots)
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Randomized controlled trial}
 Description:
 \begin{itemize}
-	\item Take a sample from the population and \textbf{randomly assign} individuals to either treatment (\textbf{exposed}) or control/placebo (\textbf{unexposed})
-	\item Follow individuals to observe a specific outcome (e.g., death yes/no, disease yes/no, time to death, change in cholesterol level, \dots)
+	\item Take a sample from the population and \textbf{randomly assign} individuals to either treatment (\textit{exposed}) or control/placebo (\textit{unexposed}), and follow individuals to observe a specific outcome (e.g., death yes/no, disease yes/no, time to death, change in cholesterol level, \dots)
 \end{itemize}
 Pros:
 \begin{itemize}
@@ -179,8 +150,7 @@ Pros:
 \begin{frame}{Randomized controlled trial}
 Description:
 \begin{itemize}
-	\item Take a sample from the population and \textbf{randomly assign} individuals to either treatment (\textbf{exposed}) or control/placebo (\textbf{unexposed})
-	\item Follow individuals to observe a specific outcome (e.g., death yes/no, disease yes/no, time to death, change in cholesterol level, \dots)
+	\item Take a sample from the population and \textbf{randomly assign} individuals to either treatment (\textit{exposed}) or control/placebo (\textit{unexposed}), and follow individuals to observe a specific outcome (e.g., death yes/no, disease yes/no, time to death, change in cholesterol level, \dots)
 \end{itemize}
 Pros:
 \begin{itemize}
@@ -192,7 +162,7 @@ Cons:
 	\item Often very expensive
 	\item Not always possible or ethical to randomize individuals
 	\begin{itemize}
-		\item Cannot randomly assign someone to a specific air pollution level, genetic variant, etc.
+		\item Cannot randomly assign someone to a specific age, genetic variant, etc.
 		\item Unethical to randomly assign harmful exposures (e.g., smoking)
 	\end{itemize}
 \end{itemize}
@@ -216,16 +186,15 @@ Examples:
 \begin{frame}{Cross-sectional study}
 Description:
 \begin{itemize}
-	\item Randomly sample individuals, record their exposure and outcome at a \textbf{single time point/interval} (no follow-up)
+	\item Randomly sample individuals, record their exposure and outcome at a \textit{single time point/interval} (no follow-up)
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Cross-sectional study}
 Description:
 \begin{itemize}
-	\item Randomly sample individuals, record their exposure and outcome at a \textbf{single time point/interval} (no follow-up)
+	\item Randomly sample individuals, record their exposure and outcome at a \textit{single time point/interval} (no follow-up)
 \end{itemize}
-\medskip
 Pros:
 \begin{itemize}
 	\item Relatively cheap and easy
@@ -236,15 +205,13 @@ Pros:
 \begin{frame}{Cross-sectional study}
 Description:
 \begin{itemize}
-	\item Randomly sample individuals, record their exposure and outcome at a \textbf{single time point/interval} (no follow-up)
+	\item Randomly sample individuals, record their exposure and outcome at a \textit{single time point/interval} (no follow-up)
 \end{itemize}
-\medskip
 Pros:
 \begin{itemize}
 	\item Relatively cheap and easy
 	\item Can study multiple outcomes and exposures
 \end{itemize}
-\medskip
 Cons:
 \begin{itemize}
 	\item Inefficient for rare exposure and disease 
@@ -269,16 +236,16 @@ Examples:
 \begin{frame}{Cohort study}
 Description:
 \begin{itemize}
-	\item Sample people \textbf{without the outcome of interest}, record their exposure, then \textbf{follow} them over time to observe the outcome
-	\item Can be \textbf{prospective} (sample people in present time, then follow-up) or \textbf{restrospective} (sample people from a database collected in the past, and observe them through their time recorded in the database)
+	\item Sample people \textit{without the outcome of interest}, record their exposure, then \textit{follow} those individuals over time to observe the outcome
+	\item Can be \textit{prospective} (sample people in present time, then follow-up) or \textit{restrospective} (sample people from a database collected in the past, and observe them through their time recorded in the database)
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Cohort study}
 Description:
 \begin{itemize}
-	\item Sample people \textbf{without the outcome of interest}, record their exposure, then \textbf{follow} them over time to observe the outcome
-	\item Can be \textbf{prospective} (sample people in present time, then follow-up) or \textbf{restrospective} (sample people from a database collected in the past, and observe them through their time recorded in the database)
+	\item Sample people \textit{without the outcome of interest}, record their exposure, then \textit{follow} those individuals over time to observe the outcome
+	\item Can be \textit{prospective} (sample people in present time, then follow-up) or \textit{restrospective} (sample people from a database collected in the past, and observe them through their time recorded in the database)
 \end{itemize}
 Pros:
 \begin{itemize}
@@ -290,8 +257,8 @@ Pros:
 \begin{frame}{Cohort study}
 Description:
 \begin{itemize}
-	\item Sample people \textbf{without the outcome of interest}, record their exposure, then \textbf{follow} them over time to observe the outcome
-	\item Can be \textbf{prospective} (sample people in present time, then follow-up) or \textbf{restrospective} (sample people from a database collected in the past, and observe them through their time recorded in the database)
+	\item Sample people \textit{without the outcome of interest}, record their exposure, then \textit{follow} those individuals over time to observe the outcome
+	\item Can be \textit{prospective} (sample people in present time, then follow-up) or \textit{restrospective} (sample people from a database collected in the past, and observe them through their time recorded in the database)
 \end{itemize}
 Pros:
 \begin{itemize}
@@ -301,7 +268,7 @@ Pros:
 Cons:
 \begin{itemize}
 	\item Inefficient for rare outcomes
-	\item Prospective cohort studies are often expensive and time-consuming to follow people, and people may drop out/be lost to follow up
+	\item Prospective cohort studies are often expensive and time-consuming to follow people, and there are opportunities for people to drop out
 	\item Potential confounding (so no conclusions about causality)
 \end{itemize}
 \end{frame}
@@ -320,18 +287,16 @@ Examples:
 \end{frame}
 
 \begin{frame}{Case-control study}
-	\vspace{-5 mm}
 Description:
 \begin{itemize}
-	\item Sample individuals \textbf{based on the outcome} (some with, some without), look back in time (usually) for exposure
+	\item Sample individuals \textit{based on the outcome} (some with, some without), look back in time (usually) for exposure
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Case-control study}
-	\vspace{-5 mm}
 Description:
 \begin{itemize}
-	\item Sample individuals \textbf{based on the outcome} (some with, some without), look back in time (usually) for exposure
+	\item Sample individuals \textit{based on the outcome} (some with, some without), look back in time (usually) for exposure
 \end{itemize}
 Pros:
 \begin{itemize}
@@ -342,10 +307,9 @@ Pros:
 \end{frame}
 
 \begin{frame}{Case-control study}
-	\vspace{-5 mm}
 Description:
 \begin{itemize}
-	\item Sample individuals \textbf{based on the outcome} (some with, some without), look back in time (usually) for exposure
+	\item Sample individuals \textit{based on the outcome} (some with, some without), look back in time (usually) for exposure
 \end{itemize}
 Pros:
 \begin{itemize}
@@ -356,18 +320,10 @@ Pros:
 Cons:
 \begin{itemize}
 	\item May not know time sequence of disease and exposure
-	\item Cannot estimate relative risk or outcome prevalence*
-\begin{itemize}
-\item \textcolor{blue}{Sample outcome prevalence chosen/driven by researchers}
-\item \textcolor{blue}{Sample prevalence and risk can't be used to estimate population prevalence and risk}
-	\end{itemize}	
+	\item Cannot use to estimate relative risk or disease prevalence % more detail here??
 	\item Potential confounding (so no conclusions about causality)
 \end{itemize}
-\medskip
-*Generally, odds ratio approximates risk ratio for "rare" outcomes
 \end{frame}
-
-
 
 \begin{frame}[c]{Case-control study}
 Examples:
@@ -381,40 +337,28 @@ Examples:
 \end{frame}
 
 \begin{frame}{Study design: Practice}
-You read \href{https://jamanetwork.com/journals/jamaoncology/fullarticle/2569059?resultClick=24}{\color{cyan} this article} (from 2017), interested in the association between androgen deprivation therapy (ADT), a treatment for prostate cancer, and risk of dementia. \\~\
+You read \href{https://jamanetwork.com/journals/jamaoncology/fullarticle/2569059?resultClick=24}{\color{cyan} this article} (from 2017), interested in the association between androgen deprivation therpy (ADT), a treatment for prostate cancer, and risk of dementia. \\~\
 
-From the article: \textbf{In this... study, a text-processing method was used to analyze electronic medical record data from... 1994 to 2013. We identified 9455 individuals with prostate cancer who were 18 years or older at diagnosis with data recorded in the electronic health record and follow-up after diagnosis. We tested the effect of ADT on the risk of dementia.}
+From the article: \textit{In this... study, a text-processing method was used to analyze electronic medical record data from... 1994 to 2013. We identified 9455 individuals with prostate cancer who were 18 years or older at diagnosis with data recorded in the electronic health record and follow-up after diagnosis. We tested the effect of ADT on the risk of dementia.}
 
 \vspace{0.3cm}
 
 \begin{itemize}
-	\item What kind of study design is this? \textcolor{violet}{POLLEV Question}
+	\item What kind of study design is this?
 	\item Why do you think they chose this design? % cheap, can't randomly assign ADT
 	\item What are potential limitations of this study design?
 \end{itemize}
-
-\footnotesize
-\url{https://PollEv.com/multiple_choice_polls/B87VEXZY04zCZ98pnHrRr/respond}
 \end{frame}
 
 \begin{frame}{Study design: Practice}
 \begin{itemize}
 	\item What kind of study design is this?
-	\medskip
 	\begin{itemize}
-		\item[]  \color{blue} Cohort study (retrospective)
+		\item[]  \color{cyan} Cohort study (retrospective)
 	\end{itemize}
-\medskip
 	\item Why do you think they chose this design? % cheap, can't randomly assign ADT
-		\medskip
 	\begin{itemize}
-		\item \color{blue} Randomized controlled trials impossible, since you can't (and wouldn't) randomly assign prostate cancer
-		\smallskip
-		\item \color{blue} Dementia is not particularly rare, and they likely wanted to make statements about relative risks, so case-control studies are out
-		\smallskip
-		\item  Cross-sectional studies wouldn't necessarily allow the researchers to determine if dementia came before or after ADT. It may also be difficult to ask individuals with dementia about their history with ADT
-		\smallskip
-		\item Retrospective cohort studies are cheap, and easily allow the researchers to know whether or not ADT came before dementia \textbf{and} how long of a time there was between ADT and dementia, which may be of interest
+		\item[] \color{cyan} Randomized controlled trials are out of the question, since you can't randomly assign prostate cancer to individuals. This leaves observational studies. Dementia is not particularly rare, and they likely wanted to make statements about relative risks, so case-control studies are out as well. Cross-sectional studies wouldn't necessarily allow the researchers to determine if dementia came before or after ADT. It may also be difficult to ask individuals with dementia about their history with ADT. Cohort studies are cheap (especially retrospective), and also easily allow the researchers to know whether or not ADT came before dementia \textit{and} how long of a time there was between ADT and dementia, which may be of interest.
 	\end{itemize}
 \end{itemize}
 \end{frame}
@@ -422,73 +366,23 @@ From the article: \textbf{In this... study, a text-processing method was used to
 \begin{frame}{Study design: Practice}
 \begin{itemize}
 	\item What are potential limitations of this study design?
-	\medskip
 	\begin{itemize}
-		\item[] \color{blue} Potential confounding: cannot conclude that ADT causes / does not cause dementia
+		\item[] \color{cyan} Potential confounding: cannot conclude that ADT causes / does not cause dementia
 	\end{itemize}
 \end{itemize}
 \end{frame}
 
-\begin{frame}{\textcolor{violet}{POLLEV} Study design: Practice}
-Suppose you are interested in determining whether or not tobacco smoking increases the risk of schizophrenia. The prevalence of schizophrenia in the general population, either globally or in the US, is estimated to be under 1\%. Which study design would be most appropriate for answering your research question, and why?
-\bigskip
-
-\begin{itemize}
-	\item Randomized clinical trial
-	\item Cross-sectional study
-	\item Cohort study
-	\item Case-control study
-\end{itemize}
-\medskip
-
-\footnotesize
-\url{https://PollEv.com/multiple_choice_polls/kM7Mh7ruU2nCDFHnRRENN/respond}
+\begin{frame}{Study design: Practice}
+Suppose you are interested in determining whether or not there is an association between being a vegetarian and owning a pet iguana. \textit{Very few} individuals own iguanas. Which study design would be most appropriate for answering your research question, and why?
 \end{frame}
 
-\begin{frame}{\textcolor{violet}{POLLEV} Study design: Practice}
-Suppose you are interested in determining whether or not tobacco smoking increases the risk of schizophrenia. The prevalence of schizophrenia in the general population, either globally or in the US, is estimated to be under 1\%. Which study design would be most appropriate for answering your research question, and why?
-\bigskip
+\begin{frame}{Study design: Practice}
+Suppose you are interested in determining whether or not there is an association between being a vegetarian and owning a pet iguana. \textit{Very few} individuals own iguanas. Which study design would be most appropriate for answering your research question, and why? 
 
-\color{blue} Case-control study. 
+\vspace{0.3cm}
 
-\bigskip
+\color{cyan} Case-control study. Since we are not interested in establishing causality (``being a vegetarian causes you to own an iguana"...), an observational study is appropriate. Since owning an iguana is rare, cohort studies and cross-sectional studies will likely be inefficient. Therefore, a case-control study is most appropriate.
 
-\begin{itemize}
-	\item not ethical to randomize exposure to tobacco smoking so a clinical trial is out
-	\item We want to look at smoking as an exposure that comes before schizophrenia in time, so a cross-sectional study makes less sense
-	\item as schizophrenia is rare, a cohort study would need to be \textbf{very, very} large to get a reasonable number of people with the outcome 
-\end{itemize}
-
-
-\end{frame}
-
-\begin{frame}{\textcolor{violet}{POLLEV} Study design: Practice}
-	You are interested in studying the existence and extent of racial disparities in access to online patient portals for primary health care. Which study design would be most appropriate for answering your research question, and why?
-	\bigskip
-	
-	\begin{itemize}
-		\item Randomized clinical trial
-		\item Cross-sectional study
-		\item Cohort study
-		\item Case-control study
-	\end{itemize}
-\medskip
-
-\footnotesize
-\url{https://PollEv.com/multiple_choice_polls/HPsLMURzva5lvEVs711wo/respond}
-\end{frame}
-
-\begin{frame}{\textcolor{violet}{POLLEV} Study design: Practice}
-	You are interested in studying the existence and extent of disparities in access to online patient portals for primary health care based on self-identified race. Which study design would be most appropriate for answering your research question, and why?
-	\bigskip
-	
-	\textcolor{blue}{Cross-sectional study}
-	\bigskip
-	
-	\begin{itemize}
-		\item We aren't trying to determine a causal relationship
-		\item We are trying to look at the current point in time prevalence of access to patient portals
-	\end{itemize}
 \end{frame}
 
 \begin{frame}[c]
@@ -526,13 +420,13 @@ Variables in the dataset include:
 
 \vspace{0.3cm} 
 
-\textbf{We'll refer to this dataset as the \textcolor{blue}{births} dataset.} Available on the Canvas site as \color{blue} births.csv
+\textit{We'll refer to this dataset as the \textcolor{blue}{births} dataset.} Available on the Canvas site as \color{blue} births.csv
 \end{frame}
 
 \subsection{Types of Variables}
 
 \begin{frame}{Types of Variables}
-\textbf{How you summarize/analyze data often depends on what type of data you've collected.}
+\textit{How you summarize/analyze data often depends on what type of data you've collected.}
 
 \vspace{0.3cm}
 
@@ -547,9 +441,9 @@ The first step to summarizing/describing data is making sure you know what kind 
 \vspace{0.3cm}
 
 \begin{itemize}
-	\item \textbf{Nominal:} order has no meaning (e.g., country)
-	\item \textbf{Ordinal:} order may be meaningful (e.g., level of education)
-	\item \textbf{Binary:} two possible values; nominal or ordinal (e.g., presence of a genetic variant)
+	\item \textit{Nominal:} order has no meaning (e.g., country)
+	\item \textit{Ordinal:} order may be meaningful (e.g., level of education)
+	\item \textit{Binary:} two possible values; nominal or ordinal (e.g., presence of a genetic variant)
 \end{itemize}
 
 \vspace{0.3cm}
@@ -559,8 +453,8 @@ The first step to summarizing/describing data is making sure you know what kind 
 \vspace{0.3cm}
 
 \begin{itemize}
-	\item \textbf{Discrete:} values are typically integers (e.g., number of people living with HIV)
-	\item \textbf{Continuous:} values on a continuum (e.g., time)
+	\item \textit{Discrete:} values are typically integers (e.g., number of people living with HIV)
+	\item \textit{Continuous:} values on a continuum (e.g., time)
 \end{itemize}
 
 \end{frame}
@@ -571,30 +465,13 @@ Sometimes determining variable type is complicated! Consider the following scena
 
 \vspace{0.3cm}
 
-We survey parents and record information on whether or not they have any children. 
-\bigskip
-
-We record each living child's age, and if any of their children have died, we record the child's age of death.
-\bigskip
-
- Age at death is recorded monthly from age 0 months to 24 months, and yearly after that. 
+We survey parents and record information on whether or not they have any children. We record each living child's age, and if any of their children have died, we record the child's age of death. Age at death is recorded monthly from age 0 months to 24 months, and yearly after that. 
 
 \end{frame}
 
 \begin{frame}{Types of Variables: Activity}
 
-\vspace{-5 mm}
-
-We survey parents and record information on whether or not they have any children. 
-\medskip
-
-We record each living child's age, and if any of their children have died, we record the child's age of death. 
-\medskip
-
-Age at death is recorded monthly from age 0 months to 24 months, and yearly after that. 
-\medskip
-
-We plot the number of children who died at each age recorded vs. age in months:
+We survey parents and record information on whether or not they have any children. We record each living child's age, and if any of their children have died, we record the child's age of death. Age at death is recorded monthly from age 0 months to 24 months, and yearly after that. We plot the number of children who died at each age recorded vs. age in months:
 
 \vspace{0.3cm}
 
@@ -602,9 +479,6 @@ We plot the number of children who died at each age recorded vs. age in months:
 \end{frame}
 
 \begin{frame}{Types of Variables: Activity}
-
-\vspace{-5 mm}
-
 \begin{figure}
 	\centering \includegraphics[scale=0.25]{u5mr.png}
 \end{figure}
@@ -647,27 +521,17 @@ Argue why we should consider age at death to be a continuous variable.
 
 \begin{frame}{Types of Variables: Activity}
 
-\vspace{-8 mm}
-
-\begin{figure}
-	\centering \includegraphics[scale=0.15]{u5mr.png}
-\end{figure}
 	
-{\small Do you notice anything strange about the plot? }
+Do you notice anything strange about the plot? Does this affect whether or not we should consider age at death to be continuous or discrete?
 	
-\smallskip
+	\vspace{0.3cm}
 	
 \begin{itemize}
-	\item \small \textcolor{blue} {Death counts seem to be higher at exact years than for the months}
-	\smallskip
-		
-	\item \small \textcolor{blue} {For 24 months, 3 years, and 4 years, this is likely due to grouping. If a child died between ages 2.5 - 3.5, they would be recorded as having died at 3 years, so this count is inherently higher since it spans a longer time period than 1 month.} 
-	\smallskip
+	\item[] \small \textcolor{blue}{Death counts seem to be higher at exact years than for the months in between 1-2 years. For 24 months, 3 years, and 4 years, this is likely due to grouping. If a child died between ages 2.5 - 3.5, they would be recorded as having died at 3 years, so this count would be inherently higher since it spans a longer time period than simply 1 month. However, what about 12 months?} 
 	
-    \item \small \textcolor{blue} {However, what about 12 months?}
-	\smallskip
-
-	\item \small \textcolor{blue}{This phenomenon is known as ``age-heaping", and often occurs in surveys where parents do not know the exact age their child was when they died, or when surveyers record dates inexactly. This is essentially a rounding error, where many deaths are recorded at 1 year even though they may have occurred at any time between 0 and 2 years. }
+	\vspace{0.3cm}
+	
+	\item[] \small \textcolor{blue}{This phenomenon is known as ``age-heaping", and often occurs in surveys where parents do not know the exact age their child was when they died, or when surveyers themselves record dates inexactly. This is essentially a rounding error, where many deaths are recorded at 1 year even though they may have occurred at any time between 0 and 2 years. }
 \end{itemize}	
 	
 \end{frame}
@@ -675,10 +539,7 @@ Argue why we should consider age at death to be a continuous variable.
 \begin{frame}{Types of Variables: Activity}
 
 
-Considering age to be continuous \textbf{or} discrete in this example are both justifiable conclusions! In general, we'll consider age to be continuous in this class, but in specific scenarios it may make more sense to consider age in discrete groups. 
-\bigskip
-
-In regression models, whether to treat variables are continuous or discrete will be a modeling decision, and may depend on whether the variable is our outcome, the exposure of interest, or another covariate.
+Considering age to be continuous \textit{or} discrete in this example are both justifiable conclusions! In general, we'll consider age to be continuous in this class, but in specific scenarios it may make more sense to consider age in discrete groups. 
 
 \end{frame}
 
@@ -691,8 +552,8 @@ In regression models, whether to treat variables are continuous or discrete will
 	\vspace{0.3cm}
 	
 	\begin{itemize}
-		\item \textcolor{blue}{Descriptive} statistics: summarize or \textcolor{blue}{describe} what's happening \textcolor{blue}{\textbf{in our sample}}
-		\item \textcolor{orange}{Inferential} statistics: use our data to \textcolor{orange}{infer} something about \textcolor{orange}{\textbf{our population of interest}}
+		\item \textcolor{blue}{Descriptive} statistics: summarize or \textcolor{blue}{describe} what's happening \textcolor{blue}{\textit{in our sample}}
+		\item \textcolor{orange}{Inferential} statistics: use our data to \textcolor{orange}{infer} something about \textcolor{orange}{\textit{our population of interest}}
 	\end{itemize}
 	
 	\vspace{0.3cm}
@@ -712,24 +573,16 @@ Why do we need descriptive statistics?
 
 \begin{itemize}
 	\item Making sense of large amounts of data
-	\medskip
 	\item Checking data quality
-	\medskip
 	\begin{itemize}
 		\item Values outside reasonable range (e.g., height = 9')
 		\item Implausible combinations of variables (e.g., positive test for cervical cancer for a person without a cervix)
 	\end{itemize}
-\medskip
-
 	\item Observe distribution of variables in dataset
-	\medskip
 	\begin{itemize}
 		\item Measures of center and spread
 	\end{itemize}
-\medskip
-
 	\item Start to understand direction and strength of association
-	\medskip
 	\begin{itemize}
 		\item Descriptive statistics and inferential statistics should contribute to the same story
 	\end{itemize}
@@ -743,22 +596,15 @@ Appropriate descriptive statistics will vary depending on what how many variable
 \vspace{0.3cm}
 
 Outline:
-\medskip
-
 \begin{itemize}
 	\item Univariate
-	\smallskip
 	\begin{itemize}
 		\item Numerical (categorical variables)
-		\smallskip
 		\item Numerical (quantitative variables)
 	\end{itemize}
-\medskip
-
 	\item Stratified/Bivariate
 	\begin{itemize}
 		\item Numerical summaries, broken down by group
-		\smallskip
 		\item Graphical
 	\end{itemize}
 \end{itemize}
@@ -824,36 +670,20 @@ Summary should include:
 
 \begin{itemize}
 	\item Number and percent in each group
-	\medskip
 	\item If binary, only need to summarize one group
-	\smallskip
 	\begin{itemize}
 		\item The other can be inferred (for example, we had 16.1\% of individuals participate in First Steps, so 100 - 16.1 = 83.9\% did not.)
 	\end{itemize}
-\medskip
 	\item Also good to summarize missing data
-	\smallskip
 	\begin{itemize}
 		\item e.g., \# and proportion of missing values
 	\end{itemize}
-\end{itemize}
-\medskip
-
-
-\begin{table}
-	\centering
-	\begin{tabular}{l|r}
-		\textbf{First Steps participation} & \textbf{Proportion of Individuals (No.)} \\
-		\hline
-		Yes & 16.1\% (403)\\
-	\end{tabular}
-\end{table}
-	
+\end{itemize}	
 \end{frame}
 
 \begin{frame}{Univariate Descriptive Statistics: Quantitative}
 
-\textcolor{blue}{Example:} The primary outcome of interest in our births dataset is birthweight, recorded in grams. The data for birthweight looks like:
+\textcolor{blue}{Example:} The primary outcome of interest in our births dataset is birthweight, recorded in grams. The data for birthweight looks like \dots
 
 \vspace{0.3cm}
 
@@ -885,21 +715,19 @@ What information may be useful to know?
 
 \begin{frame}{Univariate Descriptive Statistics: Quantitative}
 
-\vspace{-5 mm}
-
 How many individuals are in our dataset?
 
 \begin{itemize}
-	\item[] \textcolor{blue}{2500 individuals in our dataset.} (\texttt{R} code: \texttt{nrow(births)})
+	\item[] \textcolor{blue}{There are 2500 individuals in our dataset.}
 \end{itemize}
 
 Do any individuals have missing values for birthweight?
 
 \begin{itemize}
-	\item[] \textcolor{blue}{No!} (\texttt{R} code: \texttt{summary(births\$bwt)})
+	\item[] \textcolor{blue}{No!}
 \end{itemize}
 
-Measures of center? (\texttt{R} code: \texttt{summary(births\$bwt)})
+Measures of center?
 
 \begin{itemize}
 	\item[] \textcolor{blue}{Mean birthweight is 3414 grams.}
@@ -909,18 +737,9 @@ Measures of center? (\texttt{R} code: \texttt{summary(births\$bwt)})
 Measures of spread?
 
 \begin{itemize}
-	\item[] \textcolor{blue}{Sample standard deviation is 559 grams.} 
-	\begin{itemize}
-	\item[] (\texttt{R} code: \texttt{sd(births\$bwt,na.rm = TRUE)})
-	\end{itemize}
+	\item[] \textcolor{blue}{Sample standard deviation is 559 grams.}
 	\item[] \textcolor{blue}{Interquartile range (IQR) is (3096 grams, 3766 grams) (Q1, Q3)}
-	\begin{itemize}
-		\item[] (\texttt{R} code: \texttt{summary(births\$bwt)})
-	\end{itemize}
 	\item[] \textcolor{blue}{Range is (255 grams, 5175 grams) (The smallest baby to ever survive weighed around 212 grams)}
-	\begin{itemize}
-		\item[] (\texttt{R} code: \texttt{summary(births\$bwt)})
-	\end{itemize}
 \end{itemize}
 
 
@@ -933,24 +752,16 @@ Summary should include (some of):
 
 \begin{itemize}
 	\item Sample size / number of observations
-	\medskip
 	\item Number of missing observations
-	\medskip
 	\item Measures of center:
 	\begin{itemize}
-			\smallskip
 		\item Sample mean
-			\smallskip
 		\item Sample median
 	\end{itemize}
-\medskip
 	\item Measures of spread:
 	\begin{itemize}
-		\smallskip
 		\item Sample standard deviation
-			\smallskip
 		\item Interquartile range (IQR): (Q1, Q3) or (Q3 - Q1)
-			\smallskip
 		\item Range: (Min, Max) or (Max - Min)
 	\end{itemize}
 \end{itemize}
@@ -999,7 +810,6 @@ Stratified descriptive statistics can help us:
 
 \begin{itemize}
 	\item Understand the role of the stratification variable
-	\medskip
 	\item Begin to demonstrate the association between the two variables
 \end{itemize}
 
@@ -1053,33 +863,21 @@ You’ll also get practice on homework assignments and your data analysis projec
 
 \begin{frame}{Statistical Inference} 
 Why do we do statistics?
-\medskip
+
 \begin{itemize}
 	\item We can't (usually) measure everyone in our \textbf{population}
-	\smallskip
 	\begin{itemize}
-		\item \textbf{Example}: all pregnant individuals in King County
+		\item \textit{Example}: all pregnant individuals in King County
 	\end{itemize}
-\smallskip
 	\item Instead, we take a \textbf{sample}
 	\begin{itemize}
-		\smallskip
-		\item \textbf{Example}: 2500 pregnant individuals with singleton births
-		\smallskip
-		\item Note: important to sample well so that the sample truly reflects (is \textbf{representative} of) our population of interest
+		\item \textit{Example}: 2500 pregnant individuals with singleton births
+		\item Note: important to sample well so that the sample truly reflects (is \textit{representative} of) our population of interest
 	\end{itemize}
-\smallskip
-
 	\item We hope that what we estimate from the sample also applies to the population
-	\smallskip
-	
 	\begin{itemize}
-		\item The process of translating from the \textbf{sample} to the \textbf{population} is \textbf{statistical inference}
-		\smallskip
-		
+		\item The process of translating from the \textit{sample} to the \textit{population} is \textbf{statistical inference}
 		\item What we estimate in the sample = \textbf{estimate} or \textbf{statistic}
-		\smallskip
-		
 		\item Corresponding value in population = \textbf{parameter}
 	\end{itemize}
 \end{itemize}
@@ -1211,9 +1009,6 @@ Consider our births dataset. We're interesting in knowing whether the First Step
 \end{frame}
 
 \begin{frame}{Precision and Accuracy}
-	
-\vspace{-3 mm}
-	
 Using descriptive statistics, we can get sample estimates
 \vspace{0.3cm}
 \begin{itemize}
@@ -1231,7 +1026,7 @@ To assess how well these estimates represent the population of interest, we need
 	\item Precision: how variable are our estimates?
 \end{itemize}
 \vspace{0.3cm}
-\textbf{Just like we want to describe the center and spread of variables when we summarize our data, we also want to understand the center (accuracy) and spread (precision) of our estimates.}
+\textit{Just like we want to describe the center and spread of variables when we summarize our data, we also want to understand the center (accuracy) and spread (precision) of our estimates.}
 \end{frame}
 
 \begin{frame}[c]{Precision and Accuracy}
@@ -1239,57 +1034,29 @@ To assess how well these estimates represent the population of interest, we need
 \end{frame}
 
 \begin{frame}{Precision, Accuracy, and Inference}
-	
-\vspace{-3 mm}
-	
-	
 How do we know how precise or accurate our statistic is?
 
 \vspace{0.1cm}
 
 \begin{itemize}
-	\item We need to know how our statistic (estimated from a sample) would vary in \textbf{repeated samples}
+	\item We need to know how our statistic (estimated from a sample) would vary in \textit{repeated samples}
 	\begin{itemize}
-		\smallskip
-		\item i.e., if we went out and collected another sample from this population, how different would the estimate be? And if we did this a third time, or a fourth time, etc.?
+		\item i.e., if we went out and collected another sample from this population, how different would the estimate be? And if we did this a third time, or a fourth time, or...?
 	\end{itemize}
-\medskip
-	\item Our statistics are \textbf{random}: the value you get will change depending on which sample you've ended up with
+	\item Our statistics are \textit{random}: the value you get will change depending on which sample you've ended up with
 	\begin{itemize}
-		\smallskip
 		\item The \textbf{distribution} of a random quantity describes how that random quantity behaves
-		\smallskip
 		\item If we know the distribution of our statistic, the center tells us about the (possible${}^1$) accuracy and the spread tells us about the precision of our statistic
 	\end{itemize}
 \end{itemize}
 
 \vspace{0.1cm}
 
-\small ${}^1$ we only know how accurate our statistic is if we know the population parameter, but we can often judge if our statistics are very \textbf{inaccurate} based on whether our sample is representative of the population
+\small ${}^1$ we only know how accurate our statistic is if we know the population parameter, but we can often judge whether our statistics are very \textit{inaccurate} based on whether our sample is representative of the population or not
 
 \end{frame}
 
 \subsection{Normal/$t$ distributions, Sampling distributions}
-
-\begin{frame}{Probability distributions}
-	
-\vspace{-3 mm}	
-	
-	The \textcolor{blue}{distribution} of a random quantity tells you what values that quantity can take and how likely it is to take each of those values.
-	\bigskip
-	
-	Discrete Variable
-	\begin{figure}
-	\centering \includegraphics[scale=0.35]{discrete_dist}
-	\end{figure}
-	\smallskip
-	
-	Continuous Variable
-\begin{figure}
-	\centering \includegraphics[scale=0.35]{Normal-density.jpg}
-\end{figure}
-\end{frame}
-
 
 \begin{frame}{Probability distributions}
 The \textcolor{blue}{distribution} of a random quantity tells you what values that quantity can take and how likely it is to take each of those values.
@@ -1298,7 +1065,7 @@ The \textcolor{blue}{distribution} of a random quantity tells you what values th
 	\centering \includegraphics[scale=0.5]{Normal-density.jpg}
 \end{figure}
 
-\textcolor{blue}{Figure:} For continuous variables, \textcolor{orange}{Area under curve} = probability that our random quantity takes values between 0.5 and 3
+\textcolor{blue}{Figure:} \textcolor{orange}{Area under curve} = probability that our random quantity takes values between 0.5 and 3
 
 \end{frame}
 
@@ -1312,8 +1079,7 @@ The \textcolor{blue}{distribution} of a random quantity tells you what values th
 
 \vspace{0.3cm}
 
- \textcolor{blue}{Many of the random quantities we care about have a (approximately) normal distribution given a large enough sample size!} 
-
+\small \textcolor{blue}{Many of the random quantities we care about have a normal distribution!} 
 \end{frame}
 
 \begin{frame}{Probability distributions: $t$ distribution}
@@ -1321,7 +1087,7 @@ The \textcolor{blue}{distribution} of a random quantity tells you what values th
 	\centering \includegraphics[scale=0.5]{tdistn.png}
 \end{figure}
 
-The $t$ distribution is similar to a normal distribution, but with heavier tails (so \textbf{less precision}). How close it is to a normal distribution depends on the \textbf{degrees of freedom}.
+The $t$ distribution is similar to a normal distribution, but with heavier tails. How close it is to a normal distribution depends on the \textit{degrees of freedom}.
 
 \end{frame}
 
@@ -1331,16 +1097,13 @@ The $t$ distribution is similar to a normal distribution, but with heavier tails
 
 \vspace{0.3cm}
 
-The \textcolor{orange}{Central Limit Theorem} tells us the sampling distribution of some statistics that we care about \textbf{for large samples}:
-\medskip
+The \textcolor{orange}{Central Limit Theorem} tells us the sampling distribution of some statistics that we care about \textit{for large samples}:
+
 \begin{itemize}
-		\item \textbf{Mean:} \textcolor{blue}{the sampling distribution of the sample mean is approximately normal:} $\bar{X} \sim N(\mu, \sigma^2 / n)$
-	\smallskip
+	\item \textbf{Mean:} \textcolor{blue}{the sampling distribution of the sample mean is approximately normal:} $\bar{X} \sim N(\mu, \sigma^2 / n)$
 	\begin{itemize}
 		\item $\mu$ = population mean
-		\smallskip
 		\item $\sigma^2$ = population variance
-		\smallskip
 		\item $n$ = sample size
 	\end{itemize}
 
@@ -1353,24 +1116,18 @@ The \textcolor{orange}{Central Limit Theorem} tells us the sampling distribution
 
 \vspace{0.3cm}
 
-The \textcolor{orange}{Central Limit Theorem} tells us the sampling distribution of some statistics that we care about \textbf{for large samples}:
-\medskip
+The \textcolor{orange}{Central Limit Theorem} tells us the sampling distribution of some statistics that we care about \textit{for large samples}:
+
 \begin{itemize}
 	\item \textbf{Mean:} \textcolor{blue}{the sampling distribution of the sample mean is approximately normal:} $\bar{X} \sim N(\mu, \sigma^2 / n)$
-	\smallskip
 	\begin{itemize}
 		\item $\mu$ = population mean
-		\smallskip
 		\item $\sigma^2$ = population variance
-		\smallskip
 		\item $n$ = sample size
 	\end{itemize}
-\medskip
 	\item \textbf{Proportion:} \textcolor{blue}{the sampling distribution of the sample proportion is approximately normal:} $ \hat{p} \sim N(p, p(1-p)/n)$
 	\begin{itemize}
-		\smallskip
 		\item $p$ = population proportion
-		\smallskip
 		\item $n$ = sample size / number of trials
 	\end{itemize}
 \end{itemize}
@@ -1378,38 +1135,28 @@ The \textcolor{orange}{Central Limit Theorem} tells us the sampling distribution
 
 \begin{frame}{Sampling distributions}
 
-\vspace{-5 mm}
-
 \textbf{Sampling distribution}: the distribution of an estimate/statistic
 
 \vspace{0.3cm}
 
-The \textcolor{orange}{Central Limit Theorem} tells us the sampling distribution of some statistics that we care about \textbf{for large samples}:
-\medskip
+The \textcolor{orange}{Central Limit Theorem} tells us the sampling distribution of some statistics that we care about \textit{for large samples}:
+
 \begin{itemize}
 	\item \textbf{Mean:} \textcolor{blue}{the sampling distribution of the sample mean is approximately normal:} $\bar{X} \sim N(\mu, \sigma^2 / n)$
-	\smallskip
 	\begin{itemize}
 		\item $\mu$ = population mean
-		\smallskip
 		\item $\sigma^2$ = population variance
-		\smallskip
 		\item $n$ = sample size
 	\end{itemize}
-	\medskip
 	\item \textbf{Proportion:} \textcolor{blue}{the sampling distribution of the sample proportion is approximately normal:} $ \hat{p} \sim N(p, p(1-p)/n)$
 	\begin{itemize}
-		\smallskip
 		\item $p$ = population proportion
-		\smallskip
 		\item $n$ = sample size / number of trials
 	\end{itemize}
-\medskip
+\end{itemize}
 Another statistic that we often care about $\frac{\bar{X} - \mu}{s} \sim t_{n - 1}$
 \begin{itemize}
-	\smallskip
 	\item $s$ = sample standard deviation
-\end{itemize}
 \end{itemize}
 
 \end{frame}
@@ -1418,54 +1165,27 @@ Another statistic that we often care about $\frac{\bar{X} - \mu}{s} \sim t_{n - 
 
 \begin{frame}{Standard error}
 \textbf{Sampling distribution}: the distribution of an estimate/statistic
-\medskip
-
 \textbf{Standard error}: the standard deviation of an estimate/statistic
 
 \vspace{0.3cm} 
 
-Once we know the sampling distribution of our estimate, it's fairly straightforward to figure out how \textbf{precise} it is. 
+Once we know the sampling distribution of our estimate, it's fairly straightforward to figure out how \textit{precise} it is. 
 
 \vspace{0.3cm}
 
-\textcolor{violet}{POLLEV}: Suppose we have two estimates. The first has sampling distribution $N(2, 5)$ and the second has sampling distribution $N(2, 1)$. \textbf{Which of these estimates is more precise?}
+\textcolor{blue}{Example:} Suppose we have to estimates. The first has sampling distribution $N(2, 5)$ and the second has sampling distribution $N(2, 1)$. \textit{Which of these estimates is more precise?}
 
 \vspace{0.3cm}
 
-(Hint: precision and variance are inversely related) 
-\medskip
+\small (Hint: precision and variance are inversely related) \pause
 
-\footnotesize
-\url{https://PollEv.com/multiple_choice_polls/wHH4w3mFeWnPCdZWvzA8y/respond}
-\end{frame}
+\vspace{0.3cm}
 
-\begin{frame}{Standard error}
-	\textbf{Sampling distribution}: the distribution of an estimate/statistic
-	\medskip
-	
-	\textbf{Standard error}: the standard deviation of an estimate/statistic
-	
-	\vspace{0.3cm} 
-	
-	Once we know the sampling distribution of our estimate, it's fairly straightforward to figure out how \textbf{precise} it is. 
-	
-	\vspace{0.3cm}
-	
-	\textcolor{violet}{POLLEV}: Suppose we have two estimates. The first has sampling distribution $N(2, 5)$ and the second has sampling distribution $N(2, 1)$. \textbf{Which of these estimates is more precise?}
-	
-	\vspace{0.3cm}
-	
-	(Hint: precision and variance are inversely related) 
-	
-	\vspace{0.3cm}
-	
-	\normalsize \textcolor{blue}{Answer:} We typically describe the precision of an estimate via its standard error. Estimates with \textbf{smaller} standard error are \textbf{more} precise. Therefore, the estimate with sampling distribution $N(2, 1)$ is more precise.
+\normalsize \textcolor{blue}{Answer:} We typically describe the precision of an estimate via its standard error. Estimates with \textit{smaller} standard error are \textit{more} precise. Therefore, the estimate with sampling distribution $N(2, 1)$ is more precise.
 \end{frame}
 
 \begin{frame}{Standard error}
 \textbf{Sampling distribution}: the distribution of an estimate/statistic
-\medskip
-
 \textbf{Standard error}: the standard deviation of an estimate/statistic
 
 \vspace{0.3cm} 
@@ -1483,8 +1203,6 @@ The sampling distribution of the sample mean $\bar{X}$ is approximately normal: 
 
 \begin{frame}{Standard error}
 \textbf{Sampling distribution}: the distribution of an estimate/statistic
-\medskip
-
 \textbf{Standard error}: the standard deviation of an estimate/statistic
 
 \vspace{0.3cm} 
@@ -1525,9 +1243,6 @@ We're interesting in knowing whether the First Steps program improves birth outc
 \end{frame}
 
 \begin{frame}{Reporting uncertainty: Motivating example}
-	
-\vspace{-3 mm}
-	
 We can convert this outline into general steps for a statistical inference procedure:
 
 \vspace{0.3cm}
@@ -1539,7 +1254,7 @@ We can convert this outline into general steps for a statistical inference proce
 		\item Identify the \textbf{population} (all babies born in King County) and \textbf{parameter} (population mean) of interest
 	\end{itemize}
 	\item Take a \textbf{sample} from the population: 2500 singleton births in King County in 2001
-	\item Perform \textbf{statistical inference}:
+	\item Perform \textit{statistical inference}:
 	\begin{itemize}
 		\item Calculate the corresponding \textbf{statistic} (sample mean): 3414 grams
 		\item Quantify the uncertainty in your statistic
@@ -1549,9 +1264,6 @@ We can convert this outline into general steps for a statistical inference proce
 \end{frame}
 
 \begin{frame}{Reporting uncertainty: Motivating example}
-
-\vspace{-3 mm}
-
 We can convert this outline into general steps for a statistical inference procedure:
 
 \vspace{0.3cm}
@@ -1563,10 +1275,10 @@ We can convert this outline into general steps for a statistical inference proce
 		\item Identify the \textbf{population} (all babies born in King County) and \textbf{parameter} (population mean) of interest
 	\end{itemize}
 	\item Take a \textbf{sample} from the population: 2500 singleton births in King County in 2001
-	\item Perform \textbf{statistical inference}:
+	\item Perform \textit{statistical inference}:
 	\begin{itemize}
 		\item Calculate the corresponding \textbf{statistic} (sample mean): 3414 grams
-		\item \textcolor{blue}{Quantify the uncertainty in your statistic $\leftarrow$ \textbf{two options}}
+		\item Quantify the uncertainty in your statistic \textcolor{blue}{$\leftarrow$ \textbf{two options}}
 	\end{itemize}
 	\item Make conclusions about your original scientific and statistical questions
 \end{enumerate}
@@ -1582,43 +1294,38 @@ Now we need to quantify our uncertainty in this estimate.
 \vspace{0.3cm}
 
 \textcolor{blue}{Option 1:} use the standard error
-\smallskip
 
-\textbf{We estimate that the average birthweight is 3414 grams, with standard error 0.224.}
+\textit{We estimate that the average birthweight is 3414 grams, with standard error 0.224.}
 
 \vspace{0.3cm}
 
 \textcolor{blue}{Option 2:} use a 95\% confidence interval (est $\pm 1.96 \times SE$)
-\smallskip
 
-\textbf{We estimate that the average birthweight is 3414 grams. Based on a 95\% confidence interval, this observed average would not be considered unusual if the true average birthweight were between 3413.6 and  3414.5 grams.}
-\medskip
-
-\textbf{We estimate that the average birthweight is 3414 grams, with a 95\% confidence interval of (3413.6, 3414.5) grams.}
+\textit{We estimate that the average birthweight is 3414 grams. Based on a 95\% confidence interval, this observed average would not be considered unusual if the true average birthweight were between 3413.6 and  3414.5 grams.}
 
 \end{frame}
 
-%\begin{frame}{Confidence Intervals}
-%What does a 95\% confidence interval really mean, and how do we correctly interpret it?
-%
-%\vspace{0.3cm}
-%
-%The procedure of creating a 95\% confidence interval (est $\pm 1.96 \times SE$) gives us a range of values based on our sample.
-%
-%\centering \includegraphics[scale=0.4]{ci1.png}
-%
-%\end{frame}
-%
-%\begin{frame}{Confidence Intervals}
-%What does a 95\% confidence interval really mean, and how do we correctly interpret it?
-%
-%\vspace{0.3cm}
-%
-%The procedure of creating a 95\% confidence interval (est $\pm 1.96 \times SE$) gives us a range of values based on our sample.
-%
-%\centering \includegraphics[scale=0.4]{ci2.png}
-%
-%\end{frame}
+\begin{frame}{Confidence Intervals}
+What does a 95\% confidence interval really mean, and how do we correctly interpret it?
+
+\vspace{0.3cm}
+
+The procedure of creating a 95\% confidence interval (est $\pm 1.96 \times SE$) gives us a range of values based on our sample.
+
+\centering \includegraphics[scale=0.4]{ci1.png}
+
+\end{frame}
+
+\begin{frame}{Confidence Intervals}
+What does a 95\% confidence interval really mean, and how do we correctly interpret it?
+
+\vspace{0.3cm}
+
+The procedure of creating a 95\% confidence interval (est $\pm 1.96 \times SE$) gives us a range of values based on our sample.
+
+\centering \includegraphics[scale=0.4]{ci2.png}
+
+\end{frame}
 
 \begin{frame}{Confidence Intervals}
 What does a 95\% confidence interval really mean, and how do we correctly interpret it?
@@ -1646,7 +1353,7 @@ The particular range of values that we get depends on the sample data, and will 
 \end{frame}
 
 \begin{frame}{Confidence Intervals}
-Over (hypothetical) \textbf{repeated sampling}, 95\% \textbf{of these intervals} will cover the truth.
+Over (hypothetical) \textbf{repeated sampling}, 95\% \textit{of these intervals} will cover the truth.
 
 \centering \includegraphics[scale=0.4]{ci6.png}
 
@@ -1658,55 +1365,49 @@ Over (hypothetical) \textbf{repeated sampling}, 95\% \textbf{of these intervals}
 \centering \includegraphics[scale=0.4]{ci6.png}
 \end{figure}
 
+\vspace{0.3cm}
 
-\textcolor{blue}{Important:} it is not \textbf{our interval} that contains the truth 95\% of the time. Our interval either contains the truth, or it doesn't (as the image above shows). It is the \textbf{procedure} of computing confidence intervals over \textbf{repeated sampling} that gives us 95\% coverage of the truth.
+\textcolor{blue}{Important:} it is not \textit{our interval} that contains the truth 95\% of the time. Our interval either contains the truth, or it doesn't (as the image above shows). It is the \textit{procedure} of computing confidence intervals over \textit{repeated sampling} that gives us 95\% coverage of the truth.
 
 \end{frame}
 
-\begin{frame}{\textcolor{violet}{POLLEV}: Interpreting Confidence Intervals}
+\begin{frame}{Interpreting Confidence Intervals: Example}
 95\% CI for mean birthweight in grams is: (3413.6, 3414.5)
 
 \vspace{0.3cm}
 
-Which of these are correct interpretations?
+Which of these is the correct interpretation?
 
 \vspace{0.3cm}
 
 \begin{enumerate}
 	\item 95\% of children have birthweights between 3413.6 and 3414.5 grams.
-	\medskip
 	\item Our observed sample mean of 3414 grams would not be considered unusual if the true population mean birthweight were between 3413.6 and 3414.5 grams.
-	\medskip
 	\item There is a 95\% chance that the true population mean birthweight is between 3413.6 and 3414.5 grams.
 \end{enumerate}
-
-\footnotesize
-\url{https://PollEv.com/multiple_choice_polls/VRdHKvJkFgCu5d6jCdXDL/respond}
 \end{frame}
 
-\begin{frame}{\textcolor{violet}{POLLEV}: Interpreting Confidence Intervals}
+\begin{frame}{Interpreting Confidence Intervals: Example}
 95\% CI for mean birthweight in grams is: (3413.6, 3414.5)
 
 \vspace{0.3cm}
 
-Which of these are correct interpretations?
+Which of these is the correct interpretation?
 
 \vspace{0.3cm}
 
 \begin{enumerate}
 	\item 95\% of children have birthweights between 3413.6 and 3414.5 grams.
-	\medskip
 	\item \textcolor{blue}{Our observed sample mean of 3414 grams would not be considered unusual if the true population mean birthweight were between 3413.6 and 3414.5 grams.}
-	\medskip
 	\item There is a 95\% chance that the true population mean birthweight is between 3413.6 and 3414.5 grams.*
 \end{enumerate}
 
-\small *this is a common mistake, and is \textbf{not} the correct interpretation of a confidence interval!
+\small *this is a common mistake, and is \textit{not} the correct interpretation of a confidence interval!
 
 \end{frame}
 
 \begin{frame}{Interpreting Confidence Intervals: How-to}
-Confidence intervals should always be interpreted \textbf{in context}.
+Confidence intervals should always be interpreted \textit{in context}.
 
 \vspace{0.3cm}
 
@@ -1719,7 +1420,7 @@ Our observed sample \textcolor{orange}{estimate} of \_\_\_ \textcolor{orange}{un
 \end{frame}
 
 \begin{frame}{Interpreting Confidence Intervals: How-to}
-Confidence intervals should always be interpreted \textbf{in context}.
+Confidence intervals should always be interpreted \textit{in context}.
 
 \vspace{0.3cm}
 
@@ -1790,7 +1491,7 @@ Our observed sample \textcolor{orange}{mean} of 3414 \textcolor{orange}{grams} w
 		\item \textbf{Population} = all babies born in King County, \textbf{parameter} = difference in population means (between babies born to parents in FS vs. not)
 	\end{itemize}
 	\item Take a \textbf{sample} from the population: 2500 singleton births in King County in 2001
-	\item Perform \textbf{statistical inference}:
+	\item Perform \textit{statistical inference}:
 	\begin{itemize}
 		\item Calculate the corresponding \textbf{statistic} (difference in sample means between FS vs. not)
 		\item Quantify the uncertainty in our statistic
@@ -1809,7 +1510,7 @@ Our observed sample \textcolor{orange}{mean} of 3414 \textcolor{orange}{grams} w
 		\item \textbf{Population} = all babies born in King County, \textbf{parameter} = difference in population means (between babies born to parents in FS vs. not)
 	\end{itemize}
 	\item Take a \textbf{sample} from the population: 2500 singleton births in King County in 2001
-	\item Perform \textbf{statistical inference}:
+	\item Perform \textit{statistical inference}:
 	\begin{itemize}
 		\item Calculate the corresponding \textbf{statistic} (difference in sample means between FS vs. not)
 		\item Quantify the uncertainty in our statistic
@@ -1825,7 +1526,7 @@ To perform statistical inference, we need:
 
 \vspace{0.3cm}
 
-A \textbf{statistic}: difference in average birthweight \textbf{in our sample} between babies born to parents in FS vs. not in FS 
+A \textbf{statistic}: difference in average birthweight \textit{in our sample} between babies born to parents in FS vs. not in FS 
 
 \vspace{0.3cm}
 
@@ -1834,108 +1535,76 @@ A \textbf{statistic}: difference in average birthweight \textbf{in our sample} b
 \vspace{0.3cm}
 
 To perform a \textbf{hypothesis test:}
-\smallskip
+
 \begin{itemize}
 	\item \textbf{Null and alternative hypotheses}:
 	\begin{itemize}
 		\item $H_0$: $\mu_{\text{FS}} - \mu_{\text{no FS}} = 0$
 		\item $H_1$: $\mu_{\text{FS}} - \mu_{\text{no FS}} \neq 0$
 	\end{itemize}
-\smallskip
-	\item \textbf{Choice of test}: two-sample t-test (unequal variances)
+	\item \textbf{Choice of test}: two-sample t-test
 	\begin{itemize}
 		\item Test if the averages in two independent groups are equal
-		\item We will not assume variance in birthweight is the same in babies born to parents in FS vs. not in FS
+		\item Assume variance in birthweight is the same in babies born to parents in FS vs. not in FS (\textit{equal variances})*
 	\end{itemize}
+\end{itemize}
+
+\small *This is an assumption we can relax, which we will talk about much later in the course!
+
+\end{frame}
+
+\begin{frame}{Statistical Inference: New Example}
+
+We can conduct a two-sample t-test to answer this question in \texttt{R}:
+
+\vspace{0.3cm}
+
+\begin{figure}
+\centering \includegraphics[scale=0.5]{ttest1.png}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Statistical Inference: New Example}
+\begin{figure}
+	\centering \includegraphics[scale=0.5]{ttest2.png}
+\end{figure}
+
+\begin{itemize}
+	\item The observed difference in means is $3424.687-  3358.506 \approx 66$ grams, with group $0$ having the higher mean
 \end{itemize}
 
 
 \end{frame}
 
-\begin{frame}[fragile=singleslide]{Statistical Inference: New Example}
-
-\vspace{-5 mm}
-
-We can conduct a two-sample t-test to answer this question in \texttt{R}:
-
-
-
-\small
-\begin{verbatim}t.test(data = births, bwt ~ firstep, var.equal = FALSE)\end{verbatim}
-\smallskip
-
-\begin{verbatim}
-Welch Two Sample t-test
-\end{verbatim}
-\begin{verbatim}
-data:  bwt by firstep
-\end{verbatim}
-\begin{verbatim}
-t = 2.0239, df = 533.75, p-value = 0.04347
-\end{verbatim}
-\begin{verbatim}
-alternative hypothesis: true difference in means between group 0 
-and group 1 is not equal to 0
-\end{verbatim}
-\begin{verbatim}
-95 percent confidence interval:
-1.946111 130.415827
-\end{verbatim}
-\begin{verbatim}
-sample estimates:
-mean in group 0 mean in group 1 
-3424.687        3358.506
-\end{verbatim}
-
-\end{frame}
-
-
-\begin{frame}[fragile=singleslide]{Statistical Inference: New Example}
-	
-	\vspace{-5 mm}
-	
-	We can conduct a two-sample t-test to answer this question in \texttt{R}:
-	
-	
-
-\small
-\begin{verbatim}t.test(data = births, bwt ~ firstep, var.equal = FALSE)\end{verbatim}
-	\smallskip
-	
-	\begin{verbatim}
-	Welch Two Sample t-test
-	\end{verbatim}
-	\begin{verbatim}
-	data:  bwt by firstep
-	\end{verbatim}
-	\begin{verbatim}
-	t = 2.0239, df = 533.75, p-value = 0.04347
-	\end{verbatim}
-	\begin{verbatim}
-	alternative hypothesis: true difference in means between group 0 
-	and group 1 is not equal to 0
-	\end{verbatim}
-	\begin{verbatim}
-	95 percent confidence interval:
-	1.946111 130.415827
-	\end{verbatim}
-	\begin{verbatim}
-	sample estimates:
-	mean in group 0 mean in group 1 
-	3424.687        3358.506
-	\end{verbatim}
+\begin{frame}{Statistical Inference: New Example}
+\begin{figure}
+	\centering \includegraphics[scale=0.5]{ttest3.png}
+\end{figure}
 
 \begin{itemize}
 	\item The observed difference in means is $3424.687-  3358.506 \approx 66$ grams, with group $0$ having the higher mean
-	\item The 95\% confidence interval for the difference is $(1.95, 130.42)$
-	\item The p-value corresponding to this test is $0.04$
+	\item The 95\% confidence interval for the difference in means is $(6.57, 125.79)$
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Statistical Inference: New Example}
+\begin{figure}
+	\centering \includegraphics[scale=0.5]{ttest4.png}
+\end{figure}
+
+\begin{itemize}
+	\item The observed difference in means is $3424.687-  3358.506 \approx 66$ grams, with group $0$ having the higher mean
+	\item The 95\% confidence interval for the difference in means is $(6.57, 125.79)$
+	\item The p-value corresponding to this test is $0.03$
 \end{itemize}
 
 \end{frame}
 
 
 \begin{frame}{Interpreting p-values}
-\textbf{Definition:} a \textbf{p-value} is the probability of obtaining a test statistic \textbf{as or more extreme} than the observed test statistic (computed from your data) under the null hypothesis
+\textbf{Definition:} a \textit{p-value} is the probability of obtaining a test statistic \textit{as or more extreme} than the observed test statistic (computed from your data) under the null hypothesis
 
 \begin{itemize}
 	\item[] \textcolor{red}{Not} the probability that the alternative hypothesis is true! 
@@ -1943,7 +1612,7 @@ mean in group 0 mean in group 1
 
 \vspace{0.3cm} 
 
-(A less official definition): a \textbf{p-value} is a number between 0 and 1 that quantifies the statistical strength of your evidence against the null hypothesis
+(A less official definition): a \textit{p-value} is a number between 0 and 1 that quantifies the statistical strength of your evidence against the null hypothesis
 
 \vspace{0.3cm}
 
@@ -1962,7 +1631,7 @@ Interpreting our results:
 \vspace{0.3cm}
 
 \begin{itemize}
-	\item \textbf{Statistic:} We estimate that the difference in mean birthweight between babies born to birth parents in FS vs. those not in FS is 66 grams (with those not in FS having higher mean birthweight).
+	\item \textit{Statistic:} We estimate that the difference in mean birthweight between babies born to birth parents in FS vs. those not in FS is 66 grams (with those not in FS having higher mean birthweight).
 \end{itemize}
 
 \end{frame}
@@ -1973,8 +1642,8 @@ Interpreting our results:
 \vspace{0.3cm}
 
 \begin{itemize}
-	\item \textbf{Statistic:} We estimate that the difference in mean birthweight between babies born to birth parents in FS vs. those not in FS is 66 grams (with those not in FS having higher mean birthweight).
-	\item \textbf{Uncertainty:} Based on a 95\% confidence interval, this observed difference would not be surprising if the true difference were between 1.95 and 130.42 grams.
+	\item \textit{Statistic:} We estimate that the difference in mean birthweight between babies born to birth parents in FS vs. those not in FS is 66 grams (with those not in FS having higher mean birthweight).
+	\item \textit{Uncertainty:} Based on a 95\% confidence interval, this observed difference would not be surprising if the true difference were between 6.57 and 125.79 grams.
 \end{itemize}
 
 \end{frame}
@@ -1985,9 +1654,9 @@ Interpreting our results:
 \vspace{0.3cm}
 
 \begin{itemize}
-	\item \textbf{Statistic:} We estimate that the difference in mean birthweight between babies born to birth parents in FS vs. those not in FS is 66 grams (with those not in FS having higher mean birthweight).
-	\item \textbf{Uncertainty:} Based on a 95\% confidence interval, this observed difference would not be surprising if the true difference were between 1.95 and 130.42 grams.
-	\item \textbf{Hypothesis test p-value:} These data provide statistically significant evidence that the difference in mean birthweight between groups is different from zero ($p < 0.05$).
+	\item \textit{Statistic:} We estimate that the difference in mean birthweight between babies born to birth parents in FS vs. those not in FS is 66 grams (with those not in FS having higher mean birthweight).
+	\item \textit{Uncertainty:} Based on a 95\% confidence interval, this observed difference would not be surprising if the true difference were between 6.57 and 125.79 grams.
+	\item \textit{Hypothesis test p-value:} These data provide statistically significant evidence that the difference in mean birthweight between groups is different from zero ($p < 0.05$).
 \end{itemize}
 
 \end{frame}
@@ -1998,10 +1667,10 @@ Interpreting our results:
 \vspace{0.3cm}
 
 \begin{itemize}
-	\item \textbf{Statistic:} We estimate that the difference in mean birthweight between babies born to birth parents in FS vs. those not in FS is 66 grams (with those not in FS having higher mean birthweight).
-	\item \textbf{Uncertainty:} Based on a 95\% confidence interval, this observed difference would not be surprising if the true difference were between 1.95 and 130.42 grams.
-	\item \textbf{Hypothesis test p-value:} These data provide statistically significant evidence that the difference in mean birthweight between groups is different from zero ($p < 0.05$).
-	\item \textbf{Conclusion:} These data provide statistically significant evidence to suggest that First Steps participation is associated with birthweight in children.
+	\item \textit{Statistic:} We estimate that the difference in mean birthweight between babies born to birth parents in FS vs. those not in FS is 66 grams (with those not in FS having higher mean birthweight).
+	\item \textit{Uncertainty:} Based on a 95\% confidence interval, this observed difference would not be surprising if the true difference were between 6.57 and 125.79 grams.
+	\item \textit{Hypothesis test p-value:} These data provide statistically significant evidence that the difference in mean birthweight between groups is different from zero ($p < 0.05$).
+	\item \textit{Conclusion:} These data provide statistically significant evidence to suggest that First Steps participation is associated with birthweight in children.
 \end{itemize}
 
 \end{frame}
@@ -2012,13 +1681,13 @@ Interpreting our results:
 \vspace{0.3cm}
 
 \begin{itemize}
-	\item \textbf{Statistic:} We estimate that the difference in mean birthweight between babies born to birth parents in FS vs. those not in FS is 66 grams (with those not in FS having higher mean birthweight).
-	\item \textbf{Uncertainty:} Based on a 95\% confidence interval, this observed difference would not be surprising if the true difference were between 1.95 and 130.42 grams.
-	\item \textbf{Hypothesis test p-value:} These data provide statistically significant evidence that the difference in mean birthweight between groups is different from zero ($p < 0.05$).
-	\item \textbf{Conclusion:} These data provide statistically significant evidence to suggest that First Steps participation is associated with birthweight in children.
+	\item \textit{Statistic:} We estimate that the difference in mean birthweight between babies born to birth parents in FS vs. those not in FS is 66 grams (with those not in FS having higher mean birthweight).
+	\item \textit{Uncertainty:} Based on a 95\% confidence interval, this observed difference would not be surprising if the true difference were between 6.57 and 125.79 grams.
+	\item \textit{Hypothesis test p-value:} These data provide statistically significant evidence that the difference in mean birthweight between groups is different from zero ($p < 0.05$).
+	\item \textit{Conclusion:} These data provide statistically significant evidence to suggest that First Steps participation is associated with birthweight in children.
 \end{itemize}
 
-\vspace{0.1cm}
+\vspace{0.3cm}
 
 \textcolor{blue}{Always give 4 numbers:} point estimate, confidence interval (lower, upper), p-value (even when not significant!)
 

@@ -1,7 +1,7 @@
 ---
 title: "Homework 1"
 subtitle: "BIOST 311"
-author: "Taylor Okonek and Charlie Wolock"
+author: "Nina Galanter"
 date: \today
 output: 
   pdf_document:
@@ -27,13 +27,13 @@ knitr::opts_chunk$set(results = "hide")
 
 ## Instructions
 
-This assignment should be submitted on Canvas as a .pdf by 12:30pm on Friday, April 8th. You are welcome to work together on the homework; however, final solutions should be written up individually. 
+This assignment should be submitted on Canvas as a .pdf by 11:59pm on Thursday, April 6th. You are welcome to work together on the homework; however, final solutions should be written up individually. 
 
 Unedited software output in the body of your assignment is not acceptable. Please round numerical values to 2--3 significant digits, and include your R code (if applicable) in the same document. See the "How to Write a Proper Homework" document on Canvas for additional guidelines.  
 
-Each homework assignment is worth 20 points total. Problems are graded for correctness, according to the number of points given in the problem statement. 
+Each homework assignment is worth 20 points total. Problems are graded for correctness, according to the number of points given in the problem statement. Homeworks will be marked complete if you get at least 16/20 points, otherwise the homework is incomplete pending a possible revision. 
 
-Be sure to look at the cheat sheet for this week's homework -- it will provide you with useful `R` functions!
+Be sure to look at the cheat sheet for this week's homework -- it will provide you with useful `R` functions! You should be able to complete the plotting questions in part 1 after Tuesday's discussion section.
 
 ## 1. Descriptive statistics and data visualization
 
@@ -41,28 +41,28 @@ We will be using the `births` dataset often in the first few weeks of BIOST311. 
 
 a. Load the `births` dataset (0 points)
 
-b. The `gestation` variable gives the number of weeks gestation for each birth in the dataset. Give relevant descriptive statistics for this variable, and provide one plot of your choice to visualize its distribution. Would you describe the distribution as roughly symmetric, left skewed, or right skewed? (2 points)
+b. The `age` variable gives the age in years of the parent when the baby is born. Give relevant descriptive statistics for this variable, and provide one plot of your choice to visualize its distribution. Would you describe the distribution as roughly symmetric, left skewed, or right skewed? (2 points)
 
-c. Make another plot of gestation times, but this time stratified by birth parent's smoking status. Qualitatively describe how the two distributions look in comparison to one another. (2 points)
+c. Make another plot of parent age, but this time stratified by whether the parent participated in the first step program. Qualitatively describe how the two distributions look in comparison to one another. (2 points)
 
-d. The `wpre` variables gives the weight (in pounds) of the birth parent prior to pregnancy, and `wgain` gives the weight gained during pregnancy. Make a single plot examining the relationship between these two variables. Qualitatively describe the association between `wpre` and `wgain`. (2 points)
+d. The `gestation` variable gives the gestational age (in weeks) of the baby at birth. Make a single plot examining the relationship between `age` and `gestation`. Qualitatively describe the association between `age` and `gestation`. (2 points)
 
 e. Reproduce your plot from part (e), but this time use `ggplot2` aesthetics to differentiate individuals with `parity = 0` (i.e. those who have had no previous births) and `parity > 0` (i.e., those who have had previous births). You will want to create a new variable for this problem, and then use color or shape to indicate which data points have previous births and which do not. (2 points)
 
 ## 2. Standard errors and confidence intervals
 
-a. What is the mean birth parent age in the `births` dataset? Give an estimate of the standard error of the sample mean. Construct a 95\% confidence interval for the population mean age "by hand" (i.e., using `R` for calculations, but not using the `confint` function). Interpret this confidence interval. (2 points)
+a. What is the mean gestation time in the `births` dataset? Give an estimate of the standard error of the sample mean. Construct a 95\% confidence interval for the population mean age "by hand" (i.e., using `R` for calculations, but not using the `confint` function). Interpret this confidence interval. (2 points)
 
-b. Suppose we took another sample of size 2500 from the live births in King County. If the standard deviation of birth parent age were larger in this sample, how would a 95\% confidence interval for mean age differ from what you determined in part (a)? Give one sentence explaining your rationale. (2 point)
+b. Suppose we took another sample of size 2500 from the live births in King County. If the standard deviation of birth parent age were larger in this sample, how would a 95\% confidence interval for mean gestation time differ from what you determined in part (a)? Give one sentence explaining your rationale. (2 point)
 
-c. What is the proportion of births assigned female sex? Estimate the standard error of the sample proportion and costruct a 95\% confidence interval "by hand" for the population proportion (i.e., using `R` for calculations, but not using the `confint` function). Interpret this confidence interval. (2 points)
+c. What is the proportion of births to a parent who is married? Estimate the standard error of the sample proportion and construct a 95\% confidence interval "by hand" for the population proportion (i.e., using `R` for calculations, but not using the `confint` function). Interpret this confidence interval. (2 points)
 
 ## 3. Study design
 
 For each of the following scientific questions, propose an appropriate study design. (You may use the same design at most twice.) Provide a one-sentence explanation of your reasoning. 
 
-a. Among people who are already heavy smokers, can running reduce the effect of smoking on incidence of lung cancer? (2 point)
+a. How does the risk of death by suicide differ between those who have previously seen a mental health provider and those who have not? (2 points)
 
-b.	How does risk of severe influenza differ between those who received a flu vaccine and those who did not? (2 point)
+b.	For patients taking both daily birth control pills and daily pre-exposure prophylaxis (PrEP) HIV prevention medication, will their adherence (how often they are taking the medications as prescribed) improve if the two pills are combined into one pill? (2 points)
 
-c. Is a common genetic mutation associated with colon cancer? (2 point)
+c. Among patients over 65, is dog or cat ownership associated with the risk of falling within one year? (2 points)
