@@ -1,0 +1,139 @@
+% Create a Table of Contents in Beamer
+\documentclass[10pt,t]{beamer}
+% Theme choice:
+\usetheme{Singapore}
+\useoutertheme{sidebar}
+\usecolortheme{seahorse}
+\setbeamercolor{titlelike}{bg=white}
+\setbeamercolor{frametitle}{bg=white}
+%\setbeamertemplate{frametitle}[default][left]
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{\begin{flushright}\small \insertframenumber\end{flushright}}
+
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{ulem}
+\usepackage{listings}
+
+% Title page details: 
+\title{Quiz 2 Comments} 
+\author{Nina Galanter}
+\date{\today}
+
+
+\begin{document}
+	% Title page frame
+	\begin{frame}
+	\titlepage 
+\end{frame}
+
+\begin{frame}{Question 4}
+	Which of the following measures of spread is most affected by outliers (data points that differ significantly from other observations)?
+	\medskip
+	\begin{enumerate}
+		\item Interquartile range
+		\medskip
+		\item Standard Deviation
+		\medskip
+		\item Variance
+		\medskip
+		\item {\color{green}Range}
+	\end{enumerate}
+\medskip
+\begin{itemize}
+	\item Interquartile range is the only measure that's robust to outliers
+	\smallskip
+	\item Standard Deviation is the square root of variance, so both are essentially equally affected by outliers
+	\smallskip
+	\item Range is more affected than variance/standard deviation
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Question 4}
+	
+	\vspace{-5 mm}
+	Here we have 100 observations between 0 and 1, and 1 observation at 10. Without the outlier, the range is {\color{blue}0.999} and the standard deviation is {\color{violet}0.307}. With the outlier, the range is {\color{blue}10.000} and the standard deviation is {\color{violet}0.992}. 
+
+\begin{figure}
+	\centering
+	\includegraphics[scale = 0.45]{range_vs_sd}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Question 6}
+	I am interested in the association between high blood pressure and coronary artery disease. I have access to the University of Washington Medical Center electronic health record database. I randomly sample 10,000 adult patients from the database, and record (1) whether or not they have high blood pressure and (2) whether or not they have ever had a cardiovascular event. 
+	\medskip
+	
+	This could best be characterized as which of the following study designs? 
+	\medskip
+	\begin{enumerate}
+		\item Prospective cohort study
+		\medskip
+		\item Cross-sectional study
+		\medskip
+		\item {\color{green}Retrospective cohort study}
+		\medskip
+		\item Case-control study
+	\end{enumerate}
+
+
+\end{frame}
+
+\begin{frame}{Question 6}
+	\vspace{-5 mm}
+	
+	Better wording:
+	\medskip
+	
+	I am interested in the association between high blood pressure and coronary artery disease. I have access to the University of Washington Medical Center electronic health record database. I randomly sample 10,000 adult patients from the database, and record (1) whether or not they have high blood pressure and (2) whether or not they have ever had a cardiovascular event \textbf{afterwards}. 
+	\medskip
+	
+
+	\begin{itemize}
+		\item In an electronic health record database, records generally consist of patient demographics and "events"
+		\medskip
+		\item Events can be appointments, surgeries, emergency room visits, prescriptions, tests, phone calls, etc
+		\medskip
+		\item We have information across many time-points for most people
+		\medskip
+		\item So it's possible to follow people in time from the exposure to see if they had the outcome
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{Question 9}
+	Cohort studies are more efficient than case-control studies for studying rare outcomes. 
+	
+	\smallskip
+	\begin{enumerate}
+		\item True
+		\item {\color{green}False}
+	\end{enumerate}
+	
+	\medskip
+	
+	\begin{itemize}
+		\item For cohort studies, we sample only people \textbf{without} the outcome
+		\medskip
+		\begin{itemize}
+			\item The number of people with the outcome will be however many eventually develop it
+			\smallskip
+			\item If the outcome is rare, we need many people in our initial sample to make sure that enough people eventually get the outcome
+		\end{itemize}
+	\medskip
+		\item  For case-control studies, we sample some people \textbf{who've had the outcome} and some who haven't
+		\medskip
+			\begin{itemize}
+			\item We control (to the extent we are able to recruit people) how many people have the outcome
+			\smallskip
+			\item Our sample can be pretty small to have enough people with the outcome
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\end{document}

@@ -1,10 +1,8 @@
 ---
 title: 'Data Analysis Project, Part 1: Project Proposal'
-author: "Taylor Okonek and Charlie Wolock"
-date: "Spring Quarter 2022; Submit on Canvas by 15 April 2022"
 output:
-  pdf_document: default
   word_document: default
+  pdf_document: default
 subtitle: 'BIOST 311: Regression Methods in the Health Sciences'
 ---
 
@@ -20,7 +18,7 @@ See the project description document in the Week 1 page on Canvas for a list of 
 
 Your final *Proposal* should be a **one page** (single-spaced, 12 point font) Word or .pdf document that contains a brief description of the data, the scientific problem, and the scientific questions that you want to answer.
 
-Please submit on Canvas by 11:59pm on April 15. **Do not discuss your project with other students or post questions about your project on the Canvas discussion board.** But, feel free to ask us any questions in person/via Canvas message instead!
+Please submit on Canvas by 11:59pm on April 14. **Do not discuss your project with other students or post questions about your project on the Canvas discussion board.** But, feel free to ask any questions in person/via Canvas message instead!
 
 ## Template:
 

@@ -1,16 +1,19 @@
 ---
 title: "Graphics in R"
-subtitle: "BIOST 311, Discussion Section Week 2"
-author: "Taylor Okonek and Charlie Wolock"
-date: \today
-output: 
+author: "Nina Galanter"
+date: "\today"
+output:
+  html_document:
+    toc: no
+    df_print: paged
   pdf_document:
-    toc: false
+    toc: no
+subtitle: BIOST 311, Discussion Section Week 2
 header-includes:
-  - \usepackage{color}
-  - \usepackage{fvextra}
-  - \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
-editor_options: 
+- \usepackage{color}
+- \usepackage{fvextra}
+- \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+editor_options:
   chunk_output_type: console
 ---
 
@@ -372,7 +375,7 @@ There are more advanced topics not covered here that allow for further customiza
 
 For references for the above topics see [Ram] below.
 
-In general, becoming familiar with these functions requires lots of practice and reading of documentation. Another tutorial (*with practice problems*) can be found \href{https://r4ds.had.co.nz/explore-intro.html}{here}, a complete reference of functions can be found \href{https://ggplot2.tidyverse.org/reference/}{here}, and a cheat sheet of syntax can be found \href{https://www.rstudio.com/wp-content/uploads/2016/11/ggplot2-cheatsheet-2.1.pdf}{here}. Just like with learning a new programming language, becoming well-versed in Googling "r ggplot how to (task)" will serve you well in finding the syntax for a desired task. 
+In general, becoming familiar with these functions requires lots of practice and reading of documentation. Another tutorial (*with practice problems*) can be found \href{https://r4ds.had.co.nz/explore-intro.html}{here}, a complete reference of functions can be found \href{https://ggplot2.tidyverse.org/reference/}{here}, and a cheat sheet of syntax can be found \href{https://posit.co/wp-content/uploads/2022/10/data-visualization-1.pdf}{here}. Just like with learning a new programming language, becoming well-versed in Googling "r ggplot how to (task)" will serve you well in finding the syntax for a desired task. 
 
 \newpage
 
