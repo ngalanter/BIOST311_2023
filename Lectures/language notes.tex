@@ -1,0 +1,149 @@
+% Create a Table of Contents in Beamer
+\documentclass[10pt,t]{beamer}
+% Theme choice:
+\usetheme{Singapore}
+\useoutertheme{sidebar}
+
+\usecolortheme{seahorse}
+\setbeamercolor{titlelike}{bg=white}
+\setbeamercolor{frametitle}{bg=white}
+%\setbeamertemplate{frametitle}[default][left]
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{\begin{flushright}\small \insertframenumber\end{flushright}}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{ulem}
+\usepackage{listings}
+\usepackage{hyperref}
+
+% Title page details: 
+\title{Language and variable definitions in public health and this course} 
+\subtitle{Especially around substance use, sex, gender, race, and ethnicity}
+\author{Nina Galanter}
+\date{\today}
+
+
+\begin{document}
+	% Title page frame
+	\begin{frame}
+	\titlepage 
+\end{frame}
+
+\begin{frame}{Person-first language\footnote{Carey Farquhar EPI 530 Fall 2021}}
+	\vspace{-5 mm}
+	
+In this course, as is widespread in public health, we will use person-first language.
+\medskip
+\begin{itemize}
+\item Focuses on the person instead of their health
+status, condition, or behavior
+\medskip
+\item Describes what a person has or does, not who a
+person is
+\medskip
+\item Goals
+\medskip
+\begin{itemize}
+\item Avoid reducing a person to a specific characteristic
+\medskip
+\item Avoid perpetuating stigma and/or ignorance
+\end{itemize}
+\medskip
+\item For example: people who inject drugs, subjects with diabetes, person living with HIV, people who smoke
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Person-centered language\footnote{Carey Farquhar EPI 530 Fall 2021}\footnote{\url{https://radicalcopyeditor.com/2017/07/03/person-centered-language/}}}
+	\vspace{-5 mm}
+	
+	While many prefer person-first language, not all
+	persons or groups do
+	\medskip
+	\begin{itemize}
+	\item Some feel certain characteristics are inseparable from identity
+	\medskip
+	\item Some argue that separating the person from
+	their condition or experience can make it feel
+	like something to be ashamed of
+	\medskip
+	\item Goal is to treat people as the
+	“experts on themselves” and use the language
+	they prefer – person-first or otherwise
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Language around drug use\footnote{Biostatstics EDI Comittee: \url{https://docs.google.com/document/d/1tem4zDGRCdl5jcImrv_UoVZ5D-IUsm5mUwNrSurQd08/edit}}}
+	\vspace{-5 mm}
+	
+	\begin{itemize}
+	\item Drug use is often very stigmatized
+	\medskip
+	\item In the US substance use disorders are often blamed on people who live with these conditions
+	\medskip
+	\item Unfair and hides the role of government policies and companies (such as \textcolor{violet}{\href{https://www.washingtonpost.com/national/hammer-on-the-abusers-mass-attorney-general-alleges-purdue-pharma-tried-to-shift-blame-for-opioid-addiction/2019/01/15/4af25c4c-190c-11e9-88fe-f9f77a3bcb6c_story.html}{pharmaceutical companies that produce opioids}})
+	\medskip
+	\item Unhelpful and harmful from a public health perspective 
+	\medskip
+	\item To prevent this we can avoid "drug abuse" and use person-first language
+	\medskip
+	\item We can label variables as behaviors (e.g. smoking, opioid use) rather than identities (e.g. smokers, opioid users) 
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Sex and Gender\footnote{Biostatstics EDI Comittee: \url{https://docs.google.com/document/d/1tem4zDGRCdl5jcImrv_UoVZ5D-IUsm5mUwNrSurQd08/edit}}}
+	\vspace{-7 mm}
+	
+	\begin{itemize}
+	\item sex is a biological variable related to chromosomes and/or primary/secondary sex characteristics
+	\smallskip
+	\item gender is non-biological and related to social presentation and self-perception
+	\smallskip
+	\item In biomedical studies it is much more common to consider sex than gender, though sex may sometimes be mislabeled as gender
+	\smallskip
+	\item Depending on how data is collected, it may be unclear whether a variable represents sex, gender, or a complicated combination
+	\smallskip
+	\item Sex is not a binary variable but is usually binarized in datasets
+	\smallskip
+	\begin{itemize}
+		\item in statistics, we may not be able to work with observations which fall into a small subgroup; collapsing categories can prevent this
+		\smallskip
+		\item however, binarizing sex may marginalize people who are intersex
+		\smallskip
+		\item there's not an easy answer
+	\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Race and Ethnicity\footnote{Biostatstics EDI Comittee:: \url{https://docs.google.com/document/d/1tem4zDGRCdl5jcImrv_UoVZ5D-IUsm5mUwNrSurQd08/edit}}}
+	\vspace{-7 mm}
+	
+	\begin{itemize}
+		\item Race and ethnicity are socially and politically defined identities which impact our health
+		\smallskip
+		\item However, the collection/use of data on race and ethnicity often:
+		\smallskip
+		\begin{itemize}
+			\item excludes people who are multiracial
+			\medskip
+			\item excludes people who do not fit into a small number of categories
+			\medskip
+			\item can group together people with very different identities in terms of race and ethnicity
+			\smallskip
+		\end{itemize}
+	\item Again there is a tension as we are limited by sample size in
+\smallskip
+	\begin{itemize}
+		\item how many variables we can include in an analysis
+		\medskip
+		\item whether we can analyze data on certain subgroups
+	\end{itemize}
+\smallskip
+\item One solution when designing a study is to over-sample people of certain identities
+	\end{itemize}
+\end{frame}
+
+\end{document}

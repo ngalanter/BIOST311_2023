@@ -1,0 +1,44 @@
+---
+title: "Inline R code"
+author: "Nina Galanter"
+date: '2023-04-11'
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r preliminaries, message = FALSE, results = "hide"}
+library(tidyverse)
+# install.packages("car")
+library(car)
+data(UN)
+# ?UN # run this line for details on the dataframe
+```
+
+## Inline Code
+
+When interpretting models in R markdown, it may be helpful to use inline code in R, where we put R code in written parts  of an R markdown. Two examples are below.
+
+
+```{r example1, message = FALSE, results = "hide"}
+
+mod <- lm(data = UN, lifeExpF ~ pctUrban)
+
+```
+
+We estimate that, comparing two groups of countries with a difference of 1 percentage point urban, female life expectancy is `r round(coef(mod)[2],2)` years higher for the more urban countries.  Based on a 95% confidence interval, this estimated difference would not be judged unusual if the true difference were between `r round(confint(mod)[2,1],2)` and `r round(confint(mod)[2,2],2)` years.
+
+```{r example2, message = FALSE, results = "hide"}
+
+mod <- lm(data = UN, lifeExpF ~ pctUrban)
+
+beta1 <- coef(mod)["pctUrban"]
+
+ci_low <- confint(mod)["pctUrban", "2.5 %"]
+ci_high <- confint(mod)["pctUrban", "97.5 %"]
+
+```
+
+We estimate that, comparing two groups of countries with a difference of 1 percentage point urban, female life expectancy is `r round(beta1,2)` years higher for the more urban countries. Based on a 95% confidence interval, this estimated difference would not be judged unusual if the true difference were between `r round(ci_low,2)` and `r round(ci_high,2)` years.

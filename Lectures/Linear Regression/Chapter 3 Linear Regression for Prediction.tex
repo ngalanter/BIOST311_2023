@@ -166,14 +166,14 @@ Fitted values \textit{are} the predicted values (predictions) for each observati
 In two dimensions (where we have only one predictor $X_1$), we can visualize fitted values on a scatter plot:
 \vspace{0.3cm}
 
-\centering \includegraphics[scale=0.4]{fitted_vals1.png}
+\centering \includegraphics[scale=0.4]{figures/fitted_vals1.png}
 \end{frame}
 
 \begin{frame}{Fitted values: Visualizing in two dimensions}
 In two dimensions (where we have only one predictor $X_1$), we can visualize fitted values on a scatter plot:
 \vspace{0.3cm}
 
-\centering \includegraphics[scale=0.4]{fitted_vals2.png}
+\centering \includegraphics[scale=0.4]{figures/fitted_vals2.png}
 \end{frame}
 
 \begin{frame}{Fitted values and prediction}
@@ -200,7 +200,7 @@ Suppose we're interested in predicting a baby's birthweight based on birth paren
 
 \vspace{0.2cm}
 
-\centering \includegraphics[scale=0.35]{predict_reg.png}
+\centering \includegraphics[scale=0.35]{figures/predict_reg.png}
 \end{frame}
 
 \begin{frame}{Prediction: Example in \texttt{R}}
@@ -306,7 +306,7 @@ Earlier we calculated by hand our best estimate of a baby's birthweight born to 
 \vspace{0.3cm}
 
 \begin{figure}
-	\centering \includegraphics[scale=0.5]{newdata_example.png}
+	\centering \includegraphics[scale=0.5]{figures/newdata_example.png}
 \end{figure}
 
 \vspace{0.3cm}
@@ -320,7 +320,7 @@ We can also make predictions for multiple observations at the same time. For exa
 
 \vspace{0.3cm}
 
-\centering \includegraphics[scale=0.5]{newdata_example2.png}
+\centering \includegraphics[scale=0.5]{figures/newdata_example2.png}
 
 \end{frame}
 
@@ -363,7 +363,7 @@ We can create training and testing datasets in \texttt{R} by taking a random sam
 \vspace{0.1cm}
 
 \begin{figure}
-	\centering \includegraphics[scale=0.5]{traintest.png}
+	\centering \includegraphics[scale=0.5]{figures/traintest.png}
 \end{figure}
 
 \vspace{0.1cm}
@@ -395,7 +395,7 @@ It might also be useful to create a new object containing the observed outcomes 
 Suppose we are (again) interested in predicting a baby's birthweight based on birth parent's age, marital status, whether or not they smoke during pregnancy, and weight prior to pregnancy. We first divide our data into training and testing data, fit the model on the training data, and then predict the outcomes for the testing data:
 
 \begin{figure}
-	\centering \includegraphics[scale=0.5]{traintest2.png}
+	\centering \includegraphics[scale=0.5]{figures/traintest2.png}
 \end{figure}
 \end{frame}
 
@@ -404,16 +404,16 @@ We now have predictions and observed outcomes for individuals in out testing dat
 
 \vspace{0.3cm}
 
-\centering \includegraphics[scale=0.4]{predict_vs_obs_code.png} \vspace{0.1cm}
+\centering \includegraphics[scale=0.4]{figures/predict_vs_obs_code.png} \vspace{0.1cm}
 
-\includegraphics[scale=0.3]{predict_vs_obs.png}
+\includegraphics[scale=0.3]{figures/predict_vs_obs.png}
 
 \end{frame}
 
 \begin{frame}{Training and testing data: Example in \texttt{R}}
 	\vspace{-0.6cm}
 \begin{figure}
-	\centering \includegraphics[scale=0.3]{predict_vs_obs.png}
+	\centering \includegraphics[scale=0.3]{figures/predict_vs_obs.png}
 \end{figure}
 
 \textcolor{blue}{Question:} What would our scatterplot comparing observed outcomes and predictions look like if we were able to \textit{perfectly} predict the observed outcome? \pause
@@ -429,7 +429,7 @@ We can overlay a line with slope equal to 1 and intercept 0 on our scatterplot t
 
 \vspace{0.3cm}
 
-\centering \includegraphics[scale=0.4]{predict_vs_obs_code2.png} \vspace{0.1cm}
+\centering \includegraphics[scale=0.4]{figures/predict_vs_obs_code2.png} \vspace{0.1cm}
 
 
 
@@ -437,7 +437,7 @@ We can overlay a line with slope equal to 1 and intercept 0 on our scatterplot t
 
 \begin{frame}{Training and testing data: Example in \texttt{R}}
 \begin{figure}
-	\centering \includegraphics[scale=0.3]{predict_vs_obs2.png}
+	\centering \includegraphics[scale=0.3]{figures/predict_vs_obs2.png}
 \end{figure}
 
 Our predictions don't seem to be very good based on our scatter plot (the points in our graph do not fall on the line with slope equal to 1 and intercept 0). This is \textcolor{orange}{qualitative} way to assess how accurate our predictive model is.
@@ -484,7 +484,7 @@ $R^2$ can be found in regression output from the \texttt{lm} function. The outpu
 \vspace{0.3cm}
 
 \begin{itemize}
-	\item \textcolor{blue}{Multiple $R^2$}: $$1 - \frac{\sum_{i = 1}^n (Y_i - \hat{Y}_i)^2}{\sum_{i = 1}^n (Y_i - \bar{Y})^2} \hspace{0.3cm} \includegraphics[scale=0.01]{chilipepper.png}$$  [1 - (sum of squared residuals / total sum of squares)] 
+	\item \textcolor{blue}{Multiple $R^2$}: $$1 - \frac{\sum_{i = 1}^n (Y_i - \hat{Y}_i)^2}{\sum_{i = 1}^n (Y_i - \bar{Y})^2} \hspace{0.3cm} \includegraphics[scale=0.01]{figures/chilipepper.png}$$  [1 - (sum of squared residuals / total sum of squares)] 
 	\item \textcolor{blue}{Adjusted $R^2$}: Similar to $R^2$, but accounts for the number of covariates in the model
 \end{itemize}
 
@@ -535,7 +535,7 @@ Suppose we collect data for an outcome $Y$ and predictor $X$. We visualize our d
 
 \vspace{0.3cm}
 
-\centering \includegraphics[scale=0.4]{overfit1.png}
+\centering \includegraphics[scale=0.4]{figures/overfit1.png}
 \end{frame}
 
 \begin{frame}{Overfitting: Example}
@@ -543,7 +543,7 @@ We could fit a simple linear regression model to our data, but this likely would
 
 \vspace{0.3cm}
 
-\centering \includegraphics[scale=0.4]{overfit2.png}
+\centering \includegraphics[scale=0.4]{figures/overfit2.png}
 \end{frame}
 
 \begin{frame}{Overfitting: Example}
@@ -551,7 +551,7 @@ We could add an additional covariate term to our model, namely $X^2$\dots
 
 \vspace{0.3cm}
 
-\centering \includegraphics[scale=0.4]{overfit3.png}
+\centering \includegraphics[scale=0.4]{figures/overfit3.png}
 
 \end{frame}
 
@@ -560,7 +560,7 @@ Or we could include \textit{many} additional covariate terms, for higher order p
 
 \vspace{0.3cm}
 
-\centering \includegraphics[scale=0.4]{overfit4.png}
+\centering \includegraphics[scale=0.4]{figures/overfit4.png}
 
 \end{frame}
 
@@ -570,7 +570,7 @@ OR we could \textcolor{orange}{interpolate} to get perfect predictions for all o
 \vspace{0.3cm}
 
 \begin{center}
-	 \includegraphics[scale=0.4]{overfit5.png}
+	 \includegraphics[scale=0.4]{figures/overfit5.png}
 \end{center}
 \begin{footnotesize}
 	\vspace{-0.1cm}
@@ -626,15 +626,15 @@ Suppose we are (again) interested in predicting a baby's birthweight based on bi
 \end{frame}
 
 \begin{frame}{$R^2$: Example in \texttt{R}}
-\centering \includegraphics[scale=0.4]{r2_example1.png}
+\centering \includegraphics[scale=0.4]{figures/r2_example1.png}
 \end{frame}
 
 \begin{frame}{$R^2$: Example in \texttt{R}}
-\centering \includegraphics[scale=0.4]{r2_example1_2.png}
+\centering \includegraphics[scale=0.4]{figures/r2_example1_2.png}
 \end{frame}
 
 \begin{frame}{$R^2$: Example in \texttt{R}}
-\centering \includegraphics[scale=0.4]{r2_example2.png}
+\centering \includegraphics[scale=0.4]{figures/r2_example2.png}
 \end{frame}
 
 
@@ -680,7 +680,7 @@ Suppose we are (again) interested in predicting a baby's birthweight based on bi
 \vspace{0.3cm}
 
 \begin{figure}
-	\centering \includegraphics[scale=0.5]{mse1.png}
+	\centering \includegraphics[scale=0.5]{figures/mse1.png}
 \end{figure}
 
 \vspace{0.3cm} \pause
@@ -691,7 +691,7 @@ Suppose we are (again) interested in predicting a baby's birthweight based on bi
 \begin{frame}{MSE: Example in \texttt{R}}
 
 \begin{figure}
-	\centering \includegraphics[scale=0.5]{mse1.png}
+	\centering \includegraphics[scale=0.5]{figures/mse1.png}
 \end{figure}
 \vspace{0.3cm} 
 
@@ -717,7 +717,7 @@ We then need to obtain predictions for individuals in our \textit{testing} datas
 \begin{frame}{MSE: Example in \texttt{R}}
 	\vspace{-0.6cm}
 \begin{figure}
-	\centering \includegraphics[scale=0.4]{mse2.png}
+	\centering \includegraphics[scale=0.4]{figures/mse2.png}
 \end{figure} \pause
 
 \vspace{0.1cm}
@@ -742,7 +742,7 @@ You may have heard of \textcolor{orange}{data dredging} or \textcolor{orange}{p-
 
 \vspace{0.3cm}
 
-\includegraphics[scale=0.01]{chilipepper.png} In these scenarios, researchers often fit \textit{many} statistical models to their data in an attempt to find a p-value less than 0.05. The problem with this is that when you perform multiple statistical analyses (multiple hypothesis tests), Type I error rate (the probability that we reject the null hypothesis even though the null is true) can get very large. There are ways to correct for this (typically either setting your hypothesis before data collection and statistical analysis, or doing a \textcolor{orange}{multiple testing} correction for your p-values). 
+\includegraphics[scale=0.01]{figures/chilipepper.png} In these scenarios, researchers often fit \textit{many} statistical models to their data in an attempt to find a p-value less than 0.05. The problem with this is that when you perform multiple statistical analyses (multiple hypothesis tests), Type I error rate (the probability that we reject the null hypothesis even though the null is true) can get very large. There are ways to correct for this (typically either setting your hypothesis before data collection and statistical analysis, or doing a \textcolor{orange}{multiple testing} correction for your p-values). 
 
 \vspace{0.3cm}
 
@@ -750,7 +750,7 @@ With prediction, we are not conducting hypothesis tests. We are simply trying to
 
 \end{frame}
 
-\begin{frame}{Bias-variance tradeoff \includegraphics[scale=0.01]{chilipepper.png}}
+\begin{frame}{Bias-variance tradeoff \includegraphics[scale=0.01]{figures/chilipepper.png}}
 With any prediction model we fit, we will have measures of \textcolor{blue}{bias} and \textcolor{blue}{variance}.
 
 \vspace{0.3cm}
@@ -770,7 +770,7 @@ $$ \pause
 In many prediction scenarios (as we saw), we want a predictive model that \textit{minimizes} MSE. Ideally then, we want a model where both bias and variance are small. 
 \end{frame}
 
-\begin{frame}{Bias-variance tradeoff \includegraphics[scale=0.01]{chilipepper.png}}
+\begin{frame}{Bias-variance tradeoff \includegraphics[scale=0.01]{figures/chilipepper.png}}
 	\vspace{-0.4cm}
 Note that we could have two different models that produce predictions with the same MSE, but have very different values for bias and variance:
 
@@ -790,7 +790,7 @@ Note that to maintain the same MSE, if we increase bias we must decrease varianc
 \small In certain scenarios, we may be okay with our predictions having a larger amount of bias in exchange for smaller variances. In some scenarios, we may require \textit{no} bias, and therefore only focus on minimizing variance in our predictions. This will depend on the context of the prediction problem!
 \end{frame}
 
-\begin{frame}{Bias-variance tradeoff \includegraphics[scale=0.01]{chilipepper.png}}
+\begin{frame}{Bias-variance tradeoff \includegraphics[scale=0.01]{figures/chilipepper.png}}
 High variance in a predictive model may come from \textcolor{blue}{overfitting}, or an overly complex model. Interpolation is an extreme example of this, where we have overfit our data so much that each prediction is exactly the same as our observed values.
 
 \vspace{0.3cm}
@@ -800,7 +800,7 @@ High bias in a predictive model may come from \textcolor{blue}{underfitting}, wh
 \end{frame}
 
 % we only have a single training dataset and a single testing dataset, why? - cross validation
-\begin{frame}{Cross-validation \includegraphics[scale=0.01]{chilipepper.png} }
+\begin{frame}{Cross-validation \includegraphics[scale=0.01]{figures/chilipepper.png} }
 So far we have only discussed creating a \textit{single} testing and training dataset from our original dataset. This is sometimes done in practice, and is completely justifiable! However, it also common to instead split our original dataset into training and testing datasets \textit{multiple} times, and compute an average measure of prediction accuracy across these multiple training and testing datasets.
 
 \vspace{0.3cm}
@@ -813,7 +813,7 @@ What bother? By creating many training and testing datasets from the model and a
 
 \end{frame}
 
-\begin{frame}{Cross-validation \includegraphics[scale=0.01]{chilipepper.png} }
+\begin{frame}{Cross-validation \includegraphics[scale=0.01]{figures/chilipepper.png} }
 What does this look like in practice?
 
 \vspace{0.3cm}

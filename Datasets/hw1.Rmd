@@ -1,0 +1,143 @@
+---
+title: "Homework 1"
+subtitle: "BIOST 311"
+author: "Natalie To"
+date: "04/03/2023"
+output: 
+  pdf_document:
+    toc: false
+header-includes:
+  - \usepackage{color}
+  - \usepackage{fvextra}
+  - \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+library(formatR)
+
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(error = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+knitr::opts_chunk$set(results = "hide")
+```
+
+
+## Instructions
+
+This assignment should be submitted on Canvas as a .pdf by 11:59pm on Thursday, April 6th. You are welcome to work together on the homework; however, final solutions should be written up individually. 
+
+Unedited software output in the body of your assignment is not acceptable. Please round numerical values to 2--3 significant digits, and include your R code (if applicable) in the same document. See the "How to Write a Proper Homework" document on Canvas for additional guidelines.  
+
+Each homework assignment is worth 20 points total. Problems are graded for correctness, according to the number of points given in the problem statement. Homeworks will be marked complete if you get at least 16/20 points, otherwise the homework is incomplete pending a possible revision. 
+
+Be sure to look at the cheat sheet for this week's homework -- it will provide you with useful `R` functions! You should be able to complete the plotting questions in part 1 after Tuesday's discussion section.
+
+## 1. Descriptive statistics and data visualization
+
+We will be using the `births` dataset often in the first few weeks of BIOST311. For this question, you will get acquainted with some of the variables in the dataset. 
+
+a. Load the `births` dataset (0 points)
+
+```{r}
+library(tidyverse)
+library(readr)
+births <- read_csv("births.csv")
+View(births)
+```
+
+b. The `age` variable gives the age in years of the parent when the baby is born. Give relevant descriptive statistics for this variable, and provide one plot of your choice to visualize its distribution. Would you describe the distribution as roughly symmetric, left skewed, or right skewed? (2 points)
+```{r}
+parent_age<- births %>% select(age) #filters just the age column
+summary(parent_age) #generates descriptive stats using data found in age column
+ggplot(parent_age, aes(y = age)) + 
+  geom_boxplot() + 
+  theme(axis.text.x = element_blank(), axis.ticks.x = element_blank()) +
+  labs(title="Parents' Age When Baby is Born", y = "Age")
+```
+I would describe the distibution as roughly symmetric as the tails look about the same length. 
+
+c. Make another plot of parent age, but this time stratified by whether the parent participated in the first step program. Qualitatively describe how the two distributions look in comparison to one another. (2 points)
+```{r}
+firststep_strat <- births %>% mutate(yes_fs = ifelse(firstep == 1, 'yes', 'no')) #assigns those that who participate as yes (1 --> yes) and those who do not (0) as no
+ggplot(firststep_strat, aes(x = yes_fs, y = age, fill = yes_fs)) + 
+#x and color coding based on stratified data
+  labs(x = 'First Step Partcipation', y = 'Age (years)', title = "First Step Partcipation Based on Age") +
+  geom_boxplot()
+```
+Younger parents are more associated with participating in First Step when comparing the medians of their respective box plots. 
+
+d. The `gestation` variable gives the gestational age (in weeks) of the baby at birth. Make a single plot examining the relationship between `age` and `gestation`. Qualitatively describe the association between `age` and `gestation`. (2 points)
+```{r}
+births %>% ggplot(aes(x = age, y = gestation)) +
+  geom_point() + #both variables are quantitative --> scatter plot
+  geom_smooth() + #find correlation between variables
+  labs(x = "Parents' Age (years)", y = "Gestational Age (weeks)", title = "Parents' Age vs Gestational Age")
+```
+The gestational age of the baby at birth seems to be a bit less than 40 weeks regardless of their parent's age. There is no correlation between First Step participation and age.
+
+e. Reproduce your plot from part (e), but this time use `ggplot2` aesthetics to differentiate individuals with `parity = 0` (i.e. those who have had no previous births) and `parity > 0` (i.e., those who have had previous births). You will want to create a new variable for this problem, and then use color or shape to indicate which data points have previous births and which do not. (2 points)
+```{r}
+# 0 indicates first time giving birth and is stratified in 'no' while those have are in 'yes'
+firstchild <- births %>% mutate(kids = ifelse(parity == 0, 'no', 'yes'))
+firstchild %>% ggplot(aes(x = age, y = gestation)) +
+  geom_point() +
+  geom_smooth() +
+  facet_wrap(~kids) + #stratified based on if they had previous births
+  labs(x = "Parent Age", y = "Gestational Age", title = "Parent vs Gestational Age Based On Previous Births")
+```
+
+## 2. Standard errors and confidence intervals
+
+a. What is the mean gestation time in the `births` dataset? Give an estimate of the standard error of the sample mean. Construct a 95\% confidence interval for the population mean age "by hand" (i.e., using `R` for calculations, but not using the `confint` function). Interpret this confidence interval. (2 points)
+```{r}
+#find standard deviation and mean
+gest_time <- births %>% select(gestation)
+#unlist --> takes values out of list in births so I could apply math functions
+gest_mean <- mean(unlist(gest_time))
+gest_mean
+gest_sd <- sd(unlist(gest_time))
+gest_sd
+sample_size <- nrow(births)
+
+# 95% CI formula based on mean
+gest_mean - ((1.96 * gest_sd)/sqrt(sample_size))
+gest_mean + ((1.96 * gest_sd)/sqrt(sample_size))
+
+```
+The mean is calculated to be 38.9 weeks with standard of error of sample mean +/- 0.0475 weeks (standard deviation/sqrt(2500)). We estimate that the mean gestational time is 38.9 weeks with a 95% confidence interval (38.8, 39.0) weeks.
+
+b. Suppose we took another sample of size 2500 from the live births in King County. If the standard deviation of birth parent age were larger in this sample, how would a 95\% confidence interval for mean gestation time differ from what you determined in part (a)? Give one sentence explaining your rationale. (2 point)
+
+The interval would be wider. In the formula used to calculate 95\% CI, standard deviation is the numerator; as all other values stay the same while the numerator increases, it should calculate both a lower limit and higher upper limit of the interval, making this interval wider than the previous. 
+
+c. What is the proportion of births to a parent who is married? Estimate the standard error of the sample proportion and construct a 95\% confidence interval "by hand" for the population proportion (i.e., using `R` for calculations, but not using the `confint` function). Interpret this confidence interval. (2 points)
+```{r}
+marriage <- births %>% filter(married == 1) #filtered out only those who are married
+nrow(marriage) #found how many are married
+p <- nrow(marriage)/sample_size #set p as proportion
+p
+
+# 95% CI formula based on population proportion 
+p - 2*(sqrt(p*(1-p))/sample_size)
+p + 2*(sqrt(p*(1-p))/sample_size)
+```
+From the question 2a, we know that there are 2500 people in the study. Of these 1956 are married, so to calculate the proportion we do 1950/2500 = 0.7824. The standard error of the sample proportion is 0.0083. We estimate that the the proportion of those that give birth and are married is 0.7821 with a 95% confidence interval (0.7821, 0.7827).
+
+## 3. Study design
+
+For each of the following scientific questions, propose an appropriate study design. (You may use the same design at most twice.) Provide a one-sentence explanation of your reasoning. 
+
+a. How does the risk of death by suicide differ between those who have previously seen a mental health provider and those who have not? (2 points)
+
+To conduct this study, I would choose a cross-sectional study in which we looked at records of those that died by suicide to check if they saw a mental health provider prior as suicide is a rare outcome.
+
+b.	For patients taking both daily birth control pills and daily pre-exposure prophylaxis (PrEP) HIV prevention medication, will their adherence (how often they are taking the medications as prescribed) improve if the two pills are combined into one pill? (2 points)
+
+For this, I would choose RCT as participants are randomly assigned to the treatment (PrEP + birth control as 1 pill) or control (PrEP and birth control as separate pills) group and followed to observe if that would improve their adherence to taking medication or not. 
+
+c. Among patients over 65, is dog or cat ownership associated with the risk of falling within one year? (2 points)
+
+This is a cohort study as they enrolled people with certain exposures (dog vs cat ownership) and followed them for a year to observe the outcome of interest (falling) to see if a specific exposure is associated with it. 

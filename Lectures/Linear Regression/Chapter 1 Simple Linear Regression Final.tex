@@ -20,7 +20,7 @@
 \usepackage{listings}
 
 % Title page details: 
-\title{Chapter 1a: Simple Linear Regression} 
+\title{Chapter 1: Simple Linear Regression} 
 \author{Nina Galanter}
 \date{\today}
 
@@ -32,7 +32,7 @@
 \end{frame}
 
 \begin{frame}{Learning objectives}
-By the end of Chapter 1a, you should be able to:
+By the end of Chapter 1, you should be able to:
 \begin{itemize}
 	\item Formulate a regression model, given a scientific or statistical question
 	\item Interpret the coefficients for a simple linear regression model
@@ -63,7 +63,7 @@ I will use this symbol next to content that is more technical. I don't expect yo
 \smallskip
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.15]{technical}
+	\includegraphics[scale=0.15]{figures/technical}
 \end{figure}
 
 \end{frame}
@@ -120,7 +120,7 @@ We can first create a scatter plot of age versus atrophy score.
 \vspace{0.3cm}
 
 \begin{figure}
-	\centering \includegraphics[scale=0.6]{atrophy_age_scatter}
+	\centering \includegraphics[scale=0.6]{figures/atrophy_age_scatter}
 \end{figure}
 
 \end{frame}
@@ -130,7 +130,7 @@ Suppose we want to know how age and atrophy are \textit{linearly} related to eac
 
 \vspace{0.3cm}
 \begin{figure}
-\centering \includegraphics[scale=0.6]{atrophy_age_scatter_badline}
+\centering \includegraphics[scale=0.6]{figures/atrophy_age_scatter_badline}
 \end{figure}
 
 \end{frame}
@@ -139,7 +139,7 @@ Suppose we want to know how age and atrophy are \textit{linearly} related to eac
 
 
 \begin{figure}
-	\centering \includegraphics[scale=0.6]{atrophy_age_scatter_badline}
+	\centering \includegraphics[scale=0.6]{figures/atrophy_age_scatter_badline}
 \end{figure}
 
 \vspace{0.3cm}
@@ -151,7 +151,7 @@ This line seems bad. Can we articulate \textit{why} it seems bad? Can we articul
 \begin{frame}{Simple linear regression}
 
 \begin{figure}
-	\centering \includegraphics[scale=0.6]{atrophy_age_scatter_2lines}
+	\centering \includegraphics[scale=0.6]{figures/atrophy_age_scatter_2lines}
 \end{figure}
 
 \vspace{0.3cm}
@@ -166,7 +166,7 @@ This line seems bad. Can we articulate \textit{why} it seems bad? Can we articul
 Simple linear regression is a statistical tool that allows us to estimate the ``best" fitting line through two variables. In general, we use linear regression with \textbf{quantitative} outcomes. Below we show our guesses for the best fitting line and the line estimated from simple linear regression in \textbf{black}:
 
 \begin{figure}
-	\centering \includegraphics[scale=0.5]{atrophy_age_scatter_bestline}
+	\centering \includegraphics[scale=0.5]{figures/atrophy_age_scatter_bestline}
 \end{figure}
 
 \end{frame}
@@ -223,7 +223,7 @@ When describing the linear relationship between two variables, we often talk abo
 \end{frame}
 
 \begin{frame}{Correlation: Example}
-	\centering \includegraphics[scale=0.5]{correlation.png}
+	\centering \includegraphics[scale=0.5]{figures/correlation.png}
 \end{frame}
 
 \begin{frame}{Correlation}
@@ -237,7 +237,7 @@ For this course, we'll focus on using correlation coefficients only as a means t
 
 \vspace{0.3cm}
 
-\includegraphics[scale=0.02]{technical} When we talk about correlation coefficients in this class, we are talking specifically about \textit{Pearson's} correlation coefficient. Other types of correlation coefficients exist, but Pearson's is most commonly used.
+\includegraphics[scale=0.02]{figures/technical} When we talk about correlation coefficients in this class, we are talking specifically about \textit{Pearson's} correlation coefficient. Other types of correlation coefficients exist, but Pearson's is most commonly used.
 \end{frame}
 
 \begin{frame}{\textcolor{red}{Caution!} Correlation is not Association}
@@ -245,7 +245,7 @@ For this course, we'll focus on using correlation coefficients only as a means t
 	
 	\begin{figure}
 		\centering
-		\includegraphics[scale = 0.5]{quadratic_assoc}
+		\includegraphics[scale = 0.5]{figures/quadratic_assoc}
 	\end{figure}
 \end{frame}
 
@@ -350,6 +350,9 @@ E[\text{atrophy} \mid \text{age}] & = -16.06 + 0.70 \times \text{age}
 	\item A person of age $0$ will have atrophy score equal to -16.06.
 	\item Among all people of age $0$, the average atrophy score is -16.06.
 \end{enumerate}
+
+\medskip
+\url{https://PollEv.com/multiple_choice_polls/1cLNtCZAXCZzj2Sh6evWG/respond}
 \end{frame}
 
 \begin{frame}{Practice: interpreting intercepts in context}
@@ -408,6 +411,9 @@ E[\text{atrophy} \mid \text{age}] & = -16.06 + 0.70 \times \text{age}
 	\item For every one year increase in age, average atrophy score increases by 0.70 points.
 	\item Comparing two groups of people who differ by one year in age, the difference in average atrophy score will be 0.70 points, with the higher average score in the older of the two groups.
 \end{enumerate}
+\medskip
+
+\url{https://PollEv.com/multiple_choice_polls/Llw1253pC1ll3BEMntJM3/respond}
 
 \end{frame}
 
@@ -435,12 +441,15 @@ Why?
 \end{frame}
 
 \begin{frame}{Why do we care about the slope?}
+	
+	\vspace{-5 mm}
+	
 \textcolor{purple}{Pollev} In which example(s) is there \textbf{no} association between age and atrophy?
-
+\url{https://PollEv.com/multiple_choice_polls/Nv7hfwA6kGK5nahuOtX8U/respond}
 \vspace{0.3cm}
 
 \begin{figure}
-\centering \includegraphics[scale=0.35]{zeroslopes.png}
+\centering \includegraphics[scale=0.35]{figures/zeroslopes.png}
 \end{figure}\pause
 
 \vspace{0.2cm}
@@ -561,15 +570,15 @@ We have two options for 95\% confidence intervals:
 \end{frame}
 
 \begin{frame}{Interpreting 95\% confidence intervals}
-Returning to our example of using linear regression to assess the association between birthweight and birth parent's age, suppose we estimate the slope to be 8.6, with a 95\% confidence interval (4.97, 12.25).
+Returning to our example of using linear regression to assess the association between atrophy and age, suppose we estimate the slope to be 0.70, with a 95\% confidence interval (0.53, 0.86).
 
 \vspace{0.3cm}
 
-We already interpreted the slope previously:
+Slope interpretation:
 
 \vspace{0.3cm}
 
-\textit{Comparing two groups of birth parents who differ by one year in age, the difference in average child's birthweight will be 8.6 grams, with the higher average birthweight in the older of the two groups.}
+\textit{Comparing two groups of people who differ by one year in age, the difference in average atrophy will be 0.70 points, with the higher average atrophy in the older of the two groups.}
 
 \vspace{0.3cm}
 
@@ -606,6 +615,10 @@ Confidence interval interpretation:
 	\item $p > 0.05$
 	\item $p < 0.95$
 \end{enumerate}
+\medskip
+
+\url{https://PollEv.com/multiple_choice_polls/zTxQPnNjYWAJ46I9PGs6D/respond}
+
 
 \end{frame}
 
@@ -668,16 +681,16 @@ To fit the regression model $E[\text{atrophy} \mid \text{age}] = \beta_0 + \beta
 
 \vspace{0.15cm}
 
-\centering \includegraphics[scale=0.45]{atrophy_age_code}
+\centering \includegraphics[scale=0.45]{figures/atrophy_age_code}
 
 \end{frame}
 
-\begin{frame}{Example: birthweight and age}
+\begin{frame}{Example: atrophy and age}
 The necessary pieces we need to extract from this output are (1) the estimate/statistic, (2) the p-value, and (3) the 95\% confidence interval:
 
 \vspace{0.15cm}
 
-\centering \includegraphics[scale=0.45]{atrophy_age_code}
+\centering \includegraphics[scale=0.45]{figures/atrophy_age_code}
 
 \end{frame}
 
@@ -685,7 +698,7 @@ The necessary pieces we need to extract from this output are (1) the estimate/st
 Interpreting our results:
 \begin{itemize}
 	\item \textit{Statistic}: We estimate that the difference in mean atrophy comparing two groups of people that differ by one year in age is 0.70 points, with heigher average atrophy in the older of the two groups. \pause
-	\item \textit{Uncertainty}: Based on a 95\% confidence interval, this estimated difference would not be judged unusual if the true difference were between 0.53 and 0.86 grams. \pause
+	\item \textit{Uncertainty}: Based on a 95\% confidence interval, this estimated difference would not be judged unusual if the true difference were between 0.53 and 0.86. \pause
 	\item \textit{Hypothesis test / p-value}: These data provide strong evidence that the difference in mean atrophy between groups of people that differ by one year in age is significantly different from zero (p $<$ 0.001). \pause
 	\item \textit{Conclusion}: These data provide evidence to suggest that, among those over the age of 65, older people tend to have higher brain atrophy as detected by an MRI.
 \end{itemize}
@@ -725,7 +738,7 @@ We fit the regression model $E[\text{bwt} \mid \text{FS}] = \beta_0 + \beta_1 \t
 
 \vspace{0.2cm}
 
-\centering \includegraphics[scale=0.35]{lm_bwt_fs.png}
+\centering \includegraphics[scale=0.35]{figures/lm_bwt_fs.png}
 \end{frame}
 
 \begin{frame}{Example: birthweight and First Steps participation}
@@ -733,7 +746,7 @@ We fit the regression model $E[\text{bwt} \mid \text{FS}] = \beta_0 + \beta_1 \t
 
 \vspace{0.2cm}
 
-\centering \includegraphics[scale=0.35]{lm_bwt_fs2.png}
+\centering \includegraphics[scale=0.35]{figures/lm_bwt_fs2.png}
 \end{frame}
 
 \begin{frame}{Example: birthweight and First Steps participation}
@@ -778,7 +791,7 @@ What is \texttt{R} doing \textit{under the hood} to get these regression coeffic
 
 \vspace{0.3cm}
 
-\centering \includegraphics[scale=0.45]{linear-regr.jpg}
+\centering \includegraphics[scale=0.45]{figures/linear-regr.jpg}
 \end{frame}
 
 \begin{frame}{Least squares estimation}
@@ -786,11 +799,11 @@ What is \texttt{R} doing \textit{under the hood} to get these regression coeffic
 
 \vspace{0.3cm}
 
-\centering \includegraphics[scale=0.45]{linear-regr-ls.jpg}
+\centering \includegraphics[scale=0.45]{figures/linear-regr-ls.jpg}
 
 \end{frame}
 
-\begin{frame}{Least squares estimation: technical details \includegraphics[scale=0.02]{technical}}
+\begin{frame}{Least squares estimation: technical details \includegraphics[scale=0.02]{figures/technical}}
 \textit{Least squares}: minimize the sum of the squared distances from the observed points to the fitted line
 
 \vspace{0.3cm}
@@ -838,8 +851,10 @@ where $\epsilon_i$ are error terms with mean zero, for each individual.
 \vspace{0.3cm}
 
 To recap, we can write linear regression models in two equivalent ways:
+\smallskip
 \begin{enumerate}
 	\item $E[Y_i \mid X_i] = \beta_0 + \beta_1 X_i$ for $i = 1, \dots, n$
+\medskip
 	\item $Y_i = \beta_0 + \beta_1 X_i + \epsilon_i$ for $i = 1, \dots, n$, with $E[\epsilon_i] = 0$ for all $i$
 \end{enumerate}
 
@@ -848,7 +863,9 @@ To recap, we can write linear regression models in two equivalent ways:
 
 
 \begin{frame}{Linear regression assumptions}
-We can write the \textit{classical} linear regression assumptions under the following model as follows:
+	\vspace{-5 mm}
+	
+We can write the {\color{blue}\textit{classical}} linear regression assumptions under the following model as follows:
 
 $$
 Y_i = \beta_0 + \beta_1 X_i + \epsilon_i \text{ for } i = 1, \dots n
@@ -856,12 +873,17 @@ $$
 
 \begin{itemize}
 	\item \textcolor{red}{L}inearity: There is a linear relationship between $X_i$ and the true population conditional mean $Y_i \mid X_i$
+	\smallskip
 	\begin{itemize}
 		\item i.e. $E[Y_i \mid X_i] = \beta_0 + \beta_1 X_i$
 	\end{itemize}
+\medskip
 	\item \textcolor{red}{I}ndependence: The errors $\epsilon_i$ are independent of each other
+	\medskip
 	\item \textcolor{red}{N}ormality: $\epsilon_i$ are normally distributed
-	\item \textcolor{red}{E}qual variance: $\epsilon_i$ have the same variance
+	\medskip
+	\item \textcolor{red}{E}qual variance (homoscedasticity): $\epsilon_i$ have the same variance
+	\smallskip
 	\begin{itemize}
 		\item $\epsilon_i \sim N(0, \sigma^2)$, where $\sigma^2$ does not depend on $i$
 	\end{itemize}
@@ -873,29 +895,37 @@ These are commonly called the \textcolor{red}{LINE} assumptions, which should ho
 \end{frame}
 
 \begin{frame}{Linear regression assumptions}
-We can write the \textit{classical} linear regression assumptions under the following model as follows:
-
-$$
-Y_i = \beta_0 + \beta_1 X_i + \epsilon_i \text{ for } i = 1, \dots n
-$$
-
-\begin{itemize}
-	\item \textcolor{red}{L}inearity: There is a linear relationship between $X_i$ and the true population conditional mean $Y_i \mid X_i$
+	\vspace{-5 mm}
+	
+	We can write the {\color{blue}\textit{classical}} linear regression assumptions under the following model as follows:
+	
+	$$
+	Y_i = \beta_0 + \beta_1 X_i + \epsilon_i \text{ for } i = 1, \dots n
+	$$
+	
 	\begin{itemize}
-		\item i.e. $E[Y_i \mid X_i] = \beta_0 + \beta_1 X_i$
+		\item \textcolor{red}{L}inearity: There is a linear relationship between $X_i$ and the true population conditional mean $Y_i \mid X_i$
+		\smallskip
+		\begin{itemize}
+			\item i.e. $E[Y_i \mid X_i] = \beta_0 + \beta_1 X_i$
+		\end{itemize}
+		\medskip
+		\item \textcolor{red}{I}ndependence: The errors $\epsilon_i$ are independent of each other
+		\medskip
+		\item \textcolor{red}{N}ormality: $\epsilon_i$ are normally distributed
+		\medskip
+		\item \textcolor{red}{E}qual variance (homoscedasticity): $\epsilon_i$ have the same variance
+		\smallskip
+		\begin{itemize}
+			\item $\epsilon_i \sim N(0, \sigma^2)$, where $\sigma^2$ does not depend on $i$
+		\end{itemize}
 	\end{itemize}
-	\item \textcolor{red}{I}ndependence: The errors $\epsilon_i$ are independent of each other
-	\item \textcolor{red}{N}ormality: $\epsilon_i$ are normally distributed
-	\item \textcolor{red}{E}qual variance: $\epsilon_i$ have the same variance
-	\begin{itemize}
-		\item $\epsilon_i \sim N(0, \sigma^2)$, where $\sigma^2$ does not depend on $i$
-	\end{itemize}
-\end{itemize}
-
-\vspace{0.3cm}
-
-We will come back to the \textcolor{blue}{normality} and \textcolor{blue}{equal variance} assumptions shortly, because (as we'll find out) we may not actually need them!
+	
+	\vspace{0.3cm}
+	
+	We will revisit the \textcolor{blue}{normality} and \textcolor{blue}{equal variance} assumptions, as it is possible to avoid these in some cases.
 \end{frame}
+
 
 \subsection{Linearity}
 
@@ -924,7 +954,7 @@ What could a nonlinear assocation between $X$ and $Y$ look like? Lots of things!
 
 \vspace{0.3cm}
 
-\centering \includegraphics[scale=0.4]{quadratic.png}
+\centering \includegraphics[scale=0.4]{figures/quadratic.png}
 
 \end{frame}
 
@@ -934,7 +964,7 @@ What could a nonlinear assocation between $X$ and $Y$ look like? Lots of things!
 
 \vspace{0.3cm}
 
-\centering \includegraphics[scale=0.1]{mortality_curve.png}
+\centering \includegraphics[scale=0.1]{figures/mortality_curve.png}
 
 \end{frame}
 
@@ -949,7 +979,9 @@ We can plot \textcolor{blue}{residuals} vs. \textcolor{blue}{fitted values} usin
 
 \begin{itemize}
 	\item A \textcolor{blue}{fitted value} is the value of the response predicted from your regression, $\hat{\beta}_0 + \hat{\beta}_1 X$
+	\medskip
 	\item A \textcolor{blue}{residual} is the difference between the observed value of the response variable $Y$ and the fitted value
+	\medskip
 	\begin{itemize}
 		\item[] Residuals are our best guess at what the error terms $\epsilon_i$ for our model may look like, which is why we use them for diagnostic plots!
 	\end{itemize}
@@ -963,27 +995,33 @@ To plot residuals vs. fitted values in \texttt{R}, we can use the following code
 
 \begin{lstlisting}
 resids <- residuals(mod)
+
 fittedvals <- predict(mod)
+
 data.frame(resids = resids,
            fittedvals = fittedvals) %>%
+      
 	ggplot(aes(fittedvals, resids)) +
 	geom_point() +
 	geom_hline(yintercept = 0, col = "red") 
 \end{lstlisting}
 
-% \centering \includegraphics[scale=0.4]{fitted_resids.png}
+% \centering \includegraphics[scale=0.4]{figures/fitted_resids.png}
 
 \end{frame}
 
 \begin{frame}{Linearity assumption: diagnostics in \texttt{R}}
 And we get a plot (for our example of a nonlinear association) that looks like this:
+\medskip
 
-\centering \includegraphics[scale=0.3]{fitted_resids.png}
+\begin{figure}
+\centering \includegraphics[scale=0.3]{figures/fitted_resids.png}
+\end{figure}
 
 \end{frame}
 
 \begin{frame}{Linearity assumption: diagnostics in \texttt{R}}
-In this plot, what are we looking for?
+In this plot, what are we looking for? What should the plot look like if the linearity assumption is met?\pause
 
 \vspace{0.3cm}
 
@@ -991,7 +1029,7 @@ If the linearity assumption is \textit{not} violated, then we expect there to be
 
 \vspace{0.3cm}
 
-\textcolor{blue}{Question:} Do you think the linearity assumption is violated for the example on the previous slide?\pause
+\textcolor{blue}{Question} Do you think the linearity assumption is violated for the example on the previous slide? \pause
 
 \vspace{0.3cm}
 
@@ -1001,14 +1039,21 @@ If the linearity assumption is \textit{not} violated, then we expect there to be
 
 
 \begin{frame}{Linearity assumption: diagnostics}
-\textcolor{blue}{Question:} Do you think the linearity assumption is violated for models $1$ through $4$, based on the plots of fitted values vs. residuals?
+	\vspace{-5 mm}
+	
+\textcolor{purple}{Pollev:} For which (if any) of the models $1$ through $4$ is the linearity assumption violated, based on the plots of fitted values vs. residuals?
 
-\centering \includegraphics[scale=0.25]{lin_diagnostics_example.png}
+\begin{figure}
+\centering \includegraphics[scale=0.25]{figures/lin_diagnostics_example.png}
+\end{figure}
 
+\footnotesize{\url{https://PollEv.com/multiple_choice_polls/olK10EOq0uyJmrr7SalBN/respond}}
 \end{frame}
 
 \begin{frame}{Linearity assumption: diagnostics}
-\textcolor{blue}{Question:} Do you think the linearity assumption is violated for models $1$ through $4$, based on the plots of fitted values vs. residuals?
+	\vspace{-5 mm}
+
+\textcolor{purple}{Pollev:} For which (if any) of the models $1$ through $4$ is the linearity assumption violated, based on the plots of fitted values vs. residuals?
 
 \vspace{0.3cm}
 
@@ -1019,11 +1064,58 @@ If the linearity assumption is \textit{not} violated, then we expect there to be
 \textbf{Diagnostic plots are not a perfect tool for assessing assumptions, and they are subject to (subjective) interpretation!} (this is true for all diagnostic plots covered in this chapter)
 \end{frame}
 
-% include a frame about what we can do if linearity is violated, or no???? ask Charlie
+\begin{frame}{Atrophy and Age Example}
+	\begin{enumerate}
+		\item \textbf{Scientific question:} is there an \textcolor{orange}{association} between brain atrophy as shown by an MRI and age?
+		\item \textbf{Statistical question:} is there a \textcolor{orange}{difference in average} atrophy comparing groups of people that differ in age? 
+		\begin{itemize}
+			\item \textbf{Population:} all people in the US over the age of 65
+			\item \textbf{Parameter:} population linear regression slope (diff. in means comparing groups that differ by one year in age) 
+		\end{itemize}
+		\item Take a \textbf{sample} from the population: 735 people over the age of 65 in generally good health 
+		\item Perform \textit{statistical inference}:
+		\begin{itemize}
+			\item Calculate the corresponding \textbf{statistic}: sample linear regression slope (estimated diff. in means comparing groups that differ by one year in age)
+			\item Quantify the uncertainty in your statistic
+			\item Perform a hypothesis text
+		\end{itemize}
+		\item Make conclusions in context of original question
+	\end{enumerate}
+	
+\end{frame}
+
+\begin{frame}[fragile]{Atrophy and Age Example}
+	\begin{lstlisting}
+mod <- lm(data = mri, atrophy ~ age)
+
+resids <- residuals(mod)
+
+fittedvals <- predict(mod)
+
+data.frame(resids = resids,
+fittedvals = fittedvals) %>%
+
+ggplot(aes(fittedvals, resids)) +
+geom_point() +
+geom_hline(yintercept = 0, col = "red") 
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}{Atrophy and Age Example}
+	\begin{figure}
+		\centering
+		\includegraphics[scale = 0.5]{figures/age_atrophy_resids_v_fitted}
+	\end{figure}
+\medskip
+
+\end{frame}
+
 
 \subsection{Independence}
 
 \begin{frame}{Independence assumption}
+	
+	\vspace{-5 mm}
 \textcolor{blue}{Independence assumption:} The errors $\epsilon_i$, $i = 1, \dots, n$ are independent of each other.
 
 \vspace{0.3cm}
@@ -1036,19 +1128,14 @@ What does it \textit{mean} for this assumption to be violated?
 	\item[] Violating the independence assumption means that our observations are sampled in a way such that their responses are \textit{dependent}. Here are a few examples of when this might happen:
 	\begin{itemize}
 		\item We observe multiple individuals over time, and collect data on their outcomes at multiple time points. We expect the responses for a given individual to be \textit{dependent} over time (e.g. my weight tomorrow \textit{depends} on my weight today)
+		\medskip
 		\item We collect standardized test scores from individuals in multiple schools. We expect students within the same to school (perhaps) to score similarly, as they've had similar educational experiences
 	\end{itemize}
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Independence assumption: diagnostics}
-How do we assess whether or not the independence assumption is violated?
 
-\vspace{0.3cm}
-
-Think about how your data was collected! There are no diagnostic plots for this assumption.
-
-\vspace{0.3cm}
 
 \textcolor{blue}{Question:} For our births dataset, we have data from a random sample of birth parent's in King County. Do you think the independence assumption is violated for our simple linear regression example, with First Steps participation as the predictor and birthweight as the response? Why or why not? \pause
 
@@ -1059,13 +1146,7 @@ Think about how your data was collected! There are no diagnostic plots for this 
 \end{frame}
 
 \begin{frame}{Independence assumption: diagnostics}
-How do we assess whether or not the independence assumption is violated?
 
-\vspace{0.3cm}
-
-Think about how your data was collected! There are no diagnostic plots for this assumption.
-
-\vspace{0.3cm}
 
 \textcolor{blue}{Question:} Suppose instead we had information for all previous births for every individual in our dataset as well, so for each birth parent, there may be more than one of their births present in the dataset. Do you think the independence assumption is violated for a simple linear regression, with First Steps participation as the predictor and birthweight as the response? Why or why not? \pause
 
@@ -1096,6 +1177,7 @@ What does it \textit{mean} for this assumption to be violated?
 \end{frame}
 
 \begin{frame}{Normality assumption: do we need it?}
+	\vspace{-5 mm}
 
 \textcolor{blue}{Question:} Does the CLT also apply to regression coefficients, and what does this have to do with the normality assumption for linear regression?
 
@@ -1108,6 +1190,8 @@ What does it \textit{mean} for this assumption to be violated?
 \textcolor{blue}{Key Takeaway:} 
 \begin{itemize}
 	\item If our sample size is large, we do not need the normality assumption for linear regression because the Central Limit Theorem will kick in.
+	\smallskip
+	
 	\item If our sample size is small, we do need the normality assumption for linear regression inference.
 \end{itemize}
 
@@ -1141,7 +1225,9 @@ To plot make a histogram of residuals in \texttt{R}, we can use the following co
 
 \begin{lstlisting}
 resids <- residuals(mod)
+
 data.frame(resids = resids) %>%
+
     ggplot(aes(resids)) +
     geom_histogram(bins = 10, col = "black")
 \end{lstlisting}
@@ -1149,16 +1235,22 @@ data.frame(resids = resids) %>%
 \end{frame}
 
 \begin{frame}{Normality assumption: diagnostics in \texttt{R}}
+	
+	\vspace{-5 mm}
+	
 And we get plots that look something like this:
 
 	
 \begin{figure}
 	\centering 
-	\includegraphics[scale=0.2]{hist_resid1.png} \\
-    \includegraphics[scale=0.2]{hist_resid2.png}
+	\includegraphics[scale=0.2]{figures/hist_resid1.png} \\
+    \includegraphics[scale=0.2]{figures/hist_resid2.png}
 \end{figure}
 
-\textcolor{blue}{Question:} Do the residuals look close to normally distributed in either of these plots?
+\textcolor{purple}{Pollev:} Do the residuals look close to normally distributed in either of these plots?
+\smallskip
+
+\footnotesize{\url{https://PollEv.com/multiple_choice_polls/3bXa5mTVP4On5GXe6Jkvx/respond}}
 
 \end{frame}
 
@@ -1173,6 +1265,12 @@ And we get plots that look something like this:
 \vspace{0.3cm}
 
 \textcolor{blue}{Note:} Diagnostic plots are not perfect, and it can be difficult to judge whether or not residuals look close ``enough" to normal state that the normally assumption is satisfied. This is one reason why having large sample sizes (and not needing to worry about this assumption) is so nice!
+
+\end{frame}
+
+\begin{frame}{Atrophy and age Example}
+
+The sample size is 735, so we don't need to worry about the normality assumption
 
 \end{frame}
 
@@ -1199,9 +1297,9 @@ The top plot shows an example of constant variance, and the bottom an example of
 
 \centering
 
-\includegraphics[scale=0.2]{constvar.png}
+\includegraphics[scale=0.2]{figures/constvar.png}
 
-\includegraphics[scale=0.2]{nonconstvar.png}
+\includegraphics[scale=0.2]{figures/nonconstvar.png}
 
 \end{frame}
 
@@ -1216,7 +1314,7 @@ If our errors $\epsilon_i$ have equal variance, the spread of the $y$ values sho
 \vspace{0.3cm}
 \centering
 
-\includegraphics[scale=0.3]{constvar.png}
+\includegraphics[scale=0.3]{figures/constvar.png}
 
 \end{frame}
 
@@ -1231,7 +1329,7 @@ If our errors $\epsilon_i$ have \textit{unequal} variance, the spread of the $y$
 % draw here on ipad
 \centering
 
-\includegraphics[scale=0.3]{nonconstvar.png}
+\includegraphics[scale=0.3]{figures/nonconstvar.png}
 
 \end{frame}
 
@@ -1257,17 +1355,24 @@ Note that this is the same diagnostic plot we use to assess the linearity assump
 
 
 \begin{frame}{Equal variance assumption: diagnostics in \texttt{R}}
+	\vspace{-5 mm}
+	
 The code for plotting residuals vs. fitted values in \texttt{R} is the same as for the linearity assumption (since it's the same plot!). Our residual plots then look like\dots
 
 \centering
 
-\includegraphics[scale=0.2]{eqvar_resids1.png}
+\includegraphics[scale=0.2]{figures/eqvar_resids1.png}
 
-\includegraphics[scale=0.2]{eqvar_resids2.png} \pause
+\includegraphics[scale=0.2]{figures/eqvar_resids2.png} \pause
 
-\textcolor{blue}{Question:} Do you think the equal variance assumption holds for either of the models that generated these diagnostic plots?
+\textcolor{purple}{Pollev:} Do you think the equal variance assumption holds for either of the models that generated these diagnostic plots?
+\smallskip
+
+\footnotesize{\url{https://PollEv.com/multiple_choice_polls/h2AgZt2ZRw5qL3AErUWBT/respond}}
 
 \end{frame}
+
+
 
 \begin{frame}{Equal variance assumption: diagnostics}
 \textcolor{blue}{Question:} Do you think the equal variance assumption holds for either of the models that generated these diagnostic plots?
@@ -1276,6 +1381,16 @@ The code for plotting residuals vs. fitted values in \texttt{R} is the same as f
 
 \textcolor{blue}{Answer:} The equal variance assumption seems to hold for the bottom plot, but not the top plot. The spread of residuals around the line $y = 0$ is much wider for larger fitted values in the top plot. 
 \end{frame}
+
+\begin{frame}{Atrophy and Age Example}
+	\begin{figure}
+		\centering
+		\includegraphics[scale = 0.5]{figures/age_atrophy_resids_v_fitted}
+	\end{figure}
+	\medskip
+	
+\end{frame}
+
 
 \begin{frame}{Equal variance assumption: do we need it?}
 We previously mentioned that we may not always need the equal variance assumption for linear regression:
@@ -1381,6 +1496,19 @@ The assumptions we need when we have \textit{large} samples and use \textit{robu
 
 \section{Transformations}
 
+\begin{frame}{Why transform $X$ and/or $Y$?}
+	Why might we want to transform our variables?
+	\medskip
+	
+	\begin{itemize}
+		\item Transforming can \textit{make our interpretation of} $\beta_0$ and $\beta_1$ \textit{more scientifically meaningful} (e.g., so we're not talking about the brain atrophy of someone who is 0 years old)
+		\medskip
+		\item Transforming can \textit{change the units of the outcome and/or predictor} (e.g., difference in atrophy, comparing two groups that differ by one year in age or two groups that differ by one month in age)
+		\medskip
+		\item The relationship between the outcome and the predictor may be nonlinear, and transforming the variables can more accurately match the true relationship.
+	\end{itemize}
+\end{frame}
+
 \begin{frame}{Interpreting coefficients (no transformation)}
 In the previous section we learned how to interpret $\beta_0$ and $\beta_1$ in a linear regression model:
 
@@ -1411,7 +1539,7 @@ $$
 $\beta_0$ is the mean value of $Y$ among subjects with $X = 0$
 
 \begin{itemize}
-	\item[] \textcolor{blue}{mean birthweight (grams) of babies born to birth parents of age zero}
+	\item[] \textcolor{blue}{mean atrophy score of people of age zero}
 \end{itemize}
 
 
@@ -1420,7 +1548,7 @@ $\beta_0$ is the mean value of $Y$ among subjects with $X = 0$
 $\beta_1$ is the difference in mean value of $Y$ comparing two groups that differ by one unit in $X$
 
 \begin{itemize}
-	\item[] \textcolor{blue}{difference in mean birthweight (grams) comparing two groups of birth parents that differ by one year in age}
+	\item[] \textcolor{blue}{difference in atrophy score comparing two groups of people that differ by one year in age}
 \end{itemize} 
 
 \end{frame}
@@ -1429,7 +1557,7 @@ $\beta_1$ is the difference in mean value of $Y$ comparing two groups that diffe
 How do we interpret $\beta_0$ in this linear regression model?
 
 $$
-E[\text{bwt} \mid \textcolor{blue}{(\text{age} - 25)}] = \beta_0 + \beta_1 \times \textcolor{blue}{(\text{age} - 25)}
+E[\text{atrophy} \mid \textcolor{blue}{(\text{age} - 75)}] = \beta_0 + \beta_1 \times \textcolor{blue}{(\text{age} - 75)}
 $$
 
 \vspace{0.2cm}
@@ -1437,16 +1565,16 @@ $$
 $\beta_0$ is the mean value of $Y$ among subjects with $X = 0$
 \pause
 \begin{itemize}
-	\item[] mean birthweight (grams) of babies born to birth parents with $\text{age} - 25 = 0$ \pause
-	\item[] \textcolor{blue}{mean birthweight (grams) of babies born to 25 yr. old birth parents } \pause
+	\item[] mean atrophy score of people of age $\text{age} - 75 = 0$ \pause
+	\item[] \textcolor{blue}{mean atrophy score of people of age 75 } \pause
 \end{itemize} 
 
 \vspace{0.3cm}
 
 Why are those last two interpretations equivalent?
 \begin{align*}
-\text{age} - 25 &= 0 \\
-\text{age} & = 25
+\text{age} - 75 &= 0 \\
+\text{age} & = 75
 \end{align*}
 
 \end{frame}
@@ -1455,7 +1583,7 @@ Why are those last two interpretations equivalent?
 How do we interpret $\beta_1$ in this linear regression model?
 
 $$
-E[\text{bwt} \mid \textcolor{blue}{(\text{age} - 25)}] = \beta_0 + \beta_1 \times \textcolor{blue}{(\text{age} - 25)}
+E[\text{atrophy} \mid \textcolor{blue}{(\text{age} - 75)}] = \beta_0 + \beta_1 \times \textcolor{blue}{(\text{age} - 75)}
 $$
 
 \vspace{0.2cm}
@@ -1463,18 +1591,40 @@ $$
 $\beta_1$ is the difference in mean value of $Y$ comparing two groups that differ by one unit in $X$
 
 \begin{itemize}
-	\item[] difference in mean birthweight (grams) comparing two groups of birth parents that differ in (age - 3) by one year
-	\item[] \textcolor{blue}{difference in mean birthweight (grams) comparing two groups of birth parents that differ in age by one year}
+	\item[] difference in atrophy comparing two groups of people that differ in (age - 75) by one year
+	\item[] \textcolor{blue}{difference in atrophy comparing two groups of people that differ in age by one year}
 \end{itemize} 
 
 \vspace{0.3cm}
 
 Why are those last two interpretations equivalent?
 \begin{align*}
-\text{age} - 25 = x + 1 \hspace{0.1cm}& \textcolor{red}{vs}  \hspace{0.1cm}\text{age} - 25 = x \\
-\text{age} = x + 26 \hspace{0.1cm}& \textcolor{red}{vs}  \hspace{0.1cm}\text{age}  = x + 25
+\text{age} - 75 = x + 1 \hspace{0.1cm}& \textcolor{red}{vs}  \hspace{0.1cm}\text{age} - 75 = x \\
+\text{age} = x + 76 \hspace{0.1cm}& \textcolor{red}{vs}  \hspace{0.1cm}\text{age}  = x + 75
 \end{align*}
 
+\end{frame}
+
+\begin{frame}{Interpreting coefficients after a transformation}
+	How do we interpret $\beta_1$ in this linear regression model?
+	
+	$$
+	E[\text{atrophy} \mid \textcolor{blue}{\text{age}\times12}] = \beta_0 + \beta_1 \times \textcolor{blue}{\text{age}\times12}
+	$$
+	
+	\vspace{0.2cm}
+	
+	$\beta_1$ is the difference in mean value of $Y$ comparing two groups that differ by one unit in $X$
+	
+	\begin{itemize}
+		\item[] difference in atrophy comparing two groups of people that differ in age by 1/12 year
+		\item[] \textcolor{blue}{difference in atrophy comparing two groups of people that differ in age by one month}
+	\end{itemize} 
+	
+	\vspace{0.3cm}
+	
+	Note that this kind of transformation might be misleading in practice since we only measured people to the neareast year. However, if we have ages in months it is fine to change that to ages in years.
+	
 \end{frame}
 
 \begin{frame}{Transformations: Practice}
@@ -1482,21 +1632,14 @@ With a partner\dots
 
 \vspace{0.3cm}
 
-\begin{enumerate}
-	\item Interpret $\beta_0, \beta_1$ in the following models:
+Interpret $\beta_0, \beta_1$ in the following models:
+\medskip
 	\begin{enumerate}
-		\item $E[\text{bwt} \mid \text{age}] = \beta_0 + \beta_1 (\text{age} - \bar{\text{age}})$
-		\item $E[\text{bwt} \mid \text{age}] = \beta_0 + \beta_1 \left( \frac{\text{age}}{5} \right)$
-		\item $E[\text{bwt} \mid \text{age}] = \beta_0 + \beta_1 \left( \frac{\text{age} - 25}{5} \right)$
+		\item $E[\text{atrophy} \mid \text{age}] = \beta_0 + \beta_1 (\text{age} - \bar{\text{age}})$
+		\item $E[\text{atrophy} \mid \text{age}] = \beta_0 + \beta_1 \left( \frac{\text{age}}{5} \right)$
+		\item $E[\text{atrophy} \mid \text{age}] = \beta_0 + \beta_1 \left( \frac{\text{age} - 25}{5} \right)$
 	\end{enumerate}
-\item[]
-	\item Interpret $\beta_0, \beta_1$ in the following models:
-	\begin{enumerate}
-		\item $E[(\text{bwt} \times 50) \mid \text{age}] = \beta_0 + \beta_1 (\text{age})$
-		\item $E[(\frac{\text{bwt}}{453.592}) \mid \text{age}] = \beta_0 + \beta_1 (\text{age})$
-		\item[] \tiny (Hint: 1 pound = 453.592 grams)
-	\end{enumerate}
-\end{enumerate}
+
 
 % give them 15 minutes (?) to work, then discuss as a class
 
@@ -1505,337 +1648,477 @@ With a partner\dots
 \subsection{Linear transformations of $X$ and $Y$}
 
 \begin{frame}{Linear transformations of $X$ and $Y$}
+	
+
+	\footnotesize{1st pollev: \url{https://PollEv.com/multiple_choice_polls/m780L9eZqkmodjWcUmKpL/respond}}
+	\smallskip
+	\footnotesize{2st pollev: \url{https://PollEv.com/multiple_choice_polls/kQ9FPtM2LhbBMSsKHbags/respond}}
+		\medskip
+	\small
+	
 \textcolor{blue}{Linear transformations:} adding, subtracting, multiplying, and/or dividing by some constant
 
 \vspace{0.3cm}
 
-Which transformations change the interpretation of $\beta_0$? \pause
+\textcolor{purple}{Pollev}: Which transformations change the interpretation of $\beta_0$? \pause
+\medskip
 \begin{itemize}
 	\item[] Adding (subtracting) a constant to (from) $X$
+	\smallskip
 	\item[] Any change to $Y$ 
 \end{itemize} \pause
 
 \vspace{0.3cm}
 
-Which transformations change the interpretation of $\beta_1$? \pause
+\textcolor{purple}{Pollev}: Which transformations change the interpretation of $\beta_1$? \pause
+\medskip
+
 \begin{itemize}
 	\item[] Multiplying (dividing) $X$ by a constant
+	\smallskip
+	
 	\item[] Multiplying (dividing) $Y$ by a constant 
+	
 \end{itemize}
+
+
 \end{frame}
 
-\begin{frame}{Why transform $X$ and/or $Y$?}
-Why might we want to transform our variables?
 
-\begin{itemize}
-	\item Transforming can \textit{make our interpretation of} $\beta_0$ \textit{more scientifically meaningful} (e.g., so we're not talking about the average birthweight of a baby born to a 0 yr. old birth parent)
-	\item Transforming can \textit{change the units of the outcome and/or predictor} (e.g., difference in birthweight in pounds vs. grams, comparing two groups that differ by one year in age)
-\end{itemize}
-\end{frame}
 
 \subsection{Log transformations of $X$ and $Y$}
 
-\begin{frame}{Log transformations: $\beta_0$ interpretation}
-So far we've seen linear transformations. What about log transformations? Consider the model
-$$
-E[\text{bwt} \mid \text{wpre}] = \beta_0 + \beta_1 \log(\text{wpre})
-$$
-where wpre = birth parent's pre-pregnancy weight in pounds.
-
-\vspace{0.3cm}
-
-$\beta_0$ is the mean value of $Y$ among subjects with $X = 0$
-
-\vspace{0.3cm}
-
-\tiny *Note: in statistics (and in \texttt{R}) when we write log, we mean $\text{log}_e = \text{ln}$. If we are using a different base, we'll explicitly write it
-
-\end{frame}
-
-\begin{frame}{Log transformations: $\beta_0$ interpretation}
-So far we've seen linear transformations. What about log transformations? Consider the model
-$$
-E[\text{bwt} \mid \text{wpre}] = \beta_0 + \beta_1 \log(\text{wpre})
-$$
-where wpre = birth parent's pre-pregnancy weight in pounds.
-
-\vspace{0.3cm}
-
-$\beta_0$ is the mean value of $Y$ among subjects with $X = 0$
-
-\begin{itemize}
-	\item[] mean birthweight (grams) of babies born to birth parents with log(wpre) = 0\pause
-	\item[] \textcolor{blue}{mean birthweight (grams) of babies born to birth parents with a pre-pregnancy weight of 1 pound}
-\end{itemize}
-
-\end{frame}
-
-\begin{frame}{Log transformations: $\beta_0$ interpretation}
-
-$\beta_0$ is the mean value of $Y$ among subjects with $X = 0$
-
-\begin{itemize}
-	\item[] mean birthweight (grams) of babies born to birth parents with log(wpre) = 0
-	\item[] \textcolor{blue}{mean birthweight (grams) of babies born to birth parents with a pre-pregnancy weight of 1 pound}
-\end{itemize}
-
-\vspace{0.3cm}
 
 
-Why are those last two interpretations equivalent?
 
-
-\begin{align*}
-\log(\text{wpre}) & = 0 \\
-e^{\log(\text{wpre})} & = e^0 \\
-\text{wpre} & = 1
-\end{align*}
-
-\end{frame}
-
-
-\begin{frame}{Log transformations: $\beta_1$ interpretation}
-
-$\beta_1$ is the difference in mean value of $Y$ comparing two groups that differ by one unit in $X$\pause
-
-\begin{itemize}
-	\item[] difference in mean birthweight (grams) comparing two groups of birth parents that differ in $\log(\text{wpre})$ by one unit \pause
-	\item[] \textcolor{blue}{difference in mean birthweight (grams) comparing two groups of birth parents that differ in pre-pregnancy weight by a multiplicative factor of $e$ (2.718\dots)}
-\end{itemize} \pause
-
-\vspace{0.3cm}
-
-
-Why are those last two interpretations equivalent?
-
-
-\begin{align*}
-\log(\text{wpre})  = x + 1 \hspace{0.1cm} & \textcolor{red}{vs} \hspace{0.1cm} \log(\text{wpre})  = x  \\
-e^{\log(\text{wpre})}  = e^{x + 1}  \hspace{0.1cm} & \textcolor{red}{vs} \hspace{0.1cm} e^{\log(\text{wpre})}  = e^{x}\\
-\text{wpre}  = e^x e \hspace{0.1cm} & \textcolor{red}{vs} \hspace{0.1cm} \text{wpre} = e^x
-\end{align*}
-
-\end{frame}
-
-\begin{frame}{Log transformations: $\beta_1$ interpretation}
-An $e$-fold difference between two groups is not particularly intuitive.
-
-How can we make our interpretation of $\beta_1$ more intuitive?
-
-\vspace{0.3cm}
-
-Option 1: use a different base\pause
-
-\begin{itemize}
-	\item $E[\text{bwt} \mid \text{wpre}] = \beta_0 + \beta_1 \textcolor{blue}{\text{log}}_2 (\text{wpre})$
+\begin{frame}{Review of Exponents and Logs}
+	\vspace{-5 mm}
+	
+	\textcolor{blue}{Exponents}
+	\medskip
 	\begin{itemize}
-		\item $\beta_0$: mean birthweight among babies born to birth parents with pre-pregnancy weight of 1 pound
-		\item $\beta_1$: difference in mean birthweight comparing groups of birth parents that differ in pre-pregnancy weight by a \textcolor{blue}{multiplicative factor of 2}
-	\end{itemize} \pause
-\item $E[\text{bwt} \mid \text{wpre}] = \beta_0 + \beta_1 \textcolor{blue}{\text{log}}_{10} (\text{wpre})$
-\begin{itemize}
-	\item $\beta_0$: mean birthweight among babies born to birth parents with pre-pregnancy weight of 1 pound
-	\item $\beta_1$: difference in mean birthweight comparing groups of birth parents that differ in pre-pregnancy weight by a \textcolor{blue}{multiplicative factor of 10}
-\end{itemize} 
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Log transformations: $\beta_1$ interpretation}
-An $e$-fold difference between two groups is not particularly intuitive.
-
-How can we make our interpretation of $\beta_1$ more intuitive?
-
-\vspace{0.3cm}
-
-Option 2: fit the same model but interpret $c \times \beta_1$ rather than $\beta_1$\pause
-
-\vspace{0.3cm}
-
-\textit{Example}: $\textcolor{blue}{\text{log}(1.1)}\beta_1$ is the difference in average birthweight comparing two groups of birth parents that differ in pre-pregnancy weight by a \textcolor{blue}{multiplicative factor of 1.1} (i.e. a 10\% difference)\pause
-
-\includegraphics[scale=0.01]{chilipepper.png}
-\begin{align*}
-E[\text{bwt} \mid & \log(\text{wpre} = 1.1x)] - E[\text{bwt} \mid \log(\text{wpre} = x)] \\
-& = [\beta_0 + \beta_1 \log(1.1x)] - [\beta_0 + \beta_1 \log(x)] \\
-& = \beta_1 \log(1.1x) - \beta_1 \log(x) \\
-& = \beta_1 (\log(1.1) + \log(x)) - \beta_1 \log(x) \\
-& = \beta_1 \log(1.1)
-\end{align*}
-
-\end{frame}
-
-\begin{frame}{Log transformations: recap}
-Tying it all together\dots
-
-\vspace{0.3cm}
-
-\begin{itemize}
-	\item \textcolor{blue}{Regression model:} $E[\text{bwt} \mid X] = \beta_0 + \beta_1 \log(X)$
-	\item \color{blue} $\beta_0$\color{black}: average value of $Y$ among subjects with $X = 1$
-	\item \color{blue}$\log(k) \times \beta_1$\color{black}: difference in average value of $Y$ comparing two groups that differ in $X$ by a multiplicative factor of $k$
-\end{itemize}\pause
-
-\vspace{0.3cm}
-
-Why would we want to do this type of transformation?
-
-\begin{itemize}
-	\item Sometimes it is more scientifically relevant to talk about \textit{multiplicative changes} in $X$ rather than \textit{differences} in $X$
-	\item Types of variables that are often log transformed:
-	\begin{itemize}
-		\item Money (e.g., salary, GDP)
-		\item Biological measurements (e.g., prostate specific antigen in prostate cancer, serum creatinine in kindey disease)
+	 \item $a^b$ means $a$ is \textbf{raised to the power of} $b$, in other words, $a$ is multiplied by itself $b$ times
+	\medskip
+	
+	\item Examples: $10^2=100$, $2^3=8$, $10^4 = 10000$, $(1/2)^3 = 1/8$
+	\medskip
+	
+	\item Exponents can be fractions and decimals
+	
+	\medskip
+	\item Examples: $9^{1/2}=\sqrt{9}=3$, $10^{1.77}\approx 58.88$
+	\medskip
+	
+	\item $a^{-b}=1/(a^b)$, for example $2^{-3}=1/8$ and $10^{-2}=0.01$
 	\end{itemize}
+\medskip
+\textcolor{blue}{Logs}
+\medskip
+\begin{itemize}
+	\item $\log_ac$: the power to which $a$ 
+	\textbf{(the base)} must be raised to get $c$
+	\medskip
+	\item Examples: $\log_{10}100=2$, $\log_{(1/2)}1/8=3$, $\log_{10} 58.88\approx 1.77$
+	\medskip
+	\item we can only take the log of numbers greater than 0
 \end{itemize}
+
 \end{frame}
 
-\begin{frame}
-\frametitle{Transformations: $\log(Y)$}
-\begin{center} $E[\log(\text{bwt}) \mid \text{age}] = \beta_0 + \beta_1 \times age$ \end{center}
-$\beta_0$: average value of $Y$ among subjects with $X = 0$\\ \pause
-\begin{itemize}
-	\item[] average log birthweight babies born to 0 yr. old birth parents  \pause
-	\item[] log geometric mean birthweight among babies born to 0 yr. old birth parents \pause
-\end{itemize}
-\color{blue} $e^{\beta_0}$: geometric mean birthweight among babies born to 0 yr. old birth parents \color{black}\pause
-\vspace{0.3cm}
-
-Why are those interpretations equivalent?
-\begin{itemize}
-	\item[] \textit{Arithmetic mean}: $\frac{1}{n} \sum_{i=1}^n a_i$
-	\item[] \textit{Geometric mean}: $\left(\prod_{i=1}^n a_i\right)^{\frac{1}{n}} = e^{\frac{1}{n} \sum_{i=1}^n \log(a_i)}$
-\end{itemize}
-
-\vspace{0.3cm}
-
-\begin{footnotesize}The \color{blue} ``average of $\log(Y)$" \color{black} = $\frac{1}{n}\sum \log(Y_i)$ \ \color{blue} \textit{is the same as} \color{black}\\the \color{blue}``log of the geometric mean of $Y$" \color{black}= $\log(e^{\frac{1}{n}\sum \log(Y_i)} = \frac{1}{n}\sum \log(Y_i)$.\end{footnotesize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Transformations: $\log(Y)$}
-\begin{center} $E[\log(\text{bwt})\mid \text{age}] = \beta_0 + \beta_1 \text{age}$ \end{center}
-$\beta_1$: difference in average values of $Y$ comparing two groups that differ in $X$ by one unit\\ \pause
-\begin{itemize}
-	\item[] difference in average $\log(\text{bwt})$ comparing two ...\pause
-	\item[] difference in log geometric mean birthweight comparing two ... \pause
-\end{itemize}
-\color{blue} $e^{\beta_1}$: ratio of geometric mean birthweight comparing two ... \color{black} \pause
-\vspace{0.3cm}
-
-Why are those interpretations equivalent?
-
-\includegraphics[scale=0.01]{chilipepper.png}
-\begin{align*}
-\beta_1 & = \log(\text{GM}[Y|X=x+1])-\log(\text{GM}[Y|X=x])\\
-& = \log\left(\text{GM}[Y|X=x+1]\div\text{GM}[Y|X=x]\right)\\
-e^{\beta_1} & = \text{GM}[Y|X=x+1]\div\text{GM}[Y|X=x]
-\end{align*}
-\end{frame}
-
-\begin{frame}{Transformations: log(Y) recap}
-Tying it all together\dots
-
-\vspace{0.3cm}
-
-\begin{itemize}
-	\item \textcolor{blue}{Regression model:} $E[\log(\text{bwt}) \mid X] = \beta_0 + \beta_1 \log(X)$
-	\item \color{blue} $e^{\beta_0}$\color{black}: geometric mean of $Y$ among subjects with $X = 0$
-	\item \color{blue}$e^{\beta_1}$\color{black}: ratio of geometric means of $Y$ comparing two groups that differ in $X$ by one unit
-\end{itemize} \pause
-
-\vspace{0.3cm}
-
-Why would we want to do this type of transformation?
-
-\begin{itemize}
-	\item Sometimes it is more scientifically relevant to talk about \textit{multiplicative changes} in $X$ rather than \textit{differences} in $X$
-	\item Types of variables that are often log transformed:
+\begin{frame}{Review of Exponents and Logs}
+	
+	\vspace{-5 mm}
+	
+	\textcolor{blue}{The Natural Log}
 	\begin{itemize}
-		\item Money (e.g., salary, GDP)
-		\item Biological measurements (e.g., prostate specific antigen in prostate cancer, serum creatinine in kindey disease)
+		\item In math/stats, $\log b$ is the natural log $\log_e b$ and $\exp(b) = e^b$
+		\medskip
+		\item \includegraphics[scale = 0.01]{figures/technical} Why $e$? $e$ (about 2.72) is the unique number with
+		\medskip
+		\begin{itemize}
+			\item The derivative of $e^x$ is $e^x$
+			\medskip
+			\item other important mathematical properties 
+		\end{itemize}
 	\end{itemize}
+\medskip
+\textcolor{blue}{Exponent and Log Properties}
+\medskip
+\begin{itemize}
+	\item $\mathbf{a^b\times a^c = a^{(b+c)}}$ and $\mathbf{\frac{a^b}{a^c} = a^{(b-c)}}$
+	\medskip
+	\item $\mathbf{a^1 = a}$ and $\mathbf{a^0 = 1}$
+	\medskip 
+	\item $\mathbf{\log a +  \log b = \log(a\times b)}$ and $\mathbf{\log a - \log b = \log(a/b)}$
+	\medskip
+	\item $\mathbf{ c\times\log a = \log(a^c)}$
+	\medskip
+	\item $\mathbf{\log 1 = 0}$
 \end{itemize}
-\begin{footnotesize}
-	Practitioners often log transform highly skewed variables in order to move the data closer to a Normal distribution. In large sample sizes, though, we do not need Normality. 
-\end{footnotesize}
+
+
 \end{frame}
 
-% hw question maybe where we have both x and y log transformed
+\begin{frame}{Why log transform}
+	
+	\vspace{-5 mm}
+	
+	Remember:
+	\begin{itemize}
+		\medskip
+		\item $\mathbf{\log a +  \log b = \log(a\times b)}$ and $\mathbf{\log a - \log b = \log(a-  b)}$
+	\end{itemize}
+\medskip
+So addition on the log scale is multiplication on the standard scale
+\medskip
+
+Sometimes it \textbf{fits our scientific understanding better}, or \textbf{is more interpretable} to, instead of studying the change in $Y$ as predicted by the change in $X$:
+
+\medskip
+\begin{itemize}
+	\item Study the change in $Y$ as predicted by the \textcolor{blue}{percent} change in $X$
+	\medskip
+	\item Study the \textcolor{blue}{percent} change in $Y$  as predicted by  the change in $X$
+	\medskip
+	\item Study the \textcolor{blue}{percent} change in $Y$  as predicted by the \textcolor{blue}{percent} change in $X$
+\end{itemize}
+\bigskip
+
+
+\small{Practitioners often log transform highly skewed variables to move the data closer to a normal distribution. \textbf{For large sample sizes, though, we do not need normality.}} 
+
+
+\end{frame}
+
+\begin{frame}{Log Transformations: $\log(X)$}
+	
+	We can take the log of $X$ if we want to study the change in $Y$ as predicted by the \textcolor{blue}{percent} change in $X$
+	\medskip
+	
+	For example, we might study the association between blood pressure (mm Hg) and income, measured in thousands of dollars. \pause
+	\medskip
+	
+	\textcolor{red}{Caution: $X$ must be greater than 0} \pause
+	
+	$$
+	E[\text{blood pressure} \mid \text{income}] = \beta_0 + \beta_1 \log(\text{income})
+	$$
+	
+\end{frame}
+
+
+
+\begin{frame}{Log Transformations: $\log(X)$}
+	
+	We can take the log of $X$ if we want to study the change in $Y$ as predicted by the \textcolor{blue}{percent} change in $X$
+	\medskip
+	
+	For example, we might study the association between blood pressure (mm Hg) and income, measured in thousands of dollars. \pause
+	\medskip
+	
+	\textcolor{red}{Caution: $X$ must be greater than 0} \pause
+	
+	$$
+	E[\text{blood pressure} \mid \text{income}] = \beta_0 + \beta_1 \log(\text{income})
+	$$
+	
+\end{frame}
+
+\begin{frame}{$\beta_0$ Interpretation: $\log(X)$}
+	
+	We can take the log of $X$ if we want to study the change in $Y$ as predicted by the \textcolor{blue}{percent} change in $X$
+	\medskip
+	
+	For example, we might study the association between blood pressure (mm Hg) and income, measured in thousands of dollars. 
+	\medskip
+	
+	$$
+	E[\text{blood pressure} \mid \text{income}] = \beta_0 + \beta_1 \log(\text{income})
+	$$
+	\bigskip
+	
+	$\beta_0$ is the mean value of $Y$ among subjects with $\log(X) = 0$ 
+	\medskip
+	
+	\textcolor{purple}{Pollev}: $\beta_0$ is the mean value of $Y$ among subjects with $X =$ ?
+\medskip
+
+\footnotesize{\url{https://PollEv.com/multiple_choice_polls/LPllgwG7U0iwpnBwwJPno/respond}}
+
+\end{frame}
+
+\begin{frame}{$\beta_0$ Interpretation: $\log(X)$}
+	
+We can take the log of $X$ if we want to study the change in $Y$ as predicted by the \textcolor{blue}{percent} change in $X$
+\medskip
+
+For example, we might study the association between blood pressure (mm Hg) and income, measured in thousands of dollars. 
+\medskip
+
+$$
+E[\text{blood pressure} \mid \text{income}] = \beta_0 + \beta_1 \log(\text{income})
+$$
+\bigskip
+
+$\beta_0$ is the mean value of $Y$ among subjects with $\log(X) = 0$ 
+\medskip
+
+\textcolor{blue}{$\beta_0$ is the mean value of $Y$ among subjects with $X = 1$} \pause
+\bigskip
+
+Here $\beta_0$ is the mean blood pressure in mm Hg among subjects with an income of \$1000. 
+
+	
+\end{frame}
+
+
+
+\begin{frame}{$\beta_1$ Interpretation: $\log(X)$}
+	
+	\vspace{-5 mm}
+	
+	We can take the log of $X$ if we want to study the change in $Y$ as predicted by the \textcolor{blue}{percent} change in $X$
+	\medskip
+	
+	For example, we might study the association between blood pressure (mm Hg) and income, measured in thousands of dollars. 
+	\medskip
+	
+	$$
+	E[\text{blood pressure} \mid \text{income}] = \beta_0 + \beta_1 \log(\text{income})
+	$$
+	\bigskip
+	
+	$\beta_1$ is the difference in mean value of $Y$ comparing two groups that differ by one unit in $\log(X)$
+	\medskip
+	
+	$\beta_1$ is the difference in mean value of $Y$ comparing two groups, one which is $e$ times greater than the other
+	\bigskip
+	
+		$\beta_1$ is the difference in mean blood pressure in mm Hg comparing two groups, one of which has $e$ times greater income than the other
+	\bigskip
+	
+	{\color{blue}\textbf{This isn't very helpful.}}
+	
+\end{frame}
+
+\begin{frame}{$\beta_1$ Interpretation: $\log(X)$}
+	
+	When we take the log of $X$, interpreting $\beta_1$ is not very helpful.
+	\medskip
+	
+	Instead, we can interpret $\log(1.c)\times \beta_1$. 
+	\medskip
+	
+	\textcolor{blue}{$\log(1.c)\times\beta_1$ is the difference in mean value of $Y$ comparing two groups, one which is $c\%$ greater than the other}
+	\bigskip
+	
+		$$
+	E[\text{blood pressure} \mid \text{income}] = \beta_0 + \beta_1 \log(\text{income})
+	$$
+	\medskip
+	
+	\textcolor{blue}{Comparing two groups of subjects, one having 10\% higher income than the other, the first group has $\log(1.1)\times\beta_1$ mm Hg higher (or lower) blood pressure}
+
+	
+\end{frame}
+
+
+
+\begin{frame}{Log Transformations: $\log(Y)$}
+	
+	We can take the log of $Y$ if we want to study the \textcolor{blue}{percent} change in $Y$ as predicted by the change in $X$
+	\medskip
+	
+	For example, we might study hospital prices over time (in years). 
+	\medskip
+	
+	\textcolor{red}{Caution: $Y$ must be greater than 0} 
+	
+	$$
+	E[\log(\text{prices}) \mid \text{time}] = \beta_0 + \beta_1 \text{time}
+	$$
+	
+\end{frame}
+
+\begin{frame}{$\beta_0$ Interpretation: $\log(Y)$}
+	
+	\vspace{-5 mm}
+	
+	We can take the log of $Y$ if we want to study the \textcolor{blue}{percent} change in $Y$ as predicted by the change in $X$
+	\medskip
+	
+	For example, we might study hospital prices over time (in years). 
+
+	$$
+	E[\log(\text{prices}) \mid \text{time}] = \beta_0 + \beta_1 \text{time}
+	$$
+	\medskip
+	
+	\begin{itemize}
+		\item $\beta_0$ is the average log of $Y$ among subjects with $X=0$
+		\medskip
+		
+		\item \textcolor{blue}{$e^{\beta_0}$ is the geometric mean of $Y$ among subjects with $X=0$}
+		\medskip
+		
+		\item The geometric mean is $(y_1\times y_2\times ...\times y_n)^{1/n}$
+		\bigskip
+	\end{itemize}
+	
+	\textcolor{blue}{Here $e^{\beta_0}$ is the geometric mean hospital price at year 0}
+	
+	
+	
+\end{frame}
+
+\begin{frame}{$\beta_1$ Interpretation: $\log(Y)$}
+	
+	\vspace{-5 mm}
+	
+	We can take the log of $Y$ if we want to study the \textcolor{blue}{percent} change in $Y$ as predicted by the change in $X$
+	\medskip
+	
+	For example, we might study hospital prices over time (in years). 
+
+
+	$$
+	E[\log(\text{prices}) \mid \text{time}] = \beta_0 + \beta_1 \text{time}
+	$$
+	\medskip
+	
+	\begin{itemize}
+		\item $\beta_1$ is difference in the mean value of $\log(Y)$ comparing subjects who differ by one unit in $X$
+		\medskip
+		
+		\item \textcolor{blue}{Subjects at a given $X$ have an average $Y$ value that is $e^{\beta_1}$ times greater (or lower) than subjects with $X$ one unit lower}
+		\medskip
+		
+		\item \textcolor{blue}{Subjects at a given $X$ have an average $Y$ value that is $(1-e^{\beta_1})*100$ percent greater (or lower) than subjects with $X$ one unit lower}
+		\bigskip
+	\end{itemize}
+	
+	\textcolor{blue}{Here, average hospital prices in a given year are $(1-e^{\beta_1})*100$ percent greater (or lower) than average hospital prices one year before}
+	
+	
+	
+\end{frame}
+
+
+
+\begin{frame}{Transformations: $\log(X)$ and $\log(Y)$}
+	
+	\vspace{-5 mm}
+	
+	We can take the log of $Y$ if we want to study the \textcolor{blue}{percent} change in $Y$ as predicted by the \textcolor{blue}{percent} change in $X$
+	\medskip
+	
+	For example, we might study the association between creatinine (mg/dl) and  albumin (g/l), which are two chemicals in the blood. It sometimes makes sense to study variables like these using \% changes. 
+	
+	
+	$$
+	E[\log(\text{creatinine}) \mid \text{albumin}] = \beta_0 + \beta_1 \log(\text{albumin})
+	$$
+	\smallskip
+	
+\textcolor{blue}{$\exp(\beta_0)$ is the geometric mean of $Y$ for subjects with $X=1$} ($\log(X)=0$)
+	\bigskip
+	
+	\textcolor{blue}{Comparing two groups of subjects, with one having c\% higher $X$ than the other, the first group will have a $(1-1.c^{\beta_1})*100$\% greater (or lower) average $Y$.}
+	
+	
+\end{frame}
+
+\begin{frame}{Transformations: $\log(X)$ and $\log(Y)$}
+	
+	\vspace{-5 mm}
+	
+		We can take the log of $Y$ if we want to study the \textcolor{blue}{percent} change in $Y$ as predicted by the \textcolor{blue}{percent} change in $X$
+	\medskip
+	
+	For example, we might study the association between creatinine (mg/dl) and  albumin (g/l), which are two chemicals in the blood. It sometimes makes sense to study variables like these using \% changes. 
+
+		$$
+		E[\log(\text{creatinine}) \mid \text{albumin}] = \beta_0 + \beta_1 \log(\text{albumin})
+		$$
+		\smallskip
+		
+		\textcolor{blue}{$e^{\beta_0}$ is the geometric mean creatinine in mg/dl for subjects with albumin of 1 g/l} 
+		\medskip
+		
+		\textcolor{blue}{Comparing two groups of subjects, with one having 10\% higher albumin than the other, the first group will have a $(1-1.1^{\beta_1})*100$ \% greater (or lower) average creatinine level.}
+	
+	
+\end{frame}
+
+
+
+
+
 \begin{frame}
 \frametitle{Transformations: polynomial}
-Another common transformation is the quadratic transformation\dots
-\begin{center} $E[\text{bwt} \mid \text{age}] = \beta_0 + \beta_1 \times \text{age} + \beta_2 \times \text{age}^2$ \end{center}
+Another common transformation is the polynomial transformation
+\medskip
+Why would we want to do this type of transformation?
+\medskip
+\begin{itemize}
+	\item Sometimes we might have scientific reason to believe that $Y$ is related to $X^2$ (e.g., area) or $X^3$, rather than just $X$
+	\medskip
+	\item Model non-linearity in the relationship between $X$ and $Y$
+	\begin{itemize}
+		\medskip
+		\item May be important for prediction (we'll return to this later)
+	\end{itemize}
+\end{itemize}
 
-Now we have three coefficients: $\beta_0, \beta_1, \beta_2$\pause
-
-\vspace{0.3cm}
-
-\color{blue} $\beta_0$: average birthweight among babies born to birth parents who are 0 yrs. old \color{black} \pause
-\begin{align*}
-E[\text{bwt} \mid \text{age} = 0] & = \beta_0 + \beta_1 (0) + \beta_2(0)^2 \\
-& = \beta_0 + 0 + 0 \\
-& = \beta_0
-\end{align*}
 \end{frame}
 
-\begin{frame}
-\frametitle{Transformations: polynomial}
-Another common transformation is the quadratic transformation\dots
-\begin{center} $E[\text{bwt} \mid \text{age}] = \beta_0 + \beta_1 \times \text{age} + \beta_2 \times \text{age}^2$ \end{center}
+\subsection{Polynomial Transformations of $X$}
 
-$\beta_1$: \color{red} NOT \color{black} the difference in average birthweight comparing groups of birth parents that differ in age by one year \pause
+\begin{frame}{Transformations: polynomial}
+	
+	\vspace{-5 mm}
+	
+	Let's go back to our example of predicting atrophy score based on age in years. If we have reason to think the association is quadratic, we may choose a model:
+	\medskip
+
+\begin{center} $E[\text{atrophy} \mid \text{age}] = \beta_0 + \beta_1 \times \text{age} + \beta_2 \times \text{age}^2$ \end{center}
+\bigskip
+
+$\beta_1$: \color{red} NOT \color{black} the difference in average atrophy score comparing groups of people that differ in age by one year
+\medskip
+
 \begin{align*}
-E[& \text{bwt} \mid \text{age} = x + 1] -E[\text{bwt} \mid \text{age} = x]\\
+E[& \text{atrophy} \mid \text{age} = x + 1] -E[\text{atrophy} \mid \text{age} = x]\\
 & = \left[\beta_0 + \beta_1 (x+1) + \beta_2(x+1)^2\right] -\left[\beta_0 + \beta_1 (x) + \beta_2(x)^2\right]\\
 & = \beta_1 + \beta_2(2x+1) \\
 \end{align*}\pause
-\color{blue} $\beta_1,\beta_2$: no straightforward interpretation \color{black}
+\textbf{\textcolor{blue}{$\beta_1,\beta_2$: no straightforward interpretation}}
 \end{frame}
 
-\begin{frame}
-\frametitle{Transformations: polynomial recap}
-Tying it all together...
-\begin{itemize}
-	\item \color{blue} Regression model: \color{black} $E[Y|X] = \beta_0 + \beta_1X + \beta_2 X^2 + \cdots$
-	\item \color{blue} $\beta_0$: \color{black} average value of $Y$ when $X = 0$
-	\item \color{blue} $\beta_1, \beta_2, \cdots$: \color{black} no straightforward interpretation
-\end{itemize}\pause
 
-\vspace{0.3cm}
-
-Why would we want to do this type of transformation?
-\begin{itemize}
-	\item Sometimes we might have scientific reason to believe that $Y$ is related to $X^2$ (e.g., area) or $X^3$, rather than just $X$
-	\item Model non-linearity in the relationship between $X$ and $Y$
-	\begin{itemize}
-		\item May be important for prediction (we'll return to this later)
-		\item Not necessary for showing associations 
-	\end{itemize}
-\end{itemize}
-
-\vspace{0.3cm}
-
-Real world example:  \href{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4046865/}{\color{cyan} the log-quad model for mortality estimation}
-
-\end{frame}
 
 \begin{frame}
 \frametitle{Summary: why transform $X$ and/or $Y$?}
 Why might we want to transform our variables? \vspace{0.3cm}
 \begin{itemize}
 	\item Scientific motivation
+	\medskip
 	\begin{itemize}
 		\item Improve interpretation
+		\medskip
 		\item More realistically model the relationships we think exist between variables
+		\medskip
 		\begin{itemize}
 			\item Multiplicative (ratio) vs additive (difference)
+			\medskip
 			\item Geometric mean vs arithmetic mean
 		\end{itemize}
+	\medskip
 	\end{itemize}
 	\item Account for non-linearity 
+	\medskip
 	\begin{itemize}
 		\item Important for prediction
-		\item Not necessarily for detecting associations
 	\end{itemize}
 \end{itemize}
 \end{frame}
