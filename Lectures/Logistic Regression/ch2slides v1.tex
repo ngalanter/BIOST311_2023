@@ -8,6 +8,7 @@
 \setbeamercolor{frametitle}{bg=white}
 %\setbeamertemplate{frametitle}[default][left]
 \setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{\begin{flushright}\small \insertframenumber\end{flushright}}
 
 \usepackage{graphicx}
 \usepackage{amsmath}
@@ -44,9 +45,9 @@
 \end{frame}
 
 % Outline frame
-\begin{frame}{Outline}
-\tableofcontents
-\end{frame}
+%\begin{frame}{Outline}
+%\tableofcontents
+%\end{frame}
 
 \AtBeginSection[ ]
 {
@@ -64,8 +65,10 @@
 	\\~\
 	
 	\begin{itemize}
-		\item Our primary outcome of interest was \textcolor{blue}{birthweight}
-		\item We also saw brief examples involving FEV, 100m dash times, dental patient pain ratings
+		\item Our primary outcomes of interest were \textcolor{blue}{birthweight} and \textcolor{blue}{atrophy score}
+		\bigskip
+		
+		\item We also saw examples involving FEV, 100m dash times, dental patient pain ratings
 	\end{itemize}
 \end{frame}
 
@@ -75,11 +78,21 @@ Binary variables are a type of \textcolor{blue}{categorical} variable with two p
 \\~\
 
 Examples we often see in biomedical research: 
+\medskip
+
 \begin{itemize}
 	\item Type I diabetes (presence/absence)
+	\medskip
+	
 	\item Surgery complications (occurred/did not occur)
+	\medskip
+	
 	\item Smoking (yes/no)
+	\medskip
+	
 	\item Mortality prior to age 5 (occurred/did not occur)
+	\medskip
+	
 	\item COVID status (positive/negative)
 \end{itemize}
 \end{frame}
@@ -87,106 +100,257 @@ Examples we often see in biomedical research:
 % binary variable scientific questions
 \begin{frame}{Scientific questions about binary variables}
 	Questions we could ask about these variables include
+	\medskip
+	
 	\begin{itemize}
 		\item Are variants in the HLA-DRB1 gene associated with \textcolor{blue}{Type I diabetes}? 
+		\medskip
+		
 		\item Are \textcolor{blue}{surgery complications} after upper endoscopy associated with who (anesthesiologist vs nurse) performed the sedation?
+		\medskip
+		
 		\item Is the use of e-cigarettes associated with \textcolor{blue}{smoking}?
+		\medskip
+		
 		\item Is having an HIV positive birth parent associated with the risk of \textcolor{blue}{neonatal mortality}?
+		\medskip
+		
 		\item Is Vitamin D intake associated with the risk of \textcolor{blue}{testing positive for COVID}?
+		\medskip
+		
 	\end{itemize}
 \end{frame}
 
 \begin{frame}{Scientific questions about binary variables}
-	One specific question that has been the subject of much study is 
-	\begin{itemize}
-		\item Is Type A behavior associated with risk of \textcolor{blue}{coronary heart disease} (CHD)?
-	\end{itemize}
+	One specific question that we will study is:
+
+		\bigskip
+		
+\textcolor{blue}{Are monetary incentives associated with choosing to receive HIV test results?}
+
 	\vspace{0.7cm}
-	Type A behavior is a concept that was developed by cardiologists in the 1950s, and is characterized by being competitive, ambitious, work-driven, and time-conscious. The doctors who identified this ``personality type" thought it might be associated with the risk of CHD, and many studies investigated this association. 
-	\vfill
-	\footnotesize{It turns out that a lot of this research was funded by tobacco companies in an effort to claim that links between smoking and negative health outcomes were simply confounded by Type A personality\dots}
+	
+	\begin{itemize}
+		\item HIV continues to be a serious health challenge worldwide
+		\medskip
+		
+		\item People knowing their HIV status is important in both successfully treating the disease and preventing transmission
+		
+		\medskip
+		
+		\item However, there can be psychological, social\footnote{Thornton, Rebecca L. 2008. 'The Demand for, and Impact of, Learning Hiv Status.' American Economic Review 98 (5): 1829–63}, and logistical barriers to learning one's HIV status
+	\end{itemize}
 \end{frame}
 
-\begin{frame}{The WCGS Study}
-	The Western Collaborative Group Study (WCGS) was designed in order to investigate a possible link between Type A behavior and CHD, and to develop a \textcolor{blue}{risk prediction} framework to select patients for intervention in order to decrease risk of CHD. 
-	\\ ~\ 
+\begin{frame}{The Thornton HIV Study}
+	\vspace{-10 mm}
 	
-	\textbf{Study description}: 3154 men aged 39-59 in California with no CHD history were enrolled in 1960 and 1961, subjected to a medical examination and history, and re-examined annually for interim cardiovascular history. The primary outcome was angina pectoris (chest pain due to heart disease). 
-	\\ ~\
+	This study was part of a larger collaborative project between the University of Pennsylvania and the Malawi College of Medicine.
 	
-	\textcolor{blue}{\textbf{Exercise:}} What study design is this?  
-	\\~\
+	\medskip
 	
-	\textcolor{blue}{\textbf{Answer:}} Prospective cohort study
+	The project is taking place in Malawi. In 2020, researchers estimated that HIV prevalence among adults in Malawi is 8.9\%, or about 946,000 adults. They also estimated that 88.3\% of those adults living with HIV know their HIV status, which is below the UNAIDS 2025 target of 95\%\footnote{https://phia.icap.columbia.edu/second-population-survey-assessing-hiv-in-malawi-shows-progress-toward-epidemic-control/}.
+	
+	\medskip
+	
+	In this particular study\footnote{Thornton, Rebecca L. 2008. 'The Demand for, and Impact of, Learning Hiv Status.' American Economic Review 98 (5): 1829–63}, conducted in 2004, nurses knocked on doors throughout Malawi offering free in-home testing for HIV. Participants then were given randomly selected vouchers for between 0-3 USD to redeem if they went to a test result center to retrieve their result.
+	
+	\smallskip
+	
+	\textcolor{violet}{\textbf{Pollev:}} What study design is this?
+	\tiny{\url{https://PollEv.com/multiple_choice_polls/yNK1Wz10JvX1bKaV67QPe/respond}}\pause
+	\normalsize
+	
+	\textcolor{blue}{\textbf{Answer:}} Experiment
 \end{frame}
 
 \begin{frame}{Recall: summarizing a binary variable}
-	Let's think about Type A behavior  and CHD. 
+	Let's think about receiving an incentive and choosing to get a HIV result. 
 	\\ ~\ 
 	
-	We can talk about the \textcolor{blue}{probability} of experiencing CHD among those with Type A behavior ($p_A$) and the probability of experiencing CHD among those without Type A behavior ($p_B$).
+	We can talk about the \textcolor{blue}{probability} of getting a result among those who received an incentive ($p_A$) and the probability of getting a result among those do did not receive an incentive ($p_B$).
+	\medskip
+	
 	\begin{itemize}
 		\item Generally, ``probability," ``risk," ``proportion" refer to the same quantity.
+		
+		\medskip
 	\end{itemize}  
-	\textcolor{blue}{Odds} are defined as $\frac{p}{1-p}$.
+
+	\textcolor{blue}{Odds} are defined as $\frac{p}{1-p}$, where $p$ is a probability.
+	\medskip
+	
 	\begin{itemize}
-		\item Odds of CHD with Type A behavior: $\frac{p_A}{1-p_A}$
-		\item Odds of CHD without Type A behavior: $\frac{p_B}{1-p_B}$
+		\item Odds of getting a result with an incentive: $\frac{p_A}{1-p_A}$
+		
+		\medskip
+		
+		\item Odds of getting a result without an incentive: $\frac{p_B}{1-p_B}$
 	\end{itemize}
 \end{frame}
 
 \begin{frame}{Recall: summarizing a binary variable}
-Probability:
+\textcolor{blue}{Probability}:
+\medskip
+
 \begin{itemize}
 	\item Takes values in $[0,1]$.
+	\medskip
+	
 	\item Generally more intuitive than odds. 
-	\item In some study designs, is impossible to estimate! (More on this later.)
+	\medskip
+	
+	\item In some study designs, impossible to estimate! (More on this later.)
 \end{itemize}   
-Odds:
+\medskip
+
+\textcolor{blue}{Odds}:
+\medskip
 \begin{itemize}
 	\item Take values in $(0,\infty)$.
+	\medskip
+	
 	\item Are less intuitive for most people (unless you do a lot of betting).
+	\medskip
+	
 	\item Can be estimated from most common biomedical study designs. 
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Measures of association}
-	We can now describe the \textcolor{blue}{probability} or \textcolor{blue}{odds} of having CHD among those with Type A behavior and those without. 
-	\\ ~\
+\begin{frame}{Odds and Probability in HIV Data}
+	\vspace{-5 mm}
 	
-	\textbf{Scientific question:} Is exhibiting Type A behavior \textcolor{red}{associated} with CHD? 
-	\\ ~\
-	
-	In order to do statistics, we need to clarify what \textcolor{red}{associated} means for binary variables.
+	\begin{table}
+		\centering
+	\begin{tabular}{cc|c|c|}
+		&Results &No & Yes\\
+		Incentive& && \\
+		\hline
+		No &&410&211\\\hline
+		Yes &&461&1743
+	\end{tabular}
+\end{table}
+\smallskip
+
+\textcolor{blue}{Probability of results among those who received incentive:}\\ $\frac{1743}{1743+461}\approx$ 79\%
+\bigskip
+
+\textcolor{blue}{Probability of results among those who did not receive incentive:}\\ $\frac{211}{211+410}\approx$ 34\%
+\bigskip
+
+\textcolor{blue}{Odds of results among those who received incentive:}\\ $\frac{1743}{461}\approx$ 3.78
+\bigskip
+
+\textcolor{blue}{Odds of results among those who did not receive incentive:}\\ $\frac{211}{410}\approx$ 0.51
+
 \end{frame}
 
 \begin{frame}{Measures of association}
-Equal probabilities: If $p_A = p_B$, then
+	We can now describe the \textcolor{blue}{probability} or \textcolor{blue}{odds} of choosing to get results among those who did and did not receive an incentive. 
+	\\ ~\
+	
+	\textbf{Scientific question:} Is receiving an incentive \textcolor{blue}{associated} with choosing to get a result? 
+	\\ ~\
+	
+	In order to do statistics, we need to clarify what \textcolor{blue}{associated} means for binary variables.
+\end{frame}
+
+\begin{frame}{Measures of association}
+\textcolor{blue}{Equal probabilities}: If $p_A = p_B$, then
+\medskip
+
 	\begin{itemize}
-		\item[] $p_A - p_B = 0$ (\textcolor{red}{risk difference}) \quad \quad \quad $\frac{p_A}{p_B} = 1$ (\textcolor{red}{relative risk})
+		\item \textcolor{blue}{Risk difference}: $p_A - p_B = 0$
+		\medskip
+		
+		\item \textcolor{blue}{Relative risk}: $\frac{p_A}{p_B} = 1$
 	\end{itemize}  
-	\vspace{0.8cm}
-Equal odds: If $\frac{p_A}{1-p_A} = \frac{p_B}{1-p_B}$, then
+\bigskip
+
+\textbf{Risk difference is an absolute measure, while relative risk is a relative measure.}
+
+\bigskip
+
+\textcolor{blue}{Equal odds}: If $\frac{p_A}{1-p_A} = \frac{p_B}{1-p_B}$, then
+\medskip 
 	\begin{itemize}
-		\item[] $\frac{\frac{p_A}{1-p_A}}{\frac{p_B}{1-p_B}}=1$ (\textcolor{red}{odds ratio})
+		\item \textcolor{blue}{Odds ratio}: $\frac{\frac{p_A}{1-p_A}}{\frac{p_B}{1-p_B}}=1$ 
 	\end{itemize}
-\vspace{0.8cm}
-These are the three most common measures of association for binary outcomes. 
+\bigskip
+
+These are the most common measures of association for binary outcomes. 
+\end{frame}
+
+\begin{frame}{Relative risk versus Odds ratio}
+	\begin{itemize}
+		\item Relative risk and odds ratio will always be in the \textcolor{blue}{same direction} (either above or below 1)
+		\medskip
+		\item Odds ratio will always be \textcolor{blue}{more extreme} than relative risk (in terms of distance from 1)
+	\end{itemize}
 \end{frame}
 
 \begin{frame}{Measures of association}
 When we are approaching a scientific question about association, we need to think about
+\medskip
+
 \begin{itemize}
 	\item \textcolor{blue}{Summary measure:} Probability or odds
+	\medskip
 	\item \textcolor{red}{Contrast:} Difference or ratio
 \end{itemize}
 \vspace{0.5cm}  
 In our running example:
+\medskip
 \begin{itemize}
-	\item Is there a \textcolor{red}{difference} in the \textcolor{blue}{probability} of CHD between people with Type A behavior and those without?  
-	\item Is the \textcolor{red}{ratio} of \textcolor{blue}{probabilities} of CHD comparing people with and without Type A behavior equal to 1?  
-	\item Is the \textcolor{red}{ratio} of \textcolor{blue}{odds} of CHD comparing people with and without a Type A behavior equal to 1? 
+	\item Is there a \textcolor{red}{difference} in the \textcolor{blue}{probability} of choosing to get a result between people who receive an incentive and those who do not?  
+	\medskip
+	
+	\item Is the \textcolor{red}{ratio} of \textcolor{blue}{probabilities} of choosing to get a result, comparing people who do and do not receive an incentive, equal to 1?  
+	\medskip
+	
+	\item Is the \textcolor{red}{ratio} of \textcolor{blue}{odds} of choosing to get a result, comparing people who do and do not receive an incentive, equal to 1? 
 \end{itemize}
+\end{frame}
+
+\begin{frame}{Measure of Association for HIV Data}
+	
+		\vspace{-8 mm}
+	
+	\begin{table}
+		\centering
+		\begin{tabular}{cc|c|c|}
+			&Results &No & Yes\\
+			Incentive& && \\
+			\hline
+			No &&410&211\\\hline
+			Yes &&461&1743
+		\end{tabular}
+	\end{table}
+	\smallskip
+	
+	\textcolor{blue}{Risk difference of getting results between those who did and did not receive an incentive:}
+	
+	\medskip
+	\large
+	 $\frac{1743}{1743+461}-\frac{211}{211+410}\approx$ 45\%
+	\medskip
+	\normalsize
+	
+	\textcolor{blue}{Relative risk of getting results comparing those who did and did not receive an incentive:}
+	
+	\large
+	\medskip
+	 $\frac{\frac{1743}{1743+461}}{\frac{211}{211+410}}\approx$ 2.33
+	\medskip
+	\normalsize
+	
+	\textcolor{blue}{Odds ratio of getting results comparing those who did and did not receive an incentive:}
+	
+	\large
+	\medskip
+	 $\frac{\frac{1743}{461}}{\frac{211}{410}}\approx$ 7.35
+
+	
 \end{frame}
 
 \begin{frame}{Moving toward statistical inference}
@@ -207,116 +371,116 @@ In our running example:
 
 
 
-%% Linear regression
-%\section{Linear regression with binary outcomes}
-%%\begin{frame}
-%%	\frametitle{SECTION 2: LINEAR REGRESSION WITH BINARY OUTCOMES}
-%%	
-%%	% Learning objectives
-%%	By the end of this section, you should be able to:
-%%	\begin{itemize}
-%%		\item Interpret linear regression coefficients when the outcome $Y$ is binary
-%%		\item Write a summary of results from a linear regression analysis with a binary outcome
-%%		\item List at least one advantage and one disadvantage of using linear regression with a binary outcome
-%%	\end{itemize}
-%%\end{frame}
+% Linear regression
+\section{Linear regression with binary outcomes}
 %\begin{frame}
-%	\frametitle{Simple linear regression with a binary outcome}
-%	Can we use linear regression to look at the association between an exposure and a binary outcome? Yes!
-%	\\ ~\
+%	\frametitle{SECTION 2: LINEAR REGRESSION WITH BINARY OUTCOMES}
 %	
-%	A simple linear regression model: $E[Y \mid X] = \beta_0 + \beta_1 X$.
-%	\begin{footnotesize}
-%		\begin{itemize}
-%			\item Recall: $E[Y \mid X]$ is the \textcolor{blue}{\textit{expected value}} (average) of $Y$ given $X$ 
-%		\end{itemize}
-%	\end{footnotesize}
-%	 
-%	What's the average of a binary variable $Y$?   \textit{It's the probability that $Y$ equals 1!} $\left(\text{i.e., } E[Y] = \text{P}(Y=1)\right)$  
-%	
-%	\begin{itemize} \itemsep +12pt
-%		\item[] $Y = \{ 0, 0, 1, 0, 1, 1, 0, 0, 1, 1 \}$  
-%		\item[] $\bar{Y} = \frac{0 + 0 + 1 + 0 + 1 + 1 + 0 + 0 + 1 + 1}{10} = \frac{1}{2}$  
-%		\item[] $\hat{p} = \hat{\text{P}}(Y=1) = \frac{5}{10} = \frac{1}{2} $
+%	% Learning objectives
+%	By the end of this section, you should be able to:
+%	\begin{itemize}
+%		\item Interpret linear regression coefficients when the outcome $Y$ is binary
+%		\item Write a summary of results from a linear regression analysis with a binary outcome
+%		\item List at least one advantage and one disadvantage of using linear regression with a binary outcome
 %	\end{itemize}
 %\end{frame}
-%
-%\begin{frame}
-%	\frametitle{Simple linear regression with binary outcomes}
-%	\textbf{Discuss with your neighbor:} 
-%	\\ ~\ 
-%	
-%	% recall activity
-%	Suppose we fit the simple linear regression model $$E[Y \mid X] = \beta_0 + \beta_1 X,$$ where our outcome $Y$ is binary.
-%	
-%	What is the interpretation for the coefficients in this model?
-%	
-%	\begin{enumerate}
-%			\item $\beta_0$
-%			\item $\beta_1$
-%		\end{enumerate} 
-%\end{frame}
-%
-%\begin{frame}
-%	\frametitle{Simple linear regression with binary outcomes}
-%	\textbf{Discuss with your neighbor:} 
-%	\\ ~\ 
-%	
-%	% recall activity
-%	Suppose we fit the simple linear regression model $$E[Y \mid X] = \beta_0 + \beta_1 X,$$ where our outcome $Y$ is binary.
-%	
-%	What is the interpretation for the coefficients in this model?
-%	
-%	\begin{enumerate}
-%		\item $\beta_0$: probability $Y = 1$ among those with $X = 0$
-%		\item $\beta_1$: difference in probability that $Y = 1$ comparing those with $X = 1$ and those with $X = 0$ \footnotesize{(\textit{Nothing more than our usual difference in means!})}
-%	\end{enumerate} 
-%\end{frame}
-%
-%% linear regression: diabetes vs sex
-%\begin{frame}
-%	\frametitle{Simple linear regression: Type A personality and CHD}
-%	
-%	In our \texttt{wcgs} dataset, \texttt{chd} is a binary variable indicating CHD over follow-up, and \texttt{tabp} is a binary variable indicating Type A behavior. 
-%	\\ ~\
-%	
-%	We can fit the linear regression model $E[\texttt{chd} \mid \texttt{tabp}] = \beta_0 + \beta_1\texttt{tabp} $.
-%	
-%	How do we interpret the regression coefficients? \vspace{0.3cm}
-%	
-%	\begin{itemize}
-%		\item \color{blue} $\beta_0$:   the probability of CHD among those without Type A behavior   \color{black}\vspace{-0.2cm}
-%		\item[] \ \ \begin{scriptsize} (the average value of \texttt{chd} among those with $\texttt{tabp} = 0$) \end{scriptsize}  
-%		\item \color{blue} $\beta_1$:   the difference in probability of CHD between those with and without Type A behavior   \color{black} \vspace{-0.2cm}
-%		\item[] \ \ \begin{scriptsize}(the difference in average value of \texttt{chd} between \texttt{tabp} = 1 and \texttt{tabp} = 0 groups)   \end{scriptsize}
-%	\end{itemize} 
-%	
-%	\vspace{0.3cm}
-%	To answer our statistical question \begin{small}\textit{(is there a difference in probability of CHD between Type A and others?)}\end{small} we just need to look at $\beta_1$!
-%\end{frame}
-%
-%\begin{frame}{Simple linear regression example}
-%	\vspace{-0.8cm}
-%	We'll leave the CHD and Type A behavior analyses for your homework! Another binary variable in our dataset is \texttt{arcus}, which is an indicator of whether or not the subject had \textit{arcus senilis} (a visible ring around the cornea that indicates high cholesterol). Here's \texttt{R} output from fitting the model $E[\texttt{chd} \mid \texttt{arcus}] = \beta_0 + \beta_1 \texttt{arcus}$:
-%	
-%	\begin{center}
-%		\includegraphics[width=0.6\textwidth]{./figs/simple_linear_regression_arcus}
-%	\end{center}
-%	\vspace{-0.2cm}
-%	Based on this, we estimate the difference in risk of CHD comparing groups with and without \textit{arcus senilis} to be 0.039 (95\% CI 0.018 - 0.060). 
-%	
-%\end{frame}
-%
-%\begin{frame}{Simple linear regression: Type A personality and CHD}
-%	What does this example tell us? 
-%	\\ ~\
-%	
-%	In Chapter 1, we talked about differences in means. Nothing has changed!
-%	\\ ~\
-%
-%	For binary outcomes: difference in means $=$ difference in probabilities.
-%\end{frame}
-%
+\begin{frame}
+	\frametitle{Simple linear regression with a binary outcome}
+	Can we use linear regression to look at the association between an exposure and a binary outcome? Yes!
+	\\ ~\
+	
+	A simple linear regression model: $E[Y \mid X] = \beta_0 + \beta_1 X$.
+	\begin{footnotesize}
+		\begin{itemize}
+			\item Recall: $E[Y \mid X]$ is the \textcolor{blue}{\textit{expected value}} (average) of $Y$ given $X$ 
+		\end{itemize}
+	\end{footnotesize}
+	 
+	What's the average of a binary variable $Y$?   \textit{It's the probability that $Y$ equals 1!} $\left(\text{i.e., } E[Y] = \text{P}(Y=1)\right)$  
+	
+	\begin{itemize} \itemsep +12pt
+		\item[] $Y = \{ 0, 0, 1, 0, 1, 1, 0, 0, 1, 1 \}$  
+		\item[] $\bar{Y} = \frac{0 + 0 + 1 + 0 + 1 + 1 + 0 + 0 + 1 + 1}{10} = \frac{1}{2}$  
+		\item[] $\hat{p} = \hat{\text{P}}(Y=1) = \frac{5}{10} = \frac{1}{2} $
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Simple linear regression with binary outcomes}
+	\textbf{Discuss with your neighbor:} 
+	\\ ~\ 
+	
+	% recall activity
+	Suppose we fit the simple linear regression model $$E[Y \mid X] = \beta_0 + \beta_1 X,$$ where our outcome $Y$ is binary.
+	
+	What is the interpretation for the coefficients in this model?
+	
+	\begin{enumerate}
+			\item $\beta_0$
+			\item $\beta_1$
+		\end{enumerate} 
+\end{frame}
+
+\begin{frame}
+	\frametitle{Simple linear regression with binary outcomes}
+	\textbf{Discuss with your neighbor:} 
+	\\ ~\ 
+	
+	% recall activity
+	Suppose we fit the simple linear regression model $$E[Y \mid X] = \beta_0 + \beta_1 X,$$ where our outcome $Y$ is binary.
+	
+	What is the interpretation for the coefficients in this model?
+	
+	\begin{enumerate}
+		\item $\beta_0$: probability $Y = 1$ among those with $X = 0$
+		\item $\beta_1$: difference in probability that $Y = 1$ comparing those with $X = 1$ and those with $X = 0$ \footnotesize{(\textit{Nothing more than our usual difference in means!})}
+	\end{enumerate} 
+\end{frame}
+
+% linear regression: diabetes vs sex
+\begin{frame}
+	\frametitle{Simple linear regression: Type A personality and CHD}
+	
+	In our \texttt{wcgs} dataset, \texttt{chd} is a binary variable indicating CHD over follow-up, and \texttt{tabp} is a binary variable indicating Type A behavior. 
+	\\ ~\
+	
+	We can fit the linear regression model $E[\texttt{chd} \mid \texttt{tabp}] = \beta_0 + \beta_1\texttt{tabp} $.
+	
+	How do we interpret the regression coefficients? \vspace{0.3cm}
+	
+	\begin{itemize}
+		\item \color{blue} $\beta_0$:   the probability of CHD among those without Type A behavior   \color{black}\vspace{-0.2cm}
+		\item[] \ \ \begin{scriptsize} (the average value of \texttt{chd} among those with $\texttt{tabp} = 0$) \end{scriptsize}  
+		\item \color{blue} $\beta_1$:   the difference in probability of CHD between those with and without Type A behavior   \color{black} \vspace{-0.2cm}
+		\item[] \ \ \begin{scriptsize}(the difference in average value of \texttt{chd} between \texttt{tabp} = 1 and \texttt{tabp} = 0 groups)   \end{scriptsize}
+	\end{itemize} 
+	
+	\vspace{0.3cm}
+	To answer our statistical question \begin{small}\textit{(is there a difference in probability of CHD between Type A and others?)}\end{small} we just need to look at $\beta_1$!
+\end{frame}
+
+\begin{frame}{Simple linear regression example}
+	\vspace{-0.8cm}
+	We'll leave the CHD and Type A behavior analyses for your homework! Another binary variable in our dataset is \texttt{arcus}, which is an indicator of whether or not the subject had \textit{arcus senilis} (a visible ring around the cornea that indicates high cholesterol). Here's \texttt{R} output from fitting the model $E[\texttt{chd} \mid \texttt{arcus}] = \beta_0 + \beta_1 \texttt{arcus}$:
+	
+	\begin{center}
+		\includegraphics[width=0.6\textwidth]{./figs/simple_linear_regression_arcus}
+	\end{center}
+	\vspace{-0.2cm}
+	Based on this, we estimate the difference in risk of CHD comparing groups with and without \textit{arcus senilis} to be 0.039 (95\% CI 0.018 - 0.060). 
+	
+\end{frame}
+
+\begin{frame}{Simple linear regression: Type A personality and CHD}
+	What does this example tell us? 
+	\\ ~\
+	
+	In Chapter 1, we talked about differences in means. Nothing has changed!
+	\\ ~\
+
+	For binary outcomes: difference in means $=$ difference in probabilities.
+\end{frame}
+
 %\begin{frame}{Multiple linear regression with binary outcomes}
 %	Everything we know about multiple linear regression extends to binary outcomes. 
 %	\\ ~\
@@ -330,7 +494,7 @@ In our running example:
 %		\item ...
 %	\end{itemize}
 %\end{frame}
-%
+
 %\begin{frame}{Linear regression with binary outcomes: inference}
 %	\vspace{-1.5cm}
 %	\begin{align*} 
@@ -366,80 +530,80 @@ In our running example:
 %	\end{itemize}
 %	
 %\end{frame}
-%
-%% graphical support: scatterplot
-%\begin{frame}{Linear regression with binary outcomes: Graphical support}
-%		Another variable in \texttt{wcgs} is \texttt{chol} (cholesterol).
-%	\begin{align*} 
-%		E[\texttt{chd}|\texttt{chol}] = \beta_0 + \beta_1 \texttt{chol}  
-%	\end{align*}
-%	
-%	\color{blue} Graphical support: \color{black} scatterplot
-%	
-%	\begin{center}
-%	\includegraphics[width=0.7\textwidth]{./figs/scatter}
-%	\end{center}
-%\end{frame}
-%
-%% graphical support: scatterplot
-%\begin{frame}{Linear regression with binary outcomes: Graphical support}
-%	We can plot the linear regression fit for this model.
-%	\begin{align*} 
-%		E[\texttt{chd}|\texttt{chol}] = \beta_0 + \beta_1 \texttt{chol}  
-%	\end{align*}
-%	
-%	\color{blue} Graphical support: \color{black} scatterplot with least squares line
-%	
-%	\begin{center}
-%		\includegraphics[width=0.7\textwidth]{./figs/scatter_lm}
-%	\end{center}
-%\end{frame}
-%
-%\begin{frame}{Linear regression with binary outcomes: Graphical support}
-%	\vspace{-1cm}
-%	\begin{align*} 
-%		E[\texttt{chd}|\texttt{chol}] = \beta_0 + \beta_1 \texttt{chol}  
-%	\end{align*}
-%	What is the predicted probability of CHD for someone with cholesterol of 120 mg/dL?
-%	
-%	\begin{center}
-%		\includegraphics[width=0.7\textwidth]{./figs/scatter_lm}
-%	\end{center}
-%\end{frame}
-%
-%\begin{frame}{\includegraphics[scale=0.01]{./figs/chilipepper} Other potential issues}
-%	We just saw that predictions for linear regression can fall outside of [0,1]. 
-%	\\ ~\
-%	
-%	Another issue is the mean-variance relationship. Recall that for traditional linear regression, we assume equal variance across predictor values.
-%	\\ ~\ 
-%	
-%	A binary variable with mean (probability) of $p$ has variance $p(1-p)$. There is an inherent mean-variance relationship. So if we're claiming that $E[Y \mid X] = \beta_0 + \beta_1X$, we're also implying that $\text{Var}[Y \mid X] = (\beta_0 + \beta_1 X)(1 - \beta_0 - \beta_1 X)$. But linear regression assumes that $\text{Var}[Y \mid X] = \sigma^2$, which doesn't depend on $X$!
-%	\\ ~\ 
-%	
-%	 \textcolor{blue}{In linear regression we assume separation between mean and variance. This is not realistic for a binary outcome.} 
-%\end{frame}
-%
-%\begin{frame}{Linear regression with binary outcomes: pros and cons}
-%	\begin{align*} 
-%		E[Y|X_1,\cdots,X_p] = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \cdots \beta_p X_p 
-%	\end{align*}
-%	
-%	Pros: 
-%	\begin{itemize}
-%		\item Coefficients and predictions are easy to interpret since they are on the probability scale
-%	\end{itemize}
-%	
-%	Cons: 
-%	\begin{itemize}
-%		\item Predicted/fitted values can be outside the (0,1) range (as we just saw in the cholesterol example)
-%		\item Separation of mean and variance not realistic for binary outcome
-%	\end{itemize}
-%	
-%	\textbf{What can we do instead?}
-%\end{frame}
-%
-%
+
+% graphical support: scatterplot
+\begin{frame}{Linear regression with binary outcomes: Graphical support}
+		Another variable in \texttt{wcgs} is \texttt{chol} (cholesterol).
+	\begin{align*} 
+		E[\texttt{chd}|\texttt{chol}] = \beta_0 + \beta_1 \texttt{chol}  
+	\end{align*}
+	
+	\color{blue} Graphical support: \color{black} scatterplot
+	
+	\begin{center}
+	\includegraphics[width=0.7\textwidth]{./figs/scatter}
+	\end{center}
+\end{frame}
+
+% graphical support: scatterplot
+\begin{frame}{Linear regression with binary outcomes: Graphical support}
+	We can plot the linear regression fit for this model.
+	\begin{align*} 
+		E[\texttt{chd}|\texttt{chol}] = \beta_0 + \beta_1 \texttt{chol}  
+	\end{align*}
+	
+	\color{blue} Graphical support: \color{black} scatterplot with least squares line
+	
+	\begin{center}
+		\includegraphics[width=0.7\textwidth]{./figs/scatter_lm}
+	\end{center}
+\end{frame}
+
+\begin{frame}{Linear regression with binary outcomes: Graphical support}
+	\vspace{-1cm}
+	\begin{align*} 
+		E[\texttt{chd}|\texttt{chol}] = \beta_0 + \beta_1 \texttt{chol}  
+	\end{align*}
+	What is the predicted probability of CHD for someone with cholesterol of 120 mg/dL?
+	
+	\begin{center}
+		\includegraphics[width=0.7\textwidth]{./figs/scatter_lm}
+	\end{center}
+\end{frame}
+
+\begin{frame}{Potential issues}
+	We just saw that predictions for linear regression can fall outside of [0,1]. 
+	\\ ~\
+	
+	Another issue is the mean-variance relationship. Recall that for traditional linear regression, we assume equal variance across predictor values.
+	\\ ~\ 
+	
+	A binary variable with mean (probability) of $p$ has variance $p(1-p)$. There is an inherent mean-variance relationship. So if we're claiming that $E[Y \mid X] = \beta_0 + \beta_1X$, we're also implying that $\text{Var}[Y \mid X] = (\beta_0 + \beta_1 X)(1 - \beta_0 - \beta_1 X)$. But linear regression assumes that $\text{Var}[Y \mid X] = \sigma^2$, which doesn't depend on $X$!
+	\\ ~\ 
+	
+	 \textcolor{blue}{In linear regression we assume separation between mean and variance. This is not realistic for a binary outcome.} 
+\end{frame}
+
+\begin{frame}{Linear regression with binary outcomes: pros and cons}
+	\begin{align*} 
+		E[Y|X_1,\cdots,X_p] = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \cdots \beta_p X_p 
+	\end{align*}
+	
+	Pros: 
+	\begin{itemize}
+		\item Coefficients and predictions are easy to interpret since they are on the probability scale
+	\end{itemize}
+	
+	Cons: 
+	\begin{itemize}
+		\item Predicted/fitted values can be outside the (0,1) range (as we just saw in the cholesterol example)
+		\item Separation of mean and variance not realistic for binary outcome
+	\end{itemize}
+	
+	\textbf{What can we do instead?}
+\end{frame}
+
+
 %%%% LOGISTIC REGRESSION %%%
 %\section{Logistic regression}
 %%\begin{frame}

@@ -22,6 +22,8 @@ knitr::opts_chunk$set(error = FALSE)
 knitr::opts_chunk$set(warning = FALSE)
 knitr::opts_chunk$set(message = FALSE)
 knitr::opts_chunk$set(results = "hide")
+
+
 ```
 
 
@@ -37,9 +39,11 @@ Be sure to look at the cheat sheet for this week's homework -- it will provide y
 
 ## 1. Descriptive statistics and data visualization
 
+
 We will be using the `births` dataset often in the first few weeks of BIOST311. For this question, you will get acquainted with some of the variables in the dataset. 
 
 a. Load the `births` dataset (0 points)
+
 
 b. The `age` variable gives the age in years of the parent when the baby is born. Give relevant descriptive statistics for this variable, and provide one plot of your choice to visualize its distribution. Would you describe the distribution as roughly symmetric, left skewed, or right skewed? (2 points)
 

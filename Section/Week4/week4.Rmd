@@ -1,92 +1,179 @@
 ---
-title: "Linear Regression Practice"
-subtitle: "BIOST 311, Discussion Section Week 4"
-author: "Taylor Okonek and Charlie Wolock"
-date: \today
-output: 
+title: "Pivoting, Combining Datasets, and Tables in R"
+author: "Nina Galanter"
+date: "\today"
+output:
   pdf_document:
-    toc: false
-header-includes:
-  - \usepackage{color}
-  - \usepackage{fvextra}
-  - \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
-editor_options: 
-  chunk_output_type: console
+    toc: no
+  html_document:
+    toc: no
+subtitle: BIOST 311, Discussion Section Week 4
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+library(readr)
+
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(message = FALSE)
 ```
 
-```{r preliminaries, message = FALSE, results = "hide"}
-library(tidyverse)
-# install.packages("car")
-library(car)
-data(UN)
-# ?UN # run this line for details on the dataframe
-```
 
 # Introduction
 
-In this discussion section, we'll walk through a statistical analysis involving linear regression and log transformations. We will use the `UN` dataset from the `car` package in R. If you do not have the `car` package installed, do so before loading the library. The `UN` dataset contains national-level health and welfare statistics for 213 regions/countries (mostly United Nations members).
+Today we are going to learn how to pivot datasets and combine them, which can be an important first step before conducting a regression analysis. We will also look at creating summary tables with `kable` and `summarize`.
 
-# Exploratory data analysis
+# Pivoting
 
-1. The primary outcome we are interested in for this analysis is infant mortality rate (IMR) in deaths per 1000 live births. Create a graph that shows the distribution of this variable and describe the distribution. Provide relevant summary statistics for this variable.
+In order to run regression, our datasets must have one observation in each row, and every variable should be a column. Data often doesn't look like this initially, which is where pivoting comes in.
 
-```{r}
-UN %>%
-  ggplot(aes(infantMortality)) +
-  geom_boxplot()
+## Pivot_wider
 
-UN %>%
-  ggplot(aes(infantMortality)) +
-  geom_histogram(bins = 10, color = "black")
+Sometimes we will find datasets where different variables are in different rows of the data, instead of in different columns. One example of this is the `us_rent_income` dataset in the `tidyr` package.
 
-UN %>% na.omit()
+```{r viewing rent data}
+library(tidyverse)
 
-UN %>% pull(infantMortality) %>% mean(na.rm = TRUE) 
-UN %>% na.omit() %>% pull(infantMortality) %>% mean()
 
-UN %>% pull(infantMortality) %>% sd(na.rm = TRUE)
-UN %>% pull(infantMortality) %>% summary()
+data("us_rent_income")
+
+head(us_rent_income)
+
+
 ```
 
-2. Does infant mortality rate appear to vary by region, fertility rate, or percent urban? Provide three separate graphs illustrating the relationships between these three variables and infant mortality rate, and comment on what you observe in each. Make sure your plots have informative labels. 
+\newpage
 
-```{r}
-UN_new <- UN %>% na.omit()
+Instead of there being a row for each geographical area which includes a variable for rent and a variable for income, this dataset has rent and income as separate row. We can use the `pivot_wider` function to fix this. 
 
-UN %>%
-  filter(!is.na(infantMortality)) %>%
-  filter(region != "NA") %>%
-  ggplot(aes(x = infantMortality, y = region)) +
-  geom_boxplot()
+```{r wider example}
+us_rent_income2 <- us_rent_income %>% pivot_wider( names_from = variable,
+                                                   values_from=c(estimate,moe))
+
+head(us_rent_income2)
 ```
 
 
-NOTE: some observations have missing regions. Make sure that "NA" does not show up in any of your plots (this is separate from any warning messages that ggplot may give you). Additionally note that certain region(s) have no countries with observations for infant mortality rate. These region(s) should not appear in your exploratory plot.
+Now we have a more reasonable dataset - we have a separate variables for income and rent. The `names_from` argument of `pivot_wider` tells us from which column(s) we should get the names of the new variables we are adding. The `values_from` column(s) tell us the values of these new variables.
 
-3. The primary predictor we are interested in for this analysis is GDP per capita in US dollars. Create a graph that shows the distribution of this variable, and describe the distribution. Provide relevant summary statistics for this variable.
+**Exercise 1**
 
-4. Suppose we are interested in making statements about multiplicative differences in GDP per capita as it relates to IMR. To this end, create a graph that shows the distribution of log GDP per capita, and describe the distribution. 
+```{r wider data}
 
-5. We decide for our analysis that we will fit two linear regression models: (1) IMR as our outcome, GDP per capita as our predictor, and (2) IMR as our outcome, log GDP per capita as our predictor. Create two separate plots that help visualize the association between the outcome (IMR) and each respective predictor. Comment on the relationship between the predictor and the outcome in each plot.
+#creating synthetic blood pressure data
 
-# Simple linear regression
+blood_pressure_data <- data.frame(id = c(1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10),
+                                  Type = rep(c("Systolic","Diastolic"),10),
+                                  Value = c(rnorm(n = 20, mean = 80, sd = 5)))
 
-Suppose we're interested in whether wealthier countries have lower infant mortality (a scientific question). Based on the variables available in the `UN` dataset, we should be able to translate this into a scientific question that we can answer with linear regression. 
+head(blood_pressure_data)
 
-6. Translate our scientific question into a statistical one that we can answer using linear regression.
+```
 
-7. Fit the appropriate linear regression model to answer your statistical question in Question 6. State the null and alternative hypothesis, and interpret your results. Results should include a point estimate, confidence interval, and p-value.
 
-8. You should have noticed that your regression slope estimate is on a scale that isn't particularly useful, in that we are comparing countries that differ in GDP per capita by a single US dollar. Fit a new linear regression model to answer your statistical question in Question 6 that allows you to compare countries that differ in GDP per capita by \$10,000. State the null and alternative hypothesis, and interpret your results. Results should include a point estimate, confidence interval, and p-value.
+For the first exercise, use the `blood_pressure_data` dataset created above, Currently, this dataset has systolic and diastolic blood pressure measurements in different rows. Use `pivot_wider` to make the two types of measurements different variables.
 
-9. Compare your point estimates, confidence intervals, and p-values from Questions 7 and 8. What do you notice?
+```{r wider exercise}
 
-# Simple linear regression with a log-transformed predictor
+```
 
-10. We are now interested in making statements about multiplicative differences in GDP per capita as it relates to IMR. To this end, fit a simple linear regression model with IMR as the outcome and log GDP per capita as the predictor. State the null and alternative hypothesis, and interpret your results. Results should include a point estimate, confidence interval, and p-value.
+\newpage
 
+## Pivot_longer
+
+Often, we will have the opposite problem with our data, where there are multiple observations per row. We can fix this with `pivot_longer`. Below is an example using the `billboard` dataset in tidyr. We have data for each song that was in the Billboard top 100 (a music popularity ranking) in 2000. There is a variable for the rank of the song each week. However, if we want to plot the rating of songs over time, we need each obesrvation to be a specific song during a specific week. 
+
+```{r longer example}
+data(billboard)
+
+head(billboard)
+
+billboard2 <- billboard %>%
+  pivot_longer(
+    cols = 4:79,
+    names_to = "week",
+    names_prefix = "wk",
+    values_to = "rank",
+    values_drop_na = TRUE
+  )
+
+head(billboard2)
+
+
+```
+
+This time, we took all of our week columns and turned them into a week variable and a rank variable. The `cols` argument specified which columns to use. The `names_to` argument determined the name of variable for the column names. the `values_to` argument determined the name of the variable for the column values. The `names_prefix` argument tells us to get rid of the prefix "wk" when making the names variable. Finally, as songs are usually not in the top 100 for the entire year, we use the `values_drop_na` variable to get rid of the weeks that each song wasn't in the top 100.
+
+**Exercise 2**
+
+Take the dataset `children` below (from the`household` dataset in the `tidyr` package) and use `pivot_longer` to make a new version where each child is a different observation (row).
+
+```{r longer exercise}
+data("household")
+
+children <- household %>% select(family,name_child1,name_child2)
+
+
+```
+
+# Merging Datasets
+
+When dealing with complicated data, we often end up with several different datasets. For example, clinical trial data will consist of spreadsheets recording different types of outcomes and spreadsheets of adverse events. In order to analyze data, however, we need all the variables in our analysis to be in the same data frame in R. We can use the join functions to do this. 
+
+```{r join example}
+data1 <- data.frame(Subject = c(2,1,3), treatment = c(0,1,1))
+
+data2 <- data.frame(Subject = c(2,3,4), outcome = c(1,1,0))
+
+```
+
+Here we've created two datasets of subjects. We want to combine them into one dataset to look at the relationship between treatment and outcome. However, `data1` is missing subject 4 and `data2` is missing subject 1. Each of the join functions handles this differently.
+
+```{r joins}
+inner_join(data1,data2)
+
+left_join(data1,data2)
+
+right_join(data1,data2)
+
+full_join(data1,data2)
+```
+
+**Exercise 3**
+
+Describe how each of these different joins handle the situation where some subjects aren't shared between the datasets.
+
+# Summary Tables
+
+We can use the `summarize` (you can also spell it `summarise`), `group_by`, and `kable` functions to create nice summary tables. `kable` is part of the `knitr` package.
+
+For this example, say that I want to get a summary of the data comparing the groups who did and did not participate in the first steps program.
+
+```{r tables example}
+library(knitr)
+
+births <- read_csv(url("https://raw.githubusercontent.com/cwolock/BIOST311/main/Datasets/births.csv"))
+
+births %>% mutate(firstep2 = ifelse(firstep == 1,"Yes","No")) %>%
+  group_by(firstep2) %>% 
+  summarize(
+    Count = n(),
+    Age = paste0(round(mean(age),2)," (",round(sd(age),2),")"),
+    "Birth Weight" = paste0(round(mean(bwt),2)," (", round(sd(bwt),2) ,")"),
+    Smoke = paste0(sum(smoke)," (", round(mean(smoke) ,2)*100,"%)"),
+    Married = paste0(sum(married)," (", round(mean(married) ,2)*100,"%)")) %>% 
+  rename("First Step" = firstep2) %>%
+  kable(caption = "Variable summaries by first step participation. The format is mean (sd) for quantitative variables and count (%) for binary variables.")
+
+
+```
+
+The example above uses the `round` and the `paste0` function. The `paste0` function just pastes together all of its arguments into one string. We can also include a caption for our table by using the `caption` argument of the `kable` function.
+
+**Exercise 4**
+
+Again using the `births` dataset, get the same table as before, except now comparing the subjects who did and did not drink alcohol. Also change the table from mean and sd to median and IQR.
+
+```{r tables exercise}
+
+```
 

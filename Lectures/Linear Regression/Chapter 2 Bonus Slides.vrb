@@ -1,0 +1,32 @@
+\frametitle{Fitting the model in \texttt {R}}
+\vspace{-7 mm}
+
+\footnotesize
+
+\begin{verbatim}
+mri <- mri %>% mutate(stroke_tia = ifelse(stroke !=0,1,0))
+
+mod <- lm(data = mri, atrophy ~ stroke_tia * male)
+summary(mod))
+
+Call:
+lm(formula = atrophy ~ stroke_tia * male, data = mri)
+
+Residuals:
+Min      1Q  Median      3Q     Max
+-28.330  -9.306  -0.330   7.694  49.694
+
+Coefficients:
+Estimate Std. Error t value Pr(>|t|)
+(Intercept)      32.3061     0.6855  47.126  < 2e-16 ***
+stroke_tia        5.6683     2.1087   2.688  0.00735 **
+male              6.0240     0.9883   6.095 1.77e-09 ***
+stroke_tia:male  -1.0484     2.7455  -0.382  0.70269
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 12.45 on 731 degrees of freedom
+Multiple R-squared:  0.07517,	Adjusted R-squared:  0.07137
+F-statistic:  19.8 on 3 and 731 DF,  p-value: 2.373e-12
+\end{verbatim}
+

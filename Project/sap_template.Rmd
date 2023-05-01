@@ -1,31 +1,40 @@
 ---
 title: 'Data Analysis Project, Part 2: SAP'
 subtitle: "BIOST 311: Regression Methods in the Health Sciences"
-author: "Taylor Okonek and Charlie Wolock"
-date: "Spring Quarter 2022; Submit on Canvas by 6 May 2022"
+author: "Nina Galanter"
+date: "Spring Quarter 2023; Submit on Canvas by 5 May 2023"
 output: pdf_document
+fontsize: 12pt
 ---
 
 # Instructions
 
 Statistical Analysis Plans (SAPs) are an integral part of any statistical analysis. Using this document as a guide, you will outline the statistical analyses you plan to run and any output that you plan to create. SAPs are especially important for reproducibility of your results---the goal is that anyone should be able to exactly re-create your analysis after reading your SAP.
 
-This assignment is limited to **three pages (including your variables table and example figure)**, and your written text should use at least 12-point font. See the template below for a list of components that need to be included in your final *Statistical Analysis Plan.* You plan should be submitted as a .pdf file---whether you choose to use RMarkdown, Microsoft Word, or other software is up to you. (*Do not include the instructions or rubric in your report.*) 
+This assignment is limited to **three pages (including your variables table and example figure)**, and your written text should use at least 12-point font. See the template below for a list of components that need to be included in your final *Statistical Analysis Plan.* You plan should be submitted as a .pdf file---whether you choose to use RMarkdown, Microsoft Word, or other software is up to you. (*Do not include the instructions in your report.*) 
 
-Submit your SAP on Canvas by 11:59pm on May 6. **Do not discuss your project with other students or post questions about your project on the Canvas discussion board.** But, feel free to ask the instructors any questions in person/via Canvas message instead!
+Submit your SAP on Canvas by 11:59pm on May 5. **Do not discuss your project with other students or post questions about your project on the Canvas discussion board.** But, feel free to ask the instructors any questions in person or via Canvas message/email instead!
 
-This assignment is graded and is worth 5% of your overall course grade.
+This statistical analysis plan will be graded for completion. 
+
+**Keep in mind that fully describing your statistical analysis will allow the instructor to give you the most helpful feedback to improve your analysis for the final report (which will be graded via the rubric on canvas).**
+
+**Additionally, many parts of the SAP can be re-used in the final project.**
+
+
+
+
 
 # Template and Rubric
 
-## Formatting (0.5 points)
+## Formatting
 
-To receive full credit for this portion of the assignment, you should...
+To receive full credit, you should...
 
-- use 12 point font
+- use 12 point font (headings can be larger, as in this template)
 - write no more than three pages (including your variables table and example figure)
 
-## Title (0.5 points)
+## Title
 
 *Make up a title for your proposed study.*
 
@@ -34,10 +43,10 @@ To receive full credit for this portion of the assignment, your title should...
 - be informative (e.g., allude to your scientific goal)
 - not contain any abbreviations
 
-NOTE: You can re-use what you wrote for your *Project Proposal,* but make sure to address any of the comments we gave you. 
+NOTE: You can re-use what you wrote for your *Project Proposal,* but make sure to address any of the comments I gave you. 
 
 
-## Background and Introduction (3 points)
+## Background and Introduction
 
 *Provide a brief description of your data to give perspective into the importance of the problem and the situation under study. In particular, why were the data collected?*
 
@@ -48,13 +57,25 @@ To receive full credit for this portion of the assignment, your background/intro
     - Why is this an important/relevant outcome to look at?
     - Why is this an important/relevant predictor/exposure to look at?
     - What other variables might be related to your outcome and/or predictor?
-- (Brief, 1 paragraph) description of study/data
-    - Who (is being studied)? 
-    - Where (was the study conducted/are your subjects from)? 
-    - When (was the data collected)?
-    - Where did you get your data (provide enough detail that someone else could go out and find it)
+  
+  
+## Study Design and Description
 
-NOTE: You can re-use what you wrote for your *Project Proposal,* but make sure to address any of the comments we gave you. You may need to add additional detail to address the criteria above. Do your best to locate the above information about your dataset. If you truly cannot answer some of the questions, acknowledge this in your writeup. 
+*How were the data collected? How many subjects are in the study? Include all necessary information for interpreting your analysis.*
+
+To receive full credit for this portion of the assignment, you should include...
+
+- Where did you get your data (provide enough detail that someone else could go out and find it)
+- who is being studied
+- how many participants are in the study (i.e., sample size)
+- what type of study is this (observational vs experimental; if observational, what type)
+- where was this study conducted, where are the subjects from
+- when was this study conducted
+- how were data collected
+
+NOTE: You will discuss *what* was collected in the "Variables" section. Do your best to locate the above information about your dataset. If you truly cannot answer some of the questions, acknowledge this in your writeup. 
+
+NOTE: You can re-use what you wrote for your *Project Proposal,* but make sure to address any of the comments I gave you.
 
 
 ## Scientific Questions (3 points)
@@ -66,22 +87,7 @@ To receive full credit for this portion of the assignment, you should include...
 - your overall scientific goal
 - at least two specific scientific questions (note that this is different than statistical questions!)
 
-NOTE: You can re-use what you wrote for your *Project Proposal,* but make sure to address any of the comments we gave you.
-
-
-## Study Design (3 points)
-
-*How were the data collected? How many subjects are in the study? Include all necessary information for interpreting your analysis.*
-
-To receive full credit for this portion of the assignment, you should include...
-
-- who is being studied
-- what type of study is this (observational vs experimental; if observational, what type)
-- where was this study conducted, where are the subjects from
-- when was this study conducted
-- how were data collected
-
-NOTE: You will discuss *what* was collected in the "Variables" section. Do your best to locate the above information about your dataset. If you truly cannot answer some of the questions, acknowledge this in your writeup. 
+NOTE: You can re-use what you wrote for your *Project Proposal,* but make sure to address any of the comments I gave you.
 
 
 ## Statistical Questions (3 points)
@@ -95,7 +101,7 @@ To receive full credit for this portion of the assignment, you should take each 
 - what other variables will you adjust for
 
 
-## Variables (3 points)
+## Variables
 
 *Create a table listing EVERY variable you plan on including in your analysis and provides its name, brief description, classification according to type (e.g., quantitative, categorical, binary), units of measurement, scientific meaning (see below), and role in the analysis (see below). If you are going to create any new variables (e.g., by re-coding a continuous quantitative variable as binary), please include the new variable in this table as well.*
 
@@ -123,9 +129,11 @@ To receive full credit for this portion of the assignment, you should...
 - provide all pieces of information mentioned above: name, description, type, units, scientific meaning, role in analysis
 - organize this information into a table
 
+There are many ways to create this table. If you want to create it manually in R-markdown, see this [link](https://rc2e.com/rmarkdown#recipe-static-table).
+
 ## Statistical Analysis
 
-### Descriptive Analysis Planning (3 points)
+### Descriptive Analysis Planning
 
 *Describe the descriptive statistics you will compute, how you will compute them, and how you will display your results (figures, tables). Generally, descriptive statistics are used to evaluate and compare subgroups, identify errors in the data, and identify patterns of missing data. Often, these descriptive analyses will support the inferential analyses you report.*
 
@@ -134,7 +142,7 @@ To receive full credit for this portion of the assignment, you should include...
 - description of what numerical summaries you will calculate (e.g., mean, standard deviation, proportion, number of missing) for what variables, and within which subgroups (if applicable)
 - description of any tables and figures
 
-### Descriptive Analysis Example (3 points)
+### Descriptive Analysis Example
 
 *Make one (1) of the descriptive plots you outlined in the previous section, to get a feel for working with your dataset.*
 
@@ -142,7 +150,7 @@ To receive full credit for this portion of the assignment, you should include...
 
 - one descriptive plot with title, axis labels, caption, legend, etc. 
 
-### Inferential Analysis Planning (3 points)
+### Inferential Analysis Planning
 
 *For each inferential analysis (e.g. regression) you plan on running, describe the variables you will include, types of estimates and uncertainty quantification you will report, and hypothesis tests you will run. Be specific! Details like confidence level are important!*
 
@@ -150,3 +158,5 @@ To receive full credit for this portion of the assignment, you should include...
 
 - for each model: what is your outcome, what is your predictor of interest, what variables are you adjusting for
 - what numbers will you report/interpret; if this includes a p-value, what are your null and alternative hypotheses and what p-value threshold will you use for calling something "statistically significant"
+
+NOTE: For binary outcomes, you will use logistic regression. At this point, just know that the right side of the equation for logistic regression is the same as linear regression, and testing and estimation will look very similar in practice. You evaluate or test an association with a continuous/binary variable by estimating or testing the corresponding coefficient. You can evaluate or test effect modification by estimating or testing the interaction term.

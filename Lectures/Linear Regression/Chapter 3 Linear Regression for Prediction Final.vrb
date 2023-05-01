@@ -1,0 +1,25 @@
+\frametitle{MSE with training and testing data: Example in \texttt {R}}
+
+	\vspace{-7mm}
+	
+\begin{verbatim}
+values <- c(rep(0, 0.7*nrow(births)),
+rep(1,0.3*nrow(births)))
+
+test <- sample(values)
+
+test_data <- births %>% mutate(test_yes = test) %>%
+filter(test_yes == 1)
+
+train_data <- births %>% mutate(test_yes = test) %>%
+filter(test_yes == 0)
+
+mod <- lm(data = train_data, bwt ~ age + married + smoke + wpre)
+
+predictions <- predict(mod, newdata = test_data)
+observations <- test_data %>% pull(bwt)
+
+mse <- mean((observations - predictions)^2)
+mse
+[1] 296008.3
+\end{verbatim}

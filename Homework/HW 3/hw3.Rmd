@@ -1,0 +1,67 @@
+---
+title: "Homework 3"
+subtitle: "BIOST 311"
+author: "Nina Galanter"
+date: \today
+output: 
+  pdf_document:
+    toc: false
+header-includes:
+  - \usepackage{color}
+  - \usepackage{fvextra}
+  - \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+library(formatR)
+
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(error = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+knitr::opts_chunk$set(results = "hide")
+```
+
+
+## Instructions
+
+This assignment should be submitted on Canvas as a .pdf by 12:30pm on Friday, April 21nd. You are welcome to work together on the homework; however, final solutions should be written up individually. 
+
+Unedited software output in the body of your assignment is not acceptable. Please round numerical values to 2--3 significant digits, and include your R code (if applicable) in the same document. See the "How to Write a Proper Homework" document on Canvas for additional guidelines.  
+
+Each homework assignment is worth 20 points total. Problems are graded for correctness, according to the number of points given in the problem statement. Homeworks will be marked complete if you get at least 16/20 points, otherwise the homework is incomplete pending a possible revision. 
+
+## 1. Log Transformations
+
+For this question, we will be using the `births` dataset to explore log transformations in linear regression. We are interested in the association between birth parent's weight prior to pregnancy and child's birth weight.
+
+a. The `wpre` variable gives birth parent's weight (in pounds) prior to pregnancy. Make a histogram to visualize the distribution of this variable with an appropriate number of bars. Would you describe the distribution as roughly symmetric, left skewed, or right skewed? (1 point)
+
+b. Suppose we are instead interested in making statements about multiplicative changes in weight prior to pregnancy and birth weight. Toward this end, make a histogram to visualize the distribution of log-transformed weight prior to pregnancy, with an appropriate number of bars. Would you describe the distribution as roughly symmetric, left skewed, or right skewed? (2 point)
+
+c. Make an exploratory plot that could be used to visualize the association between birth weight in grams and log weight prior to pregnancy. How would you describe the relationship between birth weight and log weight prior to pregnancy? (1 point)
+
+d. Perform a linear regression analysis to assess the linear association between log weight prior to pregnancy (our predictor) and birth weight in grams. Be sure to include a statistic quantifying this association with appropriate uncertainty quantification, as well as a hypothesis test. Be sure to state the null and alternative hypotheses. You should interpret your results; don't just give numerical output. Hint: there are a few ways to include a logged variable in a linear regression model. Try googling to figure out an appropriate way to do so! (2 points)
+
+e. The four traditional linear regression assumptions are linearity, independence, Normality of errors, and equal variance. For each of these assumptions, assess whether or not you think the assumption is violated for the model you fit in part (d). If appropriate, use graphs to support your argument. (2 point)
+
+f. Your friend believes that a model using log-transformed weight prior to pregnancy is more appropriate than a model using weight prior to pregnancy on its original scale, because the normality assumption will be better satisfied when quantitative variables are less skewed. Explain to your friend why their reasoning is not sufficient to justify using the model with log-transformed weight prior to pregnancy, regardless of how diagnostic plots appear. (2 point)
+
+
+## 2. Categorical predictors
+
+a. Create a new categorical variable for education category in the `births` dataset. There should be three categories: (1) education years less than 7 (2) education years 7 through 12 (3) education years 13 and over. Your categorical variable should contain groups "Under 7", "7-12", and "13 and over", respectively. (Hint: look into the case_when() function.) Provide relevant descriptive statistics for the education category variable in either a table or sentences.  (2 points)
+
+b. Make a graph containing side-by-side boxplots comparing birth weight across these three different education groups. Make sure that groups are ordered from most to least education, left to right (Hint: you can make education category a factor variable with levels in a particular order), and that the legend title is informative. (2 point)
+
+c. Perform a linear regression analysis to assess the association between education category  (our predictor) and birth weight in grams (our outcome). Interpret all coefficients in your model. *For this question you do not need to report confidence intervals.* State the null and alternative hypotheses for testing the association between education categoricy and birth weight, and conduct this hypothesis test, reporting an appropriate p-value.  (2 points)
+
+## 3. Adjusting for covariates
+
+
+a. Suppose we are now interested in the association between smoking during pregnancy (`smoke` variable, exposure) and birth weight (outcome, in grams), for individuals with *the same* age and *the same* pre-pregnancy weight. Perform an appropriate multiple linear regression analysis to address this question. Identify the coefficient from your model that addresses this question, and interpret the output of your model; don't just give numerical output. Be sure to include a statistic quantifying the association with appropriate uncertainty quantification, as well as a hypothesis test. Be sure to state the null and alternative hypothesis. (2 points)
+
+b. Interpret the intercept from the model you fit in Question 3a in context. (2 point)
+

@@ -1,0 +1,161 @@
+---
+title: "Linear Regression Practice"
+author: "Nina Galanter"
+date: '2023-04-19'
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+library(formatR)
+
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+
+fev <- read.csv(url("https://raw.githubusercontent.com/cwolock/BIOST311/main/Datasets/fev.csv"))
+
+```
+
+**For this worksheet it may be helpful to refer to the \color{blue}[HW 2 Key](https://canvas.uw.edu/courses/1632918/files/105189820?module_item_id=18278175)\color{black}, the \color{blue}[Chapter 1 Notes](https://canvas.uw.edu/courses/1632918/files/104728946?module_item_id=18230923)\color{black} (slides 43 and in 48 particular), and the \color{blue}[Chapter 2 notes](https://canvas.uw.edu/courses/1632918/files/105022210?module_item_id=18271885)\color{black}  (slide 53 in particular)**
+
+# Question 1. Data collection
+
+For this worksheet, we will use the `fev` dataset. Please read the documentation found \color{blue}[here](https://canvas.uw.edu/courses/1632918/files/104232891?module_item_id=18283177)\color{black}.
+
+## 1a. What type of study does the FEV study most resemble?
+
+## 1b. What type of variable is smoke?
+
+## 1c. What type of variable is FEV?
+
+## 1d. What is the unit for FEV?
+
+## 1e. Which is "good", a high FEV or a low FEV?
+
+## 1f. How many observations are there?
+
+# Question 2. Linear regression for FEV vs. smoke
+
+We want to look into whether, and to what extent FEV (the outcome) is associated with smoking (predictor of interest). We will examine this via linear regression.
+
+## 2a. Create a variable that is 1 for smoking and 0 for not smoking.
+
+
+**Use this variable for the rest of the questions on this worksheet**
+
+## 2b. Write out your null and alternative hypotheses.
+
+## 2c. Fit the linear regression in R
+
+## 2d. Provide the estimate that answers your scientific question of interest. 
+
+**Make sure to provide the estimate in context, with interpretation and units.**
+
+## 2e. Provide the confidence interval for your estimate.
+
+**Make sure to provide the confidence interval in context, with interpretation and units.**
+
+## 2f. Conduct the hypothesis test that answers your question of interest.
+
+## 2g. State your p-value and whether or not you reject the null
+
+**Give the actual p-value unless it is below 0.001.**
+
+## 2h. What is your conclusion about the scientific question?
+
+
+
+# Question 3. Checking assumptions for FEV vs smoke
+
+**Use plots as needed**
+
+## 3a. Is the linearity assumumption satisfied? Why?
+
+## 3b. Is the independence assumumption satisfied? Why?
+
+## 3c. Is the normality assumumption satisfied? Why?
+
+## 3d. Is the equal variance assumumption satisfied? Why?
+
+
+# Question 4. Linear regression for FEV vs. smoke and age
+
+Now we want to answer the scientific question of whether, and to what extent, FEV (outcome) is associated with smoking (predictor of interest), adjusting for age. We will use multiple linear regression.
+
+
+## 4a. What type of variable is age?
+
+## 4b. Write out your null and alternative hypotheses.
+
+## 4c. Fit the linear regression in R
+
+## 4d. Provide the estimate that answers your scientific question of interest. 
+
+**Make sure to provide the estimate in context, with interpretation and units.**
+
+## 4e. Provide the confidence interval for your estimate.
+
+**Make sure to provide the confidence interval in context, with interpretation and units.**
+
+## 4f. Conduct the hypothesis test that answers your question of interest.
+
+## 4g. State your p-value and whether or not you reject the null
+
+**Give the actual p-value unless it is below 0.001.**
+
+## 4h. What is your conclusion about the scientific question?
+
+# Question 5. Checking assumptions for FEV vs. smoke and age
+
+**Use plots as needed**
+
+## 5a. Is the linearity assumumption satisfied? Why?
+
+## 5b. Is the independence assumumption satisfied? Why?
+
+## 5c. Is the normality assumumption satisfied? Why?
+
+## 5d. Is the equal variance assumumption satisfied? Why?
+
+# Question 6. Comparing the models from questions 2 and 4
+
+## 6a. Compare the estimates that answer your scientific questions of interest between your first and second models. What do you notice?
+
+## 6b. Can you think of an explanation for this? 
+
+**Hint: What type of covariate (confounder, effect modifier, precision variable) could age be, and why?**
+
+# Question 7 Linear regression for FEV vs. smoke, age, and height
+
+Now, we want to investigate, whether, and to what extent, smoking (the predictor of interest) is associated with FEV (the outcome), adjusting for both age and height. We will use multiple linear regression.
+
+## 7a. What type of variable is height?
+
+## 7b. Write out your null and alternative hypotheses.
+
+## 7c. Fit the linear regression in R
+
+## 7d. Provide the estimate that answers your scientific question of interest. 
+
+**Make sure to provide the estimate in context, with interpretation and units.**
+
+## 7e. Provide the confidence interval for your estimate.
+
+## 7f. Conduct the hypothesis test that answers your question of interest.
+
+## 7g. State your p-value and whether or not you reject the null
+
+**Give the actual p-value unless it is below 0.001.**
+
+## 7h. What is your conclusion about the scientific question?
+
+# We will skip assumption checks (but in practice they are always neccessary)
+
+# Question 8 Comparing the models from questions 4 and 7
+
+## 8a. Compare the standard errors of the estimates that answer your scientific questions of interest between your model for question 4 versus your model for question 7. What do you notice?
+
+## 8b. Can you think of an explanation for this? 
+
+**Hint: What type of covariate (confounder, effect modifier, precision variable) could height be, and why?**

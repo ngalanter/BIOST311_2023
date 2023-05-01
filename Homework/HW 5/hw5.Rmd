@@ -1,0 +1,78 @@
+---
+title: "Homework 5"
+subtitle: "BIOST 311"
+author: "Nina Galanter"
+date: April 27, 2023
+output: 
+  pdf_document:
+    toc: false
+header-includes:
+  - \usepackage{color}
+  - \usepackage{fvextra}
+  - \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+library(formatR)
+
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(error = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+knitr::opts_chunk$set(results = "hide")
+```
+
+
+## Instructions
+
+This assignment should be submitted on Canvas as a .pdf by 11:59pm on Thursday, May 4th. You are welcome to work together on the homework; however, final solutions should be written up individually. 
+
+Unedited software output in the body of your assignment is not acceptable. Please round numerical values to 2--3 significant digits, and include your R code (if applicable) in the same document. See the "How to Write a Proper Homework" document on Canvas for additional guidelines.  
+
+Each homework assignment is worth 20 points total. Problems are graded for correctness, according to the number of points given in the problem statement. Homeworks will be marked complete if you get at least 16/20 points, otherwise the homework is incomplete pending a possible revision. 
+
+
+## 1. Prediction
+
+For this question, we will use the `mri` dataset to explore prediction. Specifically, we will aim to predict the atrophy score based on subject characteristics.
+
+a. Split your data into a testing dataset and a training dataset, with 70% of your observations in the training dataset and 30% in the testing dataset. Provide descriptive statistics and a descriptive plot of the `atrophy` variable in each dataset. Does the distribution of `atrophy` look similar or different in the two datasets? (2 pts)
+
+b. Build a linear model to predict atrophy using age. Make a plot of predictions vs. observed atrophy scores, and evaluate the model in terms of both the multiple $R^2$ on the test data and mean-squared error on the test data. (3 pts)
+
+c. Build a linear model to predict atrophy using age and history of stroke (`stroke` variable, *this variable is categorical with 3 levels so make sure to treat it as a factor*). Make a plot of predictions vs. observed atrophy scores, and evaluate the model in terms of both the multiple $R^2$ on the test data and mean-squared error on the test data. (3 pts)
+
+d. Based on your results from parts (b) and (c), which model would you say has better predictive performance on out-of-sample data? Why? (2 pts)
+
+e. Using the model from part (c), predict the atrophy score for someone who (2 pts):
+
+- is 80 years old and with no history of stroke
+- is 70 years old with a history of a transient ischemic attack
+
+## 2. Summarizing binary variables
+
+For this question, we will be using the `births` dataset to explore ways to summarize binary variables. 
+
+A scientific question that could be asked using this data is whether First Steps participation is associated with whether or not babies are born preterm (i.e. prematurely, before 37 weeks), as preterm births can lead to health complications for the baby.
+
+
+In this problem, we will compute various statistics that can help us answer this scientific question.
+
+a. Using the `births` dataset, create a variable for whether or not each baby was preterm, which is defined as being born before 37 weeks gestation, using the `gestation` variable. (1 pt)
+
+b. Provide relevant descriptive statistics for our outcome variable, preterm births (1 pt).
+
+c. Provide relevant descriptive statistics for our predictor of interest, first steps participation (1 pt).
+
+d. Report the proportion of preterm births among parents who did not participate in First Steps, and the proportion of preterm births among parents who did participate in First Steps. Your answer should be in complete sentences, not only reporting numbers (1 pt). 
+
+e. Report and interpret the risk difference of preterm birth between those who did and did not participate in First Steps. If the risk of preterm birth between those who did and did not participate in First Steps was the same, what would you expect the risk difference to be? (1 pt)
+
+f. Report and interpret the relative risk of preterm birth between those who did and did not participate in First Steps. If the risk of preterm birth between those who did and did not participate in First Steps was the same, what would you expect the relative risk to be? (1 pt)
+
+g. Report the odds of preterm birth among parents who did not participate in First Steps, and the odds of preterm birth among parents who did participate in First Steps. Your answer should be in complete sentences, not only reporting numbers (1 pt).
+
+h. Report and interpret the odds ratio of preterm birth between those who did and did not participate in First Steps. If the risk of preterm birth between those who did and did not participate in First Steps was the same, what would you expect the odds ratio to be? (1 pt)
+

@@ -18,8 +18,8 @@
 \usepackage{listings}
 
 % Title page details: 
-\title{Chapter 1c: Prediction in Linear Regression} 
-\author{Taylor Okonek \& Charlie Wolock}
+\title{Chapter 3: Prediction in Linear Regression} 
+\author{Nina Galanter}
 \date{\today}
 
 
@@ -30,7 +30,7 @@
 \end{frame}
 
 \begin{frame}{Learning objectives}
-By the end of Chapter 1c, you should be able to:
+By the end of Chapter 3, you should be able to:
 
 \vspace{0.3cm} 
 \begin{itemize}
@@ -71,7 +71,7 @@ So far in this course, our goal has been to estimate the association between a p
 
 \vspace{0.3cm}
 
-In Chapter 1b, we discussed the potential need to adjust for additional variables in our regression model (confounders, precision variables, effect modifiers). The inclusion of additional variables was motivated by scientific questions about \textit{association}, which led us to conduct \textit{statistical inference}.
+In Chapter 2, we discussed the potential need to adjust for additional variables in our regression model (confounders, precision variables, effect modifiers). The inclusion of additional variables was motivated by scientific questions about \textit{association}, which led us to conduct \textit{statistical inference}.
 
 \vspace{0.3cm}
 
@@ -96,22 +96,36 @@ With inference, we are able to answer questions such as\dots
 
 \begin{itemize}
 	\item Are individuals with a specific genetic variable more susceptible to certain diseases later in life?
+	\medskip
+	
 	\item Is there an association between access to antenatal clinics and maternal mortality in rural areas?
+	
+	\medskip
+	
 	\item Was a certain public health intervention associated with improved health outcomes for a community?
+	\medskip
+	
 	\item Is a new vaccine effective at reducing the risk of getting a disease, or perhaps a severe case of the disease?
 \end{itemize}
 
 \end{frame}
 
 \begin{frame}{Prediction: scientific questions}
-With prediction, we are instead interest in questions such as\dots
+With prediction, we are instead interested in questions such as\dots
 
 \vspace{0.3cm}
 
 \begin{itemize}
 	\item How do we predict risk of type II diabetes based on an individual's medical history?
+	\medskip
+	
 	\item Can we accurately classify tumors in the central nervous system?
+	
+	\medskip
+	
 	\item What is the under-5 mortality rate at the state level for a country where we have no reliable census or vital registration data?
+	\medskip
+	
 	\item Based on the videos a person has watched on YouTube, can we give them accurate suggestions for videos they would like to watch next?
 \end{itemize}
 
@@ -128,7 +142,7 @@ How do we actually use a model to \textit{predict} something? We use fitted valu
 
 \vspace{0.3cm}
 
-From Chapter 1a:
+From Chapter 1:
 
 \vspace{0.3cm}
 
@@ -256,6 +270,20 @@ What is our best estimate of a baby's birthweight born to a birth parent who is 
 
 \end{frame}
 
+\begin{frame}[fragile]{Prediction: Example in \texttt{R}}
+	We can get \texttt{R} to do the math for us
+	\small
+	\begin{verbatim}
+	> mod <- lm(data = births, bwt ~ age + married + smoke + wpre)
+	> new_data <- data.frame(age = 25, married = 1, smoke = 0, wpre = 150)
+	> predict(mod, new_data)
+	
+	1 
+	3443.223 
+	\end{verbatim}
+	
+\end{frame}
+
 \begin{frame}{Prediction: extrapolation}
 	\vspace{-0.5cm}
 Our birthweight estimate for a birth parent who is 80 years old, married, does not smoke, and weighed 1000 pounds prior to pregnancy was 13.3 pounds. 13.3 pounds is not unheard of for a baby, but is very large.
@@ -275,7 +303,7 @@ Our birthweight estimate for a birth parent who is 80 years old, married, does n
 \end{frame}
 
 \begin{frame}{Prediction: Example in \texttt{R}}
-Rather than calculate predictions by hand, it is often useful to do this in \texttt{R}, and we can make predictions for more than one observation at a time. In Chapter 1a, we used \texttt{predict} to obtain fitted values for our observed data. We use the same function to get fitted values for new data.
+Rather than calculate predictions by hand, it is often useful to do this in \texttt{R}, and we can make predictions for more than one observation at a time. In Chapter 1, we used \texttt{predict} to obtain fitted values for our observed data. We use the same function to get fitted values for new data.
 
 \vspace{0.3cm}
 
