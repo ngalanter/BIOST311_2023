@@ -22,7 +22,7 @@ ranged between zero and three dollars, with an average total voucher amount (inc
 
 `villnum` - ID of the village the participant lived in
 
-`results`` - Whether the participant recieved their HIV results
+`results` - Whether the participant recieved their HIV results
 
 `distvct` - distance from the test result center in kilometers
 

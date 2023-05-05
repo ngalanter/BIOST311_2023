@@ -496,32 +496,7 @@ In our running example:
 
 \subsection{Simple logistic regression}
 
-%\begin{frame}{The logistic function}
-%	
-%	\vspace{-5 mm}
-%	
-%	The logistic function takes any real number and maps it to (0,1). 
-%	
-%	\begin{figure}
-%		\centering
-%		\includegraphics[scale = 0.15]{figs/logistic_curve}
-%	\end{figure}
-%	
-%	What if we say that: $P(Y=1) = \text{logistic}(\beta_0+\beta_1 X)$
-%	\bigskip
-%	
-%	This is \textcolor{blue}{logistic regression}.
-%	\medskip
-%	
-%	\begin{itemize}
-%		\item now predictions will always be between 0 and 1
-%		\medskip
-%		
-%		\item \includegraphics[scale = 0.015]{figs/technical} logistic regression also allows variance at $p$ to be $p(1-p)$
-%	\end{itemize}
-%
-%	
-%\end{frame}
+
 
 
 % motivating logistic regression
@@ -695,6 +670,79 @@ In our running example:
 	\end{enumerate} 
 \end{frame}
 
+\begin{frame}{Another motivation for logistic regression}
+	
+	\vspace{-5 mm}
+	
+	\textcolor{red}{Issue}: Linear prediction for binary outcomes can lead to predictions outside of (0,1), as the range of a line is all real numbers.
+	
+	\medskip
+	
+	\textcolor{blue}{Solution}: The logistic function takes any real number and maps it to (0,1). 
+	
+	\begin{figure}
+		\centering
+		\includegraphics[scale = 0.15]{figs/logistic_curve}
+	\end{figure}
+	
+	What if we say that: 
+	\bigskip
+	
+	
+	\begin{itemize}
+		\item now predictions will always be between 0 and 1
+		\medskip
+		
+		\item \includegraphics[scale = 0.015]{figs/technical} logistic regression also allows variance at $p$ to be $p(1-p)$
+	\end{itemize}
+
+	
+\end{frame}
+
+\begin{frame}{Another motivation for logistic regression}
+	
+	\vspace{-5 mm}
+	
+	This is why we call it \textit{logistic} regression.
+\smallskip
+	\begin{figure}
+		\centering
+		\includegraphics[scale = 0.15]{figs/logistic_curve}
+	\end{figure}
+\centering
+	$$P(Y=1) = \text{logistic}(\beta_0+\beta_1 X)$$
+	\medskip
+	
+	is equivalent to:
+	\medskip
+	
+	$$\log(\text{Odds}(Y=1))=\beta_0+\beta_1 X$$
+	
+	
+
+
+\end{frame}
+
+
+\begin{frame}{\includegraphics[scale = 0.015]{figs/technical} Another motivation for logistic regression}
+	
+	\vspace{-5 mm}
+
+	\centering
+	\[\text{logistic}(\beta_0+\beta_1X)=\frac{1}{1+e^{-(\beta_0+\beta_1X)}}\]
+	so
+	\[P(Y=1)=\frac{1}{1+e^{-(\beta_0+\beta_1X)}}\]
+	
+	\[\frac{P(Y=1)}{1-P(Y=1)}=e^{(\beta_0+\beta_1X)}\]
+	
+	\[\text{Odds}(Y=1)=e^{(\beta_0+\beta_1X)}\]
+	
+	\[\log(\text{Odds}(Y=1))=\log(e^{(\beta_0+\beta_1X)})\]
+	
+	\[\log(\text{Odds}(Y=1))=\beta_0+\beta_1X\]
+	
+\end{frame}
+
 \begin{frame}{Logistic regression: fitting the model in \texttt{R}}
 	The \texttt{lm} function won't do it for us anymore. Instead we use the \texttt{glm} function. 
 	\\ ~\ 
@@ -804,116 +852,190 @@ In our running example:
 \subsection{Multiple logistic regression}
 % interpretation: multiple/general, do the math
 %%% beta 0
-\begin{frame}
-	\frametitle{Multiple logistic regression}
-	\vspace{-1.5cm}
-	$$\log\left(\text{Odds}[Y =1 |X_1,\cdots,X_p]\right) = \beta_0 + \beta_1 X_1 + \beta_2X_2 + \cdots \beta_p X_p$$
-	
-	\color{blue} Interpretation: \color{black}
-	% beta0
-	\begin{itemize}  \color{red}
-		\item $\beta_0$:   log odds (of $Y=1$) when $X_1 = 0, \cdots, X_p = 0$  
-	\end{itemize}
-	\vspace{-0.3cm}
-	\begin{footnotesize}
-		\begin{align*}
-			\log\left(\text{Odds}[Y =1 |X_1=0,\cdots,X_p=0]\right) & = \beta_0 + \beta_1 (0) + \beta_2(0) + \cdots \beta_p (0) \\
-			& = \beta_0 
-		\end{align*}  
-	\end{footnotesize}
-	
-	\vspace{-0.6cm}
-	%exp(beta0)
-	\begin{itemize}   \color{red}
-		\item $e^{\beta_0}$:   odds (of $Y=1$) when $X_1 = 0, \cdots, X_p = 0$  
-	\end{itemize}
-	\vspace{-0.3cm}
-	\begin{footnotesize}
-		\begin{align*}
-			e^{\beta_0} & = e^{\log\left(\text{Odds}[Y =1 |X_1=0,\cdots,X_p=0]\right)} \\
-			& = \text{Odds}[Y =1 |X_1=0,\cdots,X_p=0]
-		\end{align*}
-	\end{footnotesize}
-\end{frame}
+
 
 % interpretation: multiple/general, do the math
 %%% beta 0
 \begin{frame}
 	\frametitle{Multiple logistic regression}
-	\vspace{-1.5cm}
+	
+	\vspace{-5 mm}
+	
+	As with linear regression, we can have multiple predictors
+	\medskip
+	
 	$$\log\left(\text{Odds}[Y =1 |X_1,\cdots,X_p]\right) = \beta_0 + \beta_1 X_1 + \beta_2X_2 + \cdots \beta_p X_p$$
 	
-	\color{blue} Interpretation: \color{black}
-	%exp(beta0)
-	\begin{itemize}   \color{red}
-		\item $\beta_1$:   difference in log odds (of $Y=1$) comparing groups that differ by 1 unit in $X_1$ but are the same with respect to $X_2, \dots, X_p$  
+	\medskip
+	
+	\textbf{In groups, try to interpret the following:}
+	\medskip
+	
+	\begin{itemize}
+		\item \textcolor{blue}{$\beta_0$}
+		\medskip
+		\item \textcolor{blue}{$\exp(\beta_0)$}
+		\medskip
+		\item \textcolor{blue}{$\beta_1$}
+		\medskip
+		\item \textcolor{blue}{$\exp(\beta_1)$}
 	\end{itemize}
-	\vspace{-0.3cm}
-	\begin{footnotesize}
-		\begin{align*}
-			&\log\left(\text{Odds}[Y =1 |X_1=x_1+1,X_2 = x_2\cdots,X_p=x_p]\right) \\
-			&\tab - \log\left(\text{Odds}[Y =1 |X_1=x_1,X_2 = x_2\cdots,X_p=x_p]\right) \\
-			& = (\beta_0 + \beta_1(x_1+1) + \beta_2x_2 + \cdots \beta_px_p) - (\beta_0 + \beta_1x_1 + \beta_2x_2 + \cdots \beta_px_p) \\
-			& = \beta_1
-		\end{align*}
-	\end{footnotesize} 
-	\vspace{-0.3cm}
-	\begin{itemize}\color{red}
-			\item $e^\beta_1$:   odds ratio (of $Y = 1$) comparing groups that differ by 1 unit in $X_1$ but are the same with respect to $X_2,\dots, X_p$ 
-	\end{itemize} 
-\vspace{-0.3cm}
-\begin{footnotesize}
-\begin{align*}
-	e^{\beta_1} &=\exp\biggr(\log\left(\text{Odds}[Y =1 |X_1=x_1+1,X_2 = x_2\cdots,X_p=x_p]\right) \\
-	&\tab - \log\left(\text{Odds}[Y =1 |X_1=x_1,X_2 = x_2\cdots,X_p=x_p]\right)\biggr) \\
-	&= \exp\biggr(\log\biggr(\frac{\text{Odds}[Y =1 |X_1=x_1+1,X_2 = x_2\cdots,X_p=x_p]}{\text{Odds}[Y =1 |X_1=x_1,X_2 = x_2\cdots,X_p=x_p]}\biggr)\biggr)\\
-	& = \frac{\text{Odds}[Y =1 |X_1=x_1+1,X_2 = x_2\cdots,X_p=x_p]}{\text{Odds}[Y =1 |X_1=x_1,X_2 = x_2\cdots,X_p=x_p]}
-\end{align*}
-\end{footnotesize}
 \end{frame}
 
-\begin{frame}{Example: CHD and \textit{arcus senilis}}
-	Let's return to our study of CHD and \textit{arcus senilis}.
+\begin{frame}
+	\frametitle{Multiple logistic regression}
+	
+	\vspace{-5 mm}
+	
+	As with linear regression, we can have multiple predictors
+	\medskip
+	
+	$$\log\left(\text{Odds}[Y =1 |X_1,\cdots,X_p]\right) = \beta_0 + \beta_1 X_1 + \beta_2X_2 + \cdots \beta_p X_p$$
+	
+	\medskip
+	
+	\textbf{In groups, try to interpret the following:}
+	\medskip
+	
+	\begin{itemize}
+		\item \textcolor{blue}{$\beta_0$} : the log odds of $Y=1$ when all predictors are 0
+		\medskip
+		\item \textcolor{blue}{$\exp(\beta_0)$} : the odds of $Y=1$ when all predictors are 0
+		\medskip
+		
+		\item \textcolor{blue}{$\beta_1$} : the log odds ratio comparing groups that differ by one unit of $X_1$ but have the same value for all other predictors
+		
+		\medskip
+		\item \textcolor{blue}{$\exp(\beta_1)$} : the odds ratio of $Y=1$ comparing groups that differ by one unit of $X_1$ but have the same value for all other predictors
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Example: HIV Test and Cash Incentives}
+	Let's return to our study of choosing to receive an HIV test result and receiving an incentive.
 	\\ ~\
 	
-	The \texttt{wcgs} has some other available information on the subjects in the study (this is not a complete list):
+	The \texttt{HIV} data has some other available information on the subjects in the study (not a full list):
+	\medskip
 	\begin{itemize}
-		\item Patient ID
+		\item Incentive amount (USD)
 		\item Age (years)
-		\item Height (inches)
-		\item Weight (lbs)
-		\item Systolic blood pressure (mmHg)
-		\item Diastolic blood pressure (mmHg)
-		\item Cholesterol (mg/dL)
-	\end{itemize}  
+		\item Incentive (yes/no)
+		\item Results (yes/no)
+	\end{itemize}
+\medskip  
 
-	\textbf{We are interested in assessing the potential association between \textit{arcus senilis} and risk of CHD.} 
+	\textbf{We are interested in assessing the potential association between receiving an incentive and choosing to get HIV test results.} 
 \end{frame}
 
-\begin{frame}{Logistic regression: formulating a statistical question}
+\begin{frame}{Example: HIV Test and Cash Incentives}
+	We will include age as another predictor.
+	
+	$$\log\left(\text{Odds}[\text{results} |\text{incentive, age}]\right) = \beta_0 + \beta_1 \text{incentive} + \beta_2\text{age}$$
+
+\medskip
+
+\textcolor{violet}{Pollev}: What is the interpretation of $\exp(\beta_0)$?\pause
+\bigskip
+
+\textcolor{blue}{The odds of choosing to get a result among people of age 0 who did not get an incentive. (Doesn't make scientific sense)}
+\bigskip
+
+
+\textcolor{violet}{Pollev}: What is the interpretation of $\exp(\beta_1)$?\pause
+\bigskip
+
+\textcolor{blue}{The odds ratio of choosing to get a result comparing two groups of the same age, one which received an incentive and one which did not.}
+
+\end{frame}
+
+\begin{frame}[fragile]{Example: HIV Test and Cash Incentives in \texttt{R}}
+	
+	\vspace{-8 mm}
+	
+\scriptsize
+\begin{verbatim}
+> mod <- lm(data = HIV, results ~ incentive + age)
+> summary(mod)
+
+Call:
+lm(formula = results ~ incentive + age, data = HIV)
+
+Residuals:
+Min      1Q  Median      3Q     Max 
+-0.8634 -0.3286  0.1978  0.2261  0.6887 
+
+Coefficients:
+Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.2893352  0.0252396  11.464  < 2e-16 ***
+incentive   0.4485102  0.0191961  23.365  < 2e-16 ***
+age         0.0015699  0.0005825   2.695  0.00708 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.422 on 2822 degrees of freedom
+Multiple R-squared:  0.1658,	Adjusted R-squared:  0.1652 
+F-statistic: 280.4 on 2 and 2822 DF,  p-value: < 2.2e-16
+
+> exp(coefficients(mod))
+(Intercept)   incentive         age 
+1.335539    1.565977    1.001571
+\end{verbatim}
+\end{frame}
+\subsection{Adjustment variables}
+
+\begin{frame}{Logistic regression: formulating statistical question}
+
+
+	
+	\medskip
+	
 	\begin{enumerate}
-		\item \textbf{Scientific Question:}   Is \textit{arcus senilis} associated with risk of CHD?  
+		\item \textbf{Scientific Question:}  Is there an association between getting an incentive and choosing to go get HIV test results?
+		
+		\medskip
+		
 		\item \textbf{Statistical Question:}   
 		\begin{itemize}
-			\item How is our outcome quantified? \begin{tiny}The study is already completed -- we don't really have any control over this!\end{tiny} 
-			\item[] \textcolor{blue}{Binary: cardiovascular event = 1, no event = 0} 
+			\item How is our outcome quantified? *The study is already completed -- we don't really have any control over this!* 
+			
+			\medskip
+			
+			\item[] \textcolor{blue}{Binary: getting results = 1, not getting results = 0} 
+			
+			\medskip
+			
 			\item How will we quantify association?  
-			\item[] \textcolor{blue}{Ratio of odds of CHD comparing groups with and without \textit{arcus senilis}} 
+			
+			\medskip
+			
+			\item[] \textcolor{blue}{Ratio of odds of getting results comparing a group that received an incentive to a group that did not.} 
+			
+			\medskip
+			
 			\item Are there other variables we should adjust for? 
+			
+			\medskip
+			
 			\item[] \textcolor{blue}{Draw the causal diagram!} 
 		\end{itemize}
 	\end{enumerate}
 \end{frame}
 
 \begin{frame}{Causal diagram}
+	
+		
+	\textbf{To talk about adjustment variables, lets pretend that incentives were not randomized but instead the nurse decided who received incentives. Test center location was still randomly assigned after incentive vouchers were given.}
+	
+\medskip
+	
 	Here's a reasonable causal diagram:
 	\begin{center}
-		\includegraphics[width=\textwidth]{./figs/DAG}
-		\end{center}
+		\includegraphics[width=\textwidth]{./figs/HIV_dag}
+	\end{center}
 	
 \end{frame}
 
-\subsection{Adjustment variables}
 
 \begin{frame}{Logistic regression: Adjustment variables}
 	In Chapter 1, we discussed three types of variables we might include in a linear regression model in addition to the predictor of interest:
@@ -1039,6 +1161,8 @@ In our running example:
 	\end{center}
 \end{frame}
 
+\subsection{Reporting results}
+
 \begin{frame}{Logistic regression: reporting results}
 	\begin{enumerate}
 		\item[4.] Perform \textit{statistical inference}:
@@ -1052,572 +1176,572 @@ In our running example:
 	Based on logistic regression, we estimate that the odds of CHD are 1.28 times as high in subjects with \textit{arcus senilis} versus those without, comparing subjects of the same age, weight, systolic blood pressure, diastolic blood pressure, and cholesterol. The data would be consistent with a true odds ratio between 0.97 and 1.69. Based on a test of the null hypothesis of an odds ratio of 1, there is not sufficient evidence of an association between \textit{arcus senilis} and CHD (p = 0.08), after adjusting for age, weight, blood pressure, and cholesterol. 
 \end{frame}
 
-\begin{frame}{\includegraphics[scale=0.01]{./figs/chilipepper} Terminology}
-	You will often seen logistic regression framed a bit differently than what we've seen so far.  
-	\\ ~\ 
-	
-	You may see
-	\begin{align*}
-		\text{logit}(P[Y = 1 \mid X]) = \beta_0 + \beta_1 X
-	\end{align*}
-	where the logit function is defined as  
-	\begin{align*}
-		\text{logit}(p) = \log\Big(\underbrace{\frac{p}{1-p}}_{\text{odds}}\Big)
-	\end{align*}
-	 
-	Formally, the logit function is called a \textcolor{blue}{link} function, since it links our mean $E[Y \mid X] = P[Y = 1 \mid X]$ to our model $\beta_0 + \beta_1 X$. 
-\end{frame}
+%\begin{frame}{\includegraphics[scale=0.01]{./figs/technical} Terminology}
+%	You will often seen logistic regression framed a bit differently than what we've seen so far.  
+%	\\ ~\ 
+%	
+%	You may see
+%	\begin{align*}
+%		\text{logit}(P[Y = 1 \mid X]) = \beta_0 + \beta_1 X
+%	\end{align*}
+%	where the logit function is defined as  
+%	\begin{align*}
+%		\text{logit}(p) = \log\Big(\underbrace{\frac{p}{1-p}}_{\text{odds}}\Big)
+%	\end{align*}
+%	 
+%	Formally, the logit function is called a \textcolor{blue}{link} function, since it links our mean $E[Y \mid X] = P[Y = 1 \mid X]$ to our model $\beta_0 + \beta_1 X$. 
+%\end{frame}
 
-
-\subsection{Prediction}
-\begin{frame}{Logistic regression: Prediction}
-	We can also use logistic regression for prediction, though it takes a bit more work to get results on the scale we want. 
-	\\ ~\
-	
-	Let's start with the a single quantitative predictor, cholesterol:
-	\begin{align*}
-		\log(\text{Odds}(\texttt{chd} \mid \texttt{chol})) = \beta_0 + \beta_1 \texttt{chol}
-	\end{align*}
-	\begin{center}
-	\includegraphics[width=0.6\textwidth]{./figs/simple_logistic_regression_chol}
-\end{center}
-\end{frame}
-
-\begin{frame}{Logistic regression: Prediction}
-	\vspace{-1cm}
-		\begin{align*}
-		\log(\text{Odds}(\texttt{chd} \mid \texttt{chol})) = \beta_0 + \beta_1 \texttt{chol}
-	\end{align*}
-	Let's predict for a person with a cholesterol of 220 mg/dL:
-	\begin{enumerate}
-		\item Get estimates for each regression coefficient: 
-		\item[] $\hat{\beta}_0 = -5.359, \hat{\beta}_1 = 0.0124$
-		\item Plug in estimates and predictor values:
-		\begin{enumerate}
-			\item[a.] $\widehat{\log(\text{Odds})} = -5.359 + (0.0124\times220$) = -2.62
-			\item[b.] $\widehat{\text{Odds}} = e^{-2.62} = 0.0728$
-			\item[] \textcolor{blue}{(using that $e^{\log x} = x$)}
-			\item[c.] $\widehat{\text{Prob}} = \frac{0.0659}{1 + 0.0659} = 0.068$
-			\item[] \textcolor{blue}{(using that Odds = $\frac{\text{Prob}}{1-\text{Prob}}$ and so Prob = $\frac{\text{Odds}}{1  +\text{Odds}}$)}
-		\end{enumerate}
-	\end{enumerate}
-	There's a common shortcut to get from \textcolor{blue}{a.} to our final answer. 
-	\begin{align*}
-		\text{expit}(x) = \frac{e^x}{1 + e^x} \Rightarrow \text{expit}(-2.62) = 0.068
-	\end{align*}
-\end{frame}
-
-\begin{frame}{Logistic regression: Prediction}
-	Of course, \texttt{R} will do all the work for us: 
-	\begin{center}
-		\includegraphics[width=0.8\textwidth]{./figs/simple_logistic_regression_chol_prediction}
-	\end{center}
-	We need to use \texttt{type = "response"} to predict on the probability scale
-\end{frame}
-
-\begin{frame}{Logistic regression: Prediction}
-	Unlike linear regression (blue), logistic regression (red) keeps all fitted and predicted values in [0,1]
-		\begin{center}
-		\includegraphics[width=0.8\textwidth]{./figs/scatter_glm}
-	\end{center}
-\end{frame}
-
-\begin{frame}{Prediction for binary outcomes}
-	For quantitative outcomes, we discussed predictive accuracy in terms of \textcolor{blue}{$R^2$} (using the training data) and \textcolor{blue}{MSE} (using the test data).  
-	\\ ~\
-	
-	Neither of these metrics makes much sense for predicting binary outcomes, where we want to be able to say whether an individual is a 0 or a 1 based on their covariate values.  
-	\\ ~\
-	
-	What's more, logistic regression gives us predictions on a probability scale, not a binary scale.  
-	\\ ~\
-	
-	Two unsettled questions: 
-	\begin{enumerate}
-		\item How do we turn predictions on probability scale into binary predictions?  
-		\item How do we evaluate the quality of these predictions? 
-	\end{enumerate}
-\end{frame}
-
-\begin{frame}{Binary predictions}
-	We fit the model
-	\begin{align*}
-		\log(\text{Odds}(Y = 1 \mid X_1, \dots, X_p)) = \beta_0 + \beta_1X_1 + \cdots + \beta_pX_p
-	\end{align*} 
-	Using our estimated coefficients, we get a probability prediction
-	\begin{align*}
-		\widehat{P}(Y = 1 \mid X_1, \dots, X_p) = \text{expit}(\hat{\beta}_0 + \hat{\beta}_1X_1 + \cdots + \hat{\beta}_pX_p)
-	\end{align*} 
-	$\hat{P}$ is a number in (0,1). We want to predict whether $Y = 1$ or $Y = 0$ based on $X_1,\dots, X_p$. 
-	\\ ~\ 
-	
-	\textbf{Question:} What are some ideas for turning a probability prediction into a binary prediction? 
-	\\ ~\  
-	
-	\textbf{Answer:} Choose a threshold and assign 1 to all predicted values above the threshold, and 0 to all below. 
-\end{frame}
-
-\begin{frame}{Binary predictions}
-	Our procedure for binarizing predictions: 
-	\begin{enumerate}
-		\item Pick a cutoff $c$ between 0 and 1. 
-		\item For each individual $i$ in the test set, generate a probability prediction 
-		\begin{align*}
-			\widehat{P}(Y_i = 1 \mid X_{i,1}, \dots, X_{i,p}) = \text{expit}(\hat{\beta}_0 + \hat{\beta}_1X_{i,1} + \cdots + \hat{\beta}_pX_{i,p})
-		\end{align*}  
-		\item Given a prediction $\hat{P}_i$, generate a binary prediction $\hat{Y}_i$ by declaring this individual a 1 if $\hat{P}_i> c$, and 0 otherwise.  
-	\end{enumerate}
-	So, now that we've got binary predictions, let's see how we did. 
-\end{frame}
-
-\begin{frame}{Sensitivity and specificity}
-	You may remember \textcolor{blue}{sensitivity} and \textcolor{blue}{specificity} from BIOST 310, in the context of testing for a disease. We'll be a bit more general here.  
-	\begin{itemize}
-		\item \textcolor{blue}{Sensitivity}: the probability that $\hat{Y} = 1$ given that $Y = 1$, or $P(\hat{Y}= 1 \mid Y = 1)$. Sometimes called the ``true positive rate" 
-		\item \textcolor{blue}{Specificity}: the probability that $\hat{Y}= 0$ given that $Y = 0$, or $P(\hat{Y} = 0 \mid Y = 0)$. $1 - $specificity is sometimes called the ``false positive rate"$^*$ 
-	\end{itemize}
-	How do we estimate these quantities? 
-	\begin{itemize}
-		\item \textcolor{blue}{Sensitivity}: $\frac{\text{\# of individuals with }\hat{Y}= 1 \text{ and } Y = 1}{\text{\# of individuals with }Y = 1}$ 
-		\item \textcolor{blue}{Specificity}: $\frac{\text{\# of individuals with }\hat{Y}= 0 \text{ and } Y = 0}{\text{\# of individuals with }Y = 0}$ 
-	\end{itemize}
-\vfill
-	\footnotesize $^*$This is because $1 - P(\hat{Y}= 0 \mid Y = 0) = P(\hat{Y}= 1 \mid Y = 0)$, which is the probability of a false positive. 
-\end{frame}
-
-\begin{frame}{Sensitivity and specificity}
-	How are sensitivity and specificity affected by our choice of cutoff $c$?   (Remember that $\hat{P}$ is our estimated probability of $Y = 1$ given covariate values.)
-	\begin{itemize}
-		\item $c = 0$: Since $\hat{P} > 0$ for all individuals, we will classify everyone as a 1 
-		\item $c = 1$: Since $\hat{P} < 1$ for all individuals, we will classify everyone as a 0 
-		\item $0 < c < 1$: Something in the middle  
-	\end{itemize}
-	\textbf{Key point:} As we increase $c$, we are guaranteed to both (1) increase specificity and (2) decrease sensitivity:  
-	\begin{itemize}
-		\item Higher $c$  = fewer individiuals classified as 1 (true number of individuals that have $Y = 1$ does not change), more individuals classified as 0 (true number of individuals that have $Y = 0$ does not change).  
-		\begin{itemize}
-			\item Sensitivity $P(\hat{Y}= 1 \mid Y = 1)$ goes down  
-			\item Specificity $P(\hat{Y}= 0 \mid Y = 0)$ goes up
-		\end{itemize}
-	\end{itemize}
-\end{frame}
-
-\begin{frame}{Sensitivity and specificity in \texttt{R}}
-	Back to our predictions of CHD using cholesterol level!
-	\\ ~\ 
-	
-	Let's take $c =0.5$. This is a sensible place to start --- if we predict someone has a greater than 50\% chance of experiencing a cardiovascular event, we classify them as a case. 
-    \begin{center}
-	\includegraphics[width=0.8\textwidth]{./figs/sensitivity_specificity_code}
-	\end{center}
-
-\end{frame}
-
-\begin{frame}{Sensitivity and specificity in \texttt{R}}
-	\vspace{-0.5cm}
-	Taking a look at our predictions, it's clear why we got these numbers...
-			\begin{center}
-		\includegraphics[width=0.8\textwidth]{./figs/glm_test_predictions}
-	\end{center}
-	No one had a predicted probability over 0.5, so we classified everyone as \texttt{chd }$ = 0$. (Not surprising, since CHD isn't \textit{that} common.)
-\end{frame}
-
-\begin{frame}{ROC curve}
-	Choosing a single cutoff $c$ doesn't give us a very good idea of the predictive performance of our logistic regression model. 
-	\\ ~\
-	
-	What if we looked at the sensitivity and specificity of our predictive model as we vary $c$ between 0 and 1? 
-	\\ ~\ 
-	
-	Plotting sensitivity (true positive rate) vs. $1-$specificity (false positive rate) gives the \textcolor{blue}{receiver operating characteristic (ROC) curve}. 
-\end{frame}
-
-\begin{frame}{ROC curve}
-	\vspace{-0.3cm}
-	\begin{center}
-	\includegraphics[width=0.7\textwidth]{./figs/roc_curve_example}
-	\end{center}
-\end{frame}
-
-\begin{frame}{ROC curve facts}
-	What you should know about ROC curves:
-	\begin{itemize}
-		\item A curve passing through the top left corner indicates a perfect binary prediction model --- this says you can achieve a sensitivity and specificity of 1. (Of course, this will never happen in practice)  
-		\item The diagonal represents a random prediction model, or a coin flip.  
-		\item The closer an ROC curve comes to the upper left corner, the better the prediction model.  
-	\end{itemize}
-	By taking the \textcolor{blue}{area under the ROC curve}, we can get a single number telling us how well we've done. This is called the \textcolor{blue}{AUC}.  
-	\begin{itemize}
-		\item AUC of 1 is perfect 
-		\item AUC of 0.5 is a completely random model 
-		\item AUC $<0.5$ means you probably shouldn't use your prediction model --- you'd be better off flipping a coin
-	\end{itemize}
-\end{frame}
-
-\begin{frame}{ROC curves in \texttt{R}}
-	\vspace{-0.5cm}
-	You could make an ROC curve ``by hand" in \texttt{R}, but we'll use the \texttt{pROC} package
-	\begin{center}
-		\includegraphics[width=0.6\textwidth]{./figs/roc_example_code}
-	\end{center}
-	\begin{center}
-	\includegraphics[width=0.5\textwidth]{./figs/wcgs_roc}
-\end{center}
-\end{frame}
-
-\begin{frame}{Logistic regression: Prediction summary}
-	\begin{itemize}
-		\item Just as with linear regression, we get predictions for logistic regression by plugging covariate values into our regression model with estimated coefficients  
-		\item These predictions are naturally on the log-odds scale, but we can transform them to probabilities 
-		\item We can make our predictions binary by choosing a probability cutoff and predicting 0/1 values using that cutoff  
-		\item We assess the predictive performance of a binary regression model using ROC curves and AUC
-	\end{itemize}
-\end{frame}
-
-
-
-\begin{frame}{Logistic regression: pros and cons}
-	\begin{align*}
-		\log(\text{Odds}[Y = 1 \mid X_1,\dots, X_p]) = \beta_0 + \beta_1X_1 + \beta_2X_2 + \cdots + \beta_pX_p
-	\end{align*}
-	Pros:
-	\begin{itemize}
-		\item Predicted/fitted values stay inside [0,1] range
-		\item Allows analysis of case-control studies (see next section!)
-		\item \includegraphics[scale=0.01]{./figs/chilipepper} Numerically stable: We don't get into the details here, but some other options for binary outcome regression have major computational issues!
-	\end{itemize}
-	Cons:
-	\begin{itemize}
-		\item Harder to interpret (odds and odds ratios)
-	\end{itemize}
-\end{frame}
-
-\section{Case-control studies}
-\begin{frame}
-	\frametitle{SECTION 4: CASE-CONTROL STUDIES}
-	% Learning objectives
-	By the end of this section, you should be able to:
-	\begin{itemize}
-		\item Describe why logistic regression is useful for the analysis of case-control data
-		\item Explain how and why logistic regression interpretation changes when we analyze case-control data
-	\end{itemize}
-\end{frame}
-
-\begin{frame}{Recall: case-control study}
-	Description:
-	\begin{itemize}
-		\item \textit{Sample individuals based on the outcome} (some with, some without) and look back in time for exposure. 
-	\end{itemize} 
-	Pros: 
-	\begin{itemize}
-		\item Efficient for rare outcomes 
-		\item Cheaper and faster than cohort studies 
-		\item Can study multiple exposures 
-	\end{itemize}
-	
-	Cons: 
-	\begin{itemize}
-		\item In some scenarios, may not know time sequence of disease and exposure 
-		\item \textcolor{red}{Cannot use to estimate relative risk or outcome prevalence} 
-		\item Potential confounding (cannot make conclusions about causality)
-	\end{itemize}
-\end{frame}
-
-\begin{frame}{Why can't we estimate RR or prevalence from case-control?}
-	\textbf{In case-control studies, we cannot estimate relative risk or disease prevalence.}
-	\\ ~\
-	
-	Why not? 
-	\begin{itemize}
-		\item This is a biased sampling scheme
-		\item We do \textbf{not} have a representative sample of the population. We purposely sample more individuals who have the outcome ($Y = 1$) than we would 
-		get from a simple random sample
-			\begin{itemize}
-				\item This is by design, and precisely why case-control studies are more efficient for rare outcomes!
-			\end{itemize}
-		\item Within categories $Y = 1$ (cases) and $Y = 0$ (controls), the samples should be representative but the overall sample is not
-	\end{itemize} 
-\end{frame}
-
-\begin{frame}{Case-control sampling: Example}
-	\vspace{-0.3cm}
-	To illustrate this, consider the following \textcolor{blue}{population} of 1 million individuals:
-	\begin{center}
-		\begin{table}
-			\begin{tabular}{|c|cc|c|}
-				\hline 
-				& Lung Cancer & No Lung Cancer &  \\ 
-				& (Case) & (Control) & Total  \\
-				\hline 
-				Smoke & 900 & 4,100  & 5,000 \\ 
-				No Smoke & 100 & 994,900 & 995,000  \\ 
-				\hline 
-				Total & 1000 & 999,000 & 1,000,000 \\ 
-				\hline 
-			\end{tabular}
-		\end{table}
-	\end{center} 
-	We are doing a case-control study on lung cancer and smoking. We have the resources to sample 400 individuals. We randomly pick 200 people with lung cancer and 200 without. Here's our \textcolor{blue}{sample}:
-		\begin{center}
-		\begin{table}
-			\begin{tabular}{|c|cc|c|}
-				\hline 
-				& Lung Cancer & No Lung Cancer &  \\ 
-				& (Case) & (Control) & Total  \\
-				\hline 
-				Smoke & 184 & 2  & 186 \\ 
-				No Smoke & 16 & 198 & 214  \\ 
-				\hline 
-				Total & 200 & 200 & 400 \\ 
-				\hline 
-			\end{tabular}
-		\end{table}
-	\end{center}
-\end{frame}
-
-\begin{frame}{Case-control sampling: Example}
-	\vspace{-0.3cm}
-	\textcolor{blue}{Population:}
-	\begin{center}
-	\begin{table}
-		\begin{tabular}{|c|cc|c|}
-			\hline 
-			& Lung Cancer & No Lung Cancer &  \\ 
-			& (Case) & (Control) & Total  \\
-			\hline 
-			Smoke & 900 & 4,100  & 5,000 \\ 
-			No Smoke & 100 & 994,900 & 995,000  \\ 
-			\hline 
-			Total & 1000 & 999,000 & 1,000,000 \\ 
-			\hline 
-		\end{tabular}
-	\end{table}
-\end{center} 
-The prevalence of lung cancer in the \textcolor{blue}{population} is
-\begin{align*}
-	P^{\text{pop}}(\text{cancer}) = \frac{1,000}{1,000,000} = 0.001
-\end{align*} 
-The prevalence of lung cancer among smokers and nonsmokers is
-\begin{align*}
-	&P^{\text{pop}}(\text{cancer} \mid \text{smoke}) = \frac{900}{5,000} = 0.18\\
-	&P^{\text{pop}}(\text{cancer} \mid \text{no smoke}) = \frac{100}{995,000} = 0.0001
-\end{align*}
-\end{frame}
-
-\begin{frame}{Case-control sampling: Example}
-	\vspace{-0.3cm}
-	\textcolor{blue}{Sample:}
-		\begin{center}
-	\begin{table}
-		\begin{tabular}{|c|cc|c|}
-			\hline 
-			& Lung Cancer & No Lung Cancer &  \\ 
-			& (Case) & (Control) & Total  \\
-			\hline 
-			Smoke & 184 & 2  & 186 \\ 
-			No Smoke & 16 & 198 & 214  \\ 
-			\hline 
-			Total & 200 & 200 & 400 \\ 
-			\hline 
-		\end{tabular}
-	\end{table}
-\end{center} 
-	The prevalence of lung cancer in the \textcolor{blue}{sample} is
-	\begin{align*}
-		P^{\text{samp}}(\text{cancer}) = \frac{200}{400} = 0.5 \tab \text{\textcolor{red}{(We chose this by design!)}}
-	\end{align*} 
-	The prevalence of lung cancer among smokers and nonsmokers is
-	\begin{align*}
-		&P^{\text{samp}}(\text{cancer} \mid \text{smoke}) = \frac{184}{186} = 0.989\\
-		&P^{\text{samp}}(\text{cancer} \mid \text{no smoke}) = \frac{16}{214} = 0.075
-	\end{align*}
-\end{frame}
-
-\begin{frame}{Case-control sampling: Example}
-	\vspace{-1cm}
-	\begin{align*}
-		P^{\text{pop}}(\text{cancer}) = 0.001 \tab \text{vs.} \tab P^{\text{samp}}(\text{cancer}) = 0.5
-	\end{align*}
-	Clearly, our sample estimate of the prevalence of lung cancer is not even close to the true prevalence -- we chose half our sample to be cases, so the 0.5 was completely determined by us.
-	\\ ~\
-	
-	Similarly, our prevalence estimates separated by exposure are way off:
-	\begin{small} 
-	\begin{align*}
-		&P^{\text{pop}}(\text{cancer} \mid \text{smoke}) = 0.18 \hspace{0.5cm} \text{vs.} \hspace{0.5cm} P^{\text{samp}}(\text{cancer}\mid \text{smoke}) = 0.989\\
-		&P^{\text{pop}}(\text{cancer}\mid \text{no smoke}) = 0.0001 \hspace{0.2cm} \text{vs.} \hspace{0.2cm} P^{\text{samp}}(\text{cancer}\mid \text{no smoke}) = 0.075
-	\end{align*}
-	\end{small}
-	Because we \textcolor{blue}{oversampled} cases, both exposed and unexposed subjects appear to be at much higher risk of cancer than they actually are. 
-\end{frame}
-
-\begin{frame}{Case-control sampling: Example}
-	\small
-	\vspace{-0.7cm}
-	What about the prevalence of smoking among those with and without lung cancer? \textcolor{red}{Because we randomly sampled within cases and within controls, we can estimate these!}
-	\\ ~\
-	
-	\textbf{Exercise:} In both the population and the sample, calculate the prevalence of smoking among cases and controls.
-	\\ ~\
-
-	\textcolor{blue}{Population:} 
-		\begin{center}
-		\begin{table}
-			\begin{tabular}{|c|cc|c|}
-				\hline 
-				& Lung Cancer & No Lung Cancer &  \\ 
-				& (Case) & (Control) & Total  \\
-				\hline 
-				Smoke & 900 & 4,100  & 5,000 \\ 
-				No Smoke & 100 & 994,900 & 995,000  \\ 
-				\hline 
-				Total & 1000 & 999,000 & 1,000,000 \\ 
-				\hline 
-			\end{tabular}
-		\end{table}
-	\end{center}
- \textcolor{blue}{Sample}:
-	\begin{center}
-		\begin{table}
-			\begin{tabular}{|c|cc|c|}
-				\hline 
-				& Lung Cancer & No Lung Cancer &  \\ 
-				& (Case) & (Control) & Total  \\
-				\hline 
-				Smoke & 184 & 2  & 186 \\ 
-				No Smoke & 16 & 198 & 214  \\ 
-				\hline 
-				Total & 200 & 200 & 400 \\ 
-				\hline 
-			\end{tabular}
-		\end{table}
-	\end{center}
-\end{frame}
-
-\begin{frame}{Case-control sampling: Example}
-	\begin{align*}
-		&P^{\text{pop}}(\text{smoke} \mid \text{cancer}) = \frac{900}{1,000} = 0.9\\
-		&P^{\text{pop}}(\text{smoke} \mid \text{no cancer}) = \frac{4,100}{999,000} = 0.004\\
-		&P^{\text{samp}}(\text{smoke} \mid \text{cancer}) = \frac{184}{200} = 0.92\\
-		&P^{\text{samp}}(\text{smoke} \mid \text{no cancer}) = \frac{2}{200} = 0.01
-	\end{align*}
-	Although the numbers aren't identical due to sampling variability, the sample can be used to estimate these two probabilities. 
-\end{frame}
-
-\begin{frame}{Association between smoking and cancer}
-	\vspace{-0.5cm}
-	How do we measure association between two binary variables?  
-	\begin{itemize}
-		\item RD = $P$(cancer $\mid$ smoke) -  $P$(cancer $\mid$ no smoke) 
-		\item RR = $P$(cancer $\mid$ smoke) $/$ $P$(cancer $\mid$ no smoke)
-	\end{itemize}
-	We can't estimate any of these probabilities from a case-control study.  
-	\\ ~\
-	
-	What about the OR?
-	\begin{itemize}
-		\item OR = $\frac{P(\text{cancer} \mid \text{smoke})}{1 - P(\text{cancer} \mid \text{smoke})} / \frac{P(\text{cancer} \mid \text{no smoke})}{1 - P(\text{cancer} \mid \text{no smoke})}$
-	\end{itemize}
-	\vspace{0.2cm} 
-	Seems like we're still out of luck. But what about the \textcolor{blue}{odds ratio for smoking comparing those with and without cancer?}
-	\begin{itemize}
-		\item $\text{OR}^* = \frac{P(\text{smoke} \mid \text{cancer})}{1 - P(\text{smoke} \mid \text{cancer})} / \frac{P(\text{smoke} \mid \text{no cancer})}{1 - P(\text{smoke} \mid \text{no cancer})}$
-	\end{itemize}
-	\vspace{0.2cm} 
-	This doesn't really answer our scientific question...but doing a bit of math shows us an interesting relationship between OR and OR$^*$: \textbf{they're identical}!
-\end{frame}
-
-\begin{frame}{\includegraphics[scale=0.01]{./figs/chilipepper} Symmetry of the odds ratio}
-	Let $D$ denote disease and $E$ exposure, with $\bar{D}$ and $\bar{E}$ meaning ``no disease" and ``no exposure," respectively. It turns out that 
-	\begin{align*}
-		\text{OR} = \frac{\frac{P(D \mid E)}{1 - P(D \mid  E)}}{\frac{P(D \mid \bar{E})}{1 - P(D \mid \bar{E})}} = \frac{\frac{P(E \mid D)P(D)}{P(E \mid \bar{D})P(\bar{D})}}{\frac{P(\bar{E} \mid D)P(D)}{P(\bar{E} \mid \bar{D})P(\bar{D})}} = \frac{\frac{P(E \mid D)}{P(\bar{E} \mid D)}}{\frac{P(E \mid \bar{D})}{P(\bar{E} \mid \bar{D})}} = \frac{\frac{P(E \mid D)}{1 - P(E \mid D)}}{\frac{P(E\mid \bar{D})}{1 - P(E\mid \bar{D})}} = \text{OR}^*
-	\end{align*}
-	The key to this relationship is \textcolor{blue}{Bayes' rule}. Ask us if you're interested!
-\end{frame}
-
-\begin{frame}{Symmetry of the odds ratio: Example}
-	\vspace{-0.8cm}
-	Looking back at our example, we can see that the OR of cancer comparing smokers and nonsmokers is identical to the OR of smoking comparing those with and without cancer. 
-	\begin{center}
-		\begin{table}
-			\begin{tabular}{|c|cc|c|}
-				\hline 
-				& Lung Cancer & No Lung Cancer &  \\ 
-				& (Case) & (Control) & Total  \\
-				\hline 
-				Smoke & 184 & 2  & 186 \\ 
-				No Smoke & 16 & 198 & 214  \\ 
-				\hline 
-				Total & 200 & 200 & 400 \\ 
-				\hline 
-			\end{tabular}
-		\end{table} 
-	\end{center}
-	\begin{align*}
-		\text{OR} = \frac{\frac{P(\text{cancer} \mid \text{smoke})}{1 - P(\text{cancer} \mid \text{smoke})}}{\frac{P(\text{cancer} \mid \text{no smoke})}{1 - P(\text{cancer} \mid \text{no smoke})}}  = \frac{\frac{184/186}{2/186}}{\frac{16/214}{198/214}} = \frac{184\times 198}{16 \times 2} = 1138.5\\  
-		\text{OR}^* =\frac{\frac{P(\text{smoke} \mid \text{cancer})}{1 - P(\text{smoke} \mid \text{cancer})}}{\frac{P(\text{smoke} \mid \text{no cancer})}{1 - P(\text{smoke} \mid \text{no cancer})}}  = \frac{\frac{184/200}{16/200}}{\frac{2/200}{198/200}} = \frac{184\times 198}{16 \times 2} = 1138.5
-	\end{align*}
-\vfill 
-\tiny Note: We made up the numbers for this example! This odds ratio exaggerates the true association.
-
-\end{frame}
-
-\begin{frame}{Logistic regression in case-control studies}
-	As we've seen, logistic regression allows us to estimate the odds ratio -- this is exactly what we want in a case-control study! But we still need to be careful.  
-	\begin{align*}
-		\log(\text{odds}[\text{cancer} \mid \text{smoke}]) = \beta_0 + \beta_1 \text{smoke}
-	\end{align*} 
-	\begin{itemize}
-		\item $e^{\beta_0}$: odds of cancer among nonsmokers 
-		\begin{itemize}
-			\item odds[cancer $\mid$ no smoke] = $\frac{P(\text{cancer} \mid \text{no smoke})}{1 - P(\text{cancer} \mid \text{no smoke})}$ 
-			\item Remember: our estimate of $P(\text{cancer} \mid \text{no smoke})$ is biased!  
-			\item \textbf{In a case-control study, the intercept $\beta_0$ is not interpretable.}   \begin{tiny}
-				This won't stop \texttt{R} from giving you an intercept estimate anyway! It's up to you to interpret things correctly.
-			\end{tiny}
-		\end{itemize}
-	\end{itemize}
-\end{frame}
-
-\begin{frame}{Logistic regression in case-control studies}
-	As we've seen, logistic regression allows us to estimate the odds ratio -- this is exactly what we want in a case-control study! But we still need to be careful. 
-	\begin{align*}
-		\log(\text{odds}[\text{cancer} \mid \text{smoke}]) = \beta_0 + \beta_1 \text{smoke}
-	\end{align*}
-	\begin{itemize}
-		\item \sout{$e^{\beta_0}$: odds of cancer among nonsmokers}
-		\begin{itemize}
-			\item odds[cancer $\mid$ no smoke] = $\frac{P(\text{cancer} \mid \text{no smoke})}{1 - P(\text{cancer} \mid \text{no smoke})}$
-			\item Remember: our estimate of $P(\text{cancer} \mid \text{no smoke})$ is biased! 
-			\item \textbf{In a case-control study, the intercept $\beta_0$ is not interpretable.} \begin{tiny}
-				This won't stop \texttt{R} from giving you an intercept estimate anyway! It's up to you to interpret things correctly.
-			\end{tiny}
-		\end{itemize}
-	\item $e^{\beta_1}$: odds ratio for cancer comparing smokers to nonsmokers
-	\begin{itemize}
-		\item This \textit{is} interpretable because it's mathematically equivalent to the odds ratio for smoking comparing those with and without cancer, which we can estimate. 
-	\end{itemize}
-	\end{itemize}
-\end{frame}
-
-\begin{frame}{Case-control studies: summary}
-	Case-control studies involve biased sampling, which can be useful with a rare outcome. 
-	\\ ~\ 
-	
-	We \textit{cannot} estimate
-	\begin{itemize}
-		\item Risk difference 
-		\item Relative risk
-	\end{itemize}
-	\vspace{0.2cm}
-	We \textit{can} estimate
-	\begin{itemize}
-		\item Odds ratio (via logistic regression)
-		\item[] \tab \dots but remember that we cannot interpret the intercept
-	\end{itemize}
-	\vspace{0.2cm}
-	This is a big reason for logistic regression's popularity in public health.  
-\end{frame}
+%
+%\subsection{Prediction}
+%\begin{frame}{Logistic regression: Prediction}
+%	We can also use logistic regression for prediction, though it takes a bit more work to get results on the scale we want. 
+%	\\ ~\
+%	
+%	Let's start with the a single quantitative predictor, cholesterol:
+%	\begin{align*}
+%		\log(\text{Odds}(\texttt{chd} \mid \texttt{chol})) = \beta_0 + \beta_1 \texttt{chol}
+%	\end{align*}
+%	\begin{center}
+%	\includegraphics[width=0.6\textwidth]{./figs/simple_logistic_regression_chol}
+%\end{center}
+%\end{frame}
+%
+%\begin{frame}{Logistic regression: Prediction}
+%	\vspace{-1cm}
+%		\begin{align*}
+%		\log(\text{Odds}(\texttt{chd} \mid \texttt{chol})) = \beta_0 + \beta_1 \texttt{chol}
+%	\end{align*}
+%	Let's predict for a person with a cholesterol of 220 mg/dL:
+%	\begin{enumerate}
+%		\item Get estimates for each regression coefficient: 
+%		\item[] $\hat{\beta}_0 = -5.359, \hat{\beta}_1 = 0.0124$
+%		\item Plug in estimates and predictor values:
+%		\begin{enumerate}
+%			\item[a.] $\widehat{\log(\text{Odds})} = -5.359 + (0.0124\times220$) = -2.62
+%			\item[b.] $\widehat{\text{Odds}} = e^{-2.62} = 0.0728$
+%			\item[] \textcolor{blue}{(using that $e^{\log x} = x$)}
+%			\item[c.] $\widehat{\text{Prob}} = \frac{0.0659}{1 + 0.0659} = 0.068$
+%			\item[] \textcolor{blue}{(using that Odds = $\frac{\text{Prob}}{1-\text{Prob}}$ and so Prob = $\frac{\text{Odds}}{1  +\text{Odds}}$)}
+%		\end{enumerate}
+%	\end{enumerate}
+%	There's a common shortcut to get from \textcolor{blue}{a.} to our final answer. 
+%	\begin{align*}
+%		\text{expit}(x) = \frac{e^x}{1 + e^x} \Rightarrow \text{expit}(-2.62) = 0.068
+%	\end{align*}
+%\end{frame}
+%
+%\begin{frame}{Logistic regression: Prediction}
+%	Of course, \texttt{R} will do all the work for us: 
+%	\begin{center}
+%		\includegraphics[width=0.8\textwidth]{./figs/simple_logistic_regression_chol_prediction}
+%	\end{center}
+%	We need to use \texttt{type = "response"} to predict on the probability scale
+%\end{frame}
+%
+%\begin{frame}{Logistic regression: Prediction}
+%	Unlike linear regression (blue), logistic regression (red) keeps all fitted and predicted values in [0,1]
+%		\begin{center}
+%		\includegraphics[width=0.8\textwidth]{./figs/scatter_glm}
+%	\end{center}
+%\end{frame}
+%
+%\begin{frame}{Prediction for binary outcomes}
+%	For quantitative outcomes, we discussed predictive accuracy in terms of \textcolor{blue}{$R^2$} (using the training data) and \textcolor{blue}{MSE} (using the test data).  
+%	\\ ~\
+%	
+%	Neither of these metrics makes much sense for predicting binary outcomes, where we want to be able to say whether an individual is a 0 or a 1 based on their covariate values.  
+%	\\ ~\
+%	
+%	What's more, logistic regression gives us predictions on a probability scale, not a binary scale.  
+%	\\ ~\
+%	
+%	Two unsettled questions: 
+%	\begin{enumerate}
+%		\item How do we turn predictions on probability scale into binary predictions?  
+%		\item How do we evaluate the quality of these predictions? 
+%	\end{enumerate}
+%\end{frame}
+%
+%\begin{frame}{Binary predictions}
+%	We fit the model
+%	\begin{align*}
+%		\log(\text{Odds}(Y = 1 \mid X_1, \dots, X_p)) = \beta_0 + \beta_1X_1 + \cdots + \beta_pX_p
+%	\end{align*} 
+%	Using our estimated coefficients, we get a probability prediction
+%	\begin{align*}
+%		\widehat{P}(Y = 1 \mid X_1, \dots, X_p) = \text{expit}(\hat{\beta}_0 + \hat{\beta}_1X_1 + \cdots + \hat{\beta}_pX_p)
+%	\end{align*} 
+%	$\hat{P}$ is a number in (0,1). We want to predict whether $Y = 1$ or $Y = 0$ based on $X_1,\dots, X_p$. 
+%	\\ ~\ 
+%	
+%	\textbf{Question:} What are some ideas for turning a probability prediction into a binary prediction? 
+%	\\ ~\  
+%	
+%	\textbf{Answer:} Choose a threshold and assign 1 to all predicted values above the threshold, and 0 to all below. 
+%\end{frame}
+%
+%\begin{frame}{Binary predictions}
+%	Our procedure for binarizing predictions: 
+%	\begin{enumerate}
+%		\item Pick a cutoff $c$ between 0 and 1. 
+%		\item For each individual $i$ in the test set, generate a probability prediction 
+%		\begin{align*}
+%			\widehat{P}(Y_i = 1 \mid X_{i,1}, \dots, X_{i,p}) = \text{expit}(\hat{\beta}_0 + \hat{\beta}_1X_{i,1} + \cdots + \hat{\beta}_pX_{i,p})
+%		\end{align*}  
+%		\item Given a prediction $\hat{P}_i$, generate a binary prediction $\hat{Y}_i$ by declaring this individual a 1 if $\hat{P}_i> c$, and 0 otherwise.  
+%	\end{enumerate}
+%	So, now that we've got binary predictions, let's see how we did. 
+%\end{frame}
+%
+%\begin{frame}{Sensitivity and specificity}
+%	You may remember \textcolor{blue}{sensitivity} and \textcolor{blue}{specificity} from BIOST 310, in the context of testing for a disease. We'll be a bit more general here.  
+%	\begin{itemize}
+%		\item \textcolor{blue}{Sensitivity}: the probability that $\hat{Y} = 1$ given that $Y = 1$, or $P(\hat{Y}= 1 \mid Y = 1)$. Sometimes called the ``true positive rate" 
+%		\item \textcolor{blue}{Specificity}: the probability that $\hat{Y}= 0$ given that $Y = 0$, or $P(\hat{Y} = 0 \mid Y = 0)$. $1 - $specificity is sometimes called the ``false positive rate"$^*$ 
+%	\end{itemize}
+%	How do we estimate these quantities? 
+%	\begin{itemize}
+%		\item \textcolor{blue}{Sensitivity}: $\frac{\text{\# of individuals with }\hat{Y}= 1 \text{ and } Y = 1}{\text{\# of individuals with }Y = 1}$ 
+%		\item \textcolor{blue}{Specificity}: $\frac{\text{\# of individuals with }\hat{Y}= 0 \text{ and } Y = 0}{\text{\# of individuals with }Y = 0}$ 
+%	\end{itemize}
+%\vfill
+%	\footnotesize $^*$This is because $1 - P(\hat{Y}= 0 \mid Y = 0) = P(\hat{Y}= 1 \mid Y = 0)$, which is the probability of a false positive. 
+%\end{frame}
+%
+%\begin{frame}{Sensitivity and specificity}
+%	How are sensitivity and specificity affected by our choice of cutoff $c$?   (Remember that $\hat{P}$ is our estimated probability of $Y = 1$ given covariate values.)
+%	\begin{itemize}
+%		\item $c = 0$: Since $\hat{P} > 0$ for all individuals, we will classify everyone as a 1 
+%		\item $c = 1$: Since $\hat{P} < 1$ for all individuals, we will classify everyone as a 0 
+%		\item $0 < c < 1$: Something in the middle  
+%	\end{itemize}
+%	\textbf{Key point:} As we increase $c$, we are guaranteed to both (1) increase specificity and (2) decrease sensitivity:  
+%	\begin{itemize}
+%		\item Higher $c$  = fewer individiuals classified as 1 (true number of individuals that have $Y = 1$ does not change), more individuals classified as 0 (true number of individuals that have $Y = 0$ does not change).  
+%		\begin{itemize}
+%			\item Sensitivity $P(\hat{Y}= 1 \mid Y = 1)$ goes down  
+%			\item Specificity $P(\hat{Y}= 0 \mid Y = 0)$ goes up
+%		\end{itemize}
+%	\end{itemize}
+%\end{frame}
+%
+%\begin{frame}{Sensitivity and specificity in \texttt{R}}
+%	Back to our predictions of CHD using cholesterol level!
+%	\\ ~\ 
+%	
+%	Let's take $c =0.5$. This is a sensible place to start --- if we predict someone has a greater than 50\% chance of experiencing a cardiovascular event, we classify them as a case. 
+%    \begin{center}
+%	\includegraphics[width=0.8\textwidth]{./figs/sensitivity_specificity_code}
+%	\end{center}
+%
+%\end{frame}
+%
+%\begin{frame}{Sensitivity and specificity in \texttt{R}}
+%	\vspace{-0.5cm}
+%	Taking a look at our predictions, it's clear why we got these numbers...
+%			\begin{center}
+%		\includegraphics[width=0.8\textwidth]{./figs/glm_test_predictions}
+%	\end{center}
+%	No one had a predicted probability over 0.5, so we classified everyone as \texttt{chd }$ = 0$. (Not surprising, since CHD isn't \textit{that} common.)
+%\end{frame}
+%
+%\begin{frame}{ROC curve}
+%	Choosing a single cutoff $c$ doesn't give us a very good idea of the predictive performance of our logistic regression model. 
+%	\\ ~\
+%	
+%	What if we looked at the sensitivity and specificity of our predictive model as we vary $c$ between 0 and 1? 
+%	\\ ~\ 
+%	
+%	Plotting sensitivity (true positive rate) vs. $1-$specificity (false positive rate) gives the \textcolor{blue}{receiver operating characteristic (ROC) curve}. 
+%\end{frame}
+%
+%\begin{frame}{ROC curve}
+%	\vspace{-0.3cm}
+%	\begin{center}
+%	\includegraphics[width=0.7\textwidth]{./figs/roc_curve_example}
+%	\end{center}
+%\end{frame}
+%
+%\begin{frame}{ROC curve facts}
+%	What you should know about ROC curves:
+%	\begin{itemize}
+%		\item A curve passing through the top left corner indicates a perfect binary prediction model --- this says you can achieve a sensitivity and specificity of 1. (Of course, this will never happen in practice)  
+%		\item The diagonal represents a random prediction model, or a coin flip.  
+%		\item The closer an ROC curve comes to the upper left corner, the better the prediction model.  
+%	\end{itemize}
+%	By taking the \textcolor{blue}{area under the ROC curve}, we can get a single number telling us how well we've done. This is called the \textcolor{blue}{AUC}.  
+%	\begin{itemize}
+%		\item AUC of 1 is perfect 
+%		\item AUC of 0.5 is a completely random model 
+%		\item AUC $<0.5$ means you probably shouldn't use your prediction model --- you'd be better off flipping a coin
+%	\end{itemize}
+%\end{frame}
+%
+%\begin{frame}{ROC curves in \texttt{R}}
+%	\vspace{-0.5cm}
+%	You could make an ROC curve ``by hand" in \texttt{R}, but we'll use the \texttt{pROC} package
+%	\begin{center}
+%		\includegraphics[width=0.6\textwidth]{./figs/roc_example_code}
+%	\end{center}
+%	\begin{center}
+%	\includegraphics[width=0.5\textwidth]{./figs/wcgs_roc}
+%\end{center}
+%\end{frame}
+%
+%\begin{frame}{Logistic regression: Prediction summary}
+%	\begin{itemize}
+%		\item Just as with linear regression, we get predictions for logistic regression by plugging covariate values into our regression model with estimated coefficients  
+%		\item These predictions are naturally on the log-odds scale, but we can transform them to probabilities 
+%		\item We can make our predictions binary by choosing a probability cutoff and predicting 0/1 values using that cutoff  
+%		\item We assess the predictive performance of a binary regression model using ROC curves and AUC
+%	\end{itemize}
+%\end{frame}
+%
+%
+%
+%\begin{frame}{Logistic regression: pros and cons}
+%	\begin{align*}
+%		\log(\text{Odds}[Y = 1 \mid X_1,\dots, X_p]) = \beta_0 + \beta_1X_1 + \beta_2X_2 + \cdots + \beta_pX_p
+%	\end{align*}
+%	Pros:
+%	\begin{itemize}
+%		\item Predicted/fitted values stay inside [0,1] range
+%		\item Allows analysis of case-control studies (see next section!)
+%		\item \includegraphics[scale=0.01]{./figs/technical} Numerically stable: We don't get into the details here, but some other options for binary outcome regression have major computational issues!
+%	\end{itemize}
+%	Cons:
+%	\begin{itemize}
+%		\item Harder to interpret (odds and odds ratios)
+%	\end{itemize}
+%\end{frame}
+%
+%\section{Case-control studies}
+%\begin{frame}
+%	\frametitle{SECTION 4: CASE-CONTROL STUDIES}
+%	% Learning objectives
+%	By the end of this section, you should be able to:
+%	\begin{itemize}
+%		\item Describe why logistic regression is useful for the analysis of case-control data
+%		\item Explain how and why logistic regression interpretation changes when we analyze case-control data
+%	\end{itemize}
+%\end{frame}
+%
+%\begin{frame}{Recall: case-control study}
+%	Description:
+%	\begin{itemize}
+%		\item \textit{Sample individuals based on the outcome} (some with, some without) and look back in time for exposure. 
+%	\end{itemize} 
+%	Pros: 
+%	\begin{itemize}
+%		\item Efficient for rare outcomes 
+%		\item Cheaper and faster than cohort studies 
+%		\item Can study multiple exposures 
+%	\end{itemize}
+%	
+%	Cons: 
+%	\begin{itemize}
+%		\item In some scenarios, may not know time sequence of disease and exposure 
+%		\item \textcolor{red}{Cannot use to estimate relative risk or outcome prevalence} 
+%		\item Potential confounding (cannot make conclusions about causality)
+%	\end{itemize}
+%\end{frame}
+%
+%\begin{frame}{Why can't we estimate RR or prevalence from case-control?}
+%	\textbf{In case-control studies, we cannot estimate relative risk or disease prevalence.}
+%	\\ ~\
+%	
+%	Why not? 
+%	\begin{itemize}
+%		\item This is a biased sampling scheme
+%		\item We do \textbf{not} have a representative sample of the population. We purposely sample more individuals who have the outcome ($Y = 1$) than we would 
+%		get from a simple random sample
+%			\begin{itemize}
+%				\item This is by design, and precisely why case-control studies are more efficient for rare outcomes!
+%			\end{itemize}
+%		\item Within categories $Y = 1$ (cases) and $Y = 0$ (controls), the samples should be representative but the overall sample is not
+%	\end{itemize} 
+%\end{frame}
+%
+%\begin{frame}{Case-control sampling: Example}
+%	\vspace{-0.3cm}
+%	To illustrate this, consider the following \textcolor{blue}{population} of 1 million individuals:
+%	\begin{center}
+%		\begin{table}
+%			\begin{tabular}{|c|cc|c|}
+%				\hline 
+%				& Lung Cancer & No Lung Cancer &  \\ 
+%				& (Case) & (Control) & Total  \\
+%				\hline 
+%				Smoke & 900 & 4,100  & 5,000 \\ 
+%				No Smoke & 100 & 994,900 & 995,000  \\ 
+%				\hline 
+%				Total & 1000 & 999,000 & 1,000,000 \\ 
+%				\hline 
+%			\end{tabular}
+%		\end{table}
+%	\end{center} 
+%	We are doing a case-control study on lung cancer and smoking. We have the resources to sample 400 individuals. We randomly pick 200 people with lung cancer and 200 without. Here's our \textcolor{blue}{sample}:
+%		\begin{center}
+%		\begin{table}
+%			\begin{tabular}{|c|cc|c|}
+%				\hline 
+%				& Lung Cancer & No Lung Cancer &  \\ 
+%				& (Case) & (Control) & Total  \\
+%				\hline 
+%				Smoke & 184 & 2  & 186 \\ 
+%				No Smoke & 16 & 198 & 214  \\ 
+%				\hline 
+%				Total & 200 & 200 & 400 \\ 
+%				\hline 
+%			\end{tabular}
+%		\end{table}
+%	\end{center}
+%\end{frame}
+%
+%\begin{frame}{Case-control sampling: Example}
+%	\vspace{-0.3cm}
+%	\textcolor{blue}{Population:}
+%	\begin{center}
+%	\begin{table}
+%		\begin{tabular}{|c|cc|c|}
+%			\hline 
+%			& Lung Cancer & No Lung Cancer &  \\ 
+%			& (Case) & (Control) & Total  \\
+%			\hline 
+%			Smoke & 900 & 4,100  & 5,000 \\ 
+%			No Smoke & 100 & 994,900 & 995,000  \\ 
+%			\hline 
+%			Total & 1000 & 999,000 & 1,000,000 \\ 
+%			\hline 
+%		\end{tabular}
+%	\end{table}
+%\end{center} 
+%The prevalence of lung cancer in the \textcolor{blue}{population} is
+%\begin{align*}
+%	P^{\text{pop}}(\text{cancer}) = \frac{1,000}{1,000,000} = 0.001
+%\end{align*} 
+%The prevalence of lung cancer among smokers and nonsmokers is
+%\begin{align*}
+%	&P^{\text{pop}}(\text{cancer} \mid \text{smoke}) = \frac{900}{5,000} = 0.18\\
+%	&P^{\text{pop}}(\text{cancer} \mid \text{no smoke}) = \frac{100}{995,000} = 0.0001
+%\end{align*}
+%\end{frame}
+%
+%\begin{frame}{Case-control sampling: Example}
+%	\vspace{-0.3cm}
+%	\textcolor{blue}{Sample:}
+%		\begin{center}
+%	\begin{table}
+%		\begin{tabular}{|c|cc|c|}
+%			\hline 
+%			& Lung Cancer & No Lung Cancer &  \\ 
+%			& (Case) & (Control) & Total  \\
+%			\hline 
+%			Smoke & 184 & 2  & 186 \\ 
+%			No Smoke & 16 & 198 & 214  \\ 
+%			\hline 
+%			Total & 200 & 200 & 400 \\ 
+%			\hline 
+%		\end{tabular}
+%	\end{table}
+%\end{center} 
+%	The prevalence of lung cancer in the \textcolor{blue}{sample} is
+%	\begin{align*}
+%		P^{\text{samp}}(\text{cancer}) = \frac{200}{400} = 0.5 \tab \text{\textcolor{red}{(We chose this by design!)}}
+%	\end{align*} 
+%	The prevalence of lung cancer among smokers and nonsmokers is
+%	\begin{align*}
+%		&P^{\text{samp}}(\text{cancer} \mid \text{smoke}) = \frac{184}{186} = 0.989\\
+%		&P^{\text{samp}}(\text{cancer} \mid \text{no smoke}) = \frac{16}{214} = 0.075
+%	\end{align*}
+%\end{frame}
+%
+%\begin{frame}{Case-control sampling: Example}
+%	\vspace{-1cm}
+%	\begin{align*}
+%		P^{\text{pop}}(\text{cancer}) = 0.001 \tab \text{vs.} \tab P^{\text{samp}}(\text{cancer}) = 0.5
+%	\end{align*}
+%	Clearly, our sample estimate of the prevalence of lung cancer is not even close to the true prevalence -- we chose half our sample to be cases, so the 0.5 was completely determined by us.
+%	\\ ~\
+%	
+%	Similarly, our prevalence estimates separated by exposure are way off:
+%	\begin{small} 
+%	\begin{align*}
+%		&P^{\text{pop}}(\text{cancer} \mid \text{smoke}) = 0.18 \hspace{0.5cm} \text{vs.} \hspace{0.5cm} P^{\text{samp}}(\text{cancer}\mid \text{smoke}) = 0.989\\
+%		&P^{\text{pop}}(\text{cancer}\mid \text{no smoke}) = 0.0001 \hspace{0.2cm} \text{vs.} \hspace{0.2cm} P^{\text{samp}}(\text{cancer}\mid \text{no smoke}) = 0.075
+%	\end{align*}
+%	\end{small}
+%	Because we \textcolor{blue}{oversampled} cases, both exposed and unexposed subjects appear to be at much higher risk of cancer than they actually are. 
+%\end{frame}
+%
+%\begin{frame}{Case-control sampling: Example}
+%	\small
+%	\vspace{-0.7cm}
+%	What about the prevalence of smoking among those with and without lung cancer? \textcolor{red}{Because we randomly sampled within cases and within controls, we can estimate these!}
+%	\\ ~\
+%	
+%	\textbf{Exercise:} In both the population and the sample, calculate the prevalence of smoking among cases and controls.
+%	\\ ~\
+%
+%	\textcolor{blue}{Population:} 
+%		\begin{center}
+%		\begin{table}
+%			\begin{tabular}{|c|cc|c|}
+%				\hline 
+%				& Lung Cancer & No Lung Cancer &  \\ 
+%				& (Case) & (Control) & Total  \\
+%				\hline 
+%				Smoke & 900 & 4,100  & 5,000 \\ 
+%				No Smoke & 100 & 994,900 & 995,000  \\ 
+%				\hline 
+%				Total & 1000 & 999,000 & 1,000,000 \\ 
+%				\hline 
+%			\end{tabular}
+%		\end{table}
+%	\end{center}
+% \textcolor{blue}{Sample}:
+%	\begin{center}
+%		\begin{table}
+%			\begin{tabular}{|c|cc|c|}
+%				\hline 
+%				& Lung Cancer & No Lung Cancer &  \\ 
+%				& (Case) & (Control) & Total  \\
+%				\hline 
+%				Smoke & 184 & 2  & 186 \\ 
+%				No Smoke & 16 & 198 & 214  \\ 
+%				\hline 
+%				Total & 200 & 200 & 400 \\ 
+%				\hline 
+%			\end{tabular}
+%		\end{table}
+%	\end{center}
+%\end{frame}
+%
+%\begin{frame}{Case-control sampling: Example}
+%	\begin{align*}
+%		&P^{\text{pop}}(\text{smoke} \mid \text{cancer}) = \frac{900}{1,000} = 0.9\\
+%		&P^{\text{pop}}(\text{smoke} \mid \text{no cancer}) = \frac{4,100}{999,000} = 0.004\\
+%		&P^{\text{samp}}(\text{smoke} \mid \text{cancer}) = \frac{184}{200} = 0.92\\
+%		&P^{\text{samp}}(\text{smoke} \mid \text{no cancer}) = \frac{2}{200} = 0.01
+%	\end{align*}
+%	Although the numbers aren't identical due to sampling variability, the sample can be used to estimate these two probabilities. 
+%\end{frame}
+%
+%\begin{frame}{Association between smoking and cancer}
+%	\vspace{-0.5cm}
+%	How do we measure association between two binary variables?  
+%	\begin{itemize}
+%		\item RD = $P$(cancer $\mid$ smoke) -  $P$(cancer $\mid$ no smoke) 
+%		\item RR = $P$(cancer $\mid$ smoke) $/$ $P$(cancer $\mid$ no smoke)
+%	\end{itemize}
+%	We can't estimate any of these probabilities from a case-control study.  
+%	\\ ~\
+%	
+%	What about the OR?
+%	\begin{itemize}
+%		\item OR = $\frac{P(\text{cancer} \mid \text{smoke})}{1 - P(\text{cancer} \mid \text{smoke})} / \frac{P(\text{cancer} \mid \text{no smoke})}{1 - P(\text{cancer} \mid \text{no smoke})}$
+%	\end{itemize}
+%	\vspace{0.2cm} 
+%	Seems like we're still out of luck. But what about the \textcolor{blue}{odds ratio for smoking comparing those with and without cancer?}
+%	\begin{itemize}
+%		\item $\text{OR}^* = \frac{P(\text{smoke} \mid \text{cancer})}{1 - P(\text{smoke} \mid \text{cancer})} / \frac{P(\text{smoke} \mid \text{no cancer})}{1 - P(\text{smoke} \mid \text{no cancer})}$
+%	\end{itemize}
+%	\vspace{0.2cm} 
+%	This doesn't really answer our scientific question...but doing a bit of math shows us an interesting relationship between OR and OR$^*$: \textbf{they're identical}!
+%\end{frame}
+%
+%\begin{frame}{\includegraphics[scale=0.01]{./figs/technical} Symmetry of the odds ratio}
+%	Let $D$ denote disease and $E$ exposure, with $\bar{D}$ and $\bar{E}$ meaning ``no disease" and ``no exposure," respectively. It turns out that 
+%	\begin{align*}
+%		\text{OR} = \frac{\frac{P(D \mid E)}{1 - P(D \mid  E)}}{\frac{P(D \mid \bar{E})}{1 - P(D \mid \bar{E})}} = \frac{\frac{P(E \mid D)P(D)}{P(E \mid \bar{D})P(\bar{D})}}{\frac{P(\bar{E} \mid D)P(D)}{P(\bar{E} \mid \bar{D})P(\bar{D})}} = \frac{\frac{P(E \mid D)}{P(\bar{E} \mid D)}}{\frac{P(E \mid \bar{D})}{P(\bar{E} \mid \bar{D})}} = \frac{\frac{P(E \mid D)}{1 - P(E \mid D)}}{\frac{P(E\mid \bar{D})}{1 - P(E\mid \bar{D})}} = \text{OR}^*
+%	\end{align*}
+%	The key to this relationship is \textcolor{blue}{Bayes' rule}. Ask us if you're interested!
+%\end{frame}
+%
+%\begin{frame}{Symmetry of the odds ratio: Example}
+%	\vspace{-0.8cm}
+%	Looking back at our example, we can see that the OR of cancer comparing smokers and nonsmokers is identical to the OR of smoking comparing those with and without cancer. 
+%	\begin{center}
+%		\begin{table}
+%			\begin{tabular}{|c|cc|c|}
+%				\hline 
+%				& Lung Cancer & No Lung Cancer &  \\ 
+%				& (Case) & (Control) & Total  \\
+%				\hline 
+%				Smoke & 184 & 2  & 186 \\ 
+%				No Smoke & 16 & 198 & 214  \\ 
+%				\hline 
+%				Total & 200 & 200 & 400 \\ 
+%				\hline 
+%			\end{tabular}
+%		\end{table} 
+%	\end{center}
+%	\begin{align*}
+%		\text{OR} = \frac{\frac{P(\text{cancer} \mid \text{smoke})}{1 - P(\text{cancer} \mid \text{smoke})}}{\frac{P(\text{cancer} \mid \text{no smoke})}{1 - P(\text{cancer} \mid \text{no smoke})}}  = \frac{\frac{184/186}{2/186}}{\frac{16/214}{198/214}} = \frac{184\times 198}{16 \times 2} = 1138.5\\  
+%		\text{OR}^* =\frac{\frac{P(\text{smoke} \mid \text{cancer})}{1 - P(\text{smoke} \mid \text{cancer})}}{\frac{P(\text{smoke} \mid \text{no cancer})}{1 - P(\text{smoke} \mid \text{no cancer})}}  = \frac{\frac{184/200}{16/200}}{\frac{2/200}{198/200}} = \frac{184\times 198}{16 \times 2} = 1138.5
+%	\end{align*}
+%\vfill 
+%\tiny Note: We made up the numbers for this example! This odds ratio exaggerates the true association.
+%
+%\end{frame}
+%
+%\begin{frame}{Logistic regression in case-control studies}
+%	As we've seen, logistic regression allows us to estimate the odds ratio -- this is exactly what we want in a case-control study! But we still need to be careful.  
+%	\begin{align*}
+%		\log(\text{odds}[\text{cancer} \mid \text{smoke}]) = \beta_0 + \beta_1 \text{smoke}
+%	\end{align*} 
+%	\begin{itemize}
+%		\item $e^{\beta_0}$: odds of cancer among nonsmokers 
+%		\begin{itemize}
+%			\item odds[cancer $\mid$ no smoke] = $\frac{P(\text{cancer} \mid \text{no smoke})}{1 - P(\text{cancer} \mid \text{no smoke})}$ 
+%			\item Remember: our estimate of $P(\text{cancer} \mid \text{no smoke})$ is biased!  
+%			\item \textbf{In a case-control study, the intercept $\beta_0$ is not interpretable.}   \begin{tiny}
+%				This won't stop \texttt{R} from giving you an intercept estimate anyway! It's up to you to interpret things correctly.
+%			\end{tiny}
+%		\end{itemize}
+%	\end{itemize}
+%\end{frame}
+%
+%\begin{frame}{Logistic regression in case-control studies}
+%	As we've seen, logistic regression allows us to estimate the odds ratio -- this is exactly what we want in a case-control study! But we still need to be careful. 
+%	\begin{align*}
+%		\log(\text{odds}[\text{cancer} \mid \text{smoke}]) = \beta_0 + \beta_1 \text{smoke}
+%	\end{align*}
+%	\begin{itemize}
+%		\item \sout{$e^{\beta_0}$: odds of cancer among nonsmokers}
+%		\begin{itemize}
+%			\item odds[cancer $\mid$ no smoke] = $\frac{P(\text{cancer} \mid \text{no smoke})}{1 - P(\text{cancer} \mid \text{no smoke})}$
+%			\item Remember: our estimate of $P(\text{cancer} \mid \text{no smoke})$ is biased! 
+%			\item \textbf{In a case-control study, the intercept $\beta_0$ is not interpretable.} \begin{tiny}
+%				This won't stop \texttt{R} from giving you an intercept estimate anyway! It's up to you to interpret things correctly.
+%			\end{tiny}
+%		\end{itemize}
+%	\item $e^{\beta_1}$: odds ratio for cancer comparing smokers to nonsmokers
+%	\begin{itemize}
+%		\item This \textit{is} interpretable because it's mathematically equivalent to the odds ratio for smoking comparing those with and without cancer, which we can estimate. 
+%	\end{itemize}
+%	\end{itemize}
+%\end{frame}
+%
+%\begin{frame}{Case-control studies: summary}
+%	Case-control studies involve biased sampling, which can be useful with a rare outcome. 
+%	\\ ~\ 
+%	
+%	We \textit{cannot} estimate
+%	\begin{itemize}
+%		\item Risk difference 
+%		\item Relative risk
+%	\end{itemize}
+%	\vspace{0.2cm}
+%	We \textit{can} estimate
+%	\begin{itemize}
+%		\item Odds ratio (via logistic regression)
+%		\item[] \tab \dots but remember that we cannot interpret the intercept
+%	\end{itemize}
+%	\vspace{0.2cm}
+%	This is a big reason for logistic regression's popularity in public health.  
+%\end{frame}
 
 
 \begin{frame}[c]
