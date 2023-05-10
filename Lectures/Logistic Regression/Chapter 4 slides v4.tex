@@ -16,6 +16,7 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage[normalem]{ulem}
+\usepackage{hyperref}
 
 \newcommand\tab[1][1cm]{\hspace*{#1}}
 
@@ -1234,19 +1235,19 @@ F-statistic: 280.4 on 2 and 2822 DF,  p-value: < 2.2e-16
 	\medskip
 	
 	\begin{itemize}
-		\item Odds of getting a result among those who \textbf{don't} get and incentive and are \textbf{50 or younger}: \pause  \textcolor{blue}{$e^{\beta_0}$}
+		\item Odds of getting a result among those who \textbf{don't} get an incentive and are \textbf{50 or younger}  \textcolor{purple}{\href{https://PollEv.com/multiple_choice_polls/1LE88Rsf2hnEYB0ktPIbl/respond}{link}}: \pause  \textcolor{blue}{$e^{\beta_0}$}
 		
 		\medskip
 		
-		\item Odds of getting a result among those who \textbf{don't} get and incentive and are \textbf{older than 50}: \pause  \textcolor{blue}{$e^{(\beta_0+\beta_2)}$}
+		\item Odds of getting a result among those who \textbf{don't} get an incentive and are \textbf{older than 50}  \textcolor{purple}{\href{https://PollEv.com/multiple_choice_polls/hSAtrOO3BuKbqy5zdGwch/respond}{link}}: \pause  \textcolor{blue}{$e^{(\beta_0+\beta_2)}$}
 		
 		\medskip
 		
-		\item Odds of getting a result among those who \textbf{do} get and incentive and are \textbf{50 or younger}: \pause  \textcolor{blue}{$e^{(\beta_0+\beta_1)}$}
+		\item Odds of getting a result among those who \textbf{do} get an incentive and are \textbf{50 or younger}  \textcolor{purple}{\href{https://PollEv.com/multiple_choice_polls/E513SDYKPbxFENUWdq6Ly/respond}{link}}: \pause  \textcolor{blue}{$e^{(\beta_0+\beta_1)}$}
 		
 		\medskip
 		
-		\item Odds of getting a result among those who \textbf{do} get and incentive and are \textbf{older than 50}: \pause  \textcolor{blue}{$e^{(\beta_0+\beta_1 + \beta_2 +\beta_3)}$}
+		\item Odds of getting a result among those who \textbf{do} get an incentive and are \textbf{older than 50} \textcolor{purple}{\href{https://PollEv.com/multiple_choice_polls/1L1S08HSw3G4P1isemgIt/respond}{link}}: \pause  \textcolor{blue}{$e^{(\beta_0+\beta_1 + \beta_2 +\beta_3)}$}
 		
 		
 		
@@ -1271,19 +1272,19 @@ F-statistic: 280.4 on 2 and 2822 DF,  p-value: < 2.2e-16
 	\medskip
 	
 	\begin{itemize}
-		\item Odds ratio of getting a result \textbf{comparing those who do and do not} get an incentive and are \textbf{50 or younger}: \pause  \textcolor{blue}{$e^{\beta_1}$}
+		\item Odds ratio of getting a result \textbf{comparing those who do and do not} get an incentive, with \textbf{all 50 or younger} \textcolor{purple}{\href{https://PollEv.com/multiple_choice_polls/BTSCKv3ofieOMwW8bEYwT/respond}{link}}: \pause  \textcolor{blue}{$e^{\beta_1}$}
 		
 		\medskip
 		
-		\item Odds ratio of getting a result \textbf{comparing those are older than 50 and those who are at most 50} and \textbf{don't get an incentive}: \pause  \textcolor{blue}{$e^{\beta_2}$}
+		\item Odds ratio of getting a result \textbf{comparing those are older than 50 and those who are at most 50}, with \textbf{all not getting an incentive} \textcolor{purple}{\href{https://PollEv.com/multiple_choice_polls/M9GzJr976YmfdwfTmqNUB/respond}{link}}: \pause  \textcolor{blue}{$e^{\beta_2}$}
 		
 		\medskip
 		
-		\item Odds ratio of getting a result \textbf{comparing those who do and do not} get an incentive and are \textbf{older than 50}: \pause  \textcolor{blue}{$e^{\beta_1+\beta_3}$}
+		\item Odds ratio of getting a result \textbf{comparing those who do and do not} get an incentive, with \textbf{all older than 50} \textcolor{purple}{\href{https://PollEv.com/multiple_choice_polls/QlJlfru1e0LWCDAjbmbHe/respond}{link}}: \pause  \textcolor{blue}{$e^{\beta_1+\beta_3}$}
 		
 		\medskip
 		
-		\item Odds ratio of getting a result \textbf{comparing those older than 50 and those who are at most 50} and \textbf{get an incentive}: \pause  \textcolor{blue}{$e^{\beta_2+\beta_3}$}
+		\item Odds ratio of getting a result \textbf{comparing those older than 50 and those who are at most 50}, with \textbf{all getting an incentive} \textcolor{purple}{\href{https://PollEv.com/multiple_choice_polls/uclSu0e57aLCbVT1ElIlw/respond}{link}}: \pause  \textcolor{blue}{$e^{\beta_2+\beta_3}$}
 		
 		
 		
@@ -1297,12 +1298,14 @@ F-statistic: 280.4 on 2 and 2822 DF,  p-value: < 2.2e-16
 	\begin{enumerate}
 		\item[4.] Perform \textit{statistical inference}:
 		\begin{itemize}
-			\item Calculate a test statistic: odds ratio of 1.28
-			\item Quantify uncertainty: 95\% CI of (0.97, 1.69)
-			\item Perform hypothesis test: $p = 0.08$
+			\item Calculate a test statistic
+			\item Quantify uncertainty
+			\item Perform hypothesis test
 		\end{itemize}
 		\item[5.] Add a conclusion
 	\end{enumerate}
+
+\medskip
 
 	Based on logistic regression, we estimate that the odds of choosing to get an HIV test result are 7.35 times higher in subjects who receive an incentive versus those who do not. 
 	
@@ -1312,7 +1315,7 @@ F-statistic: 280.4 on 2 and 2822 DF,  p-value: < 2.2e-16
 	
 	\medskip
 	
-	Based on a test of the null hypothesis of an odds ratio of 1, there is sufficient evidence of an association between receiving an incentive and getting a test result (p < 0.001). 
+	Based on a test of the null hypothesis of an odds ratio of 1, there is sufficient evidence of an association between receiving an incentive and getting a test result (p $<$ 0.001). 
 \end{frame}
 
 \begin{frame}{Multiple logistic regression: reporting results}
@@ -1321,9 +1324,9 @@ F-statistic: 280.4 on 2 and 2822 DF,  p-value: < 2.2e-16
 	\begin{enumerate}
 		\item[4.] Perform \textit{statistical inference}:
 		\begin{itemize}
-			\item Calculate a test statistic: odds ratio of 1.28
-			\item Quantify uncertainty: 95\% CI of (0.97, 1.69)
-			\item Perform hypothesis test: $p = 0.08$
+			\item Calculate a test statistic
+			\item Quantify uncertainty
+			\item Perform hypothesis test
 		\end{itemize}
 		\item[5.] Add a conclusion
 	\end{enumerate}
@@ -1338,7 +1341,7 @@ F-statistic: 280.4 on 2 and 2822 DF,  p-value: < 2.2e-16
 	
 	\medskip
 	
-	Based on a test of the null hypothesis of an odds ratio of 1, there is sufficient evidence of an association between receiving an incentive and getting a test result (p = 0.007), after adjust for age. 
+	Based on a test of the null hypothesis of an odds ratio of 1, there is sufficient evidence of an association between receiving an incentive and getting a test result (p = 0.007), after adjusting for age. 
 \end{frame}
 
 \begin{frame}{Effect modification: reporting results}
@@ -1347,8 +1350,8 @@ F-statistic: 280.4 on 2 and 2822 DF,  p-value: < 2.2e-16
 	\begin{enumerate}
 		\item[4.] Perform \textit{statistical inference}:
 		\begin{itemize}
-			\item Calculate a test statistic: odds ratio of 1.28
-			\item Perform hypothesis test: $p = 0.08$
+			\item Calculate a test statistic
+			\item Perform hypothesis test
 		\end{itemize}
 		\item[5.] Add a conclusion
 	\end{enumerate}
@@ -1378,11 +1381,11 @@ F-statistic: 280.4 on 2 and 2822 DF,  p-value: < 2.2e-16
 		\includegraphics[scale = 0.35]{./figs/HIV_dag}
 	\end{figure}
 	
-	Should we adjust for age? \pause \textcolor{blue}{Yes, it is a potential confounder.}
+	Should we adjust for age? \textcolor{purple}{\href{https://PollEv.com/multiple_choice_polls/lzWdMlCQVpYspRIGYrxZF/respond}{link}} \pause \textcolor{blue}{Yes, it is a potential confounder.}
 	
 	\medskip
 	
-	Should we adjust for distance? \pause \textcolor{blue}{No, precision variables no longer exist for logistic regression.}
+	Should we adjust for distance? \textcolor{purple}{\href{https://PollEv.com/multiple_choice_polls/G6ujbX4n8V7eSjwyNysEe/respond}{link}} \pause \textcolor{blue}{No, precision variables no longer exist for logistic regression.}
 	
 \end{frame}
 
@@ -1403,6 +1406,358 @@ F-statistic: 280.4 on 2 and 2822 DF,  p-value: < 2.2e-16
 %\end{frame}
 
 %
+
+%
+%\section{Case-control studies}
+%\begin{frame}
+%	\frametitle{SECTION 4: CASE-CONTROL STUDIES}
+%	% Learning objectives
+%	By the end of this section, you should be able to:
+%	\begin{itemize}
+%		\item Describe why logistic regression is useful for the analysis of case-control data
+%		\item Explain how and why logistic regression interpretation changes when we analyze case-control data
+%	\end{itemize}
+%\end{frame}
+
+\begin{frame}{Recall: case-control study}
+	\vspace{-5 mm}
+	
+	Description:
+	\begin{itemize}
+		\item \textit{Sample individuals based on the outcome} (some with, some without) and look back in time for exposure. 
+	\end{itemize} 
+\medskip
+	Pros: 
+	\begin{itemize}
+		\item Efficient for rare outcomes 
+		\item Cheaper and faster than cohort studies 
+		\item Can study multiple exposures 
+	\end{itemize}
+	\medskip
+	Cons: 
+	\begin{itemize}
+		\item In some scenarios, may not know time sequence of disease and exposure 
+		\item \textcolor{red}{Cannot use to estimate relative risk or outcome prevalence} 
+		\item Potential confounding (cannot make conclusions about causality)
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Why can't we estimate RR or prevalence from case-control?}
+	\textbf{In case-control studies, we cannot estimate relative risk or disease prevalence.}
+	\\ ~\
+	
+	Why not? 
+	\medskip
+	
+	\begin{itemize}
+		\item This is a biased sampling scheme
+		\medskip
+		
+		\item We do \textbf{not} have a representative sample of the population. We purposely sample more individuals who have the outcome ($Y = 1$) than we would 
+		get from a simple random sample
+		\medskip
+			\begin{itemize}
+				\item This is by design, and precisely why case-control studies are more efficient for rare outcomes!
+			\end{itemize}
+		
+		\medskip
+		
+		\item Within categories $Y = 1$ (cases) and $Y = 0$ (controls), the samples should be representative but the overall sample is not
+	\end{itemize} 
+\end{frame}
+
+\begin{frame}{Case-control sampling: Example}
+	\vspace{-0.5cm}
+	To illustrate this, consider the following \textcolor{blue}{population} of 1 million individuals:
+	\begin{center}
+		\begin{table}
+			\begin{tabular}{|c|cc|c|}
+				\hline 
+				& Lung Cancer & No Lung Cancer &  \\ 
+				& (Case) & (Control) & Total  \\
+				\hline 
+				Smoke & 900 & 4,100  & 5,000 \\ 
+				No Smoke & 100 & 994,900 & 995,000  \\ 
+				\hline 
+				Total & 1000 & 999,000 & 1,000,000 \\ 
+				\hline 
+			\end{tabular}
+		\end{table}
+	\end{center} 
+\medskip
+
+	We are doing a case-control study on lung cancer and smoking. We have the resources to sample 400 individuals. We randomly pick 200 people with lung cancer and 200 without. Here's our \textcolor{blue}{sample}:
+		\begin{center}
+		\begin{table}
+			\begin{tabular}{|c|cc|c|}
+				\hline 
+				& Lung Cancer & No Lung Cancer &  \\ 
+				& (Case) & (Control) & Total  \\
+				\hline 
+				Smoke & 184 & 2  & 186 \\ 
+				No Smoke & 16 & 198 & 214  \\ 
+				\hline 
+				Total & 200 & 200 & 400 \\ 
+				\hline 
+			\end{tabular}
+		\end{table}
+	\end{center}
+\end{frame}
+
+\begin{frame}{Case-control sampling: Example}
+	\vspace{-0.3cm}
+	\textcolor{blue}{Population:}
+	\begin{center}
+	\begin{table}
+		\begin{tabular}{|c|cc|c|}
+			\hline 
+			& Lung Cancer & No Lung Cancer &  \\ 
+			& (Case) & (Control) & Total  \\
+			\hline 
+			Smoke & 900 & 4,100  & 5,000 \\ 
+			No Smoke & 100 & 994,900 & 995,000  \\ 
+			\hline 
+			Total & 1000 & 999,000 & 1,000,000 \\ 
+			\hline 
+		\end{tabular}
+	\end{table}
+\end{center} 
+The prevalence of lung cancer in the \textcolor{blue}{population} is
+\begin{align*}
+	P^{\text{pop}}(\text{cancer}) = \frac{1,000}{1,000,000} = 0.001
+\end{align*} 
+The prevalence of lung cancer among people who do and do not smoke is
+\begin{align*}
+	&P^{\text{pop}}(\text{cancer} \mid \text{smoke}) = \frac{900}{5,000} = 0.18\\
+	&P^{\text{pop}}(\text{cancer} \mid \text{no smoke}) = \frac{100}{995,000} = 0.0001
+\end{align*}
+\end{frame}
+
+\begin{frame}{Case-control sampling: Example}
+	\vspace{-0.3cm}
+	\textcolor{blue}{Sample:}
+		\begin{center}
+	\begin{table}
+		\begin{tabular}{|c|cc|c|}
+			\hline 
+			& Lung Cancer & No Lung Cancer &  \\ 
+			& (Case) & (Control) & Total  \\
+			\hline 
+			Smoke & 184 & 2  & 186 \\ 
+			No Smoke & 16 & 198 & 214  \\ 
+			\hline 
+			Total & 200 & 200 & 400 \\ 
+			\hline 
+		\end{tabular}
+	\end{table}
+\end{center} 
+	The prevalence of lung cancer in the \textcolor{blue}{sample} is
+	\begin{align*}
+		P^{\text{samp}}(\text{cancer}) = \frac{200}{400} = 0.5 \tab \text{\textcolor{red}{(We chose this by design!)}}
+	\end{align*} 
+	The prevalence of lung cancer among people who do and do not smoke is
+	\begin{align*}
+		&P^{\text{samp}}(\text{cancer} \mid \text{smoke}) = \frac{184}{186} = 0.989\\
+		&P^{\text{samp}}(\text{cancer} \mid \text{no smoke}) = \frac{16}{214} = 0.075
+	\end{align*}
+\end{frame}
+
+\begin{frame}{Case-control sampling: Example}
+	\vspace{-1cm}
+	\begin{align*}
+		P^{\text{pop}}(\text{cancer}) = 0.001 \tab \text{vs.} \tab P^{\text{samp}}(\text{cancer}) = 0.5
+	\end{align*}
+	Clearly, our sample estimate of the prevalence of lung cancer is not even close to the true prevalence -- we chose half our sample to be cases, so the 0.5 was completely determined by us.
+	\\ ~\
+	
+	Similarly, our prevalence estimates separated by exposure are way off:
+	\begin{small} 
+	\begin{align*}
+		&P^{\text{pop}}(\text{cancer} \mid \text{smoke}) = 0.18 \hspace{0.5cm} \text{vs.} \hspace{0.5cm} P^{\text{samp}}(\text{cancer}\mid \text{smoke}) = 0.989\\
+		&P^{\text{pop}}(\text{cancer}\mid \text{no smoke}) = 0.0001 \hspace{0.2cm} \text{vs.} \hspace{0.2cm} P^{\text{samp}}(\text{cancer}\mid \text{no smoke}) = 0.075
+	\end{align*}
+	\end{small}
+	Because we \textcolor{blue}{oversampled} cases, both exposed and unexposed subjects appear to be at much higher risk of cancer than they actually are. 
+\end{frame}
+
+\begin{frame}{Case-control sampling: Example}
+	\small
+	\vspace{-0.7cm}
+	What about the prevalence of smoking among those with and without lung cancer? \textcolor{red}{Because we randomly sampled within cases and within controls, we can estimate these!}
+	\\ ~\
+	
+	\textbf{Exercise:} In both the population and the sample, calculate the prevalence of smoking among cases and controls.
+	\\ ~\
+
+	\textcolor{blue}{Population:} 
+		\begin{center}
+		\begin{table}
+			\begin{tabular}{|c|cc|c|}
+				\hline 
+				& Lung Cancer & No Lung Cancer &  \\ 
+				& (Case) & (Control) & Total  \\
+				\hline 
+				Smoke & 900 & 4,100  & 5,000 \\ 
+				No Smoke & 100 & 994,900 & 995,000  \\ 
+				\hline 
+				Total & 1000 & 999,000 & 1,000,000 \\ 
+				\hline 
+			\end{tabular}
+		\end{table}
+	\end{center}
+ \textcolor{blue}{Sample}:
+	\begin{center}
+		\begin{table}
+			\begin{tabular}{|c|cc|c|}
+				\hline 
+				& Lung Cancer & No Lung Cancer &  \\ 
+				& (Case) & (Control) & Total  \\
+				\hline 
+				Smoke & 184 & 2  & 186 \\ 
+				No Smoke & 16 & 198 & 214  \\ 
+				\hline 
+				Total & 200 & 200 & 400 \\ 
+				\hline 
+			\end{tabular}
+		\end{table}
+	\end{center}
+\end{frame}
+
+\begin{frame}{Case-control sampling: Example}
+	\begin{align*}
+		&P^{\text{pop}}(\text{smoke} \mid \text{cancer}) = \frac{900}{1,000} = 0.9\\
+		&P^{\text{pop}}(\text{smoke} \mid \text{no cancer}) = \frac{4,100}{999,000} = 0.004\\
+		&P^{\text{samp}}(\text{smoke} \mid \text{cancer}) = \frac{184}{200} = 0.92\\
+		&P^{\text{samp}}(\text{smoke} \mid \text{no cancer}) = \frac{2}{200} = 0.01
+	\end{align*}
+	Although the numbers aren't identical due to sampling variability, the sample can be used to estimate these two probabilities. 
+\end{frame}
+
+\begin{frame}{Association between smoking and cancer}
+	\vspace{-0.5cm}
+	How do we measure association between two binary variables?  
+	\begin{itemize}
+		\item RD = $P$(cancer $\mid$ smoke) -  $P$(cancer $\mid$ no smoke) 
+		\item RR = $P$(cancer $\mid$ smoke) $/$ $P$(cancer $\mid$ no smoke)
+	\end{itemize}
+	We can't estimate any of these probabilities from a case-control study.  
+	\\ ~\
+	
+	What about the OR?
+	\begin{itemize}
+		\item OR = $\frac{P(\text{cancer} \mid \text{smoke})}{1 - P(\text{cancer} \mid \text{smoke})} / \frac{P(\text{cancer} \mid \text{no smoke})}{1 - P(\text{cancer} \mid \text{no smoke})}$
+	\end{itemize}
+	\vspace{0.2cm} 
+	Seems like we're still out of luck. But what about the \textcolor{blue}{odds ratio for smoking comparing those with and without cancer?}
+	\begin{itemize}
+		\item $\text{OR}^* = \frac{P(\text{smoke} \mid \text{cancer})}{1 - P(\text{smoke} \mid \text{cancer})} / \frac{P(\text{smoke} \mid \text{no cancer})}{1 - P(\text{smoke} \mid \text{no cancer})}$
+	\end{itemize}
+	\vspace{0.2cm} 
+	This doesn't really answer our scientific question...but doing a bit of math shows us an interesting relationship between OR and OR$^*$: \textbf{they're identical}!
+\end{frame}
+
+\begin{frame}{\includegraphics[scale=0.01]{./figs/technical} Symmetry of the odds ratio}
+	Let $D$ denote disease and $E$ exposure, with $\bar{D}$ and $\bar{E}$ meaning ``no disease" and ``no exposure," respectively. It turns out that 
+	\begin{align*}
+		\text{OR} = \frac{\frac{P(D \mid E)}{1 - P(D \mid  E)}}{\frac{P(D \mid \bar{E})}{1 - P(D \mid \bar{E})}} = \frac{\frac{P(E \mid D)P(D)}{P(E \mid \bar{D})P(\bar{D})}}{\frac{P(\bar{E} \mid D)P(D)}{P(\bar{E} \mid \bar{D})P(\bar{D})}} = \frac{\frac{P(E \mid D)}{P(\bar{E} \mid D)}}{\frac{P(E \mid \bar{D})}{P(\bar{E} \mid \bar{D})}} = \frac{\frac{P(E \mid D)}{1 - P(E \mid D)}}{\frac{P(E\mid \bar{D})}{1 - P(E\mid \bar{D})}} = \text{OR}^*
+	\end{align*}
+	The key to this relationship is \textcolor{blue}{Bayes' rule}. Ask if you're interested!
+\end{frame}
+
+\begin{frame}{Symmetry of the odds ratio: Example}
+	\vspace{-0.8cm}
+	Looking back at our example, we can see that the OR of cancer comparing people who do and do not smoke is identical to the OR of smoking comparing those with and without cancer. 
+	\begin{center}
+		\begin{table}
+			\begin{tabular}{|c|cc|c|}
+				\hline 
+				& Lung Cancer & No Lung Cancer &  \\ 
+				& (Case) & (Control) & Total  \\
+				\hline 
+				Smoke & 184 & 2  & 186 \\ 
+				No Smoke & 16 & 198 & 214  \\ 
+				\hline 
+				Total & 200 & 200 & 400 \\ 
+				\hline 
+			\end{tabular}
+		\end{table} 
+	\end{center}
+	\begin{align*}
+		\text{OR} = \frac{\frac{P(\text{cancer} \mid \text{smoke})}{1 - P(\text{cancer} \mid \text{smoke})}}{\frac{P(\text{cancer} \mid \text{no smoke})}{1 - P(\text{cancer} \mid \text{no smoke})}}  = \frac{\frac{184}{2}}{\frac{16}{198}} = \frac{184\times 198}{16 \times 2} = 1138.5\\  
+		\text{OR}^* =\frac{\frac{P(\text{smoke} \mid \text{cancer})}{1 - P(\text{smoke} \mid \text{cancer})}}{\frac{P(\text{smoke} \mid \text{no cancer})}{1 - P(\text{smoke} \mid \text{no cancer})}}  = \frac{\frac{184}{16}}{\frac{2}{198}} = \frac{184\times 198}{16 \times 2} = 1138.5
+	\end{align*}
+\vfill 
+\tiny Note: We made up the numbers for this example! This odds ratio exaggerates the true association.
+
+\end{frame}
+
+\begin{frame}{Logistic regression in case-control studies}
+	As we've seen, logistic regression allows us to estimate the odds ratio -- this is exactly what we want in a case-control study! But we still need to be careful.  
+	\begin{align*}
+		\log(\text{odds}[\text{cancer} \mid \text{smoke}]) = \beta_0 + \beta_1 \text{smoke}
+	\end{align*} 
+	\vspace{-3 mm}
+	
+	\begin{itemize}
+		\item \sout{$e^{\beta_0}$: odds of cancer among people who do not smoke}
+	\medskip
+	
+	\begin{itemize}
+		\item  \normalsize odds[cancer $\mid$ no smoke] = $\frac{P(\text{cancer} \mid \text{no smoke})}{1 - P(\text{cancer} \mid \text{no smoke})}$
+		
+		\smallskip
+		
+		\item \normalsize Remember: our estimate of $P(\text{cancer} \mid \text{no smoke})$ is biased!
+		 
+		\smallskip
+		
+		\item \normalsize \textbf{In a case-control study, the intercept $\beta_0$ is not interpretable.} 
+		
+		\smallskip
+		
+		\item \normalsize	This won't stop \texttt{R} from giving you an intercept estimate anyway! It's up to you to interpret things correctly.
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Logistic regression in case-control studies}
+	As we've seen, logistic regression allows us to estimate the odds ratio -- this is exactly what we want in a case-control study! But we still need to be careful. 
+	\begin{align*}
+		\log(\text{odds}[\text{cancer} \mid \text{smoke}]) = \beta_0 + \beta_1 \text{smoke}
+	\end{align*}
+	
+	\vspace{-3 mm}
+	
+	\begin{itemize}
+		
+	\item $e^{\beta_1}$: odds ratio for cancer comparing people who do and do not smoke
+	\medskip
+	
+	\begin{itemize}
+		\item \normalsize This \textit{is} interpretable because it's mathematically equivalent to the odds ratio for smoking comparing those with and without cancer, which we can estimate. 
+	\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Case-control studies: summary}
+	Case-control studies involve biased sampling, which can be useful with a rare outcome. 
+	\\ ~\ 
+	
+	We \textit{cannot} estimate
+	\begin{itemize}
+		\item Risk difference 
+		\item Relative risk
+	\end{itemize}
+	\vspace{0.2cm}
+	We \textit{can} estimate
+	\begin{itemize}
+		\item Odds ratio (via logistic regression)
+		\item[] \tab \dots but remember that we cannot interpret the intercept
+	\end{itemize}
+	\vspace{0.2cm}
+	This is a big reason for logistic regression's popularity in public health.  
+\end{frame}
+
 %\subsection{Prediction}
 %\begin{frame}{Logistic regression: Prediction}
 %	We can also use logistic regression for prediction, though it takes a bit more work to get results on the scale we want. 
@@ -1624,333 +1979,6 @@ F-statistic: 280.4 on 2 and 2822 DF,  p-value: < 2.2e-16
 %	\begin{itemize}
 %		\item Harder to interpret (odds and odds ratios)
 %	\end{itemize}
-%\end{frame}
-%
-%\section{Case-control studies}
-%\begin{frame}
-%	\frametitle{SECTION 4: CASE-CONTROL STUDIES}
-%	% Learning objectives
-%	By the end of this section, you should be able to:
-%	\begin{itemize}
-%		\item Describe why logistic regression is useful for the analysis of case-control data
-%		\item Explain how and why logistic regression interpretation changes when we analyze case-control data
-%	\end{itemize}
-%\end{frame}
-%
-%\begin{frame}{Recall: case-control study}
-%	Description:
-%	\begin{itemize}
-%		\item \textit{Sample individuals based on the outcome} (some with, some without) and look back in time for exposure. 
-%	\end{itemize} 
-%	Pros: 
-%	\begin{itemize}
-%		\item Efficient for rare outcomes 
-%		\item Cheaper and faster than cohort studies 
-%		\item Can study multiple exposures 
-%	\end{itemize}
-%	
-%	Cons: 
-%	\begin{itemize}
-%		\item In some scenarios, may not know time sequence of disease and exposure 
-%		\item \textcolor{red}{Cannot use to estimate relative risk or outcome prevalence} 
-%		\item Potential confounding (cannot make conclusions about causality)
-%	\end{itemize}
-%\end{frame}
-%
-%\begin{frame}{Why can't we estimate RR or prevalence from case-control?}
-%	\textbf{In case-control studies, we cannot estimate relative risk or disease prevalence.}
-%	\\ ~\
-%	
-%	Why not? 
-%	\begin{itemize}
-%		\item This is a biased sampling scheme
-%		\item We do \textbf{not} have a representative sample of the population. We purposely sample more individuals who have the outcome ($Y = 1$) than we would 
-%		get from a simple random sample
-%			\begin{itemize}
-%				\item This is by design, and precisely why case-control studies are more efficient for rare outcomes!
-%			\end{itemize}
-%		\item Within categories $Y = 1$ (cases) and $Y = 0$ (controls), the samples should be representative but the overall sample is not
-%	\end{itemize} 
-%\end{frame}
-%
-%\begin{frame}{Case-control sampling: Example}
-%	\vspace{-0.3cm}
-%	To illustrate this, consider the following \textcolor{blue}{population} of 1 million individuals:
-%	\begin{center}
-%		\begin{table}
-%			\begin{tabular}{|c|cc|c|}
-%				\hline 
-%				& Lung Cancer & No Lung Cancer &  \\ 
-%				& (Case) & (Control) & Total  \\
-%				\hline 
-%				Smoke & 900 & 4,100  & 5,000 \\ 
-%				No Smoke & 100 & 994,900 & 995,000  \\ 
-%				\hline 
-%				Total & 1000 & 999,000 & 1,000,000 \\ 
-%				\hline 
-%			\end{tabular}
-%		\end{table}
-%	\end{center} 
-%	We are doing a case-control study on lung cancer and smoking. We have the resources to sample 400 individuals. We randomly pick 200 people with lung cancer and 200 without. Here's our \textcolor{blue}{sample}:
-%		\begin{center}
-%		\begin{table}
-%			\begin{tabular}{|c|cc|c|}
-%				\hline 
-%				& Lung Cancer & No Lung Cancer &  \\ 
-%				& (Case) & (Control) & Total  \\
-%				\hline 
-%				Smoke & 184 & 2  & 186 \\ 
-%				No Smoke & 16 & 198 & 214  \\ 
-%				\hline 
-%				Total & 200 & 200 & 400 \\ 
-%				\hline 
-%			\end{tabular}
-%		\end{table}
-%	\end{center}
-%\end{frame}
-%
-%\begin{frame}{Case-control sampling: Example}
-%	\vspace{-0.3cm}
-%	\textcolor{blue}{Population:}
-%	\begin{center}
-%	\begin{table}
-%		\begin{tabular}{|c|cc|c|}
-%			\hline 
-%			& Lung Cancer & No Lung Cancer &  \\ 
-%			& (Case) & (Control) & Total  \\
-%			\hline 
-%			Smoke & 900 & 4,100  & 5,000 \\ 
-%			No Smoke & 100 & 994,900 & 995,000  \\ 
-%			\hline 
-%			Total & 1000 & 999,000 & 1,000,000 \\ 
-%			\hline 
-%		\end{tabular}
-%	\end{table}
-%\end{center} 
-%The prevalence of lung cancer in the \textcolor{blue}{population} is
-%\begin{align*}
-%	P^{\text{pop}}(\text{cancer}) = \frac{1,000}{1,000,000} = 0.001
-%\end{align*} 
-%The prevalence of lung cancer among smokers and nonsmokers is
-%\begin{align*}
-%	&P^{\text{pop}}(\text{cancer} \mid \text{smoke}) = \frac{900}{5,000} = 0.18\\
-%	&P^{\text{pop}}(\text{cancer} \mid \text{no smoke}) = \frac{100}{995,000} = 0.0001
-%\end{align*}
-%\end{frame}
-%
-%\begin{frame}{Case-control sampling: Example}
-%	\vspace{-0.3cm}
-%	\textcolor{blue}{Sample:}
-%		\begin{center}
-%	\begin{table}
-%		\begin{tabular}{|c|cc|c|}
-%			\hline 
-%			& Lung Cancer & No Lung Cancer &  \\ 
-%			& (Case) & (Control) & Total  \\
-%			\hline 
-%			Smoke & 184 & 2  & 186 \\ 
-%			No Smoke & 16 & 198 & 214  \\ 
-%			\hline 
-%			Total & 200 & 200 & 400 \\ 
-%			\hline 
-%		\end{tabular}
-%	\end{table}
-%\end{center} 
-%	The prevalence of lung cancer in the \textcolor{blue}{sample} is
-%	\begin{align*}
-%		P^{\text{samp}}(\text{cancer}) = \frac{200}{400} = 0.5 \tab \text{\textcolor{red}{(We chose this by design!)}}
-%	\end{align*} 
-%	The prevalence of lung cancer among smokers and nonsmokers is
-%	\begin{align*}
-%		&P^{\text{samp}}(\text{cancer} \mid \text{smoke}) = \frac{184}{186} = 0.989\\
-%		&P^{\text{samp}}(\text{cancer} \mid \text{no smoke}) = \frac{16}{214} = 0.075
-%	\end{align*}
-%\end{frame}
-%
-%\begin{frame}{Case-control sampling: Example}
-%	\vspace{-1cm}
-%	\begin{align*}
-%		P^{\text{pop}}(\text{cancer}) = 0.001 \tab \text{vs.} \tab P^{\text{samp}}(\text{cancer}) = 0.5
-%	\end{align*}
-%	Clearly, our sample estimate of the prevalence of lung cancer is not even close to the true prevalence -- we chose half our sample to be cases, so the 0.5 was completely determined by us.
-%	\\ ~\
-%	
-%	Similarly, our prevalence estimates separated by exposure are way off:
-%	\begin{small} 
-%	\begin{align*}
-%		&P^{\text{pop}}(\text{cancer} \mid \text{smoke}) = 0.18 \hspace{0.5cm} \text{vs.} \hspace{0.5cm} P^{\text{samp}}(\text{cancer}\mid \text{smoke}) = 0.989\\
-%		&P^{\text{pop}}(\text{cancer}\mid \text{no smoke}) = 0.0001 \hspace{0.2cm} \text{vs.} \hspace{0.2cm} P^{\text{samp}}(\text{cancer}\mid \text{no smoke}) = 0.075
-%	\end{align*}
-%	\end{small}
-%	Because we \textcolor{blue}{oversampled} cases, both exposed and unexposed subjects appear to be at much higher risk of cancer than they actually are. 
-%\end{frame}
-%
-%\begin{frame}{Case-control sampling: Example}
-%	\small
-%	\vspace{-0.7cm}
-%	What about the prevalence of smoking among those with and without lung cancer? \textcolor{red}{Because we randomly sampled within cases and within controls, we can estimate these!}
-%	\\ ~\
-%	
-%	\textbf{Exercise:} In both the population and the sample, calculate the prevalence of smoking among cases and controls.
-%	\\ ~\
-%
-%	\textcolor{blue}{Population:} 
-%		\begin{center}
-%		\begin{table}
-%			\begin{tabular}{|c|cc|c|}
-%				\hline 
-%				& Lung Cancer & No Lung Cancer &  \\ 
-%				& (Case) & (Control) & Total  \\
-%				\hline 
-%				Smoke & 900 & 4,100  & 5,000 \\ 
-%				No Smoke & 100 & 994,900 & 995,000  \\ 
-%				\hline 
-%				Total & 1000 & 999,000 & 1,000,000 \\ 
-%				\hline 
-%			\end{tabular}
-%		\end{table}
-%	\end{center}
-% \textcolor{blue}{Sample}:
-%	\begin{center}
-%		\begin{table}
-%			\begin{tabular}{|c|cc|c|}
-%				\hline 
-%				& Lung Cancer & No Lung Cancer &  \\ 
-%				& (Case) & (Control) & Total  \\
-%				\hline 
-%				Smoke & 184 & 2  & 186 \\ 
-%				No Smoke & 16 & 198 & 214  \\ 
-%				\hline 
-%				Total & 200 & 200 & 400 \\ 
-%				\hline 
-%			\end{tabular}
-%		\end{table}
-%	\end{center}
-%\end{frame}
-%
-%\begin{frame}{Case-control sampling: Example}
-%	\begin{align*}
-%		&P^{\text{pop}}(\text{smoke} \mid \text{cancer}) = \frac{900}{1,000} = 0.9\\
-%		&P^{\text{pop}}(\text{smoke} \mid \text{no cancer}) = \frac{4,100}{999,000} = 0.004\\
-%		&P^{\text{samp}}(\text{smoke} \mid \text{cancer}) = \frac{184}{200} = 0.92\\
-%		&P^{\text{samp}}(\text{smoke} \mid \text{no cancer}) = \frac{2}{200} = 0.01
-%	\end{align*}
-%	Although the numbers aren't identical due to sampling variability, the sample can be used to estimate these two probabilities. 
-%\end{frame}
-%
-%\begin{frame}{Association between smoking and cancer}
-%	\vspace{-0.5cm}
-%	How do we measure association between two binary variables?  
-%	\begin{itemize}
-%		\item RD = $P$(cancer $\mid$ smoke) -  $P$(cancer $\mid$ no smoke) 
-%		\item RR = $P$(cancer $\mid$ smoke) $/$ $P$(cancer $\mid$ no smoke)
-%	\end{itemize}
-%	We can't estimate any of these probabilities from a case-control study.  
-%	\\ ~\
-%	
-%	What about the OR?
-%	\begin{itemize}
-%		\item OR = $\frac{P(\text{cancer} \mid \text{smoke})}{1 - P(\text{cancer} \mid \text{smoke})} / \frac{P(\text{cancer} \mid \text{no smoke})}{1 - P(\text{cancer} \mid \text{no smoke})}$
-%	\end{itemize}
-%	\vspace{0.2cm} 
-%	Seems like we're still out of luck. But what about the \textcolor{blue}{odds ratio for smoking comparing those with and without cancer?}
-%	\begin{itemize}
-%		\item $\text{OR}^* = \frac{P(\text{smoke} \mid \text{cancer})}{1 - P(\text{smoke} \mid \text{cancer})} / \frac{P(\text{smoke} \mid \text{no cancer})}{1 - P(\text{smoke} \mid \text{no cancer})}$
-%	\end{itemize}
-%	\vspace{0.2cm} 
-%	This doesn't really answer our scientific question...but doing a bit of math shows us an interesting relationship between OR and OR$^*$: \textbf{they're identical}!
-%\end{frame}
-%
-%\begin{frame}{\includegraphics[scale=0.01]{./figs/technical} Symmetry of the odds ratio}
-%	Let $D$ denote disease and $E$ exposure, with $\bar{D}$ and $\bar{E}$ meaning ``no disease" and ``no exposure," respectively. It turns out that 
-%	\begin{align*}
-%		\text{OR} = \frac{\frac{P(D \mid E)}{1 - P(D \mid  E)}}{\frac{P(D \mid \bar{E})}{1 - P(D \mid \bar{E})}} = \frac{\frac{P(E \mid D)P(D)}{P(E \mid \bar{D})P(\bar{D})}}{\frac{P(\bar{E} \mid D)P(D)}{P(\bar{E} \mid \bar{D})P(\bar{D})}} = \frac{\frac{P(E \mid D)}{P(\bar{E} \mid D)}}{\frac{P(E \mid \bar{D})}{P(\bar{E} \mid \bar{D})}} = \frac{\frac{P(E \mid D)}{1 - P(E \mid D)}}{\frac{P(E\mid \bar{D})}{1 - P(E\mid \bar{D})}} = \text{OR}^*
-%	\end{align*}
-%	The key to this relationship is \textcolor{blue}{Bayes' rule}. Ask us if you're interested!
-%\end{frame}
-%
-%\begin{frame}{Symmetry of the odds ratio: Example}
-%	\vspace{-0.8cm}
-%	Looking back at our example, we can see that the OR of cancer comparing smokers and nonsmokers is identical to the OR of smoking comparing those with and without cancer. 
-%	\begin{center}
-%		\begin{table}
-%			\begin{tabular}{|c|cc|c|}
-%				\hline 
-%				& Lung Cancer & No Lung Cancer &  \\ 
-%				& (Case) & (Control) & Total  \\
-%				\hline 
-%				Smoke & 184 & 2  & 186 \\ 
-%				No Smoke & 16 & 198 & 214  \\ 
-%				\hline 
-%				Total & 200 & 200 & 400 \\ 
-%				\hline 
-%			\end{tabular}
-%		\end{table} 
-%	\end{center}
-%	\begin{align*}
-%		\text{OR} = \frac{\frac{P(\text{cancer} \mid \text{smoke})}{1 - P(\text{cancer} \mid \text{smoke})}}{\frac{P(\text{cancer} \mid \text{no smoke})}{1 - P(\text{cancer} \mid \text{no smoke})}}  = \frac{\frac{184/186}{2/186}}{\frac{16/214}{198/214}} = \frac{184\times 198}{16 \times 2} = 1138.5\\  
-%		\text{OR}^* =\frac{\frac{P(\text{smoke} \mid \text{cancer})}{1 - P(\text{smoke} \mid \text{cancer})}}{\frac{P(\text{smoke} \mid \text{no cancer})}{1 - P(\text{smoke} \mid \text{no cancer})}}  = \frac{\frac{184/200}{16/200}}{\frac{2/200}{198/200}} = \frac{184\times 198}{16 \times 2} = 1138.5
-%	\end{align*}
-%\vfill 
-%\tiny Note: We made up the numbers for this example! This odds ratio exaggerates the true association.
-%
-%\end{frame}
-%
-%\begin{frame}{Logistic regression in case-control studies}
-%	As we've seen, logistic regression allows us to estimate the odds ratio -- this is exactly what we want in a case-control study! But we still need to be careful.  
-%	\begin{align*}
-%		\log(\text{odds}[\text{cancer} \mid \text{smoke}]) = \beta_0 + \beta_1 \text{smoke}
-%	\end{align*} 
-%	\begin{itemize}
-%		\item $e^{\beta_0}$: odds of cancer among nonsmokers 
-%		\begin{itemize}
-%			\item odds[cancer $\mid$ no smoke] = $\frac{P(\text{cancer} \mid \text{no smoke})}{1 - P(\text{cancer} \mid \text{no smoke})}$ 
-%			\item Remember: our estimate of $P(\text{cancer} \mid \text{no smoke})$ is biased!  
-%			\item \textbf{In a case-control study, the intercept $\beta_0$ is not interpretable.}   \begin{tiny}
-%				This won't stop \texttt{R} from giving you an intercept estimate anyway! It's up to you to interpret things correctly.
-%			\end{tiny}
-%		\end{itemize}
-%	\end{itemize}
-%\end{frame}
-%
-%\begin{frame}{Logistic regression in case-control studies}
-%	As we've seen, logistic regression allows us to estimate the odds ratio -- this is exactly what we want in a case-control study! But we still need to be careful. 
-%	\begin{align*}
-%		\log(\text{odds}[\text{cancer} \mid \text{smoke}]) = \beta_0 + \beta_1 \text{smoke}
-%	\end{align*}
-%	\begin{itemize}
-%		\item \sout{$e^{\beta_0}$: odds of cancer among nonsmokers}
-%		\begin{itemize}
-%			\item odds[cancer $\mid$ no smoke] = $\frac{P(\text{cancer} \mid \text{no smoke})}{1 - P(\text{cancer} \mid \text{no smoke})}$
-%			\item Remember: our estimate of $P(\text{cancer} \mid \text{no smoke})$ is biased! 
-%			\item \textbf{In a case-control study, the intercept $\beta_0$ is not interpretable.} \begin{tiny}
-%				This won't stop \texttt{R} from giving you an intercept estimate anyway! It's up to you to interpret things correctly.
-%			\end{tiny}
-%		\end{itemize}
-%	\item $e^{\beta_1}$: odds ratio for cancer comparing smokers to nonsmokers
-%	\begin{itemize}
-%		\item This \textit{is} interpretable because it's mathematically equivalent to the odds ratio for smoking comparing those with and without cancer, which we can estimate. 
-%	\end{itemize}
-%	\end{itemize}
-%\end{frame}
-%
-%\begin{frame}{Case-control studies: summary}
-%	Case-control studies involve biased sampling, which can be useful with a rare outcome. 
-%	\\ ~\ 
-%	
-%	We \textit{cannot} estimate
-%	\begin{itemize}
-%		\item Risk difference 
-%		\item Relative risk
-%	\end{itemize}
-%	\vspace{0.2cm}
-%	We \textit{can} estimate
-%	\begin{itemize}
-%		\item Odds ratio (via logistic regression)
-%		\item[] \tab \dots but remember that we cannot interpret the intercept
-%	\end{itemize}
-%	\vspace{0.2cm}
-%	This is a big reason for logistic regression's popularity in public health.  
 %\end{frame}
 
 

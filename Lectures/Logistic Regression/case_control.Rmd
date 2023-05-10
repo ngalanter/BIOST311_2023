@@ -1,0 +1,171 @@
+---
+title: "Case Control Simulation Worksheet"
+author: "Nina Galanter"
+date: '2023-05-08'
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+```
+
+## Problem 1
+
+a. **In this worksheet we will be exploring case control datasets. The code below sets up a scenario where there is a binary exposure and a binary outcome. Go through the code block below to make sure you understand what is going on.**
+
+```{r population_values}
+
+#overall probability of exposure in the population
+p_exposed <- 0.4
+
+#conditional probability of outcome given exposure
+p_outcome_given_exposed <- 0.09
+
+#conditional probability of outcome given no exposure
+p_outcome_given_unexposed <- 0.03
+
+#overall probability of outcome in the population
+p_outcome <- p_exposed * p_outcome_given_exposed +
+  (1- p_exposed) * p_outcome_given_unexposed
+
+p_outcome
+
+#probability of exposure given outcome
+p_exposed_given_outcome <- (p_exposed*p_outcome_given_exposed)/
+  (p_exposed*p_outcome_given_exposed+
+     (1-p_exposed)*p_outcome_given_unexposed)
+
+p_exposed_given_outcome
+
+#probability of exposure given no outcome
+p_exposed_given_no_outcome <- 
+  ( p_exposed*(1-p_outcome_given_exposed) )/
+  ( p_exposed*(1-p_outcome_given_exposed)+
+     (1-p_exposed)*(1-p_outcome_given_unexposed) )
+
+p_exposed_given_no_outcome
+
+#true relative risk of outcome comparing exposed and unexposed
+true_relative_risk <- 
+  p_outcome_given_exposed/p_outcome_given_unexposed
+
+true_relative_risk
+
+#true odds ratio of outcome comparing exposed and unexposed
+true_odds_ratio <- 
+  (p_outcome_given_exposed /(1-p_outcome_given_exposed) ) / 
+  ( p_outcome_given_unexposed / (1-p_outcome_given_unexposed) )
+
+true_odds_ratio
+
+#true relative risk of exposure given outcome
+
+#true rel risk of exposure comparing those with and without outcome
+true_relative_risk_exposure <- 
+  p_exposed_given_outcome/p_exposed_given_no_outcome
+
+true_relative_risk_exposure
+
+#true odds ratio of exposure given outcome
+
+#true odds ratio of exposure comparing those with and without outcome
+true_odds_ratio_exposure <- 
+  ( p_exposed_given_outcome/ (1-p_exposed_given_outcome) )/
+  ( p_exposed_given_no_outcome/ (1-p_exposed_given_no_outcome))
+
+true_odds_ratio_exposure
+
+```
+
+b. **You may notice that the true odds ratio of the outcome and true relative risk of the outcome are similar. Why do you think this is the case?**
+
+
+c. **Comparing the true relative risk and odds ratio of the outcome given exposure status to the true relative risk and odds ratio of the exposure given the outcome. What do you notice?**
+
+
+## Problem 2
+
+The code below (not included in the knitted pdf) creates a function `case_control` which simulations a case control study. The default sample size of the study is 1000, and default number of times the simulation runs (the `reps`) is 1000. You will need to tell the function how many cases should be sample using the `n_cases` argument.
+
+```{r simulation function, include=FALSE}
+
+case_control <- function(n = 1000, reps = 1000, n_cases){
+  
+  n_controls <- n-n_cases
+  
+  n_exposed_cases <- rbinom(n = reps, size = n_cases, 
+                            p = p_exposed_given_outcome)
+  
+  n_unexposed_cases <- n_cases - n_exposed_cases
+  
+  n_exposed_controls <- rbinom(n = reps, size = n_controls, 
+                            p = p_exposed_given_no_outcome)
+  
+  n_unexposed_controls <- n_controls - n_exposed_controls
+  
+  n_exposed <- n_exposed_cases + n_exposed_controls
+  
+  n_unexposed <- n - n_exposed
+
+  risk_exposed <- n_exposed_cases / n_exposed
+  
+  risk_unexposed <- n_unexposed_cases / n_unexposed
+  
+  relative_risk <- risk_exposed / risk_unexposed
+  
+  odds_exposed <- n_exposed_cases / (n_exposed- n_exposed_cases)
+  
+  odds_unexposed <- n_unexposed_cases / 
+    ( n_unexposed - n_unexposed_cases )
+  
+  odds_ratio <- odds_exposed / odds_unexposed
+  
+  #odds of exposure given outcome
+  odds_outcome <- n_exposed_cases / n_unexposed_cases
+  
+  #odds of exposure given no outcome
+  odds_no_outcome <- n_exposed_controls / n_unexposed_controls
+  
+  #odds ratio of exposure given outcome
+  odds_ratio_exposure <- odds_outcome/odds_no_outcome
+  
+  dat <- data.frame(Statistic = c(relative_risk,odds_ratio, 
+                                  odds_ratio_exposure),
+                    Type = as.factor(c(rep("Relative Risk",reps),
+                             rep("Odds Ratio",reps),
+                             rep("Odds Ratio of Exposure",reps))))
+  
+  
+  print(ggplot(data = dat, aes(x = Statistic, fill = Type)) +
+    geom_histogram() + 
+    facet_grid(rows = dat$Type))
+  
+  print(paste0("True Relative Risk: ",true_relative_risk),
+        )
+  
+  print(paste0("True Odds Ratio: ",round(true_odds_ratio,2)
+        ))
+  
+  print("Sample Relative Risk Distribution:")
+  print(summary(relative_risk))
+  print("Sample Odds Ratio Distribution:")
+  print(summary(odds_ratio))
+  print("Sample Odds Ratio of Exposure Distribution:")
+  print(summary(odds_ratio_exposure))
+  
+}
+
+```
+
+a. **Run the `case_control` simulation to simulate a case control trial where there is a 1:1 ratio between cases and controls. Compare the relative risk, odds ratio, and odds ratio of exposure to the true population values.**
+
+b. **Run the `case_control` simulation to simulate a case control trial where there is a 1:3 ratio between cases and controls. Compare the relative risk, odds ratio, and odds ratio of exposure to the true population values.**
+
+c. **Run the `case_control` simulation to simulate a case control trial where there is a 3:1 ratio between cases and controls. Compare the relative risk, odds ratio, and odds ratio of exposure to the true population values.**
+
+d. **Run the `case_control` simulation to simulate a case control trial where the proportion of cases in the trial is about the same as the proportion of cases in the population (round the number of cases to the nearest whole number). Compare the relative risk, odds ratio, and odds ratio of exposure to the true population values.**
+
+e. **Suppose you are going to analyze case-control data using regression. Based on the simulations you just ran, why might it be good to use logistic regression?**
+

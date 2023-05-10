@@ -1,7 +1,7 @@
 ---
 title: "Logistic Regression"
 subtitle: "BIOST 311, Discussion Section Week 7"
-author: "Taylor Okonek and Charlie Wolock"
+author: "Nina Galanter"
 date: \today
 output: 
   pdf_document:
@@ -21,80 +21,42 @@ knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_chunk$set(error = FALSE)
 knitr::opts_chunk$set(warning = FALSE)
 knitr::opts_chunk$set(message = FALSE)
-knitr::opts_chunk$set(results = "hide")
+#knitr::opts_chunk$set(results = "hide")
 ```
 
 # Introduction
 
-In this discussion section, we'll walk through a logistic regression analysis. We will use the `wcgs` dataset that we have been using in class for the Chapter 2.
+In this discussion section, we'll walk through a logistic regression analysis. We will use the `HIV` dataset that we have been using in class.
 
-The dataset is called `wcgs.csv`, and is available on the Canvas site on the Week 6 page, or on the course github site. The code is provided below to load the dataset directly from github, but you may download it to your personal machine and load it in that way if you prefer.
+The dataset is called `HIV.csv`, and is available on the Canvas site on the Week 7 module. The code is provided below to load the dataset directly from github, but you may download it to your personal machine and load it in that way if you prefer.
 
 ```{r}
 library(tidyverse)
 library(readr)
-wcgs <- read_csv(url("https://raw.githubusercontent.com/cwolock/BIOST311/main/Datasets/wcgs.csv"))
+HIV <- read_csv(url("https://raw.githubusercontent.com/ngalanter/BIOST311_2023/main/Datasets/HIV.csv"))
 ```
 
-Suppose we are interested in the association between high blood pressure and cholesterol. When arteries build up with plaque from cholesterol, the heart needs to work harder to pump blood through them. Therefore, we have reason to believe that higher levels of cholesterol are associated with high blood pressure.
-
-For the purposes of this analysis, we will be defining someone with high blood pressure (a binary indicator) as someone who has a diastolic blood pressure greater than 90, and a systolic blood pressure greater than 140. This is a relatively common definition of high blood pressure, or hypertension. 
+So far we have investigated the relationship between whether or not someone received an incentive and whether they decided to go get their HIV test results. Today, we will look at the relationship between the amount of money received as an incentive and whether someone chooses to go get their HIV test results.
 
 # Exploratory plot and set-up
 
-1. Create a binary indicator for high blood pressure in the `wcgs` dataset. Call this new variable `highbp`. Provide descriptive summary statistics for the variable `highbp`.
+1. Create a new dataset with only those participants who received an incentive. Provide descriptive summary statistics for the variable `results` within this new dataset.
 
-```{r}
-wcgs <- wcgs %>% mutate(highbp = ifelse(dbp > 90 & sbp > 140, "highbp", "nothighbp"))
-wcgs %>% pull(highbp) %>% table()
-wcgs %>% pull(highbp) %>% table() %>% prop.table()
 
-sum(wcgs$highbp == "highbp") / nrow(wcgs)
-```
+**Use the dataset with only people who received an incentive for the rest of this worksheet.**
 
-313 (9.9%) people with high blood pressure, 2,841 (90.1%) people without high blood pressure.
+2. Create an exploratory plot that describes the relationship between getting results and incentive amount. How would you describe the relationship between these two variables?
 
-2. Create an exploratory plot that describes the relationship between high blood pressure and cholesterol. How would you describe the relationship between these two variables?
-
-```{r}
-wcgs %>%
-  mutate(highbp = ifelse(highbp == "highbp", "High BP", "Not High BP")) %>%
-  ggplot(aes(highbp, chol, fill = highbp)) +
-  geom_boxplot() +
-  labs(x = "High Blood Pressure", y = "Cholesterol (mg/dL)", title = "High BP vs. Cholesterol")
-```
-
-There does not seem to be a noticible difference in cholesterol between groups with high blood pressure and those without. Maybe a slightly higher median in the high blood pressure group?? Slightly more spread of cholesterol values in the not high blood pressure group.
 
 # Simple logistic regression
 
-3. Fit a simple logistic regression model with high blood pressure as the outcome and cholesterol as the predictor of interest. Interpret the results of your analysis using an odds ratio in context, and conduct a hypothesis test. Make sure to report uncertainty in the form of a confidence interval in addition to a point estimate.
-
-```{r}
-wcgs <- wcgs %>% mutate(highbp = ifelse(dbp > 90 & sbp > 140, 1, 0))
-
-mod <- glm(data = wcgs, highbp ~ chol, family = binomial)
-exp(coef(mod))
-exp(confint(mod))
-summary(mod)
-```
-
-We estimate that the ratio of odds of high blood pressure comparing groups that differ by one mg/dL of cholesterol is 1.004, with groups with higher cholesterol having higher odds of high blood pressure. This observed odds ratio would not be surprising if the true odds ratio were between 1.002 and 1.007. We have statistically significant evidence to reject the null hypothesis that the ratio of odds of high blood pressure comparing groups that differ by one mg/dL of cholesterol is 1 (p < 0.05), where the alternative hypothesis is that the ratio of odds is not equal to 1. We have statistically significant evidence of an association between high blood pressure and cholesterol.
-
-OR
-
-We estimate that the odds of high blood pressure are 1.004 times as large for individuals with one mg/dL higher cholesterol.
+3. Fit a simple logistic regression model with whether someone got results as the outcome and incentive amount as the predictor of interest. Interpret the results of your analysis using an odds ratio in context, and conduct a hypothesis test. Make sure to report uncertainty in the form of a confidence interval in addition to a point estimate.
 
 # Multiple logistic regression
 
-We have reason to believe that weight is a confounding variable in the relationship between cholesterol and high blood pressure. Having higher weight puts you at higher risk for high blood pressure (a causal relationship), and similarly can lead to increased cholesterol levels. 
+We are interested in whether age is an effect modifier of the association between incentive amount and choosing to receive HIV test results.
 
-4. Fit a multiple logistic regression model with high blood pressure as the outcome, cholesterol as the predictor of interest, and weight as an additional variable in your model. Interpret the results of your analysis using an odds ratio in context, and conduct a hypothesis test. Make sure to report uncertainty in the form of a confidence interval in addition to a point estimate.
+4. Fit a multiple logistic regression model with choosing to get HIV test results as the outcome, incentive amount as the predictor of interest, and age in years as an effect modifier. Interpret the interaction term in context, and conduct a hypothesis test of whether age is an effect modifier. Make sure to report uncertainty in the form of a confidence interval in addition to a point estimate.
 
-```{r}
-mod <- glm(data = wcgs, highbp ~ chol + weight, family = binomial)
-exp(coef(mod))
-exp(confint(mod))
-summary(mod)
-```
 
+5. Report and interpret the odds ratio of the association between incentive amount and getting results at the mean age in the dataset (rounded to the nearest year).

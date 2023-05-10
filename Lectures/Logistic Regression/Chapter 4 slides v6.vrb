@@ -1,0 +1,26 @@
+\frametitle{Logistic regression: Prediction}
+\vspace{-5mm}
+	
+	Of course, \texttt{R} will do all the work for us:
+	
+	\small
+	\begin{verbatim}
+	> predict(mod, newdata = data.frame(amount = 2))
+	1
+	1.775613
+	
+	> predict(mod, newdata = data.frame(amount = 2),
+	    type = "response")
+	1
+	0.8551543
+	\end{verbatim}
+	
+	\medskip
+	
+	\normalsize
+	We need to use \texttt{type = "response"} to predict on the probability scale
+
+\bigskip
+
+	Unlike linear regression, logistic regression keeps all fitted and predicted values in [0,1]
+	
