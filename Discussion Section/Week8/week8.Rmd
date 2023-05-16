@@ -1,7 +1,7 @@
 ---
 title: "Logistic Regression: Prediction"
 subtitle: "BIOST 311, Discussion Section Week 8"
-author: "Taylor Okonek and Charlie Wolock"
+author: "Nina Galanter"
 date: \today
 output: 
   pdf_document:
@@ -41,43 +41,11 @@ df <- read_csv(url("https://raw.githubusercontent.com/cwolock/BIOST311/main/Data
 
 1. Suppose we want to begin our prediction modeling by seeing whether a simple logistic regression model with `hospital_death` as our outcome and `age` as our predictor does a good job (in terms of AUC) at predicting hospital death. First, make a plot comparing the distribution of age between those who died in the hospital and those who did not die in the hospital. How would you describe the relationship between age and hospital death?
 
-```{r}
-df %>%
-  mutate(hospital_death = ifelse(hospital_death == 1, "Yes", "No")) %>%
-  ggplot() +
-  geom_boxplot(aes(x = age, fill = hospital_death, group = hospital_death))
-```
-
-people who died in the hospital in our dataset seem to be older on average. we can see that the IQR and the median age are higher for those who died in the hospital
 
 # Simple logistic regression: Prediction
 
 2. Build a logistic regression model to predict the hospital death by age. Evaluate its performance by creating an ROC curve and calculating the area under the curve (AUC). Be sure to evaluate your model on out-of-sample testing data. Use a 70/30 split for your training/testing data.
 
-```{r}
-set.seed(1234)
-vals <- c(rep(0, round(0.7 * nrow(df))),
-  rep(1, round(0.3 * nrow(df))))
-test_indicator <- sample(vals)
-
-test_df <- df %>%
-  mutate(test = test_indicator) %>%
-  filter(test == 1)
-train_df <- df %>%
-  mutate(test = test_indicator) %>%
-  filter(test == 0)
-
-mod <- glm(data = train_df, hospital_death ~ age, family = binomial)
-test_df$predictions <- predict(mod, newdata = test_df, type = "response")
-
-roc(test_df$hospital_death,
-    test_df$predictions,
-    smoothed = TRUE, plot = TRUE, auc.polygon = TRUE,
-    max.auc.polygon = TRUE, grid = TRUE, print.auc = TRUE,
-    show.thres = TRUE)
-```
-
-AUC is 0.614
 
 # Multiple logistic regression: Prediction
 

@@ -8,6 +8,7 @@
 \setbeamercolor{frametitle}{bg=white}
 %\setbeamertemplate{frametitle}[default][left]
 \setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{\begin{flushright}\small \insertframenumber\end{flushright}}
 
 \usepackage{graphicx}
 \usepackage{amsmath}
@@ -28,7 +29,7 @@
 
 % Title page details: 
 \title{Chapter 3: Survival Analysis} 
-\author{Taylor Okonek \& Charlie Wolock}
+\author{Nina Galanter}
 \date{\today}
 
 
@@ -38,21 +39,21 @@
 	\titlepage 
 \end{frame}
 
-\begin{frame}{Learning objectives}
-	By the end of Chapter 3, you should be able to:
-	
-	\begin{itemize}
-		\item Determine if a variable has been right-censored
-		\item Discuss the drawbacks of treating a right-censored variable as binary or continuous
-		\item Interpret Kaplan-Meier curves, and create them in \texttt{R}
-		\item Implement and interpret a logrank test for equating survival curves
-		\item Formulate a regression model given a scientific or statistical question about a right-censored outcome
-		\item Interpret the coefficients for a (simple or multiple) proportional hazards regression model
-		\item Interpret confidence intervals and p-values for proportional hazards regression coefficients
-		\item Use \texttt{R} to fit a proportional hazards regression model and create figures/tables to support your regression analysis
-	\end{itemize}
-	
-\end{frame}
+%\begin{frame}{Learning objectives}
+%	By the end of Chapter 3, you should be able to:
+%	
+%	\begin{itemize}
+%		\item Determine if a variable has been right-censored
+%		\item Discuss the drawbacks of treating a right-censored variable as binary or continuous
+%		\item Interpret Kaplan-Meier curves, and create them in \texttt{R}
+%		\item Implement and interpret a logrank test for equating survival curves
+%		\item Formulate a regression model given a scientific or statistical question about a right-censored outcome
+%		\item Interpret the coefficients for a (simple or multiple) proportional hazards regression model
+%		\item Interpret confidence intervals and p-values for proportional hazards regression coefficients
+%		\item Use \texttt{R} to fit a proportional hazards regression model and create figures/tables to support your regression analysis
+%	\end{itemize}
+%	
+%\end{frame}
 
 % Outline frame
 \begin{frame}{Outline}
@@ -134,10 +135,10 @@ We're not interested in time from the beginning of the study until a panic attac
 In this hypothetical study, we were able to record the actual time of panic attack \textcolor{blue}{for each participant}.
 \\ ~\ 
 
-Is this typical of human studies? \pause \textcolor{red}{No!}
+Is this typical of human studies?   \textcolor{red}{No!}
 \\ ~\ 
 
-Why? \pause Some common reasons are:
+Why?   Some common reasons are:
 \begin{itemize}
 \item the study ended (e.g., after 30 weeks) and some participants had not yet had a severe panic attack (\textbf{administrative censoring})
 \item the participant left the study before having had a severe panic attack (\textbf{loss to follow-up})
@@ -151,7 +152,7 @@ This leads to \textbf{right-censored} data, where rather than knowing the event 
 \begin{frame}
 \frametitle{Characteristics of survival data}
 \vspace{-0.8cm}
-Suppose that we only have resources to run the study for \textbf{30 weeks}, and some people also stop returning to the clinic for follow-up visits. We indicate the last time we saw a patient using a circle. \pause
+Suppose that we only have resources to run the study for \textbf{30 weeks}, and some people also stop returning to the clinic for follow-up visits. We indicate the last time we saw a patient using a circle.  
 \begin{center}
 \includegraphics[width=0.7\textwidth]{figs/meditation_censored_study_time.png}
 \end{center}
@@ -176,15 +177,15 @@ placebo & \textcolor{red}{21.00+} &  \textcolor{red}{3.94+} &  \textcolor{red}{7
 \end{tabular}
 }
 \vspace{0.2cm}
-Should we throw out these incompletely observed times?  \pause \textcolor{red}{This is a bad idea!}\pause
+Should we throw out these incompletely observed times?    \textcolor{red}{This is a bad idea!} 
 
 \begin{itemize}
-\item Censored observations contain valuable information: \pause
+\item Censored observations contain valuable information:  
 {\scriptsize
 \begin{itemize}
-\item \textcolor{red}{20+}: the participant did not experience a severe panic attack before 20 weeks\pause 
+\item \textcolor{red}{20+}: the participant did not experience a severe panic attack before 20 weeks  
 \begin{itemize}
-	\item their actual time until the first severe panic attack must be in the interval $(20, +\infty)$\pause
+	\item their actual time until the first severe panic attack must be in the interval $(20, +\infty)$ 
 \end{itemize}
 \end{itemize}
 }
@@ -197,7 +198,7 @@ Should we throw out these incompletely observed times?  \pause \textcolor{red}{T
 \frametitle{Missing data}
 Think about the following questions:
 \begin{enumerate}
-\item Are those with smaller or larger times more likely to be censored? Why?\pause 
+\item Are those with smaller or larger times more likely to be censored? Why?  
 \item Systematically excluding censored times could lead to \textcolor{red}{biased estimates}. Would this lead to an overestimation or an underestimation of the \textcolor{blue}{mean} time until severe panic attack? Why?
 \end{enumerate}
 
@@ -207,7 +208,7 @@ Think about the following questions:
 \frametitle{Missing data}
 \begin{enumerate}
 \item Are those with smaller or larger times more likely to be censored? Why?
-\item[] \textcolor{blue}{Those with \textbf{larger times} are more likely to be censored; we only get to observe these people for a comparatively small amount of time, so we may miss their event. For example, people with time from randomization to first panic attack of more than 30 weeks are guaranteed to be censored.}\pause 
+\item[] \textcolor{blue}{Those with \textbf{larger times} are more likely to be censored; we only get to observe these people for a comparatively small amount of time, so we may miss their event. For example, people with time from randomization to first panic attack of more than 30 weeks are guaranteed to be censored.}  
 \item Systematically excluding censored times could lead to \textcolor{red}{biased estimates}. Would this lead to an overestimation or an underestimation of the mean time until severe panic attack? Why?
 \item[] \textcolor{blue}{\textbf{Underestimation}: if we exclude censored times, then we are effectively excluding these people with potentially longer times, and losing all of this information!}
 \end{enumerate}
@@ -242,15 +243,15 @@ Even when our time-to-event data do not truly mean survival (e.g., time to first
 
 \begin{frame}
 \frametitle{Characteristics of survival data}
-Why makes time-to-event data special? Why not use standard methods?\pause
+Why makes time-to-event data special? Why not use standard methods? 
 \begin{itemize}
-\item A time-to-event variable is positive and generally skewed\pause 
-\item To appropriately define a time-to-event, we must specify:\pause 
+\item A time-to-event variable is positive and generally skewed  
+\item To appropriately define a time-to-event, we must specify:  
 {\scriptsize
 \begin{itemize}
-\item initiating event --- e.g., birth, recruitment into study, onset of disease \pause 
-\item terminating event --- e.g., death, onset of disease\pause 
-\item time scale --- e.g., calendar time, number of transfusions\pause 
+\item initiating event --- e.g., birth, recruitment into study, onset of disease   
+\item terminating event --- e.g., death, onset of disease  
+\item time scale --- e.g., calendar time, number of transfusions  
 \end{itemize}
 }
 \item Time-to-event data are generally observed subject to some incompleteness, of which \textbf{censoring} is a major type. Throwing away incomplete data generally results in
@@ -272,9 +273,9 @@ A variable is \textbf{censored} if rather than being known exactly, it is known 
 In this course, we will focus on \textbf{right censoring}, where we only know that the event occurred after the censoring time. This is what we've seen so far. 
 \\ ~\ 
 
-Right-censored data are the most common type of censored data found in applications! But you could also have\pause 
+Right-censored data are the most common type of censored data found in applications! But you could also have  
 \begin{itemize}
-	\item Left censoring: We only know the event occurred before the censoring time\pause 
+	\item Left censoring: We only know the event occurred before the censoring time  
 	\item Interval censoring: We only know the event happened between two times, but don't know exactly when
 \end{itemize}
 \end{frame}
@@ -351,10 +352,10 @@ A few observations:
 The assumption of \textbf{independent (or uninformative) censoring} is critical to the vast majority of methods available in survival analysis.
 \\ ~\ 
 
-\textcolor{blue}{Independent censoring:} A participant's \textbf{time-to-event} and potential \textbf{censoring time} should be \textbf{independent} of one another.\pause 
+\textcolor{blue}{Independent censoring:} A participant's \textbf{time-to-event} and potential \textbf{censoring time} should be \textbf{independent} of one another.  
 \\ ~\ 
 
-What does that mean? \pause \textit{Individuals who are censored at time $t$ must be \textbf{similar} to those remaining in the risk set after time $t$.}\pause 
+What does that mean?   \textit{Individuals who are censored at time $t$ must be \textbf{similar} to those remaining in the risk set after time $t$.}  
 \\ ~\ 
 
 Independent censoring is a vital assumption, but unfortunately we can't do diagnostics or tests to see if it holds. 
@@ -364,10 +365,10 @@ Independent censoring is a vital assumption, but unfortunately we can't do diagn
 \begin{frame}{Assumptions}
 	When is the independent censoring assumption reasonable? 
 	\begin{itemize}
-		\item Participants are censored because the study ended? \pause \textcolor{blue}{Yes!}
-		\item Participants exited the study because their panic disorder became disabling? \pause \textcolor{red}{No!}
-		\item Participants exited the study because their panic disorder dissipated? \pause \textcolor{red}{No!}
-		\item Participants exited the study because they moved to a different state? \pause \textcolor{purple}{Maybe?}
+		\item Participants are censored because the study ended?   \textcolor{blue}{Yes!}
+		\item Participants exited the study because their panic disorder became disabling?   \textcolor{red}{No!}
+		\item Participants exited the study because their panic disorder dissipated?   \textcolor{red}{No!}
+		\item Participants exited the study because they moved to a different state?   \textcolor{purple}{Maybe?}
 	\end{itemize}
 
 \end{frame}
@@ -389,10 +390,10 @@ Independent censoring is a vital assumption, but unfortunately we can't do diagn
 Suppose that $T$ is a continuous, time-to-event random variable (\textcolor{blue}{$T$ is our outcome of interest in survival analysis}).
 \\ ~\ 
 
-The \textbf{survival function}, $S$, is defined as $S(t) := P(T > t)$:\pause 
+The \textbf{survival function}, $S$, is defined as $S(t) := P(T > t)$:  
 \begin{itemize}
-\item \textcolor{blue}{$S(t) = $ proportion of the population with a time-to-event greater than $t$}\pause 
-\item e.g.: if $S(20) = 0.37$, then approximately 37\% of the population will not experience a severe panic attack within the first 20 weeks\pause 
+\item \textcolor{blue}{$S(t) = $ proportion of the population with a time-to-event greater than $t$}  
+\item e.g.: if $S(20) = 0.37$, then approximately 37\% of the population will not experience a severe panic attack within the first 20 weeks  
 \item $S$ is \textcolor{red}{non-increasing}, starts at 1 [i.e., $S(0) = 1$] and ends at 0 [i.e., $S(\infty) = 0$]
 \end{itemize}
 \end{frame}
@@ -407,10 +408,10 @@ The \textbf{survival function}, $S$, is defined as $S(t) := P(T > t)$:\pause
 The \textbf{hazard function} (or: hazard rate, failure rate) $h$ is
 \begin{align*}
 h(t) := & \ \lim_{\Delta t \to 0} \frac{P(t \leq T < t + \Delta t \mid T \geq t)}{\Delta t}.
-\end{align*}\pause 
+\end{align*}  
 \begin{itemize}
-\item \textcolor{blue}{$h(t) = $ instantaneous event rate at $t$}\pause 
-\item $h(t)\Delta t$ approximates the probability that $T$ is in the interval $[t, t + \Delta t)$ given $T \geq t$\pause 
+\item \textcolor{blue}{$h(t) = $ instantaneous event rate at $t$}  
+\item $h(t)\Delta t$ approximates the probability that $T$ is in the interval $[t, t + \Delta t)$ given $T \geq t$  
 \item In our panic attack example, $h(t)$ refers to the incidence rate of panic attacks at time $t$ after randomization 
 \end{itemize}
 The \textbf{cumulative hazard function} $H$ is given by $H(t) := \int_0^t h(u) du$.
@@ -491,16 +492,16 @@ What shape do we expect the hazard function to have? \textcolor{red}{It depends.
 As we start to think about estimation, it'll be useful to change our notation.
 \\ ~\ 
 
-For participant $i$, denote by $T_i$ \textbf{the time to event} and by $C_i$ \textbf{the censoring time}. \pause 
+For participant $i$, denote by $T_i$ \textbf{the time to event} and by $C_i$ \textbf{the censoring time}.   
 \\ ~\ 
 
-We cannot observe both $T_i$ and $C_i$ -- instead, we observe a pair $(Y_i, \Delta_i)$, where \pause 
+We cannot observe both $T_i$ and $C_i$ -- instead, we observe a pair $(Y_i, \Delta_i)$, where   
 \begin{itemize}
-\item $Y_i := \min(T_i, C_i)$ is the \textbf{observed follow-up time} \pause
-\item $\Delta_i = I(T_i \leq C_i)$ is the \textbf{event indicator} [where $I(X = c)$ is 1 if $X = c$ and zero otherwise] \pause
+\item $Y_i := \min(T_i, C_i)$ is the \textbf{observed follow-up time}  
+\item $\Delta_i = I(T_i \leq C_i)$ is the \textbf{event indicator} [where $I(X = c)$ is 1 if $X = c$ and zero otherwise]  
 \end{itemize}
 
-\textbf{Question:} In this new notation, how would we represent the data $\{7.5, 16.6+, 13.5+, 7.4, 14.2\}$?\pause 
+\textbf{Question:} In this new notation, how would we represent the data $\{7.5, 16.6+, 13.5+, 7.4, 14.2\}$?  
 \[\{(7.5, 1), (16.6, 0), (13.5, 0), (7.4, 1), (14.2, 1)\}.\]
 \end{frame}
 
@@ -516,7 +517,7 @@ If we observed actual survival times $T_1, T_2, \dots, T_n$, we could take
 as an estimator of $S(t)$ (in other words, just count how many people made it past time $t$ without an event). This is a \textbf{nonparametric} estimator; we do not have to postulate a parametric model for the true survival distribution. This is unlike \textcolor{blue}{classical} linear regression, for example, where we assumed that the errors had a Normal distribution. 
 \\ ~\ 
 
-Can we use this estimator in practice? \pause \textcolor{red}{No, since we do not see $T_i$ for participants who are censored!}
+Can we use this estimator in practice?   \textcolor{red}{No, since we do not see $T_i$ for participants who are censored!}
 \end{frame}
 
 \begin{frame}{Nonparametric estimation of a survival function}
@@ -524,7 +525,7 @@ Can we use this estimator in practice? \pause \textcolor{red}{No, since we do no
 	\begin{align*}
 		\frac{1}{n}\sum_{i=1}^{n}I(Y_i > t)
 	\end{align*}
-	\textbf{Question:} Would this be an \textcolor{blue}{overestimate} or \textcolor{red}{underestimate} of $P(T > t)$? \pause 
+	\textbf{Question:} Would this be an \textcolor{blue}{overestimate} or \textcolor{red}{underestimate} of $P(T > t)$?   
 	\\ ~\ 
 	
 	\textbf{Answer:} It would be an \textcolor{red}{underestimate}. Some people would have survived past time $t$, had they not been censored. (If it helps to think mathematically, we know that $Y_i \leq T_i$ for all $i$, so using $Y_i$ in place of $T_i$ can only make our estimate smaller.)
@@ -533,7 +534,7 @@ Can we use this estimator in practice? \pause \textcolor{red}{No, since we do no
 \begin{frame}
 \frametitle{Nonparametric estimation of a survival function}
 \vspace{-0.8cm}
-Denote by $u_1 < u_2 < \dots < u_m$ the ordered, distinct, observed times (event or censoring). (\textbf{Question}: When is $m$ equal to $n$, the sample size? \pause \textbf{Answer}: When all the times are unique (no ties).)\pause 
+Denote by $u_1 < u_2 < \dots < u_m$ the ordered, distinct, observed times (event or censoring). (\textbf{Question}: When is $m$ equal to $n$, the sample size?   \textbf{Answer}: When all the times are unique (no ties).)  
 \\ ~\
 
 Also, denote: 
@@ -541,7 +542,7 @@ Also, denote:
 d_k = & \ \text{\# of events having occurred at time $u_k$} \\
 n_k = & \ \text{\# of individuals \textbf{at risk} at time $u_k$}
 \end{align*}
-Suppose the data are $\{4, 5, 5+, 8, 12+, 13, 18+, 23, 23, 30\}$.\pause 
+Suppose the data are $\{4, 5, 5+, 8, 12+, 13, 18+, 23, 23, 30\}$.  
 
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
@@ -601,10 +602,10 @@ What is a sensible estimate of $P(T > u_1)$?
 			P(T > u_1) &= P(T > u_1, T\geq u_1) \\
 			&= P(T > u_1 \mid T \geq u_1)P(T \geq u_1)
 		\end{align*}
-		How many people made it to \textbf{at least} $u_1$ without an event? \pause \textcolor{blue}{10/10}
+		How many people made it to \textbf{at least} $u_1$ without an event?   \textcolor{blue}{10/10}
 		\\ ~\ 
 		
-		Among those who make it to at least $u_1$ without an event, how many experienced an event \textbf{after} $u_1$? \pause \textcolor{blue}{9/10} 
+		Among those who make it to at least $u_1$ without an event, how many experienced an event \textbf{after} $u_1$?   \textcolor{blue}{9/10} 
 	\end{column}
 \end{columns}
 \vspace{0.5cm}
@@ -640,10 +641,10 @@ So a reasonable estimate of $P(T > u_1)$ is $\frac{9}{10} \times \frac{10}{10} =
 				&= P(T > u_2 \mid T \geq u_2)P(T \geq u_2)\\
 				&\approx P(T > u_2 \mid T \geq u_2)P(T > u_1)
 			\end{align*}
-			We already have an estimate of $P(T > u_1)$: \textcolor{blue}{0.9}\pause 
+			We already have an estimate of $P(T > u_1)$: \textcolor{blue}{0.9}  
 			\\ ~\ 
 			
-			Among those who make it to at least $u_2$ without an event, how many experienced an event \textbf{after} $u_2$? \pause \textcolor{blue}{8/9}
+			Among those who make it to at least $u_2$ without an event, how many experienced an event \textbf{after} $u_2$?   \textcolor{blue}{8/9}
 		\end{column}
 	\end{columns}
 	\vspace{0.5cm}
@@ -682,10 +683,10 @@ So a reasonable estimate of $P(T > u_1)$ is $\frac{9}{10} \times \frac{10}{10} =
 				&= P(T > u_3 \mid T \geq u_3)P(T \geq u_3)\\
 				&\approx P(T > u_3 \mid T \geq u_3)P(T > u_2)
 			\end{align*}
-			We already have an estimate of $P(T > u_2)$: \textcolor{blue}{0.8}\pause 
+			We already have an estimate of $P(T > u_2)$: \textcolor{blue}{0.8}  
 			\\ ~\ 
 			
-			Among those who make it to at least $u_3$ without an event, how many experienced an event \textbf{after} $u_3$? \pause \textcolor{blue}{6/7}
+			Among those who make it to at least $u_3$ without an event, how many experienced an event \textbf{after} $u_3$?   \textcolor{blue}{6/7}
 		\end{column}
 	\end{columns}
 	\vspace{0.5cm}
@@ -703,10 +704,10 @@ If any participant is censored at $u_m$ (the final observed time), we consider $
 
 A few observations:
 \begin{itemize}
-\item $\widehat{S}(t) = 1$ for each $t$ preceding the first event time $u_1$ \pause
-\item $\widehat{S}$ is a non-increasing function. Why? \pause
-\item $\widehat{S}$ drops to zero at the largest time $u_m$ only if the last observed time is an event (not censoring) \pause
-\item the KM estimator only changes at observed event times, and is constant (flat) between observed times \pause
+\item $\widehat{S}(t) = 1$ for each $t$ preceding the first event time $u_1$  
+\item $\widehat{S}$ is a non-increasing function. Why?  
+\item $\widehat{S}$ drops to zero at the largest time $u_m$ only if the last observed time is an event (not censoring)  
+\item the KM estimator only changes at observed event times, and is constant (flat) between observed times  
 \item the KM estimator relies on \textbf{independent censoring} but does not require postulating a parametric family, and is thus \textbf{nonparametric}
 \end{itemize}
 \end{frame}
@@ -1046,7 +1047,7 @@ time $u_k$ & $d_k$ & $n_k$ & $\widehat{S}(u_k)$ & $\widehat{SE}(t)$ & CI lower &
 	\begin{center}
 		\includegraphics[width=\textwidth]{figs/KM_strat.png}
 	\end{center}
-	What's missing from this plot? \pause Confidence bands!
+	What's missing from this plot?   Confidence bands!
 \end{frame}
 
 \begin{frame}
@@ -1158,13 +1159,13 @@ Commonly, in survival analysis, we \textcolor{blue}{compare the entire survival 
 Comparing the entire survival function is the same as saying that the group-specific time-to-event distributions are identical. Suppose we have groups $Z = 0$ and $Z = 1$, and our outcome is death.
 \\ ~\ 
 
-\textbf{Question:} If we want to test for identical time-to-event distributions, what should our null and alternative hypotheses be? \pause 
+\textbf{Question:} If we want to test for identical time-to-event distributions, what should our null and alternative hypotheses be?   
 \\ ~\ 
 
 \textbf{Answer:}
 \begin{align*}
 \textcolor{blue}{H_0: S_0(t) = S_1(t) \text{ for all } t} \ \text{vs} \ \textcolor{orange}{H_1: S_0(t) \neq S_1(t) \text{ for some }t}.
-\end{align*} \pause 
+\end{align*}   
 Note that we need to compare survival across all times! How do we do this? 
 \end{frame}
 
@@ -1289,7 +1290,7 @@ For example, we could split \texttt{age} into those under 50 years old, and thos
 It appears that the survival probabilities are generally lower (at any point in time) for older versus younger patients. 
 \\ ~\ 
 
-\textbf{Question:} What does this suggest about the \textcolor{blue}{hazards} in the two age groups? \pause
+\textbf{Question:} What does this suggest about the \textcolor{blue}{hazards} in the two age groups?  
 
 \textbf{Answer:} Because the younger age group has higher survival probability, we can infer that it also has a lower hazard. 
 \\ ~\ 
@@ -1332,17 +1333,17 @@ The hazard ratio at time $t$ tells us how much more likely it is that an event w
 \begin{align*}
 	\frac{\textcolor{orange}{h_1(t)}}{\textcolor{cyan}{h_0(t)}} &= c \text{ for every time } t,
 \end{align*}
-What does $c < 1$ imply? \pause A \textbf{decreased hazard} in subgroup 1 relative to subgroup 0. Subgroup 1 is at lower instantaneous risk than subgroup 0 by a factor of $c$.\pause 
+What does $c < 1$ imply?   A \textbf{decreased hazard} in subgroup 1 relative to subgroup 0. Subgroup 1 is at lower instantaneous risk than subgroup 0 by a factor of $c$.  
 \\ ~\ 
 
-What does $c > 1$ imply? \pause An \textbf{increased hazard} in subgroup 1 relative to subgroup 0.  Subgroup 1 is at higher instantaneous risk than subgroup 0 by a factor of $c$.
+What does $c > 1$ imply?   An \textbf{increased hazard} in subgroup 1 relative to subgroup 0.  Subgroup 1 is at higher instantaneous risk than subgroup 0 by a factor of $c$.
 \end{frame}
 
 \begin{frame}{The hazard ratio}
 	\textbf{Question:} Based on our Kaplan-Meier curves for survival by age group, what can we say about the following hazard ratio?
 	\begin{align*}
 		\frac{h_{\text{over 50}}(t)}{h_{\text{under 50}}(t)}
-	\end{align*} \pause 
+	\end{align*}   
 	\textbf{Answer:} Since we saw lower survival over all times for the older versus the younger group (i.e., a larger hazard), we'd expect this hazard ratio to be greater than 1.
 \end{frame}
 
@@ -1406,7 +1407,7 @@ To interpret $\beta_1$, we use our standard approach:
 \begin{align*}
 h(t \mid X = x + 1) = & \ h_0(t)e^{\beta_1 (x + 1)}\\
 h(t \mid X = x) = & \ h_0(t)e^{\beta_1 x} 
-\end{align*}\pause \vspace{-0.3cm}
+\end{align*}  \vspace{-0.3cm}
 \begin{align*}
 \textcolor{blue}{\frac{h(t \mid X = x + 1)}{h(t \mid X = x)}} = & \ \frac{h_0(t)e^{\beta_1 (x + 1)}}{h_0(t)e^{\beta_1}} \\
 =& \ \frac{e^{\beta_1x + \beta_1}}{e^{\beta_1 x}} \\
@@ -1458,12 +1459,12 @@ With more than one covariate, we simply extend the model:
 \log \{h(t \mid X_1, \dots, X_p)\} = & \ \log\{h_0(t)\} + \beta_1 X_1 + \dots + \beta_pX_p \\
 h(t \mid X_1, \dots, X_p) = & \ h_0(t)e^{\beta_1X_1 + \dots + \beta_pX_p}.
 \end{align*}
-\pause 
-Now, we interpret the regression parameter $e^{\beta_1}$ as: \pause \textcolor{blue}{the hazard ratio comparing two groups that differ in $X_1$ by one unit, but are the same with respect to $X_2, \dots, X_p$.} \pause 
+  
+Now, we interpret the regression parameter $e^{\beta_1}$ as:   \textcolor{blue}{the hazard ratio comparing two groups that differ in $X_1$ by one unit, but are the same with respect to $X_2, \dots, X_p$.}   
 \\ ~\ 
 
-We interpret $e^{\beta_j}$, for $j = 2, \dots, p$, as: \pause
-\textcolor{blue}{the hazard ratio comparing two groups that differ in $X_j$ by one unit, but are the same with respect to $X_1, \dots, X_{j-1}, X_{j+1}, \dots, X_p$.} \pause 
+We interpret $e^{\beta_j}$, for $j = 2, \dots, p$, as:  
+\textcolor{blue}{the hazard ratio comparing two groups that differ in $X_j$ by one unit, but are the same with respect to $X_1, \dots, X_{j-1}, X_{j+1}, \dots, X_p$.}   
 \\ ~\
 
 Always keep in mind that hazard = ``instantaneous risk of an event." The term ``hazard ratio" by itself isn't very informative, but it's the more common way to phrase this.
@@ -1506,19 +1507,19 @@ Always keep in mind that hazard = ``instantaneous risk of an event." The term ``
 	Suppose we have a predictor of interest $X$ and binary potential effect modifier $Z$. We fit the proportional hazards model
 	\begin{align*}
 		h(t \mid X, Z) = h_0(t)e^{\beta_1X + \beta_2Z + \beta_3XZ}
-	\end{align*}\pause 
+	\end{align*}  
 	The hazard ratio comparing groups differing by 1 unit of $X$, for $Z = 0$, is
 	\begin{small}
 	\begin{align*}
 		\frac{h(t \mid X = x+ 1, Z = 0)}{h(t \mid X = x, Z = 0)} = \frac{h_0(t)e^{\beta_1 (x + 1) + 0 + 0}}{h_0(t)e^{\beta_1x + 0 + 0}} = \frac{e^{\beta_1(x + 1)}}{e^{\beta_1 x}} = e^{\beta_1}
 	\end{align*}
-	\end{small}\pause 
+	\end{small}  
 	The hazard ratio comparing groups differing by 1 unit of $X$, for $Z = 1$, is
 	\begin{small}
 	\begin{align*}
 		\frac{h(t \mid X = x+ 1, Z = 1)}{h(t \mid X = x, Z = 1)} = \frac{h_0(t)e^{\beta_1 (x + 1) + \beta_2 + \beta_3(x + 1)}}{h_0(t)e^{\beta_1x + \beta_2 + \beta_3x}} = \frac{e^{(\beta_1 + \beta_3)(x + 1) }}{e^{(\beta_1  + \beta_3)x}} = e^{\beta_1 + \beta_3}
 	\end{align*}
-	\end{small}\pause 
+	\end{small}  
 	The ratio of these two hazard ratios is $e^{\beta_3}$. 
 \end{frame}
 
@@ -1579,233 +1580,233 @@ This assumption is violated, for example, if the survival curves cross!
 		\item As with other regression methods, we can account for confounding, include precision variables (although they don't work quite the same as in linear regression), and study effect modification
 	\end{itemize}
 \end{frame}
-%\section{Summary}
-%\begin{frame}
-%\frametitle{SECTION 4: SUMMARY}
-%Consider the inflammatory biomarkers data; here, normal CRP is $\leq 10$ mg/L, while abnormal CRP is $> 10$ mg/L.
-%\begin{center}
-%\includegraphics[height = 0.6\textheight]{figs/cum_haz_inflamm_crp.png}
-%\end{center} \vspace{-0.6cm}
-%First question: is the censoring here informative or uninformative?
-%\end{frame}
-%
-%\begin{frame}
-%\frametitle{Survival analysis: CRP}
-%\textbf{Scientific question:} Is there \textcolor{orange}{a difference} in \textcolor{blue}{survival} comparing those with normal CRP to those with abnormal CRP?
-%
-%\textbf{Statistical question:} \vspace{-0.3cm}
-%\begin{itemize}
-%\item How do we want to quantify the outcome?
-%\item[] 
-%\begin{itemize}
-%\item[]
-%\item[]
-%\end{itemize}
-%\item How will we quantify association?
-%\item[] 
-%\begin{itemize}
-%\item[]
-%\item[] 
-%\end{itemize}
-%\item Are there other variables we need to adjust for?
-%\end{itemize}
-%\end{frame}
-%
-%\begin{frame}[noframenumbering]
-%\frametitle{Survival analysis: CRP}
-%\textbf{Scientific question:} Is there \textcolor{orange}{a difference} in \textcolor{blue}{survival} comparing those with normal CRP to those with abnormal CRP?
-%
-%\textbf{Statistical question:} \vspace{-0.3cm}
-%\begin{itemize}
-%\item How do we want to quantify the outcome?
-%\item[] \textcolor{blue}{Two options:}
-%\begin{itemize}
-%\item \textcolor{blue}{Binary variable: survival until prior to first censoring time}
-%\item \textcolor{blue}{Time-to-event variable}
-%\end{itemize}
-%\item How will we quantify association?
-%\item[] 
-%\begin{itemize}
-%\item[]
-%\item[] 
-%\end{itemize}
-%\item Are there other variables we need to adjust for?
-%\end{itemize}
-%\end{frame}
-%
-%\begin{frame}[noframenumbering]
-%\frametitle{Survival analysis: CRP}
-%\textbf{Scientific question:} Is there \textcolor{orange}{a difference} in \textcolor{blue}{survival} comparing those with normal CRP to those with abnormal CRP?
-%
-%\textbf{Statistical question:} \vspace{-0.3cm}
-%\begin{itemize}
-%\item How do we want to quantify the outcome?
-%\item[] \textcolor{blue}{Two options:}
-%\begin{itemize}
-%\item \textcolor{blue}{Binary variable: survival until prior to first censoring time}
-%\item \textcolor{blue}{Time-to-event variable}
-%\end{itemize}
-%\item How will we quantify association?
-%\item[] \textcolor{orange}{Options (depending on study design):}
-%\begin{itemize}
-%\item \textcolor{orange}{Binary variable: linear/logistic/Poisson regression}
-%\item \textcolor{orange}{Time-to-event variable: difference in survival curves, or hazard ratio}
-%\end{itemize}
-%\item Are there other variables we need to adjust for?
-%\end{itemize}
-%\end{frame}
-%
-%\begin{frame}
-%\frametitle{Survival analysis: CRP}
-%Survival analysis options:
-%\begin{itemize}
-%\item Are the \textcolor{blue}{survival curves}  \textcolor{orange}{different}, comparing those with normal CRP to high CRP, with the same \textcolor{orange}{age, diabetes status, sex, BMI, and smoking status?}
-%\item Is the \textcolor{orange}{hazard ratio} of \textcolor{blue}{death} different from 1, comparing those with normal CRP to high CRP, with the same \textcolor{orange}{age, diabetes status, sex, BMI, and smoking status}?
-%\end{itemize}
-%\end{frame}
-%
-%% KM curves
-%\begin{frame}
-%\frametitle{Survival analysis: Kaplan-Meier and logrank}
-%\hspace*{0.5cm}\includegraphics[width=0.9\textwidth]{figs/inflamm_km_crp.png}
-%\end{frame}
-%
-%% unadjusted log rank
-%\begin{frame}
-%\frametitle{Survival analysis: Kaplan-Meier and logrank}
-%\includegraphics[width = 1\textwidth]{figs/inflamm_logrank_crp.png}
-%\end{frame}
-%
-%% adjusted log rank
-%\begin{frame}
-%\frametitle{Survival analysis: Kaplan-Meier and logrank}
-%\includegraphics[width = 1\textwidth]{figs/inflamm_logrank_crp_adjust_1.png}
-%\end{frame}
-%
-%\begin{frame}
-%\frametitle{Survival analysis: Kaplan-Meier and logrank}
-%\includegraphics[width = 1\textwidth]{figs/inflamm_logrank_crp_adjust_3.png}
-%\end{frame}
-%
-%\begin{frame}
-%\frametitle{Survival analysis: Kaplan-Meier and logrank}
-%
-%\textcolor{green}{Based on a logrank test}, \textcolor{blue}{these data provide evidence to suggest that the survival function in those with normal CRP is statistically significantly different from the survival function in those with abnormal CRP at the 0.05 level (p $< 0.001$)}. \textcolor{orange}{We conclude that abnormal CRP is associated with decreased survival compared with normal CRP}.
-%
-%\textcolor{green}{Based on a logrank test}, \textcolor{blue}{these data provide evidence to suggest that the survival function in those with normal CRP is statistically significantly different from the survival function in those with abnormal CRP, among those with the same age, diabetes status, sex, and BMI, at the 0.05 level (p $< 0.001$)}. \textcolor{orange}{We conclude that abnormal CRP is associated with decreased survival compared with normal CRP, adjusting for age, diabetes status, sex, and BMI}.
-%\end{frame}
-%
-%% PH output
-%
-%\begin{frame}
-%\frametitle{Survival analysis: proportional hazards regression}
-%Regression model: 
-%\begin{align*}
-%\log & \{h(t \mid \text{CRP $>$ 10}, \text{Age}, \text{Diabetes}, \text{Male}, \text{BMI}\} =  \log\{h_0(t)\} \\
-%&+ \beta_1 (\text{CRP $>$ 10}) + \beta_2 \text{Age} + \beta_3 \text{Diabetes} + \beta_4 \text{Male} + \beta_5 \text{BMI}
-%\end{align*}
-%\hspace*{0.5cm}\includegraphics[width=0.9\textwidth]{figs/inflamm_hazard_crp_1.png}
-%\end{frame}
-%
-%\begin{frame}
-%\frametitle{Survival analysis: proportional hazards regression}
-%\hspace*{0.5cm}\includegraphics[width=0.9\textwidth]{figs/inflamm_hazard_crp_2.png}
-%\end{frame}
-%
-%% PH reporting results
-%\begin{frame}
-%\frametitle{Survival analysis: proportional hazards regression}
-%Reporting results: 
-%\begin{enumerate}
-%\item Identify regression coefficient(s) of interest
-%\item Report an estimate, and interpret
-%\item Report a confidence interval, and interpret
-%\item Report a p-value, and interpret
-%\item Add a conclusion tying back to the scientific question
-%\end{enumerate}
-%\end{frame}
-%
-%\begin{frame}
-%\frametitle{Survival analysis: proportional hazards regression}
-%\begin{align*}
-%\log & \{h(t \mid \text{CRP $>$ 10}, \text{Age}, \text{Diabetes}, \text{Male}, \text{BMI}\} =  \log\{h_0(t)\} \\
-%&+ \beta_1 (\text{CRP $>$ 10}) + \beta_2 \text{Age} + \beta_3 \text{Diabetes} + \beta_4 \text{Male} + \beta_5 \text{BMI}
-%\end{align*}
-%
-%Reporting results: 
-%\begin{enumerate}
-%\item Identify regression coefficient(s) of interest
-%\item Report an estimate, and interpret
-%\item Report a confidence interval, and interpret
-%\item Report a p-value, and interpret
-%\item Add a conclusion tying back to the scientific question
-%\end{enumerate}
-%\end{frame}
-%
-%\begin{frame}[noframenumbering]
-%\frametitle{Survival analysis: proportional hazards regression}
-%\begin{align*}
-%\log & \{h(t \mid \text{CRP $>$ 10}, \text{Age}, \text{Diabetes}, \text{Male}, \text{BMI}\} =  \log\{h_0(t)\} \\
-%&+ \beta_1 (\text{CRP $>$ 10}) + \beta_2 \text{Age} + \beta_3 \text{Diabetes} + \beta_4 \text{Male} + \beta_5 \text{BMI}
-%\end{align*}
-%
-%Reporting results: 
-%\begin{enumerate}
-%\item Identify regression coefficient(s) of interest: $\textcolor{blue}{e^{\beta_1}}$
-%\item Report an estimate, and interpret
-%\item Report a confidence interval, and interpret
-%\item Report a p-value, and interpret
-%\item Add a conclusion tying back to the scientific question
-%\end{enumerate}
-%\end{frame}
-%
-%\begin{frame}
-%\frametitle{Survival analysis: proportional hazards regression}
-%
-%\textit{2. Report an estimate, and interpret.}
-%
-%Based on proportional hazards regression, we estimate that the \textcolor{orange}{ratio of the instantaneous risk of death}, comparing those with abnormal CRP to those with normal CRP but with the same age, diabetes status, sex, and BMI, is \textcolor{orange}{1.68}, where those with abnormal CRP have a higher instantaneous risk of death. \pause
-%
-%\textbf{Option 2:} Based on proportional hazards regression, we estimate that the \textcolor{orange}{instantaneous risk of death is 1.68 times higher} among those with abnormal CRP compared to those with normal CRP... \pause
-%
-%\textbf{Option 3:} Based on proportional hazards regression, we estimate that the \textcolor{orange}{instantaneous risk of death is 68\% times higher} among those with abnormal CRP compared to those with normal CRP... 
-%\end{frame}
-%
-%\begin{frame}
-%\frametitle{Survival analysis: proportional hazards regression}
-%
-%\textit{3. Report a confidence interval, and interpret.}
-%
-%Based on a 95\% confidence interval, this estimate would not be judged unusual if the true hazard ratio were between 1.36 and 2.08.
-%
-%\textit{4. Report a p-value, and interpret.}
-%
-%These data provide evidence to suggest that this hazard ratio is statistically significantly different from one (p $< 0.001$).
-%
-%\textit{5. Add a conclusion tying back to the scientific question.}
-%
-%Based on these results, we have evidence to suggest that the instantaneous risk of death is larger in those with abnormal CRP, after adjusting for age, diabetes status, sex, and BMI.
-%\end{frame}
+\section{Summary}
+\begin{frame}
+\frametitle{SECTION 4: SUMMARY}
+Consider the inflammatory biomarkers data; here, normal CRP is $\leq 10$ mg/L, while abnormal CRP is $> 10$ mg/L.
+\begin{center}
+\includegraphics[height = 0.6\textheight]{figs/cum_haz_inflamm_crp.png}
+\end{center} \vspace{-0.6cm}
+First question: is the censoring here informative or uninformative?
+\end{frame}
 
-%\begin{frame}
-%\frametitle{Survival analysis: assumptions}
-%
-%Dealing with survival data is complicated, but \textcolor{blue}{we may gain information over simply dichotomizing a time-to-event variable}, and \textcolor{cyan}{sometimes our scientific question does involve the time}.
-%
-%All of the techniques we have learned rely on the assumption of \textcolor{blue}{uninformative censoring}: those people who are censored are not systematically different from the people in your target population.
-%
-%This is \textcolor{red}{difficult to assess}, unless you know some additional information about the participants. However, if you are following patients, you may be able to tell based on trends if the patient leaves due to their outcome getting worse.
-%
-%\end{frame}
-%
-%\begin{frame}
-%\frametitle{Survival analysis: assumptions}
-%
-%The Kaplan-Meier estimator of the survival function and the logrank test only rely on uninformative censoring -- however, these become difficult to interpret when adjusting for covariates.
-%
-%The proportional hazards regression model is a convenient alternative, but makes a potentially strong assumption on the hazard ratio between groups defined by the predictor of interest -- namely, that the hazard is proportional at each time $t$.
-%
-%Despite this limitation, proportional hazards regression is widely used in survival analysis, \textcolor{red}{but the results are often misinterpreted}.
-%\end{frame}
+\begin{frame}
+\frametitle{Survival analysis: CRP}
+\textbf{Scientific question:} Is there \textcolor{orange}{a difference} in \textcolor{blue}{survival} comparing those with normal CRP to those with abnormal CRP?
+
+\textbf{Statistical question:} \vspace{-0.3cm}
+\begin{itemize}
+\item How do we want to quantify the outcome?
+\item[] 
+\begin{itemize}
+\item[]
+\item[]
+\end{itemize}
+\item How will we quantify association?
+\item[] 
+\begin{itemize}
+\item[]
+\item[] 
+\end{itemize}
+\item Are there other variables we need to adjust for?
+\end{itemize}
+\end{frame}
+
+\begin{frame}[noframenumbering]
+\frametitle{Survival analysis: CRP}
+\textbf{Scientific question:} Is there \textcolor{orange}{a difference} in \textcolor{blue}{survival} comparing those with normal CRP to those with abnormal CRP?
+
+\textbf{Statistical question:} \vspace{-0.3cm}
+\begin{itemize}
+\item How do we want to quantify the outcome?
+\item[] \textcolor{blue}{Two options:}
+\begin{itemize}
+\item \textcolor{blue}{Binary variable: survival until prior to first censoring time}
+\item \textcolor{blue}{Time-to-event variable}
+\end{itemize}
+\item How will we quantify association?
+\item[] 
+\begin{itemize}
+\item[]
+\item[] 
+\end{itemize}
+\item Are there other variables we need to adjust for?
+\end{itemize}
+\end{frame}
+
+\begin{frame}[noframenumbering]
+\frametitle{Survival analysis: CRP}
+\textbf{Scientific question:} Is there \textcolor{orange}{a difference} in \textcolor{blue}{survival} comparing those with normal CRP to those with abnormal CRP?
+
+\textbf{Statistical question:} \vspace{-0.3cm}
+\begin{itemize}
+\item How do we want to quantify the outcome?
+\item[] \textcolor{blue}{Two options:}
+\begin{itemize}
+\item \textcolor{blue}{Binary variable: survival until prior to first censoring time}
+\item \textcolor{blue}{Time-to-event variable}
+\end{itemize}
+\item How will we quantify association?
+\item[] \textcolor{orange}{Options (depending on study design):}
+\begin{itemize}
+\item \textcolor{orange}{Binary variable: linear/logistic/Poisson regression}
+\item \textcolor{orange}{Time-to-event variable: difference in survival curves, or hazard ratio}
+\end{itemize}
+\item Are there other variables we need to adjust for?
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Survival analysis: CRP}
+Survival analysis options:
+\begin{itemize}
+\item Are the \textcolor{blue}{survival curves}  \textcolor{orange}{different}, comparing those with normal CRP to high CRP, with the same \textcolor{orange}{age, diabetes status, sex, BMI, and smoking status?}
+\item Is the \textcolor{orange}{hazard ratio} of \textcolor{blue}{death} different from 1, comparing those with normal CRP to high CRP, with the same \textcolor{orange}{age, diabetes status, sex, BMI, and smoking status}?
+\end{itemize}
+\end{frame}
+
+% KM curves
+\begin{frame}
+\frametitle{Survival analysis: Kaplan-Meier and logrank}
+\hspace*{0.5cm}\includegraphics[width=0.9\textwidth]{figs/inflamm_km_crp.png}
+\end{frame}
+
+% unadjusted log rank
+\begin{frame}
+\frametitle{Survival analysis: Kaplan-Meier and logrank}
+\includegraphics[width = 1\textwidth]{figs/inflamm_logrank_crp.png}
+\end{frame}
+
+% adjusted log rank
+\begin{frame}
+\frametitle{Survival analysis: Kaplan-Meier and logrank}
+\includegraphics[width = 1\textwidth]{figs/inflamm_logrank_crp_adjust_1.png}
+\end{frame}
+
+\begin{frame}
+\frametitle{Survival analysis: Kaplan-Meier and logrank}
+\includegraphics[width = 1\textwidth]{figs/inflamm_logrank_crp_adjust_3.png}
+\end{frame}
+
+\begin{frame}
+\frametitle{Survival analysis: Kaplan-Meier and logrank}
+
+\textcolor{green}{Based on a logrank test}, \textcolor{blue}{these data provide evidence to suggest that the survival function in those with normal CRP is statistically significantly different from the survival function in those with abnormal CRP at the 0.05 level (p $< 0.001$)}. \textcolor{orange}{We conclude that abnormal CRP is associated with decreased survival compared with normal CRP}.
+
+\textcolor{green}{Based on a logrank test}, \textcolor{blue}{these data provide evidence to suggest that the survival function in those with normal CRP is statistically significantly different from the survival function in those with abnormal CRP, among those with the same age, diabetes status, sex, and BMI, at the 0.05 level (p $< 0.001$)}. \textcolor{orange}{We conclude that abnormal CRP is associated with decreased survival compared with normal CRP, adjusting for age, diabetes status, sex, and BMI}.
+\end{frame}
+
+% PH output
+
+\begin{frame}
+\frametitle{Survival analysis: proportional hazards regression}
+Regression model: 
+\begin{align*}
+\log & \{h(t \mid \text{CRP $>$ 10}, \text{Age}, \text{Diabetes}, \text{Male}, \text{BMI}\} =  \log\{h_0(t)\} \\
+&+ \beta_1 (\text{CRP $>$ 10}) + \beta_2 \text{Age} + \beta_3 \text{Diabetes} + \beta_4 \text{Male} + \beta_5 \text{BMI}
+\end{align*}
+\hspace*{0.5cm}\includegraphics[width=0.9\textwidth]{figs/inflamm_hazard_crp_1.png}
+\end{frame}
+
+\begin{frame}
+\frametitle{Survival analysis: proportional hazards regression}
+\hspace*{0.5cm}\includegraphics[width=0.9\textwidth]{figs/inflamm_hazard_crp_2.png}
+\end{frame}
+
+% PH reporting results
+\begin{frame}
+\frametitle{Survival analysis: proportional hazards regression}
+Reporting results: 
+\begin{enumerate}
+\item Identify regression coefficient(s) of interest
+\item Report an estimate, and interpret
+\item Report a confidence interval, and interpret
+\item Report a p-value, and interpret
+\item Add a conclusion tying back to the scientific question
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Survival analysis: proportional hazards regression}
+\begin{align*}
+\log & \{h(t \mid \text{CRP $>$ 10}, \text{Age}, \text{Diabetes}, \text{Male}, \text{BMI}\} =  \log\{h_0(t)\} \\
+&+ \beta_1 (\text{CRP $>$ 10}) + \beta_2 \text{Age} + \beta_3 \text{Diabetes} + \beta_4 \text{Male} + \beta_5 \text{BMI}
+\end{align*}
+
+Reporting results: 
+\begin{enumerate}
+\item Identify regression coefficient(s) of interest
+\item Report an estimate, and interpret
+\item Report a confidence interval, and interpret
+\item Report a p-value, and interpret
+\item Add a conclusion tying back to the scientific question
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[noframenumbering]
+\frametitle{Survival analysis: proportional hazards regression}
+\begin{align*}
+\log & \{h(t \mid \text{CRP $>$ 10}, \text{Age}, \text{Diabetes}, \text{Male}, \text{BMI}\} =  \log\{h_0(t)\} \\
+&+ \beta_1 (\text{CRP $>$ 10}) + \beta_2 \text{Age} + \beta_3 \text{Diabetes} + \beta_4 \text{Male} + \beta_5 \text{BMI}
+\end{align*}
+
+Reporting results: 
+\begin{enumerate}
+\item Identify regression coefficient(s) of interest: $\textcolor{blue}{e^{\beta_1}}$
+\item Report an estimate, and interpret
+\item Report a confidence interval, and interpret
+\item Report a p-value, and interpret
+\item Add a conclusion tying back to the scientific question
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Survival analysis: proportional hazards regression}
+
+\textit{2. Report an estimate, and interpret.}
+
+Based on proportional hazards regression, we estimate that the \textcolor{orange}{ratio of the instantaneous risk of death}, comparing those with abnormal CRP to those with normal CRP but with the same age, diabetes status, sex, and BMI, is \textcolor{orange}{1.68}, where those with abnormal CRP have a higher instantaneous risk of death.  
+
+\textbf{Option 2:} Based on proportional hazards regression, we estimate that the \textcolor{orange}{instantaneous risk of death is 1.68 times higher} among those with abnormal CRP compared to those with normal CRP...  
+
+\textbf{Option 3:} Based on proportional hazards regression, we estimate that the \textcolor{orange}{instantaneous risk of death is 68\% times higher} among those with abnormal CRP compared to those with normal CRP... 
+\end{frame}
+
+\begin{frame}
+\frametitle{Survival analysis: proportional hazards regression}
+
+\textit{3. Report a confidence interval, and interpret.}
+
+Based on a 95\% confidence interval, this estimate would not be judged unusual if the true hazard ratio were between 1.36 and 2.08.
+
+\textit{4. Report a p-value, and interpret.}
+
+These data provide evidence to suggest that this hazard ratio is statistically significantly different from one (p $< 0.001$).
+
+\textit{5. Add a conclusion tying back to the scientific question.}
+
+Based on these results, we have evidence to suggest that the instantaneous risk of death is larger in those with abnormal CRP, after adjusting for age, diabetes status, sex, and BMI.
+\end{frame}
+
+\begin{frame}
+\frametitle{Survival analysis: assumptions}
+
+Dealing with survival data is complicated, but \textcolor{blue}{we may gain information over simply dichotomizing a time-to-event variable}, and \textcolor{cyan}{sometimes our scientific question does involve the time}.
+
+All of the techniques we have learned rely on the assumption of \textcolor{blue}{uninformative censoring}: those people who are censored are not systematically different from the people in your target population.
+
+This is \textcolor{red}{difficult to assess}, unless you know some additional information about the participants. However, if you are following patients, you may be able to tell based on trends if the patient leaves due to their outcome getting worse.
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Survival analysis: assumptions}
+
+The Kaplan-Meier estimator of the survival function and the logrank test only rely on uninformative censoring -- however, these become difficult to interpret when adjusting for covariates.
+
+The proportional hazards regression model is a convenient alternative, but makes a potentially strong assumption on the hazard ratio between groups defined by the predictor of interest -- namely, that the hazard is proportional at each time $t$.
+
+Despite this limitation, proportional hazards regression is widely used in survival analysis, \textcolor{red}{but the results are often misinterpreted}.
+\end{frame}
 
 \end{document}

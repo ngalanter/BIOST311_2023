@@ -1,18 +1,21 @@
 ---
-  title: "Homework 7"
+title: "Homework 7"
 subtitle: "BIOST 311"
-author: "Taylor Okonek and Charlie Wolock"
+author: "Nina Galanter"
 date: \today
 output: 
   pdf_document:
-  toc: false
+    toc: false
 header-includes:
   - \usepackage{color}
+  - \usepackage{fvextra}
+  - \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
 editor_options: 
   chunk_output_type: console
 ---
+
   
-  ```{r setup, include=FALSE}
+```{r setup, include=FALSE}
 library(formatR)
 
 knitr::opts_chunk$set(echo = TRUE)
@@ -25,11 +28,12 @@ knitr::opts_chunk$set(results = "hide")
 
 ## Instructions
 
-This assignment should be submitted on Canvas as a .pdf by 11:59pm on Wednesday, June 1st. You are welcome to work together on the homework; however, final solutions should be written up individually. 
+This assignment should be submitted on Canvas as a .pdf by 11:59pm on **Thursday, May 25th**. You are welcome to work together on the homework; however, final solutions should be written up individually. 
 
 Unedited software output in the body of your assignment is not acceptable. Please round numerical values to 2--3 significant digits, and include your R code (if applicable) in the same document. See the "How to Write a Proper Homework" document on Canvas for additional guidelines.  
 
-Each homework assignment is worth 20 points total. Problems are graded for correctness, according to the number of points given in the problem statement.
+Each homework assignment is worth 20 points total. Problems are graded for correctness, according to the number of points given in the problem statement. Homeworks will be marked complete if you get at least 16/20 points, otherwise the homework is incomplete pending a possible revision. 
+
 
 ```{r preliminaries}
 library(readr)
@@ -42,7 +46,7 @@ library(survminer)
 
 ## 1. Prediction with logistic regression
 
-a. The Framingham Hard Coronary Heart Disease model predicts risk of CHD occurrence using age, cholesterol, systolic blood pressure, and smoking status (as well as a couple other variables which are unavailable in the `wcgs` data set). Using these variables, build a logistic regression model to predict the occurence of CHD patients. Evaluate its performance by creating an ROC curve and calculating the area under the curve (AUC). Be sure to evaluate your model on out-of-sample testing data! (3 points)
+a. Using the HIV data, build a model using distance, age, and incentive amount to predict whether someone will choose to go get a result. Evaluate its performance by creating an ROC curve and calculating the area under the curve (AUC). Be sure to evaluate your model on out-of-sample testing data! (5 points)
 
 ## 2. Characteristics of survival data
 
@@ -52,11 +56,10 @@ For scenarios 1a through 1d, determine whether or not the independent censoring 
 
 a. Participants exit the study because their health has worsened to the point where they cannot come to the clinic for a follow-up appointment. (2 points)
 
-b. Participants exit the study because they switched their follow-up care to a doctor at a different clinic. The doctor at the different clinic is equally medically qualified to take care of the participants, and would provide the same care as would be provided at the clinic used in our study. (2 points)
 
-c. Participants exit the study because they were referred to a doctor at a different clinic who specializes in treating bone fractures. (2 points)
+b. Participants exit the study because they were referred to a doctor at a different clinic who specializes in treating bone fractures. (2 points)
 
-d. Participants exit the study because they forget to return for a follow-up appointment. (2 points)
+c. Participants exit the study because they forget to return for a follow-up appointment. (2 points)
 
 ## 3. Kaplan-Meier & the log rank test
 
@@ -71,6 +74,6 @@ e. Conduct a log-rank test for a survival difference by advanced stage of diseas
 ## 4. Cox proportional hazards regression
 
 
-a. Perform a Cox proportional hazards regression analysis to assess whether NEW VAR is associated with survival time. Interpret the output of your model; don't just give numerical output. Be sure to include a statistic quantifying the association with appropriate uncertainty quantification, as well as hypothesis tests. Be sure to state the null and alternative hypotheses. (2 points)
+a. Perform a Cox proportional hazards regression analysis to assess whether `age` is associated with survival time. Interpret the output of your model; don't just give numerical output. Be sure to include a statistic quantifying the association with appropriate uncertainty quantification, as well as hypothesis tests. Be sure to state the null and alternative hypotheses. (2 points)
 
 

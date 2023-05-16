@@ -1,0 +1,11 @@
+\frametitle{Motivation for regression modeling}
+The log-rank test is nice for testing for differences between two groups.
+\\ ~\
+
+If we have a \textcolor{red}{confounder}, we can even adapt the log-rank test by breaking the confounder into discrete categories. But this is pretty limited when we have multiple confounders.
+\\ ~\
+
+In addition, we'd like to get some \textcolor{blue}{estimate} of association, rather than just a hypothesis test.
+\\ ~\
+
+This is where regression modeling comes in!
