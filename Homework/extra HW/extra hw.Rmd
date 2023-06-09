@@ -1,0 +1,51 @@
+---
+title: "Extra Homework"
+subtitle: "BIOST 311"
+author: "Nina Galanter"
+date: \today
+output: 
+  pdf_document:
+    toc: false
+header-includes:
+  - \usepackage{color}
+  - \usepackage{fvextra}
+  - \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+library(formatR)
+
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(error = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+knitr::opts_chunk$set(results = "hide")
+```
+
+
+## Instructions
+
+This assignment (including any revisions) is due before the end of the quarter (6/9 at 5 p.m.). 
+
+Unedited software output in the body of your assignment is not acceptable. Please round numerical values to 2--3 significant digits, and include your R code (if applicable) in the same document. See the "How to Write a Proper Homework" document on Canvas for additional guidelines.  
+
+This homework assignment is worth 10 points. Problems are graded for correctness, according to the number of points given in the problem statement. This homework will be marked complete if you get at least 8/10 points, otherwise the homework is incomplete pending a possible revision. 
+
+
+## 1. Linear regression with quantitative predictor and adjustment
+
+We will be using the MRI dataset. In this assignment, we will be looking at the outcome of FEV (l/s), which is a measure of lung function. Higher FEV scores are generally associated with better lung function, however FEV is also dependent on lung (and thus body) size.
+
+**Note: remember to include units**
+
+a. Write a statistical question that will allow us to examine the association between age and FEV score adjusting for height. What is the parameter of interest? (2 points)
+
+b. Perform a linear regression analysis to answer the statistical question from part (a). Be sure to include a statistic with appropriate uncertainty quantification, as well as a hypothesis test. Be sure to state the null and alternative hypotheses. You should interpret your results; don't just give numerical output. (3 points)  
+
+c. What is the interpretation of the intercept of the model you fit in part (b)? Does this intercept make scientific sense? (1 point)
+
+d. The four traditional linear regression assumptions are linearity, independence, Normality of errors, and equal variance. For each of these assumptions, assess whether or not you think the assumption is violated. If appropriate, use graphs to support your argument. (4 points)
+
+

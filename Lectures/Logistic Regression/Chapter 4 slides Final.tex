@@ -983,6 +983,63 @@ F-statistic: 280.4 on 2 and 2822 DF,  p-value: < 2.2e-16
 1.335539    1.565977    1.001571
 \end{verbatim}
 \end{frame}
+
+\begin{frame}{Logistic Regression with Categorical Variables}
+	\textit{This content was added after we finished this chapter, in case anyone uses these notes as reference in the future.}
+	\bigskip
+	
+	\textbf{Question:} How do we test the association between a categorical variable and a binary outcome with logistic regression?
+	
+	\bigskip
+	
+	\textbf{Answer:} We can again use the \texttt{anova} function.
+	
+	\bigskip
+	
+	\textcolor{blue}{$H_0$: \textbf{all} of the odds ratios comparing levels of the category to the reference level are equal to 1.}
+	
+	\bigskip
+	
+		\textcolor{blue}{$H_a$: \textbf{at least one} of the odds ratios comparing levels of the category to the reference level is not equal to 1.}
+\end{frame}
+
+\begin{frame}[fragile]{Logistic Regression with Categorical Variables}
+	\vspace{-5 mm}
+	
+	Lets create an age category variable with categories "Under 20", ``20s and 30s", and ``40 and above".
+	
+	\scriptsize
+	
+	\begin{verbatim}
+	HIV <- HIV %>% mutate(age_cat = 
+	                        case_when(age < 20 ~ "Under 20",
+	                                  age >= 20 & age < 40 ~ "20s and 30s",
+	                                  age >= 40 ~ "40 and above"))
+	
+	mod <- glm(data = HIV, results ~ age_cat, family = binomial)
+	mod_null <- glm(data = HIV, results ~ 1, family = binomial)
+	
+	anova(mod_null,mod,test = "LRT")
+	Analysis of Deviance Table
+	
+	Model 1: results ~ 1
+	Model 2: results ~ age_cat
+	  Resid. Df Resid. Dev Df Deviance Pr(>Chi)  
+	1      2824     3490.3                       
+	2      2822     3481.9  2   8.4103  0.01492 *
+	---
+	Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+	\end{verbatim}
+	
+	\normalsize
+	At a 5\% significance level, we conclude there is an association between age category and odds of receiving a test result (p = 0.015).
+	
+	\medskip
+	
+	\textit{End of added content.}
+	
+\end{frame}
+
 \subsection{Adjustment variables}
 
 \begin{frame}{Logistic regression: formulating statistical question}

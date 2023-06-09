@@ -65,9 +65,9 @@ c. Participants exit the study because they forget to return for a follow-up app
 
 a. Load the `mayo` dataset (0 points)
 
-b. Plot a Kaplan-Meier survival curve for all individuals in the dataset (that is, just a single curve, no stratification by another variable). Include a median survival line on your plot, and use this to estimate (approximately) the median survival time for individuals in your dataset. (2 points)
+b. Plot a Kaplan-Meier survival curve for all individuals in the dataset (that is, just a single curve, no stratification by another variable). Report the median survival time for individuals in your dataset. (2 points)
 
-d. Create a new, binary variable called `advanced_stage` that is either 0 if `stage` is 1 or 2, or is 1 if `stage` is 3 or 4. Here, we consider `advanced_stage` equal to 0 to be a non-advanced stage of disease, and `advanced_stage` equal to 1 to be an advanced stage of disease. Plot Kaplan-Meier survival curves for all individuals in the dataset, stratified by `advanced_stage`. Include a legend in your plot and confidence bands for each strata. Based on your plot, what do you notice about the relationship between time to death and advanced stage of disease? (3 points)
+d. Create a new, binary variable called `advanced_stage` that is either 0 if `stage` is 1 or 2, or is 1 if `stage` is 3 or 4. Here, we consider `advanced_stage` equal to 0 to be a non-advanced stage of disease, and `advanced_stage` equal to 1 to be an advanced stage of disease. Plot Kaplan-Meier survival curves for all individuals in the dataset, stratified by `advanced_stage`. Include a legend in your plot. Based on your plot, what do you notice about the relationship between time to death and advanced stage of disease? (3 points)
 
 e. Conduct a log-rank test for a survival difference by advanced stage of disease (a binary variable). Your answer must include a statement of null and alternative hypotheses, as well as a conclusion based on a p-value. (2 points)
 

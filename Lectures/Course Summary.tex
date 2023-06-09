@@ -1,0 +1,208 @@
+% Create a Table of Contents in Beamer
+\documentclass[10pt,t]{beamer}
+% Theme choice:
+\usetheme{Singapore}
+\useoutertheme{sidebar}
+\usecolortheme{seahorse}
+\setbeamercolor{titlelike}{bg=white}
+\setbeamercolor{frametitle}{bg=white}
+%\setbeamertemplate{frametitle}[default][left]
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{\begin{flushright}\small \insertframenumber\end{flushright}}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{ulem}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{wrapfig}
+\usepackage{subfig}
+\usepackage{setspace}
+\usepackage{enumerate}
+\usepackage{verbatim}
+
+% new amber color
+\definecolor{amber}{rgb}{1.0, 0.75, 0.0}
+
+% Title page details: 
+\title{Course Summary} 
+\author{Nina Galanter}
+\date{\today}
+
+
+\begin{document}
+	% Title page frame
+\begin{frame}
+	\titlepage 
+\end{frame}
+
+\begin{frame}{Overview}
+	In this course, we learned how to answer scientific questions about \textcolor{blue}{association} and \textcolor{blue}{prediction} using:
+	
+	\medskip
+	
+	\begin{itemize}
+		\item linear regression for continuous outcomes
+		\medskip
+		
+		\item logistic regression for binary outcomes
+		
+		\medskip
+		
+		\item Kaplan-Meier curves and log-rank tests for time-to-event outcomes
+		
+		\medskip
+		
+		\item Cox proportional hazards regression for time-to-event outcomes
+	\end{itemize}
+
+
+\end{frame}
+
+\begin{frame}{Association Questions}
+
+Examples of association (which includes causal) questions are:
+
+\medskip
+
+\begin{itemize}
+	\item What is the mechanism behind Alzheimer's disease?
+	
+	\medskip
+	
+	\item Are boosters effective in preventing covid-19 symptoms?
+	
+	\medskip
+	
+	\item Are public parks associated with mental health?
+	
+	\medskip
+	
+	\item Does the use of e-cigarettes differ between people of different genders?
+\end{itemize}
+
+\medskip
+
+\textcolor{blue}{We can answer association questions through interpreting regression coefficients, reporting confidence intervals, and using p-values to conduct hypothesis tests.}
+
+	
+\end{frame}
+
+\begin{frame}{Association Questions}
+	
+	Examples of prediction questions are:
+	
+	\medskip
+	
+	\begin{itemize}
+		\item Who is most at risk of lung cancer?
+		
+		\medskip
+		
+		\item Which subgroups of people are more likely to be hospitalized due to the flu?
+		
+		\medskip
+		
+		\item What is the risk of death from a heart bypass surgery given a patients medical history and demographics?
+	
+	\end{itemize}
+	
+	\medskip
+	
+	\textcolor{blue}{We can answer prediction questions through building and evaluating regression models.}
+	
+	
+\end{frame}
+
+\begin{frame}{Linear Regression}
+	\begin{itemize}
+		\item We can use linear regression when we have continuous outcomes and binary, categorical, or continuous predictors.
+		
+		\medskip
+		
+		\item The coefficients in linear regression are estimates of averages (the intercept), differences in averages, and, in the case of effect modification, differences of differences.
+		
+		\medskip
+		
+		\item We can adjust for confounding and increase the precision of our estimates through including adjustment variables.
+		
+		\medskip
+		
+		\item The four linear regression assumptions are: linearity, normality (for small sample sizes), equal variance, and independence of observations.
+		
+		\medskip
+		
+		\item We can evaluate the predictive performance of linear regression models while avoiding overfitting via the adjusted R-square value or the Mean Squared Error (MSE) on the test data. 
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Logistic Regression}
+	\begin{itemize}
+		\item We can use logistic regression when we have binary outcomes and binary, categorical, or continuous predictors.
+		
+		\medskip
+		
+		\item The coefficients in logistic regression are estimates of odds (the intercept), (log) odds ratios, and, in the case of effect modification, (log) ratios of odds ratios.
+		
+		\medskip
+		
+		\item We can adjust for confounding through including adjustment variables.
+		
+		\medskip
+		
+		\item The logistic regression assumptions we covered are independence of observations and having at least 10-20 events (the rarer outcome) per model coefficient.
+		
+		\medskip
+		
+		\item We can evaluate the predictive performance of logistic regression models while avoiding overfitting via the sensitivity and specificity ROC curve and area under the curve (AUC) on the test data. 
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Kaplan-Meier Curves and Log-rank Tests}
+	\begin{itemize}
+		\item We can use Kaplan-Meier curves and log-rank tests when we have time to event data and binary or categorical predictors.
+		
+		\medskip
+		
+		\item There are no coefficients in Kaplan-Meier curves, but we can use them to estimate survival probability at specific times and the median survival time.
+		
+		\medskip
+		
+		\item We can somewhat adjust for confounding through including a small amount of binary or categorical adjustment variables.
+		
+		\medskip
+		
+		\item The key assumption for survival analysis is independent (or noninformative) censoring.
+		
+
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Cox Proportional Hazards Regression}
+	\begin{itemize}
+		\item We can use cox proportional hazards regression when we have time-to-event outcomes and binary, categorical, or continuous predictors.
+		
+		\medskip
+		
+		\item The coefficients in cox proportional hazards regression are (log) hazard ratios, and, in the case of effect modification, (log) ratios of hazard ratios.
+		
+		\medskip
+		
+		\item There is no intercept for cox regression, instead we have a baseline hazard function.
+		
+		\medskip
+		
+		\item We can adjust for confounding through including adjustment variables.
+		
+		\medskip
+		
+		\item The cox proportional hazard assumptions are independent censoring and proportionality of the hazards.
+	
+	\end{itemize}
+\end{frame}
+
+
+\end{document}

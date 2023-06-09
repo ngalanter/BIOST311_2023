@@ -1,0 +1,29 @@
+\frametitle{Simple Cox regression: example}
+
+	
+	\vspace{-3 mm}
+	
+	Here's another example, now with treatment as the predictor:
+	
+	\footnotesize
+	\begin{verbatim}
+	mod <- coxph(mayo_surv ~ treatment, data = mayo)
+	summary(mod)
+	
+	coxph(formula = mayo_surv ~ treatment, data = mayo)
+	
+	n= 311, number of events= 124
+	
+	              coef exp(coef) se(coef)     z Pr(>|z|)
+	treatment -0.04312   0.95780  0.17984 -0.24    0.811
+	
+	          exp(coef) exp(-coef) lower .95 upper .95
+	treatment    0.9578      1.044    0.6733     1.363
+	
+	Concordance= 0.496  (se = 0.025 )
+	Likelihood ratio test= 0.06  on 1 df,   p=0.8
+	Wald test            = 0.06  on 1 df,   p=0.8
+	Score (logrank) test = 0.06  on 1 df,   p=0.8
+	Score (logrank) test = 7.63  on 1 df,   p=0.006
+	\end{verbatim}
+	

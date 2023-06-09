@@ -1,0 +1,54 @@
+---
+title: "Survival Analysis I"
+subtitle: "BIOST 311, Discussion Section Week 9"
+author: "Nina Galanter"
+date: \today
+output: 
+  pdf_document:
+    toc: false
+header-includes:
+  - \usepackage{color}
+  - \usepackage{fvextra}
+  - \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+library(formatR)
+
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(error = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+knitr::opts_chunk$set(results = "hide")
+```
+
+# Introduction
+
+In this discussion section, we'll walk through a survival analysis problem. We will use *mayo* dataset that we have used in class as well as Homework 7. As a reminder, the mayo dataset comes from a randomized controlled trial of d-penicillamine for treatment of primary biliary cirrhosis (PBC). PBC is a liver disease that affects the bile ducts, and can eventually lead to severe liver damage, called cirrhosis. There’s some evidence that PBC has an autoimmune component, and d-penicillamine was considered due to its possible effect on autoimmune processes.
+
+In this trial, 311 patients were randomized to receive either treatment or placebo. Baseline health information was collected (mostly about baseline liver function), and patients were followed until death or censoring (due to either administrative censoring or dropout).
+
+```{r}
+library(tidyverse)
+library(readr)
+library(survival)
+library(survminer)
+mayo <- read_csv(url("https://raw.githubusercontent.com/cwolock/BIOST311/main/Datasets/mayo.csv"))
+```
+
+
+1. Make a descriptive plot for the `cholest` variable in the *mayo* dataset. Provide descriptive summaries for this variable, including the range of values observed.
+
+2. You should have noticed a few individuals with cholesterol levels that do not make sense. Sometimes, rather than recording missing values as "NA" in datasets, people will record missing values with "-9", "-99", or "-999". This is typically reported in the metadata for a given dataset, but not for this one! Create a new dataset that includes only observations with cholesterol levels that make sense (aka cholesterol levels that are not missing). *This is the dataset we will use for all analyses and plots from here on.*
+
+3. Suppose we are interested in the association between survival time and cholesterol. Create a new,categorical variable called `cholest_cat` that is either "low" if `cholest` is less than 250, "medium" if `cholest` is greater than or equal to 250 and less than 350, and "high" if `cholest` is greater than or equal to 350. (Using `case_when` may be helpful.) Fit a Kaplan-Meier survival estimate to each subgroup and compare the median survival times in each group.
+
+
+4. Plot Kaplan-Meier survival curves for all individuals in the dataset, stratified by `cholest_cat`. Include a legend in your plot. Based on your plot, describe relationship between time to death and cholesterol.
+
+5. Conduct a log-rank test of the association between cholesterol category and survival. What are the degrees of freedom? Report and interpret the p-value.
+
+
+

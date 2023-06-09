@@ -1,0 +1,22 @@
+\frametitle{Median of a Kaplan-Meier curve in \texttt {R} with multiple groups}
+\vspace{-0.5cm}
+	\small
+	\begin{verbatim}
+	fit <- survfit(mayo_surv ~ treatment, data = mayo)
+	fit
+	
+	Call: survfit(formula = mayo_surv ~ treatment, data = mayo)
+	
+	              n events median 0.95LCL 0.95UCL
+	treatment=1 157     64   3282    2583      NA
+	treatment=2 154     60   3428    3090      NA
+	
+	summary(fit)$table
+	
+	            records n.max n.start events    rmean se(rmean)
+	treatment=1     157   157     157     64 2965.551  141.6868
+	treatment=2     154   154     154     60 3002.749  145.7727
+	            median 0.95LCL 0.95UCL
+	treatment=1   3282    2583      NA
+	treatment=2   3428    3090      NA
+	\end{verbatim}

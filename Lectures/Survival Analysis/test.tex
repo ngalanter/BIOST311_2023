@@ -1,0 +1,54 @@
+% Create a Table of Contents in Beamer
+\documentclass[10pt,t]{beamer}
+% Theme choice:
+\usetheme{Singapore}
+\useoutertheme{sidebar}
+\usecolortheme{seahorse}
+\setbeamercolor{titlelike}{bg=white}
+\setbeamercolor{frametitle}{bg=white}
+%\setbeamertemplate{frametitle}[default][left]
+\setbeamertemplate{navigation symbols}{}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{ulem}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{wrapfig}
+\usepackage{subfig}
+\usepackage{setspace}
+\usepackage{enumerate}
+\usepackage{verbatim}
+
+% new amber color
+\definecolor{amber}{rgb}{1.0, 0.75, 0.0}
+
+
+
+% Title page details: 
+\title{Test} 
+\author{Author}
+\date{\today}
+
+
+\begin{document}
+	% Title page frame
+	\begin{frame}
+		\titlepage 
+	\end{frame}
+
+
+\begin{frame}
+	Slide 1
+\end{frame}
+
+\setbeamertemplate{headline}{\hspace{5 mm} \includegraphics[scale = 0.015]{figs/technical}}
+
+\begin{frame}
+	Slide 2
+\end{frame}
+
+\end{document}
